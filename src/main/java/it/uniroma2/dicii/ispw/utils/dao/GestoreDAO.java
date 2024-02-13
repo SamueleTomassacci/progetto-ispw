@@ -4,8 +4,7 @@ import it.uniroma2.dicii.ispw.model.GestoreModel;
 import it.uniroma2.dicii.ispw.utils.db.ConnectionDB;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 
-import java.io.File;
-import java.io.InputStream;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
