@@ -1,0 +1,31 @@
+.button {
+    -fx-background-color: #E5D3A3;
+    -fx-text-fill: #000;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0, 0, 0.5), 10, 0, 10, 10);
+    -fx-background-radius: 15;
+    -fx-cursor: hand;
+}
+
+#homeButton{
+    -fx-background-color: transparent;
+    -fx-text-fill: #000;
+    -fx-effect: null;
+    -fx-cursor: hand;
+}
+#backButton{
+    -fx-background-color: transparent;
+    -fx-text-fill: #000;
+    -fx-effect: null;
+    -fx-cursor: hand;
+}
+.text-field{
+    -fx-border-color:#E5D3A3;
+    -fx-border-width: 5px;
+
+}
+#rettangolo{
+
+    -fx-stroke: #E5D3A3;
+    -fx-stroke-width: 6;
+    -fx-fill: transparent;
+}

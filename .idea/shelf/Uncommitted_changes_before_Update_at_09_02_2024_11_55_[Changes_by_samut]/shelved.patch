@@ -1,0 +1,18 @@
+Index: src/main/resources/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/styleHomePage.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>.toggle-button {\r\n    -fx-background-color: #E5D3A3;\r\n    -fx-text-fill: #000;\r\n    -fx-effect: dropshadow(three-pass-box, rgba(0,0, 0, 0.5), 10, 0, 10, 10);\r\n    -fx-background-radius: 15;\r\n    -fx-cursor: hand;\r\n}\r\n\r\n.toggle-button:selected {\r\n    -fx-background-color: #ffc300; /* Colore dello sfondo quando il ToggleButton è selezionato */\r\n    -fx-text-fill: #000000; /* Colore del testo quando il ToggleButton è selezionato */\r\n}\r\n\r\n.toggle-button:hover {\r\n    -fx-background-color: #f3dab1; /* Colore dello sfondo quando il ToggleButton è selezionabile */\r\n}\r\n\r\n.text-field{\r\n    -fx-border-width: 4px;\r\n    -fx-background-radius: 15;\r\n}\r\n\r\n.registra-button, .accedi-button {\r\n    -fx-background-color: transparent; /* Trasparenza dello sfondo */\r\n    -fx-text-fill: #000000; /* Colore del testo nero */\r\n    -fx-font-size: 25px; /* Dimensione del testo */\r\n    -fx-font-weight: bold; /* Grassetto */\r\n    -fx-border-width: 0; /* Nessun bordo */\r\n    -fx-padding: 0; /* Nessuna spaziatura interna */\r\n    -fx-cursor: hand; /* Cambio del cursore al passaggio del mouse */\r\n}\r\n\r\n.registra-button:hover, .accedi-button:hover {\r\n    -fx-text-fill: #FFA500; /* Cambio del colore del testo in arancione al passaggio del mouse */\r\n}\r\n\r\n.registra-button:pressed, .accedi-button:pressed {\r\n    -fx-text-fill: #FF8C00; /* Cambio del colore del testo in arancione al clic */\r\n}\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/styleHomePage.css b/src/main/resources/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/styleHomePage.css
+--- a/src/main/resources/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/styleHomePage.css	(revision d9f6f72c2092f829c968f0829ada42a773732f7d)
++++ b/src/main/resources/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/styleHomePage.css	(date 1707475541900)
+@@ -3,6 +3,7 @@
+     -fx-text-fill: #000;
+     -fx-effect: dropshadow(three-pass-box, rgba(0,0, 0, 0.5), 10, 0, 10, 10);
+     -fx-background-radius: 15;
++
+     -fx-cursor: hand;
+ }
+ 

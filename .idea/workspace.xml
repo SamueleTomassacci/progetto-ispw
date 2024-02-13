@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="Continuo parte samuele">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="FxmlFile" />
+        <option value="CSS File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2c7bIP4CenUynN8yTL9socEXFfE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/samut/OneDrive/Desktop/Progetto Basi di Dati/cinema",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ISPW\PlayBasket\progettoISPW\src\main\resources\it\uniroma2\dicii\ispw\Immagini" />
+      <recent name="D:\ISPW\PlayBasket\progettoISPW\src\main\resources\it\uniroma2\dicii\ispw\Interfacce\Interfaccia2" />
+      <recent name="D:\ISPW\PlayBasket\progettoISPW\src\main\resources\it\uniroma2\dicii\ispw\Interfacce\Interfaccia1\Proprietario" />
+      <recent name="D:\ISPW\PlayBasket\progettoISPW\src\main\resources\it\uniroma2\dicii\ispw\Interfacce\Interfaccia1" />
+      <recent name="D:\ISPW\PlayBasket\progettoISPW\src\main\resources\it\uniroma2\dicii\ispw\Interfacce\Interfaccia1\Proprietario\AggiungiCampo" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="" />
+      <created>1707465484716</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707465484716</updated>
+      <workItem from="1707465486005" duration="4061000" />
+      <workItem from="1707472455689" duration="30000" />
+      <workItem from="1707472552549" duration="4638000" />
+      <workItem from="1707481311472" duration="81000" />
+      <workItem from="1707581077617" duration="1142000" />
+      <workItem from="1707583331254" duration="355000" />
+      <workItem from="1707583710884" duration="370000" />
+      <workItem from="1707584142427" duration="104000" />
+      <workItem from="1707584259834" duration="2162000" />
+      <workItem from="1707593600216" duration="2089000" />
+      <workItem from="1707732198357" duration="1183000" />
+      <workItem from="1707733408404" duration="10469000" />
+      <workItem from="1707747763327" duration="9939000" />
+      <workItem from="1707758407340" duration="3000" />
+      <workItem from="1707811818264" duration="14761000" />
+      <workItem from="1707840350726" duration="1128000" />
+      <workItem from="1707841579760" duration="157000" />
+    </task>
+    <task id="LOCAL-00001" summary="aggiornato path file fxml">
+      <option name="closed" value="true" />
+      <created>1707476027454</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1707476027454</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Changes by samut">
+      <option name="closed" value="true" />
+      <created>1707476132341</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1707476132341</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Cambio pagina">
+      <option name="closed" value="true" />
+      <created>1707748026058</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1707748026058</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Continuo parte samuele">
+      <option name="closed" value="true" />
+      <created>1707812072891</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1707812072891</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Continuo parte samuele">
+      <option name="closed" value="true" />
+      <created>1707823089185</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1707823089185</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Continuo parte samuele">
+      <option name="closed" value="true" />
+      <created>1707837026554</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1707837026554</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="aggiornato path file fxml" />
+    <MESSAGE value="Changes by samut" />
+    <MESSAGE value="Cambio pagina" />
+    <MESSAGE value="Continuo parte samuele" />
+    <option name="LAST_COMMIT_MESSAGE" value="Continuo parte samuele" />
+  </component>
+</project>
