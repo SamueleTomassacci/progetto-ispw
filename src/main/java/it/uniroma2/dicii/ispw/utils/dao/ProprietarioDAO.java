@@ -11,11 +11,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ProprietarioDAO {
-    public ProprietarioModel getProprietarioByUsername(String username) throws SystemException {
+    public ProprietarioModel getProprietarioByUsername(String username) throws SystemException, SQLException {
         String query = "SELECT * FROM Utenti where username = ?;";
         ProprietarioModel proprietarioModel = null;
-        try(Connection conn= ConnectionDB.getConnection();
-            PreparedStatement ps= conn.prepareStatement(query);) {
+        Connection conn= ConnectionDB.getConnection();
+        try(PreparedStatement ps= conn.prepareStatement(query);) {
 
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();

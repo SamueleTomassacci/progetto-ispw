@@ -12,11 +12,10 @@ import java.sql.SQLException;
 public class LoginDAO {
 
 
-    public boolean checkIfExists(CredentialsModel credentialsModel) throws SystemException {
+    public boolean checkIfExists(CredentialsModel credentialsModel) throws SystemException,SQLException {
         String query = "SELECT * FROM Utenti WHERE username = ? AND pass = ? AND tipo = ?";
-
-        try(Connection conn=ConnectionDB.getConnection();
-            PreparedStatement ps= conn.prepareStatement(query);) {
+        Connection conn=ConnectionDB.getConnection();
+        try(PreparedStatement ps= conn.prepareStatement(query);) {
 
             ps.setString(1, credentialsModel.getUsername());
             ps.setString(2, credentialsModel.getPassword());

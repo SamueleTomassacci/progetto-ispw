@@ -14,9 +14,9 @@ public class GestoreDAO {
     public GestoreModel getGestoreByUsername(String username) throws SystemException, SQLException {
         String query = "SELECT * FROM Utenti where username = ?;";
         GestoreModel gestoreModel = null;
+        Connection conn=ConnectionDB.getConnection();
 
-
-        try(Connection conn=ConnectionDB.getConnection();PreparedStatement ps= conn.prepareStatement(query);) {
+        try(PreparedStatement ps= conn.prepareStatement(query);) {
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
             rs.next();

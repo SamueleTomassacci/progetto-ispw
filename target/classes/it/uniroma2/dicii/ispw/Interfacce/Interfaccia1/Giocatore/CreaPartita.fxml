@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane stylesheets="@../proprietario/aggiungi_campo/styleAggiungiCampo.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.controller.controllerGrafico.interfaccia1.proprietario.CompilaScheda1ControllerGrafico">
+<AnchorPane stylesheets="@../proprietario/aggiungi_campo/styleAggiungiCampo.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.proprietario.CompilaScheda1ControllerGrafico">
    <children>
       <ImageView fitHeight="820.0" fitWidth="1201.0" opacity="0.11">
          <image>
