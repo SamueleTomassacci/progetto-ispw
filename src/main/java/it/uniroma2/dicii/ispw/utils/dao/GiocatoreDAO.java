@@ -14,9 +14,8 @@ public class GiocatoreDAO {
     public GiocatoreModel getGiocatoreByUsername(String username) throws SystemException {
         String query = "SELECT * FROM Utenti where username = ?;";
         GiocatoreModel giocatoreModel = null;
-        try {
-            Connection conn= ConnectionDB.getConnection();
-            PreparedStatement ps= conn.prepareStatement(query);
+        try( Connection conn= ConnectionDB.getConnection();
+             PreparedStatement ps= conn.prepareStatement(query);) {
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
             rs.next();
