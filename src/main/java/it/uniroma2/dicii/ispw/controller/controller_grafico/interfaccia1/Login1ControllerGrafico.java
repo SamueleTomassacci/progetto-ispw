@@ -1,6 +1,6 @@
-package it.uniroma2.dicii.ispw.controller.controllerGrafico.interfaccia1;
+package it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1;
 
-import it.uniroma2.dicii.ispw.controller.controllerApplicativo.LoginControllerApplicativo;
+import it.uniroma2.dicii.ispw.controller.controller_applicativo.LoginControllerApplicativo;
 import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.bean.CredentialsBean;
 import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;

@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.ispw.utils.bean.Interfaccia1;
+package it.uniroma2.dicii.ispw.utils.bean.interfaccia1;
 
 import java.io.File;
 

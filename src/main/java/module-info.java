@@ -20,7 +20,7 @@ module it.uniroma2.dicii.ispw {
     requires java.sql;
 
     opens it.uniroma2.dicii.ispw to javafx.fxml;
-    opens it.uniroma2.dicii.ispw.controller.controllerGrafico.interfaccia1 to javafx.fxml;
-    opens it.uniroma2.dicii.ispw.controller.controllerGrafico.interfaccia1.proprietario to javafx.fxml;
+    opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1 to javafx.fxml;
+    opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.proprietario to javafx.fxml;
     exports it.uniroma2.dicii.ispw;
 }

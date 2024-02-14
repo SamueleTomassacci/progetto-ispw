@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.ispw.controller.controllerApplicativo;
+package it.uniroma2.dicii.ispw.controller.controller_applicativo;
 
 import it.uniroma2.dicii.ispw.model.CredentialsModel;
 import it.uniroma2.dicii.ispw.model.GestoreModel;
