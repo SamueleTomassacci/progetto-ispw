@@ -13,9 +13,11 @@ import it.uniroma2.dicii.ispw.utils.dao.LoginDAO;
 import it.uniroma2.dicii.ispw.utils.dao.ProprietarioDAO;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 
+import java.sql.SQLException;
+
 public class LoginControllerApplicativo {
 
-    public void login(CredentialsBean cred) throws SystemException {
+    public void login(CredentialsBean cred) throws SystemException, SQLException {
         // Controllo attraverso loginDao se esiste un username con quelle credenziali
         LoginDAO loginDao = new LoginDAO();
         if (cred.getRole() == Role.GESTORE) {

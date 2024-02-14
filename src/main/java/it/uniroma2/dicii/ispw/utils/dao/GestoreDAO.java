@@ -11,12 +11,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class GestoreDAO {
-    public GestoreModel getGestoreByUsername(String username) throws SystemException {
+    public GestoreModel getGestoreByUsername(String username) throws SystemException, SQLException {
         String query = "SELECT * FROM Utenti where username = ?;";
         GestoreModel gestoreModel = null;
+        PreparedStatement ps=null;
         try {
             Connection conn=ConnectionDB.getConnection();
-            PreparedStatement ps= conn.prepareStatement(query);
+            ps= conn.prepareStatement(query);
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
             rs.next();
@@ -32,5 +33,10 @@ public class GestoreDAO {
             exception.initCause(e);
             throw exception;
         }
+        finally{
+            ps.close();
+
+        }
+
     }
 }

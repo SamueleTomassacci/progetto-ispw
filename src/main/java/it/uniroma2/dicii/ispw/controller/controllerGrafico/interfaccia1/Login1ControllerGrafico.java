@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class Login1ControllerGrafico {
     @FXML
@@ -34,7 +35,7 @@ public class Login1ControllerGrafico {
     private Label avviso;
 
     @FXML
-    private void clickAccesso() throws SystemException, IOException {   //Da ricontrollare le eccezioni
+    private void clickAccesso() throws SystemException, IOException, SQLException {   //Da ricontrollare le eccezioni
         CredentialsBean cred = new CredentialsBean(username.getText(), password.getText());
         if (proprietario.isSelected()) {
             cred.setRole(Role.PROPRIETARIO);
