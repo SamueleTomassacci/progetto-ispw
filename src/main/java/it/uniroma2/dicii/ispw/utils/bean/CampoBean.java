@@ -1,9 +1,9 @@
-package it.uniroma2.dicii.ispw.model;
+package it.uniroma2.dicii.ispw.utils.bean;
 
 import java.io.File;
 import java.sql.Time;
 
-public class CampoModel {
+public class CampoBean {
     private String nomeCampo;
     private String indirizzo;
     private int tariffa;
