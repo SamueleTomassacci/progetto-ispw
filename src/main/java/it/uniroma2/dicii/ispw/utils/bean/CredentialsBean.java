@@ -1,8 +1,6 @@
 package it.uniroma2.dicii.ispw.utils.bean;
 
 
-import it.uniroma2.dicii.ispw.utils.bean.Role;
-
 public class CredentialsBean {
     private final String username;
     private final String password;

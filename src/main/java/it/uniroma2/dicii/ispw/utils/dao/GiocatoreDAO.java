@@ -1,7 +1,6 @@
 package it.uniroma2.dicii.ispw.utils.dao;
 
 import it.uniroma2.dicii.ispw.model.GiocatoreModel;
-import it.uniroma2.dicii.ispw.model.ProprietarioModel;
 import it.uniroma2.dicii.ispw.utils.db.ConnectionDB;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 
