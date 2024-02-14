@@ -1,7 +1,6 @@
 package it.uniroma2.dicii.ispw.controller.controllerGrafico.interfaccia1;
 
 import it.uniroma2.dicii.ispw.controller.controllerApplicativo.LoginControllerApplicativo;
-import it.uniroma2.dicii.ispw.controller.controllerGrafico.interfaccia1.proprietario.HomePage1ControllerGrafico;
 import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.bean.CredentialsBean;
 import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
@@ -55,7 +54,7 @@ public class Login1ControllerGrafico {
         ChangePage istanza=ChangePage.getChangePage();
         switch (cred.getRole()) {
             case PROPRIETARIO ->
-                    istanza.cambiaPagina("/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Proprietario/homePage.fxml", new IdSessioneBean(cred.getIdSession()),null,null);
+                    istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml", new IdSessioneBean(cred.getIdSession()),null,null);
             case GIOCATORE -> {
                 break;     //sostiuire con home page del giocatore
             }

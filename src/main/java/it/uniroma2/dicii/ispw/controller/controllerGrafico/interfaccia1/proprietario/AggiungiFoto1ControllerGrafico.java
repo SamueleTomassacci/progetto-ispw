@@ -74,11 +74,11 @@ public class AggiungiFoto1ControllerGrafico extends ControllerGrafico {
     }
     public void backHome() throws IOException {    //vedi come gestire eccezione
         ChangePage istanza=ChangePage.getChangePage();
-        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Proprietario/homePage.fxml", this.id,null,null);
+        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml", this.id,null,null);
     }
     public void back() throws IOException {    //vedi come gestire eccezione
         ChangePage istanza=ChangePage.getChangePage();
-        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Proprietario/AggiungiCampo/compilaScheda.fxml", this.id,null,null);
+        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/compilaScheda.fxml", this.id,null,null);
     }
 
     public void avanti() throws IOException {    //vedi come gestire eccezione
@@ -86,7 +86,7 @@ public class AggiungiFoto1ControllerGrafico extends ControllerGrafico {
         FotoBean foto= new FotoBean(this.immagine);
 
         ChangePage istanza=ChangePage.getChangePage();
-        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Proprietario/AggiungiCampo/salvaInvia.fxml", this.id,campoSenzaFotoBean,foto);
+        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/salvaInvia.fxml", this.id,campoSenzaFotoBean,foto);
     }
 
 

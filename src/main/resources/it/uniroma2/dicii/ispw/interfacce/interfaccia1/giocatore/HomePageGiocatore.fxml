@@ -56,7 +56,7 @@
    <children>
       <ImageView fitHeight="760.0" fitWidth="1203.0" GridPane.rowIndex="9">
          <image>
-            <Image url="@../../../Immagini/canestro.jpeg" />
+            <Image url="@../../../immagini/canestro.jpeg" />
          </image>
       </ImageView>
       <Button fx:id="aggiungi" mnemonicParsing="false" onAction="#clickAggiungi" prefHeight="167.0" prefWidth="369.0" text="Crea Partita" GridPane.columnIndex="13" GridPane.columnSpan="5" GridPane.rowIndex="7" GridPane.rowSpan="3">
