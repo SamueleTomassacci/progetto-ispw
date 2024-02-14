@@ -1,15 +1,26 @@
 package it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator;
 
-import it.uniroma2.dicii.ispw.utils.bean.RichiestaCampoBean;
+import it.uniroma2.dicii.ispw.model.CampoModel;
+import it.uniroma2.dicii.ispw.model.ProprietarioModel;
+import it.uniroma2.dicii.ispw.utils.bean.CampoBean;
+import it.uniroma2.dicii.ispw.utils.bean.ProprietarioBean;
+import it.uniroma2.dicii.ispw.utils.dao.CampoDAO;
+import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.sql.SQLException;
 
-public class aggiungiCampoControllerApplicativoBase extends aggiungiCampoControllerApplicativo {
+public class aggiungiCampoControllerApplicativoBase extends aggiungiCampoControllerApplicativo  {
     @Override
-    public void inviaRichiestaGestore(RichiestaCampoBean richiesta) {
+    public void inviaRichiestaGestore(CampoBean richiesta, ProprietarioBean proprietario) {
 
+        CampoDAO campoDao=new CampoDAO();
+        CampoModel richiestaModel=new CampoModel(richiesta);
+        ProprietarioModel proprietarioModel=new ProprietarioModel(proprietario);
+        try{
+            campoDao.insertRichiestaCampo(richiestaModel,proprietarioModel);
+        }catch(SystemException e){
+            e.printStackTrace();
+        }
     }
     public void accetta() {
 

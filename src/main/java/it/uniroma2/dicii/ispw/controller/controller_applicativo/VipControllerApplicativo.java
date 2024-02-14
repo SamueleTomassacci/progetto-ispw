@@ -10,12 +10,10 @@ import java.sql.SQLException;
   Gestisci con le eccezioni il fatto che il proprietario potrebbe già essere vip
  */
 
-public class diventaVipControllerApplicativo {
+public class VipControllerApplicativo {
     public void upgradeVip(ProprietarioBean proprietario) throws SQLException, SystemException {
         ProprietarioDAO proprietarioDAO=new ProprietarioDAO();
         proprietarioDAO.setVip(proprietario.getUsername());
-
-
 
     }
 }

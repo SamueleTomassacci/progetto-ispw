@@ -7,5 +7,8 @@ public class FotoBean {
     public FotoBean(File immagine){
         this.immagine=immagine;
     }
+    public File getFoto(){
+        return this.immagine;
+    }
 
 }

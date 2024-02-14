@@ -10,6 +10,13 @@ public class UserModel{
         this.email=email;
         this.codice=codice;
     }
+    public UserModel(String username, String email){
+        this.username=username;
+        this.email=email;
+
+    }
+
+
 
     public UserModel() {
 

@@ -4,7 +4,7 @@ import it.uniroma2.dicii.ispw.Main;
 import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.ControllerGrafico;
 import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
-import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.RichiestaCampoSenzaFotoBean;
+import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -22,7 +22,7 @@ public class ChangePage {
         return istanza;
     }
     private Stage stage;
-    public void cambiaPagina(String fxml, IdSessioneBean id, RichiestaCampoSenzaFotoBean campoSenzaFotoBean, FotoBean foto) throws IOException {
+    public void cambiaPagina(String fxml, IdSessioneBean id, CampoSenzaFotoBean campoSenzaFotoBean, FotoBean foto) throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource(fxml));
         Scene scene = new Scene(loader.load(), 1200, 760);
         ControllerGrafico controller=loader.getController();    //Uso del polimorfismo, uso una variabile di tipo ControllerGrafico (superclasse)

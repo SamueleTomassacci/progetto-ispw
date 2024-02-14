@@ -4,7 +4,7 @@ import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.Control
 import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
-import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.RichiestaCampoSenzaFotoBean;
+import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -27,11 +27,11 @@ public class AggiungiFoto1ControllerGrafico extends ControllerGrafico {
     @FXML
     private ImageView mostra;
     private IdSessioneBean id;
-    private RichiestaCampoSenzaFotoBean campoSenzaFotoBean;
+    private CampoSenzaFotoBean campoSenzaFotoBean;
 
     private File immagine;
     @Override
-    public void inizializza(IdSessioneBean id, RichiestaCampoSenzaFotoBean campoSenzaFotoBean,FotoBean foto){
+    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFotoBean, FotoBean foto){
         this.id=id;
         this.campoSenzaFotoBean=campoSenzaFotoBean;
     }
