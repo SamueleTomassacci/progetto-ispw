@@ -17,12 +17,12 @@ public class CampoBean {
 
 
     public CampoBean(CampoSenzaFotoBean richiesta, FotoBean foto){
-        this.nomeCampo= richiesta.getNomeCampo();;
-        this.indirizzo=richiesta.getIndirizzo();
-        this.tariffa=richiesta.getTariffa();
-        this.orarioApertura=richiesta.getOrarioApertura();
-        this.orarioChiusura=richiesta.getOrarioChiusura();
-        this.iban=richiesta.getIban();
+        this.nomeCampo= richiesta.getNome();;
+        this.indirizzo=richiesta.getPosizione();
+        this.tariffa=richiesta.getCosto();
+        this.orarioApertura=richiesta.getApertura();
+        this.orarioChiusura=richiesta.getChiusura();
+        this.iban=richiesta.getPagamento();
         this.immagine=foto.getFoto();
     }
     public String getNomeCampo() {

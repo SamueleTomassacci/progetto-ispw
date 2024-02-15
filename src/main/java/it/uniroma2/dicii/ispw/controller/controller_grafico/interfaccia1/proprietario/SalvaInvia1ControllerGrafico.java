@@ -38,12 +38,12 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
         this.id=id;
         this.campoSenzaFotoBean=campoSenzaFotoBean;
         this.foto=foto;
-        nome.setText(campoSenzaFotoBean.getNomeCampo());
-        indirizzo.setText(campoSenzaFotoBean.getIndirizzo());
-        tariffa.setText(Integer.toString(campoSenzaFotoBean.getTariffa()));
-        apertura.setText(campoSenzaFotoBean.getOrarioApertura().toString());
-        chiusura.setText(campoSenzaFotoBean.getOrarioChiusura().toString());
-        iban.setText(campoSenzaFotoBean.getIban());
+        nome.setText(campoSenzaFotoBean.getNome());
+        indirizzo.setText(campoSenzaFotoBean.getPosizione());
+        tariffa.setText(Integer.toString(campoSenzaFotoBean.getCosto()));
+        apertura.setText(campoSenzaFotoBean.getApertura().toString());
+        chiusura.setText(campoSenzaFotoBean.getChiusura().toString());
+        iban.setText(campoSenzaFotoBean.getPagamento());
     }
 
     public void backHome() throws IOException {    //vedi come gestire eccezione

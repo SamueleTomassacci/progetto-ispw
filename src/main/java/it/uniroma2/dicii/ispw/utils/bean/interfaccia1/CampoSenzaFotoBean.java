@@ -20,27 +20,27 @@ public class CampoSenzaFotoBean {
         this.orarioChiusura=orarioChiusura;
         this.iban=iban;
     }
-    public String getNomeCampo() {
+    public String getNome() {
         return nomeCampo;
     }
 
-    public String getIndirizzo() {
+    public String getPosizione() {
         return indirizzo;
     }
 
-    public int getTariffa() {
+    public int getCosto() {
         return tariffa;
     }
 
-    public Time getOrarioApertura() {
+    public Time getApertura() {
         return orarioApertura;
     }
 
-    public Time getOrarioChiusura() {
+    public Time getChiusura() {
         return orarioChiusura;
     }
 
-    public String getIban() {
+    public String getPagamento() {
         return iban;
     }
 
