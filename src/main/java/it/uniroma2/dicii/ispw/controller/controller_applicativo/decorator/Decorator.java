@@ -2,6 +2,7 @@ package it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator;
 
 import it.uniroma2.dicii.ispw.utils.bean.CampoBean;
 import it.uniroma2.dicii.ispw.utils.bean.ProprietarioBean;
+import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 
 public abstract class Decorator extends AggiungiCampoControllerApplicativo {
     private AggiungiCampoControllerApplicativo component;
@@ -12,7 +13,7 @@ public abstract class Decorator extends AggiungiCampoControllerApplicativo {
     }
 
     @Override
-    public void inviaRichiestaGestore(CampoBean request, ProprietarioBean proprietario) {
+    public void inviaRichiestaGestore(CampoBean request, ProprietarioBean proprietario) throws SystemException {
 
         this.component.inviaRichiestaGestore(request,proprietario);
     }

@@ -11,6 +11,7 @@ import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
 import it.uniroma2.dicii.ispw.utils.bean.ProprietarioBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
+import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
@@ -56,7 +57,7 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
         istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/AggiungiFoto.fxml", this.id,campoSenzaFotoBean,null);
     }
 
-    public void salva() throws  IOException{
+    public void salva() throws  IOException, SystemException {
 
         CampoBean richiesta=new CampoBean(campoSenzaFotoBean,foto);
 

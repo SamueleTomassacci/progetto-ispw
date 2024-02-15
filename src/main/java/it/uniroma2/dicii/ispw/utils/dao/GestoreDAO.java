@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GestoreDAO {
     public GestoreModel getGestoreByUsername(String username) throws SystemException, SQLException {
@@ -31,4 +33,30 @@ public class GestoreDAO {
             throw exception;
         }
     }
+
+    public List<GestoreModel> getAllGestori() throws SystemException {
+        String query = "SELECT * FROM Utenti WHERE tipo = 'gestore';";
+        List<GestoreModel> lista = new ArrayList<>();
+        GestoreModel gestoreModel = null;
+        Connection conn = ConnectionDB.getConnection();
+
+        try (PreparedStatement ps = conn.prepareStatement(query);) {
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                gestoreModel = new GestoreModel();
+                gestoreModel.cambiaEmail(rs.getString("email"));
+                lista.add(gestoreModel);
+            }
+            return lista;
+
+        } catch (SQLException e) {
+            SystemException exception = new SystemException();
+            exception.initCause(e);
+            throw exception;
+        }
+    }
+
+
+
+
 }
