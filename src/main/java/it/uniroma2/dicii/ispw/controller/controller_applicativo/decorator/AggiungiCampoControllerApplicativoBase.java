@@ -3,9 +3,13 @@ package it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator;
 import it.uniroma2.dicii.ispw.model.CampoModel;
 import it.uniroma2.dicii.ispw.model.ProprietarioModel;
 import it.uniroma2.dicii.ispw.utils.bean.CampoBean;
+import it.uniroma2.dicii.ispw.utils.bean.ListaRichiesteCampoBean;
 import it.uniroma2.dicii.ispw.utils.bean.ProprietarioBean;
 import it.uniroma2.dicii.ispw.utils.dao.CampoDAO;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AggiungiCampoControllerApplicativoBase extends AggiungiCampoControllerApplicativo {
     @Override
@@ -19,6 +23,20 @@ public class AggiungiCampoControllerApplicativoBase extends AggiungiCampoControl
         }catch(SystemException e){
             //e.printStackTrace();
         }
+    }
+
+    public List<CampoBean> caricaRichieste() throws SystemException {
+        CampoDAO campoDAO=new CampoDAO();
+        List<CampoModel> lista=campoDAO.getRichiesteCampo();
+        List<CampoBean> listaBean=new ArrayList<>();
+        CampoBean campoBean=null;
+        for(CampoModel campo:lista){
+            campoBean=new CampoBean(campo);
+            listaBean.add(campoBean);
+        }
+        return listaBean;
+
+
     }
     public void accetta() {
         //da fare

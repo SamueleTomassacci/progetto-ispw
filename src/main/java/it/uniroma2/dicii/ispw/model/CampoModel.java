@@ -13,7 +13,15 @@ public class CampoModel {
     private Time orarioChiusura;
     private String iban;
     private File immagine;
-
+    public CampoModel(String nomeCampo, String indirizzo, int tariffa, Time orarioApertura, Time orarioChiusura, String iban, File immagine) {
+        this.nomeCampo = nomeCampo;
+        this.indirizzo = indirizzo;
+        this.tariffa = tariffa;
+        this.orarioApertura = orarioApertura;
+        this.orarioChiusura = orarioChiusura;
+        this.iban = iban;
+        this.immagine = immagine;
+    }
     public CampoModel(CampoBean campo){
         this.nomeCampo=campo.getNomeCampo();
         this.indirizzo=campo.getIndirizzo();

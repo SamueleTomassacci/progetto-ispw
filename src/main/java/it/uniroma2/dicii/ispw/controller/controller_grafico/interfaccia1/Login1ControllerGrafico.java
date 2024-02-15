@@ -59,7 +59,7 @@ public class Login1ControllerGrafico {
                 break;     //sostiuire con home page del giocatore
             }
             case GESTORE ->{
-                break;     //sostituire con home page del gestore
+                istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/gestore/homePage.fxml", new IdSessioneBean(cred.getIdSession()),null,null);
             }
         }
     }

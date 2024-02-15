@@ -5,6 +5,7 @@ import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
+import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -72,16 +73,16 @@ public class AggiungiFoto1ControllerGrafico extends ControllerGrafico {
             this.mostra.setImage(image);
         }
     }
-    public void backHome() throws IOException {    //vedi come gestire eccezione
+    public void backHome() throws IOException, SystemException {    //vedi come gestire eccezione
         ChangePage istanza=ChangePage.getChangePage();
         istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml", this.id,null,null);
     }
-    public void back() throws IOException {    //vedi come gestire eccezione
+    public void back() throws IOException, SystemException {    //vedi come gestire eccezione
         ChangePage istanza=ChangePage.getChangePage();
         istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/compilaScheda.fxml", this.id,null,null);
     }
 
-    public void avanti() throws IOException {    //vedi come gestire eccezione
+    public void avanti() throws IOException, SystemException{    //vedi come gestire eccezione
 
         FotoBean foto= new FotoBean(this.immagine);
 

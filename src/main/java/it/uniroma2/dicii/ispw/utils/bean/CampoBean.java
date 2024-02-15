@@ -1,5 +1,6 @@
 package it.uniroma2.dicii.ispw.utils.bean;
 
+import it.uniroma2.dicii.ispw.model.CampoModel;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
 
@@ -24,6 +25,17 @@ public class CampoBean {
         this.orarioChiusura=richiesta.getChiusura();
         this.iban=richiesta.getPagamento();
         this.immagine=foto.getFoto();
+    }
+
+    public CampoBean(CampoModel campo){
+        this.nomeCampo=campo.nomeAttuale();
+        this.indirizzo=campo.recuperaIndirizzo();
+        this.tariffa=campo.costoOrario();
+        this.orarioApertura=campo.inizioAttivita();
+        this.orarioChiusura=campo.fineAttivita();
+        this.iban=campo.credPagamento();
+        this.immagine=campo.recuperaImmagine();
+
     }
     public String getNomeCampo() {
         return nomeCampo;
