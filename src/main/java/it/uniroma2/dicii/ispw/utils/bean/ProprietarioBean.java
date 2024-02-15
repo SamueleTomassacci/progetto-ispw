@@ -9,9 +9,14 @@ public class ProprietarioBean extends UserBean {
     private int vip;
     public ProprietarioBean(ProprietarioModel proprietario){
         super(proprietario.getUsername(), proprietario.getEmail());
-        this.nome=proprietario.getNome();
-        this.cognome=proprietario.getCognome();
-        this.vip=proprietario.getVip();
+        this.nome=proprietario.credenzialeNome();
+        this.cognome=proprietario.credenzialeCognome();
+        if(proprietario.isVip()){
+            this.vip=1;
+        }
+        else{
+            this.vip=0;
+        }
     }
 
     public int getVip(){

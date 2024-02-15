@@ -19,11 +19,9 @@ public class GiocatoreDAO {
             ResultSet rs = ps.executeQuery();
             rs.next();
 
-            giocatoreModel = new GiocatoreModel();
+            giocatoreModel = new GiocatoreModel(rs.getString("username"),rs.getString("pass"),rs.getInt("idUser"));
 
-            giocatoreModel.setUsername(rs.getString("username"));
-            giocatoreModel.setEmail(rs.getString("pass"));
-            giocatoreModel.setCodice(rs.getInt("idUser"));
+
             return giocatoreModel;
         } catch (SQLException e) {
             SystemException exception = new SystemException();

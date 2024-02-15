@@ -7,6 +7,14 @@ public class ProprietarioModel extends UserModel{
     private String cognome;
     private int vip;
 
+    public ProprietarioModel(String username,String pass,int id,String nome, String cognome,int vip){
+        super(username,pass, id);
+        this.nome=nome;
+        this.cognome=cognome;
+        this.vip=vip;
+    }
+
+
 
     public ProprietarioModel(ProprietarioBean proprietario){
         super(proprietario.getUsername(),proprietario.getEmail());
@@ -17,35 +25,23 @@ public class ProprietarioModel extends UserModel{
 
     public ProprietarioModel(){}
 
-    private boolean isVip(){
+    public boolean isVip(){
         return this.vip==1;
     }
 
 
-    public String getNome() {
+    public String credenzialeNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
 
-
-    public String getCognome() {
+    public String credenzialeCognome() {
         return cognome;
     }
 
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
-    }
 
-    public void setVip(int vip) {
-        this.vip = vip;
-    }
-    public int getVip() {
-        return this.vip;
-    }
+
 
 
 }

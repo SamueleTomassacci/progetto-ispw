@@ -6,6 +6,7 @@ public class GestoreModel extends UserModel{
         super(username,email,codice);
     }
 
+
     public GestoreModel() {
         super();
     }

@@ -21,11 +21,9 @@ public class GestoreDAO {
             ResultSet rs = ps.executeQuery();
             rs.next();
 
-            gestoreModel = new GestoreModel();
+            gestoreModel = new GestoreModel(rs.getString("username"),rs.getString("pass"),rs.getInt("idUser"));
 
-            gestoreModel.setUsername(rs.getString("username"));
-            gestoreModel.setEmail(rs.getString("pass"));
-            gestoreModel.setCodice(rs.getInt("idUser"));
+
             return gestoreModel;
         } catch (SQLException e) {
             SystemException exception = new SystemException();

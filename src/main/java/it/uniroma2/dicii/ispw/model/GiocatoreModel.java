@@ -12,6 +12,10 @@ public class GiocatoreModel extends UserModel {
         this.eta = eta;
         this.ruoloBasket = ruoloBasket;
     }
+    public GiocatoreModel(String username, String email, int codice){
+       super(username,email,codice);
+    }
+
 
     public GiocatoreModel(){}
 
