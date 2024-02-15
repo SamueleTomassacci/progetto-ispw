@@ -59,11 +59,11 @@
             <Image url="@../../../immagini/canestro.jpeg" />
          </image>
       </ImageView>
-      <Button fx:id="aggiungi" mnemonicParsing="false" onAction="#clickAggiungi" prefHeight="167.0" prefWidth="369.0" text="Crea Partita" GridPane.columnIndex="13" GridPane.columnSpan="5" GridPane.rowIndex="7" GridPane.rowSpan="3">
+      <Button fx:id="aggiungi" mnemonicParsing="false" onAction="#clickAggiungi" prefHeight="167.0" prefWidth="369.0" text="Creazione" GridPane.columnIndex="13" GridPane.columnSpan="5" GridPane.rowIndex="7" GridPane.rowSpan="3">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Button>
-      <Button fx:id="gestisci" mnemonicParsing="false" prefHeight="217.0" prefWidth="318.0" text="Partecipa Partita" GridPane.columnIndex="13" GridPane.columnSpan="5" GridPane.rowIndex="13" GridPane.rowSpan="3">
+      <Button fx:id="gestisci" mnemonicParsing="false" prefHeight="217.0" prefWidth="318.0" text="Partecipazione" GridPane.columnIndex="13" GridPane.columnSpan="5" GridPane.rowIndex="13" GridPane.rowSpan="3">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Button>
