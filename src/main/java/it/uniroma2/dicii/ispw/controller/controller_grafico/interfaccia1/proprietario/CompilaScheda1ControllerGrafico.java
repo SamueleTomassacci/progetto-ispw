@@ -5,6 +5,7 @@ import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
+import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -42,12 +43,12 @@ public class CompilaScheda1ControllerGrafico extends ControllerGrafico {
         this.id=id;
     }
 
-    public void backHome() throws IOException {    //vedi come gestire eccezione
+    public void backHome() throws IOException, SystemException {    //vedi come gestire eccezione
         ChangePage istanza=ChangePage.getChangePage();
         istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml", this.id,null,null);
     }
 
-    public void clickAvanti() throws IOException {
+    public void clickAvanti() throws IOException, SystemException {
 
         CampoSenzaFotoBean richiesta=new CampoSenzaFotoBean(nomeCampo.getText(),indirizzo.getText(), Integer.valueOf(tariffa.getText()), Time.valueOf(apertura.getText()),Time.valueOf(chiusura.getText()),iban.getText());
         ChangePage istanza=ChangePage.getChangePage();

@@ -47,12 +47,12 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
         iban.setText(campoSenzaFotoBean.getPagamento());
     }
 
-    public void backHome() throws IOException {    //vedi come gestire eccezione
+    public void backHome() throws IOException, SystemException {    //vedi come gestire eccezione
         ChangePage istanza=ChangePage.getChangePage();
         istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml", this.id,null,null);
     }
 
-    public void back() throws IOException {    //vedi come gestire eccezione
+    public void back() throws IOException, SystemException {    //vedi come gestire eccezione
         ChangePage istanza=ChangePage.getChangePage();
         istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/AggiungiFoto.fxml", this.id,campoSenzaFotoBean,null);
     }

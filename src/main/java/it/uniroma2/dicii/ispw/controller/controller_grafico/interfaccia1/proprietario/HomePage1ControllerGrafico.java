@@ -36,7 +36,7 @@ public class HomePage1ControllerGrafico extends ControllerGrafico {
         user.setText("Bentornato "+nome+"!");
     }
 
-    public void clickAggiungi() throws IOException {     //Vedere come gestire l'eccezione
+    public void clickAggiungi() throws IOException , SystemException{     //Vedere come gestire l'eccezione
         ChangePage istanza=ChangePage.getChangePage();
         istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/compilaScheda.fxml",this.id,null,null);
     }
