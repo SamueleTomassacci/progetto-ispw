@@ -17,14 +17,14 @@ public class CampoDAO {
         String query="INSERT INTO richiestacampo VALUES(?,?,?,?,?,?,?,?);";
         Connection conn= ConnectionDB.getConnection();
         try(PreparedStatement ps= conn.prepareStatement(query)){
-            ps.setString(1,campo.getNomeCampo());
-            ps.setString(2,campo.getIndirizzo());
-            ps.setInt(3,campo.getTariffa());
-            ps.setTime(4,campo.getOrarioApertura());
-            ps.setTime(5,campo.getOrarioChiusura());
-            ps.setBlob(6, new FileInputStream(campo.getImmagine()));
+            ps.setString(1,campo.nomeAttuale());
+            ps.setString(2,campo.recuperaIndirizzo());
+            ps.setInt(3,campo.costoOrario());
+            ps.setTime(4,campo.inizioAttività());
+            ps.setTime(5,campo.fineAttività());
+            ps.setBlob(6, new FileInputStream(campo.recuperaImmagine()));
             ps.setString(7,proprietario.getUsername());
-            ps.setString(8,campo.getIban());
+            ps.setString(8,campo.credPagamento());
 
             int righeModificate = ps.executeUpdate();
 

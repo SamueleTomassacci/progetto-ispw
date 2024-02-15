@@ -24,31 +24,31 @@ public class CampoModel {
         this.immagine=campo.getImmagine();
     }
 
-    public String getNomeCampo() {
+    public String nomeAttuale () {
         return nomeCampo;
     }
 
-    public String getIndirizzo() {
+    public String recuperaIndirizzo() {
         return indirizzo;
     }
 
-    public int getTariffa() {
+    public int costoOrario() {
         return tariffa;
     }
 
-    public Time getOrarioApertura() {
+    public Time inizioAttività() {
         return orarioApertura;
     }
 
-    public Time getOrarioChiusura() {
+    public Time fineAttività() {
         return orarioChiusura;
     }
 
-    public String getIban() {
+    public String credPagamento() {
         return iban;
     }
 
-    public File getImmagine() {
+    public File recuperaImmagine() {
         return immagine;
     }
 }
