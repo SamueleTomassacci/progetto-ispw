@@ -17,7 +17,7 @@ public class CampoModel {
     public CampoModel(CampoBean campo){
         this.nomeCampo=campo.getNomeCampo();
         this.indirizzo=campo.getIndirizzo();
-        this.tariffa= campo.getTariffa();;
+        this.tariffa= campo.getTariffa();
         this.orarioApertura=campo.getOrarioApertura();
         this.orarioChiusura=campo.getOrarioChiusura();
         this.iban=campo.getIban();
@@ -36,11 +36,11 @@ public class CampoModel {
         return tariffa;
     }
 
-    public Time inizioAttività() {
+    public Time inizioAttivita() {
         return orarioApertura;
     }
 
-    public Time fineAttività() {
+    public Time fineAttivita() {
         return orarioChiusura;
     }
 

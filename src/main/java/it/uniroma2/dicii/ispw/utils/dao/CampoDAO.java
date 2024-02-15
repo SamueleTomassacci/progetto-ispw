@@ -20,8 +20,8 @@ public class CampoDAO {
             ps.setString(1,campo.nomeAttuale());
             ps.setString(2,campo.recuperaIndirizzo());
             ps.setInt(3,campo.costoOrario());
-            ps.setTime(4,campo.inizioAttività());
-            ps.setTime(5,campo.fineAttività());
+            ps.setTime(4,campo.inizioAttivita());
+            ps.setTime(5,campo.fineAttivita());
             ps.setBlob(6, new FileInputStream(campo.recuperaImmagine()));
             ps.setString(7,proprietario.getUsername());
             ps.setString(8,campo.credPagamento());

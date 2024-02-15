@@ -7,9 +7,7 @@ import it.uniroma2.dicii.ispw.utils.bean.ProprietarioBean;
 import it.uniroma2.dicii.ispw.utils.dao.CampoDAO;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 
-import java.sql.SQLException;
-
-public class aggiungiCampoControllerApplicativoBase extends aggiungiCampoControllerApplicativo  {
+public class AggiungiCampoControllerApplicativoBase extends AggiungiCampoControllerApplicativo {
     @Override
     public void inviaRichiestaGestore(CampoBean richiesta, ProprietarioBean proprietario) {
 
@@ -19,13 +17,15 @@ public class aggiungiCampoControllerApplicativoBase extends aggiungiCampoControl
         try{
             campoDao.insertRichiestaCampo(richiestaModel,proprietarioModel);
         }catch(SystemException e){
-            e.printStackTrace();
+            //e.printStackTrace();
         }
     }
     public void accetta() {
+        //da fare
 
     }
     public void rifiuta(){
+        //da fare
 
     }
 

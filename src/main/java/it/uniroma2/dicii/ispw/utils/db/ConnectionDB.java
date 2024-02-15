@@ -27,7 +27,7 @@ public class ConnectionDB {
 
             connection = DriverManager.getConnection(connectionUrl, user, pass);
         } catch (IOException | SQLException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
     }
 

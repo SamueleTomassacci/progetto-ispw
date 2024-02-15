@@ -17,7 +17,7 @@ public class CampoBean {
 
 
     public CampoBean(CampoSenzaFotoBean richiesta, FotoBean foto){
-        this.nomeCampo= richiesta.getNome();;
+        this.nomeCampo= richiesta.getNome();
         this.indirizzo=richiesta.getPosizione();
         this.tariffa=richiesta.getCosto();
         this.orarioApertura=richiesta.getApertura();

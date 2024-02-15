@@ -3,10 +3,10 @@ package it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator;
 import it.uniroma2.dicii.ispw.utils.bean.CampoBean;
 import it.uniroma2.dicii.ispw.utils.bean.ProprietarioBean;
 
-public abstract class Decorator extends aggiungiCampoControllerApplicativo{
-    private aggiungiCampoControllerApplicativo component;
+public abstract class Decorator extends AggiungiCampoControllerApplicativo {
+    private AggiungiCampoControllerApplicativo component;
 
-    public Decorator(aggiungiCampoControllerApplicativo component){
+    protected Decorator(AggiungiCampoControllerApplicativo component){
 
         this.component = component;
     }

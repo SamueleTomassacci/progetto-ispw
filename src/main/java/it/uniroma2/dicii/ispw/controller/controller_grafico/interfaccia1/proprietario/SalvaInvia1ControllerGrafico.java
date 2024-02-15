@@ -1,7 +1,7 @@
 package it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.proprietario;
 
-import it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator.aggiungiCampoControllerApplicativoBase;
-import it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator.aggiungiCampoControllerApplicativoVip;
+import it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator.AggiungiCampoControllerApplicativoBase;
+import it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator.AggiungiCampoControllerApplicativoVip;
 import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.ControllerGrafico;
 import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.Session;
@@ -64,14 +64,14 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
         Session session=manager.getSessionFromId(id);
         ProprietarioBean proprietario=session.getProprietarioBean();
 
-        aggiungiCampoControllerApplicativoBase controller=new aggiungiCampoControllerApplicativoBase();
+        AggiungiCampoControllerApplicativoBase controller=new AggiungiCampoControllerApplicativoBase();
         if(proprietario.getVip()==1){
-            aggiungiCampoControllerApplicativoVip vip=new aggiungiCampoControllerApplicativoVip(controller);
+            AggiungiCampoControllerApplicativoVip vip=new AggiungiCampoControllerApplicativoVip(controller);
             vip.inviaRichiestaGestore(richiesta,proprietario);
 
         }
         else{
-            System.out.println("Entro qui");
+
             controller.inviaRichiestaGestore(richiesta,proprietario);
         }
         ChangePage istanza=ChangePage.getChangePage();

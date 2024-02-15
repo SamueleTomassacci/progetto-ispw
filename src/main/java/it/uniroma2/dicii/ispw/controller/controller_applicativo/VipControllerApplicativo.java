@@ -11,7 +11,7 @@ import java.sql.SQLException;
  */
 
 public class VipControllerApplicativo {
-    public void upgradeVip(ProprietarioBean proprietario) throws SQLException, SystemException {
+    public void upgradeVip(ProprietarioBean proprietario) throws SystemException {
         ProprietarioDAO proprietarioDAO=new ProprietarioDAO();
         proprietarioDAO.setVip(proprietario.getUsername());
 
