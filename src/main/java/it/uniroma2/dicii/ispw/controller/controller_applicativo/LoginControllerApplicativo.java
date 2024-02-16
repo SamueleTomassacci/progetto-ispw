@@ -36,8 +36,8 @@ public class LoginControllerApplicativo {
                 Session sessione = manager.createSession(null, null, gestoreBean, Role.GESTORE, id);
                 manager.aggiungiSessione(sessione);
             } else {
-                LoginException e=new LoginException();
-                throw e;
+                throw new LoginException();
+            
             }
         }
         else if (cred.getRole() == Role.PROPRIETARIO) {
@@ -56,8 +56,8 @@ public class LoginControllerApplicativo {
                 manager.aggiungiSessione(sessione);
             }
             else{
-                LoginException e=new LoginException();
-                throw e;
+                throw new LoginException();
+
             }
         }
         else if (cred.getRole() == Role.GIOCATORE){
@@ -76,8 +76,8 @@ public class LoginControllerApplicativo {
                 manager.aggiungiSessione(sessione);
             }
             else{
-                LoginException e=new LoginException();
-                throw e;
+                throw new LoginException();
+
             }
         }
 
