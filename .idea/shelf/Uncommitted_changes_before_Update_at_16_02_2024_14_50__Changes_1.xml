@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Update_at_16_02_2024_14_50_[Changes]1" date="1708091429438" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2024_14_50_[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 16/02/2024 14:50 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="campi_img/sssspic.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2024_14_50_[Changes]1/sssspic.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/Login1ControllerGrafico.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/Login1ControllerGrafico.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2024_14_50_[Changes]1/Login1ControllerGrafico.class" />
+  </binary>
+</changelist>

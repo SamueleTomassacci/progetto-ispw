@@ -5,7 +5,11 @@ import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.bean.CredentialsBean;
 import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
 import it.uniroma2.dicii.ispw.utils.bean.Role;
+import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
+import it.uniroma2.dicii.ispw.utils.exceptions.LoginException;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
+import it.uniroma2.dicii.ispw.utils.factory.DialogBox;
+import it.uniroma2.dicii.ispw.utils.factory.Factory;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -34,7 +38,7 @@ public class Login1ControllerGrafico {
     private Label avviso;
 
     @FXML
-    private void clickAccesso() throws SystemException, IOException, SQLException {   //Da ricontrollare le eccezioni
+    private void clickAccesso() {
         CredentialsBean cred = new CredentialsBean(username.getText(), password.getText());
         if (proprietario.isSelected()) {
             cred.setRole(Role.PROPRIETARIO);
@@ -50,15 +54,22 @@ public class Login1ControllerGrafico {
             return;
         }
         LoginControllerApplicativo loginController = new LoginControllerApplicativo();
-        loginController.login(cred);
-        ChangePage istanza=ChangePage.getChangePage();
-        switch (cred.getRole()) {
-            case PROPRIETARIO ->
-                    istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml", new IdSessioneBean(cred.getIdSession()),null,null);
-            case GIOCATORE ->
-                    istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/homePage.fxml", new IdSessioneBean(cred.getIdSession()),null,null);
-            case GESTORE ->
-                    istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/gestore/homePage.fxml", new IdSessioneBean(cred.getIdSession()),null,null);
+
+        try {
+
+            loginController.login(cred);
+
+            ChangePage istanza = ChangePage.getChangePage();
+            switch (cred.getRole()) {
+                case PROPRIETARIO ->
+                        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml", new IdSessioneBean(cred.getIdSession()), null, null);
+                case GIOCATORE ->
+                        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/homePage.fxml", new IdSessioneBean(cred.getIdSession()), null, null);
+                case GESTORE ->
+                        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/gestore/homePage.fxml", new IdSessioneBean(cred.getIdSession()), null, null);
+            }
+        } catch (LoginException | SystemException e) {
+            GestoreEccezioni.getInstance().handleException(e);
         }
     }
 }

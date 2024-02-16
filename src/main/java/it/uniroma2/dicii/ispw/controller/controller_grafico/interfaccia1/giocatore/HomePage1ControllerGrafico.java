@@ -30,7 +30,7 @@ public class HomePage1ControllerGrafico extends ControllerGrafico {
     @FXML
     private Label ruoloGiocatore;
     @Override
-    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto) throws IOException, SystemException {
+    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto) throws SystemException {
         this.id=id;
         SessionManager manager=SessionManager.getSessionManager();
         Session session=manager.getSessionFromId(id);

@@ -11,19 +11,22 @@ import it.uniroma2.dicii.ispw.utils.dao.GestoreDAO;
 import it.uniroma2.dicii.ispw.utils.dao.GiocatoreDAO;
 import it.uniroma2.dicii.ispw.utils.dao.LoginDAO;
 import it.uniroma2.dicii.ispw.utils.dao.ProprietarioDAO;
+import it.uniroma2.dicii.ispw.utils.exceptions.LoginException;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 
 import java.sql.SQLException;
 
 public class LoginControllerApplicativo {
 
-    public void login(CredentialsBean cred) throws SystemException, SQLException {
+    public void login(CredentialsBean cred) throws SystemException, LoginException {
         // Controllo attraverso loginDao se esiste un username con quelle credenziali
         LoginDAO loginDao = new LoginDAO();
         if (cred.getRole() == Role.GESTORE) {
+
             GestoreModel gestore = null;
             CredentialsModel credentialsModel = new CredentialsModel(cred);
             if (loginDao.checkIfExists(credentialsModel)) {
+
                 GestoreDAO gestoreDAO = new GestoreDAO();
                 gestore = gestoreDAO.getGestoreByUsername(cred.getUsername());
                 cred.setIdSession(gestore.getCode());
@@ -33,13 +36,16 @@ public class LoginControllerApplicativo {
                 Session sessione = manager.createSession(null, null, gestoreBean, Role.GESTORE, id);
                 manager.aggiungiSessione(sessione);
             } else {
-                //Trigger o non lo so, in generale eccezione per dire che l'utente non esiste
+                LoginException e=new LoginException();
+                throw e;
             }
         }
         else if (cred.getRole() == Role.PROPRIETARIO) {
+
             ProprietarioModel proprietario = null;
             CredentialsModel credentialsModel = new CredentialsModel(cred);
             if(loginDao.checkIfExists(credentialsModel)){
+
                 ProprietarioDAO proprietarioDAO = new ProprietarioDAO();
                 proprietario = proprietarioDAO.getProprietarioByUsername(cred.getUsername());
                 cred.setIdSession(proprietario.getCode());
@@ -50,13 +56,16 @@ public class LoginControllerApplicativo {
                 manager.aggiungiSessione(sessione);
             }
             else{
-                //Trigger o non lo so, in generale eccezione per dire che l'utente non esiste
+                LoginException e=new LoginException();
+                throw e;
             }
         }
         else if (cred.getRole() == Role.GIOCATORE){
+
             GiocatoreModel giocatore = null;
             CredentialsModel credentialsModel = new CredentialsModel(cred);
             if(loginDao.checkIfExists(credentialsModel)){
+
                 GiocatoreDAO giocatoreDAO = new GiocatoreDAO();
                 giocatore = giocatoreDAO.getGiocatoreByUsername(cred.getUsername());
                 cred.setIdSession(giocatore.getCode());
@@ -67,7 +76,8 @@ public class LoginControllerApplicativo {
                 manager.aggiungiSessione(sessione);
             }
             else{
-                //Trigger o non lo so, in generale eccezione per dire che l'utente non esiste
+                LoginException e=new LoginException();
+                throw e;
             }
         }
 

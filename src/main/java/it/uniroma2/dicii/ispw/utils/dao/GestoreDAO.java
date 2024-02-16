@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GestoreDAO {
-    public GestoreModel getGestoreByUsername(String username) throws SystemException, SQLException {
+    public GestoreModel getGestoreByUsername(String username) throws SystemException {
         String query = "SELECT * FROM Utenti where username = ?;";
         GestoreModel gestoreModel = null;
         Connection conn=ConnectionDB.getConnection();
