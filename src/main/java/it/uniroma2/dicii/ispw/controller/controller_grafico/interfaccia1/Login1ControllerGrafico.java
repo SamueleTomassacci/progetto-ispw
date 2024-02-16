@@ -56,7 +56,7 @@ public class Login1ControllerGrafico {
             case PROPRIETARIO ->
                     istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml", new IdSessioneBean(cred.getIdSession()),null,null);
             case GIOCATORE ->
-                    istanza.cambiaPagina("it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/HomePageGiocatore.fxml", new IdSessioneBean(cred.getIdSession()),null,null);
+                    istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/homePage.fxml", new IdSessioneBean(cred.getIdSession()),null,null);
             case GESTORE ->
                     istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/gestore/homePage.fxml", new IdSessioneBean(cred.getIdSession()),null,null);
         }

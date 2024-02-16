@@ -63,7 +63,7 @@ public class LoginControllerApplicativo {
                 GiocatoreBean giocatoreBean = new GiocatoreBean(giocatore);
                 SessionManager manager = SessionManager.getSessionManager();
                 IdSessioneBean id=new IdSessioneBean(giocatore.getCode());
-                Session sessione = manager.createSession(giocatoreBean,null,null,Role.PROPRIETARIO,id);
+                Session sessione = manager.createSession(giocatoreBean,null,null,Role.GIOCATORE,id);
                 manager.aggiungiSessione(sessione);
             }
             else{

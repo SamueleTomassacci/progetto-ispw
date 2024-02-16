@@ -6,17 +6,21 @@ public class GiocatoreModel extends UserModel {
     int eta;
     String ruoloBasket;
 
-    public GiocatoreModel(String username, String email, int codice, int altezza, int eta, String ruoloBasket){
-        super(username,email,codice);
+
+    public GiocatoreModel(String username, int idUser, int altezza, int eta, String ruoloBasket) {
+        super(username,null,idUser);
         this.altezza = altezza;
         this.eta = eta;
         this.ruoloBasket = ruoloBasket;
     }
-    public GiocatoreModel(String username, String email, int codice){
-       super(username,email,codice);
+
+    public int caratteristicaAltezza() {
+        return altezza;
     }
-
-
-    public GiocatoreModel(){}
-
+    public int caratteristicaEta(){
+        return eta;
+    }
+    public String caratteristicaRuoloBasket(){
+        return ruoloBasket;
+    }
 }

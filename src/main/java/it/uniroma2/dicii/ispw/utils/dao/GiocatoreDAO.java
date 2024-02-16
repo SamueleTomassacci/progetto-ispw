@@ -19,7 +19,7 @@ public class GiocatoreDAO {
             ResultSet rs = ps.executeQuery();
             rs.next();
 
-            giocatoreModel = new GiocatoreModel(rs.getString("username"),rs.getString("pass"),rs.getInt("idUser"));
+            giocatoreModel = new GiocatoreModel(rs.getString("username"),rs.getInt("idUser"),rs.getInt("altezza"),rs.getInt("eta"),rs.getString("ruoloBasket"));
 
 
             return giocatoreModel;
