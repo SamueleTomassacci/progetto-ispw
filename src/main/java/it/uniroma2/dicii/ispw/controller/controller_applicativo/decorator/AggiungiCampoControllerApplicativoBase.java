@@ -38,12 +38,17 @@ public class AggiungiCampoControllerApplicativoBase extends AggiungiCampoControl
 
 
     }
-    public void accetta() {
-        //da fare
-
+    public void accetta(CampoBean campo) throws SystemException {
+        CampoDAO campoDAO=new CampoDAO();
+        CampoModel campoModel=new CampoModel(campo);
+        ProprietarioModel proprietarioModel=campoDAO.getProprietarioFromRichiestaCampo(campoModel);
+        campoDAO.eliminaRichiesta(campoModel);
+        campoDAO.aggiungiCampo(campoModel,proprietarioModel);
     }
-    public void rifiuta(){
-        //da fare
+    public void rifiuta(CampoBean campo) throws SystemException {
+       CampoDAO campoDAO= new CampoDAO();
+       CampoModel campoModel=new CampoModel(campo);
+       campoDAO.eliminaRichiesta(campoModel);
 
     }
 

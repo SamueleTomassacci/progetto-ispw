@@ -7,42 +7,67 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.gestore.Richiesta1ControllerGrafico">
    <children>
-      <Button layoutX="395.0" layoutY="249.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="127.0" text="Rifiuta" />
-      <Button layoutX="562.0" layoutY="249.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="127.0" text="Accetta" />
-      <ImageView fitHeight="203.0" fitWidth="279.0" layoutX="410.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="31.0" layoutY="22.0" prefHeight="30.0" prefWidth="296.0" text="Nome del campo:">
+      <Button layoutX="395.0" layoutY="249.0" mnemonicParsing="false" onAction="#rifiuta" prefHeight="30.0" prefWidth="127.0" text="Rifiuta">
          <font>
-            <Font name="System Bold" size="17.0" />
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="562.0" layoutY="249.0" mnemonicParsing="false" onAction="#accetta" prefHeight="30.0" prefWidth="127.0" text="Accetta">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <ImageView fx:id="immagine" fitHeight="214.0" fitWidth="296.0" layoutX="393.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="campo" layoutX="170.0" layoutY="20.0" prefHeight="30.0" prefWidth="206.0">
+         <font>
+            <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="31.0" layoutY="62.0" prefHeight="30.0" prefWidth="345.0" text="Indirizzo:">
+      <Label fx:id="indirizzo" layoutX="103.0" layoutY="60.0" prefHeight="30.0" prefWidth="251.0">
          <font>
-            <Font name="System Bold" size="17.0" />
+            <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="31.0" layoutY="103.0" prefHeight="30.0" prefWidth="296.0" text="Tariffa:">
+      <Label fx:id="tariffa" layoutX="85.0" layoutY="105.0" prefHeight="30.0" prefWidth="271.0">
          <font>
-            <Font name="System Bold" size="17.0" />
+            <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="31.0" layoutY="141.0" prefHeight="30.0" prefWidth="296.0" text="Orario apertura:">
+      <Label fx:id="orarioApertura" layoutX="158.0" layoutY="150.0" prefHeight="30.0" prefWidth="231.0">
          <font>
-            <Font name="System Bold" size="17.0" />
+            <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="31.0" layoutY="182.0" prefHeight="30.0" prefWidth="296.0" text="Orario chiusura:">
+      <Label fx:id="orarioChiusura" layoutX="158.0" layoutY="204.0" prefHeight="30.0" prefWidth="231.0">
          <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="31.0" layoutY="219.0" prefHeight="30.0" prefWidth="296.0" text="Proprietario:">
-         <font>
-            <Font name="System Bold" size="17.0" />
+            <Font size="17.0" />
          </font>
       </Label>
       <Line endX="720.0" endY="1.0" layoutY="299.0" startX="-0.29290771484375" startY="0.70709228515625" />
+      <Label fx:id="campo1" layoutX="23.0" layoutY="20.0" prefHeight="30.0" prefWidth="147.0" text="Nome del campo:">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="indirizzo1" layoutX="23.0" layoutY="60.0" prefHeight="30.0" prefWidth="80.0" text="Indirizzo:">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="tariffa1" layoutX="22.0" layoutY="105.0" prefHeight="30.0" prefWidth="67.0" text="Tariffa:">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="orarioApertura1" layoutX="22.0" layoutY="150.0" prefHeight="30.0" prefWidth="136.0" text="Orario apertura:">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="orarioChiusura1" layoutX="22.0" layoutY="204.0" prefHeight="30.0" prefWidth="136.0" text="Orario chiusura:">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

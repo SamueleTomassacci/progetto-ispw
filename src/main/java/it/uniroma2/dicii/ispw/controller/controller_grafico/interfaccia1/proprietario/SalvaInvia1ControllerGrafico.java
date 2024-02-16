@@ -1,5 +1,6 @@
 package it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.proprietario;
 
+import it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator.AggiungiCampoControllerApplicativo;
 import it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator.AggiungiCampoControllerApplicativoBase;
 import it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator.AggiungiCampoControllerApplicativoVip;
 import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.ControllerGrafico;
@@ -65,7 +66,7 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
         Session session=manager.getSessionFromId(id);
         ProprietarioBean proprietario=session.getProprietarioBean();
 
-        AggiungiCampoControllerApplicativoBase controller=new AggiungiCampoControllerApplicativoBase();
+        AggiungiCampoControllerApplicativo controller=new AggiungiCampoControllerApplicativoBase();
         if(proprietario.getVip()==1){
             AggiungiCampoControllerApplicativoVip vip=new AggiungiCampoControllerApplicativoVip(controller);
             vip.inviaRichiestaGestore(richiesta,proprietario);
