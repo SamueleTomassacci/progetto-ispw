@@ -12,6 +12,7 @@ import java.util.List;
 
 public class AggiungiCampoControllerApplicativoVip extends Decorator{
     public AggiungiCampoControllerApplicativoVip(AggiungiCampoControllerApplicativo component) {
+
         super(component);
     }
     private void decorazioneAggiunta() throws SystemException {

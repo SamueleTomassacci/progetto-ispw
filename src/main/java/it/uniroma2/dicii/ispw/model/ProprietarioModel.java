@@ -6,12 +6,18 @@ public class ProprietarioModel extends UserModel{
     private String nome;
     private String cognome;
     private int vip;
+    private String iban;
 
     public ProprietarioModel(String username,String pass,int id,String nome, String cognome,int vip){
         super(username,pass, id);
         this.nome=nome;
         this.cognome=cognome;
         this.vip=vip;
+    }
+
+    public ProprietarioModel(String username, String iban){
+        super(username);
+        this.iban=iban;
     }
 
 
@@ -38,6 +44,13 @@ public class ProprietarioModel extends UserModel{
 
     public String credenzialeCognome() {
         return cognome;
+    }
+
+    public void cambiaCredBancarie(String iban){
+        this.iban=iban;
+    }
+    public String credBancarie(){
+       return  this.iban;
     }
 
 
