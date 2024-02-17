@@ -5,6 +5,8 @@ import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
+import it.uniroma2.dicii.ispw.utils.exceptions.FotoMancanteException;
+import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
@@ -31,11 +33,14 @@ public class AggiungiFoto1ControllerGrafico extends ControllerGrafico {
     private CampoSenzaFotoBean campoSenzaFotoBean;
 
     private File immagine;
+
+
     @Override
     public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFotoBean, FotoBean foto){
         this.id=id;
         this.campoSenzaFotoBean=campoSenzaFotoBean;
     }
+
     public void inserisci(DragEvent event) {
         if (event.getGestureSource() != this.trascina &&
                 event.getDragboard().hasFiles()) {
@@ -43,6 +48,7 @@ public class AggiungiFoto1ControllerGrafico extends ControllerGrafico {
         }
         event.consume();
     }
+
 
     public void rilascia(DragEvent event) {
         Dragboard db = event.getDragboard();
@@ -73,21 +79,38 @@ public class AggiungiFoto1ControllerGrafico extends ControllerGrafico {
             this.mostra.setImage(image);
         }
     }
-    public void backHome() throws IOException, SystemException {    //vedi come gestire eccezione
-        ChangePage istanza=ChangePage.getChangePage();
-        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml", this.id,null,null);
+    public void backHome(){
+        try {
+            ChangePage istanza = ChangePage.getChangePage();
+            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml", this.id, null, null);
+        } catch (SystemException e) {
+            GestoreEccezioni.getInstance().handleException(e);
+        }
     }
-    public void back() throws IOException, SystemException {    //vedi come gestire eccezione
-        ChangePage istanza=ChangePage.getChangePage();
-        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/compilaScheda.fxml", this.id,null,null);
+    public void back(){
+        try {
+            ChangePage istanza = ChangePage.getChangePage();
+            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/compilaScheda.fxml", this.id, null, null);
+        } catch (SystemException e) {
+            GestoreEccezioni.getInstance().handleException(e);
+        }
     }
 
-    public void avanti() throws IOException, SystemException{    //vedi come gestire eccezione
+    public void avanti(){
 
-        FotoBean foto= new FotoBean(this.immagine);
 
-        ChangePage istanza=ChangePage.getChangePage();
-        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/salvaInvia.fxml", this.id,campoSenzaFotoBean,foto);
+        try {
+            if (this.immagine == null) {
+                throw new FotoMancanteException();
+            }
+
+            FotoBean foto = new FotoBean(this.immagine);
+            ChangePage istanza = ChangePage.getChangePage();
+            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/salvaInvia.fxml", this.id, campoSenzaFotoBean, foto);
+
+        } catch (FotoMancanteException | SystemException e) {
+            GestoreEccezioni.getInstance().handleException(e);
+        }
     }
 
 

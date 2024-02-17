@@ -6,6 +6,7 @@ import it.uniroma2.dicii.ispw.utils.bean.EmailBean;
 import it.uniroma2.dicii.ispw.utils.bean.ProprietarioBean;
 import it.uniroma2.dicii.ispw.utils.dao.GestoreDAO;
 import it.uniroma2.dicii.ispw.utils.engineering.EmailEngineering;
+import it.uniroma2.dicii.ispw.utils.exceptions.CampoEsistenteException;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 
 import java.util.List;
@@ -31,7 +32,7 @@ public class AggiungiCampoControllerApplicativoVip extends Decorator{
 
     }
     @Override
-    public void inviaRichiestaGestore(CampoBean request, ProprietarioBean proprietario) throws SystemException {
+    public void inviaRichiestaGestore(CampoBean request, ProprietarioBean proprietario) throws SystemException, CampoEsistenteException {
         super.inviaRichiestaGestore(request, proprietario);
         this.decorazioneAggiunta();
     }

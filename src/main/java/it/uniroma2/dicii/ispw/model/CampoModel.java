@@ -13,7 +13,8 @@ public class CampoModel {
     private Time orarioChiusura;
     private String iban;
     private File immagine;
-    public CampoModel(String nomeCampo, String indirizzo, int tariffa, Time orarioApertura, Time orarioChiusura, String iban, File immagine) {
+    int num;
+    public CampoModel(String nomeCampo, String indirizzo, int tariffa, Time orarioApertura, Time orarioChiusura, String iban, File immagine, int num) {
         this.nomeCampo = nomeCampo;
         this.indirizzo = indirizzo;
         this.tariffa = tariffa;
@@ -21,6 +22,7 @@ public class CampoModel {
         this.orarioChiusura = orarioChiusura;
         this.iban = iban;
         this.immagine = immagine;
+        this.num=num;
     }
     public CampoModel(CampoBean campo){
         this.nomeCampo=campo.getNomeCampo();
@@ -30,6 +32,7 @@ public class CampoModel {
         this.orarioChiusura=campo.getOrarioChiusura();
         this.iban=campo.getIban();
         this.immagine=campo.getImmagine();
+        this.num=campo.getNum();
     }
 
     public String nomeAttuale () {
@@ -58,5 +61,8 @@ public class CampoModel {
 
     public File recuperaImmagine() {
         return immagine;
+    }
+    public int numeroCampo(){
+        return this.num;
     }
 }

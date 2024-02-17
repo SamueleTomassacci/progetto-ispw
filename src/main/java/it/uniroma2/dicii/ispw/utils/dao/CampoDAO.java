@@ -6,6 +6,7 @@ import it.uniroma2.dicii.ispw.model.ProprietarioModel;
 import it.uniroma2.dicii.ispw.utils.bean.ConverterBean;
 import it.uniroma2.dicii.ispw.utils.db.ConnectionDB;
 import it.uniroma2.dicii.ispw.utils.engineering.ConverterToFileEngineering;
+import it.uniroma2.dicii.ispw.utils.exceptions.CampoEsistenteException;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 
 import java.io.*;
@@ -34,7 +35,7 @@ public class CampoDAO {
                 File file = new File(filePath);
                 ConverterToFileEngineering converterToFile = new ConverterToFileEngineering();
                 converterToFile.fromInputStreamToFile(new ConverterBean(inputStream, file));
-                campo = new CampoModel(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getTime(4),rs.getTime(5),rs.getString(8),file);
+                campo = new CampoModel(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getTime(4),rs.getTime(5),rs.getString(8),file,rs.getInt(9));
                 lista.add(campo);
             }
             return lista;
@@ -49,28 +50,95 @@ public class CampoDAO {
 
     }
 
-    public void insertRichiestaCampo(CampoModel campo, ProprietarioModel proprietario) throws SystemException{
-        String query="INSERT INTO richiestacampo VALUES(?,?,?,?,?,?,?,?);";
-        Connection conn= ConnectionDB.getConnection();
-        try(PreparedStatement ps= conn.prepareStatement(query)){
-            ps.setString(1,campo.nomeAttuale());
-            ps.setString(2,campo.recuperaIndirizzo());
-            ps.setInt(3,campo.costoOrario());
-            ps.setTime(4,campo.inizioAttivita());
-            ps.setTime(5,campo.fineAttivita());
+    public void tryInsertRichiestaCampo(CampoModel campo, ProprietarioModel proprietario) throws SystemException, CampoEsistenteException {
+
+        String query1 = "SELECT max(numero) FROM campo WHERE indirizzo = ?;";
+        int maxCampi = 0;
+        Connection conn = ConnectionDB.getConnection();
+
+        try (PreparedStatement ps = conn.prepareStatement(query1)) {
+
+            ps.setString(1, campo.recuperaIndirizzo());
+
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            maxCampi = rs.getInt(1);
+
+            if(maxCampi!=0){
+                int maxRichieste = this.getMaxNumero(campo);
+                throw new CampoEsistenteException(Integer.toString(Math.max(maxCampi, maxRichieste)));
+            }
+
+
+
+        } catch (SystemException exc) {                 //Vuol dire che non c'è una richiesta con quel campo
+            throw new CampoEsistenteException(Integer.toString(maxCampi));
+
+        } catch (SQLException e) {
+            throw new SystemException();
+        }
+
+
+
+            String query = "INSERT INTO richiestacampo VALUES(?,?,?,?,?,?,?,?,?);";
+
+            try (PreparedStatement ps = conn.prepareStatement(query)) {
+                ps.setString(1, campo.nomeAttuale());
+                ps.setString(2, campo.recuperaIndirizzo());
+                ps.setInt(3, campo.costoOrario());
+                ps.setTime(4, campo.inizioAttivita());
+                ps.setTime(5, campo.fineAttivita());
+                ps.setBlob(6, new FileInputStream(campo.recuperaImmagine()));
+                ps.setString(7, proprietario.getUsername());
+                ps.setString(8, campo.credPagamento());
+                ps.setString(8, campo.credPagamento());
+                ps.setInt(9, campo.numeroCampo());
+                int righeModificate = ps.executeUpdate();
+
+
+            } catch (SQLException e) {
+                if (e.getErrorCode() == 1062) {
+                    throw new CampoEsistenteException();
+                } else {
+                    SystemException exception = new SystemException();
+                    exception.initCause(e);
+                    throw exception;
+                }
+            } catch (FileNotFoundException exc) {
+                SystemException exception = new SystemException();
+                exception.initCause(exc);
+                throw exception;
+            }
+        }
+    public void insertRichiestaCampo(CampoModel campo, ProprietarioModel proprietario) throws SystemException, CampoEsistenteException {
+
+        String query = "INSERT INTO richiestacampo VALUES(?,?,?,?,?,?,?,?,?);";
+        Connection conn = ConnectionDB.getConnection();
+
+        try (PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setString(1, campo.nomeAttuale());
+            ps.setString(2, campo.recuperaIndirizzo());
+            ps.setInt(3, campo.costoOrario());
+            ps.setTime(4, campo.inizioAttivita());
+            ps.setTime(5, campo.fineAttivita());
             ps.setBlob(6, new FileInputStream(campo.recuperaImmagine()));
-            ps.setString(7,proprietario.getUsername());
-            ps.setString(8,campo.credPagamento());
+            ps.setString(7, proprietario.getUsername());
+            ps.setString(8, campo.credPagamento());
+            ps.setString(8, campo.credPagamento());
+            ps.setInt(9, campo.numeroCampo());
 
             int righeModificate = ps.executeUpdate();
 
 
-        }catch(SQLException | FileNotFoundException e){
-            SystemException exception = new SystemException();
-            exception.initCause(e);
-            throw exception;
-        }
+        } catch (SQLException | FileNotFoundException e) {
+
+                SystemException exception = new SystemException();
+                exception.initCause(e);
+                throw exception;
+            }
+
     }
+
 
     public void eliminaRichiesta(CampoModel campo) throws SystemException {
         String query="DELETE FROM richiestacampo WHERE nome= ? and indirizzo = ?;";
@@ -110,7 +178,7 @@ public class CampoDAO {
     }
 
     public void aggiungiCampo(CampoModel campo, ProprietarioModel proprietario) throws SystemException {
-        String query="INSERT INTO campo VALUES(?,?,?,?,?,?,?,?);";
+        String query="INSERT INTO campo VALUES(?,?,?,?,?,?,?,?,?);";
         Connection conn= ConnectionDB.getConnection();
         try(PreparedStatement ps= conn.prepareStatement(query)){
             ps.setString(1,campo.nomeAttuale());
@@ -122,6 +190,7 @@ public class CampoDAO {
             ps.setBlob(6, new FileInputStream(campo.recuperaImmagine()));
             ps.setString(7,proprietario.getUsername());
             ps.setString(8,proprietario.credBancarie());
+            ps.setInt(9,campo.numeroCampo());
 
             ps.executeUpdate();
 
@@ -133,7 +202,31 @@ public class CampoDAO {
         }
 
     }
-}
+
+    public int getMaxNumero(CampoModel campo) throws SystemException{
+        String query= "SELECT max(numero) FROM richiestacampo WHERE indirizzo = ?;";
+        int max;
+        Connection conn= ConnectionDB.getConnection();
+
+        try(PreparedStatement ps= conn.prepareStatement(query)){
+
+            ps.setString(1,campo.recuperaIndirizzo());
+
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            max=rs.getInt(1);
+
+        }catch(SQLException e){
+            SystemException exception = new SystemException();
+            exception.initCause(e);
+            throw exception;
+        }
+        return max;
+    }
+
+    }
+
+
 
 
 

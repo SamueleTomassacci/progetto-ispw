@@ -4,6 +4,7 @@ import it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator.Aggiun
 import it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator.AggiungiCampoControllerApplicativoBase;
 import it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator.AggiungiCampoControllerApplicativoVip;
 import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.ControllerGrafico;
+import it.uniroma2.dicii.ispw.model.CampoModel;
 import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.Session;
 import it.uniroma2.dicii.ispw.utils.SessionManager;
@@ -12,8 +13,12 @@ import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
 import it.uniroma2.dicii.ispw.utils.bean.ProprietarioBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
+import it.uniroma2.dicii.ispw.utils.exceptions.CampoEsistenteException;
+import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
@@ -48,37 +53,121 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
         iban.setText(campoSenzaFotoBean.getPagamento());
     }
 
-    public void backHome() throws SystemException {
-        ChangePage istanza=ChangePage.getChangePage();
-        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml", this.id,null,null);
+    public void backHome() {
+        try {
+            ChangePage istanza = ChangePage.getChangePage();
+            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml", this.id, null, null);
+        } catch (SystemException e) {
+            GestoreEccezioni.getInstance().handleException(e);
+        }
     }
 
-    public void back() throws SystemException {
-        ChangePage istanza=ChangePage.getChangePage();
-        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/AggiungiFoto.fxml", this.id,campoSenzaFotoBean,null);
+    public void back() {
+        try {
+            ChangePage istanza = ChangePage.getChangePage();
+            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/AggiungiFoto.fxml", this.id, campoSenzaFotoBean, null);
+        } catch (SystemException e) {
+            GestoreEccezioni.getInstance().handleException(e);
+        }
     }
 
-    public void salva() throws SystemException {
+    public void salva() {
 
-        CampoBean richiesta=new CampoBean(campoSenzaFotoBean,foto);
+        CampoBean richiesta = new CampoBean(campoSenzaFotoBean, foto);
+        richiesta.setTentativo(1);
 
-        SessionManager manager=SessionManager.getSessionManager();
-        Session session=manager.getSessionFromId(id);
-        ProprietarioBean proprietario=session.getProprietarioBean();
+        SessionManager manager = SessionManager.getSessionManager();
+        Session session = manager.getSessionFromId(id);
+        ProprietarioBean proprietario = session.getProprietarioBean();
+        AggiungiCampoControllerApplicativo controller = new AggiungiCampoControllerApplicativoBase();
+        AggiungiCampoControllerApplicativoVip vip = new AggiungiCampoControllerApplicativoVip(controller);
 
-        AggiungiCampoControllerApplicativo controller=new AggiungiCampoControllerApplicativoBase();
-        if(proprietario.getVip()==1){
-            AggiungiCampoControllerApplicativoVip vip=new AggiungiCampoControllerApplicativoVip(controller);
-            vip.inviaRichiestaGestore(richiesta,proprietario);
+        try {
+
+            if (proprietario.getVip() == 1) {
+
+                vip.inviaRichiestaGestore(richiesta, proprietario);
+
+            } else {
+
+                controller.inviaRichiestaGestore(richiesta, proprietario);
+            }
+            ChangePage istanza = ChangePage.getChangePage();
+            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml", this.id, null, null);
+
+        } catch (SystemException exc) {
+            GestoreEccezioni.getInstance().handleException(exc);
+
+        } catch (CampoEsistenteException e) {        //Nel caso in cui il campo inserito è già esistente gestisco l'eccezione andando a chiedere al proprietario, se il centro sportivo possiede più campi, in tal caso lo salvo
+
+            richiesta.setTentativo(2);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Attenzione");
+            alert.setHeaderText("Il campo inserito è già presente nel nostro sistema.\n Se il suo centro sportivo ospita più di un campo da basket e vuole procedere con il salvatggio di questo nuovo campo, clicchi conferma.");
+
+
+            ButtonType buttonTypeOne = new ButtonType("Conferma");
+            ButtonType buttonTypeCancel = new ButtonType("Annulla");
+
+            alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeCancel);
+
+            alert.showAndWait().ifPresent(buttonType -> {
+
+                try {
+
+
+                    if (buttonType == buttonTypeOne) {
+                        AggiungiCampoControllerApplicativoBase contr = new AggiungiCampoControllerApplicativoBase();
+                        int num=0;
+                        if(e.getMessage().equals("Messaggio standard")) {               //C'è già un campo con lo stesso indirizzo nelle richieste
+
+                            num = contr.getNumeroMax(richiesta);
+                            num++;
+                            System.out.println("Messaggio standard"+num);
+                        }
+
+                        else {
+                            num=Integer.parseInt(e.getMessage());
+                            num++;
+                            System.out.println("Non messaggio standard"+num);
+
+                        }
+
+                        String nomeCampo = richiesta.getNomeCampo();
+                        if (Character.isDigit(nomeCampo.charAt(nomeCampo.length() - 1))) {
+                            richiesta.setNomeCampo(nomeCampo.substring(0, nomeCampo.length() - 1) + Integer.toString(num));
+
+                        } else {
+                            richiesta.setNomeCampo(richiesta.getNomeCampo() + Integer.toString(num));
+                        }
+
+                        richiesta.setNum(num);
+                        System.out.println(richiesta.getNomeCampo());
+
+
+                        if (proprietario.getVip() == 1) {
+                            vip.inviaRichiestaGestore(richiesta, proprietario);
+
+                        } else {
+                               controller.inviaRichiestaGestore(richiesta, proprietario);
+                        }
+
+                    }
+
+
+                    ChangePage istanza = ChangePage.getChangePage();
+                    istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml", this.id, null, null);
+
+
+                } catch (SystemException | CampoEsistenteException exce) {
+                    System.out.println("Entro qui");
+                    GestoreEccezioni.getInstance().handleException(exce);
+                }
+            });
 
         }
-        else{
-
-            controller.inviaRichiestaGestore(richiesta,proprietario);
-        }
-        ChangePage istanza=ChangePage.getChangePage();
-        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml", this.id,null,null);
-
     }
 
 }
+
+

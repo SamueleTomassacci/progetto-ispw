@@ -15,6 +15,8 @@ public class CampoBean {
     private Time orarioChiusura;
     private String iban;
     private File immagine;
+    private int num=1;
+    private int tentativo;
 
 
     public CampoBean(CampoSenzaFotoBean richiesta, FotoBean foto){
@@ -35,6 +37,7 @@ public class CampoBean {
         this.orarioChiusura=campo.fineAttivita();
         this.iban=campo.credPagamento();
         this.immagine=campo.recuperaImmagine();
+        this.num=campo.numeroCampo();
 
     }
     public String getNomeCampo() {
@@ -63,5 +66,21 @@ public class CampoBean {
 
     public File getImmagine() {
         return immagine;
+    }
+    public void setNomeCampo(String nome){
+        this.nomeCampo=nome;
+    }
+
+    public void setNum(int i){
+        this.num=i;
+    }
+    public int getNum(){
+        return this.num;
+    }
+    public int getTentativo(){
+        return this.tentativo;
+    }
+    public void setTentativo(int i){
+        this.tentativo=i;
     }
 }
