@@ -59,11 +59,11 @@
             <Image url="@../../../immagini/canestro.jpeg" />
          </image>
       </ImageView>
-      <Button fx:id="aggiungi" mnemonicParsing="false" prefHeight="167.0" prefWidth="369.0" text="Creazione" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="12" GridPane.rowSpan="3">
+      <Button fx:id="aggiungi"  onAction="#clickCreazione" mnemonicParsing="false" prefHeight="167.0" prefWidth="369.0" text="Creazione" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="12" GridPane.rowSpan="3">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Button>
-      <Button fx:id="gestisci" mnemonicParsing="false" prefHeight="217.0" prefWidth="318.0" text="Partecipazione" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="4" GridPane.rowSpan="3">
+      <Button fx:id="partecipa" mnemonicParsing="false" prefHeight="217.0" prefWidth="318.0" text="Partecipazione" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="4" GridPane.rowSpan="3">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Button>
@@ -92,17 +92,17 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Label prefHeight="27.0" prefWidth="61.0" GridPane.columnIndex="15" GridPane.rowIndex="6">
+      <Label fx:id="altezza" prefHeight="27.0" prefWidth="61.0" GridPane.columnIndex="15" GridPane.rowIndex="6">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label prefHeight="27.0" prefWidth="62.0" GridPane.columnIndex="15" GridPane.rowIndex="8">
+      <Label fx:id="eta" prefHeight="27.0" prefWidth="62.0" GridPane.columnIndex="15" GridPane.rowIndex="8">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label prefHeight="27.0" prefWidth="97.0" GridPane.columnIndex="14" GridPane.rowIndex="10">
+      <Label fx:id="ruoloGiocatore" prefHeight="27.0" prefWidth="151.0" GridPane.columnIndex="14" GridPane.columnSpan="9" GridPane.rowIndex="10">
          <font>
             <Font size="18.0" />
          </font>

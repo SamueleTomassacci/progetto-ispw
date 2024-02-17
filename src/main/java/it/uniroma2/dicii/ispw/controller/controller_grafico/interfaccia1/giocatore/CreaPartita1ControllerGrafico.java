@@ -9,40 +9,31 @@ import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 
 import java.io.IOException;
 
-public class HomePage1ControllerGrafico extends ControllerGrafico {
+public class CreaPartita1ControllerGrafico extends ControllerGrafico {
     private IdSessioneBean id;
     @FXML
-    private Label user;
+    public Button backButton;
     @FXML
-    private Button Creazione;
+    public Button homeButton;
     @FXML
-    private Button Partecipazione;
-    @FXML
-    private Label altezza;
-    @FXML
-    private Label eta;
-    @FXML
-    private Label ruoloGiocatore;
+    public Button creaRichiesta;
+
     @Override
     public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto) throws IOException, SystemException {
         this.id=id;
         SessionManager manager = SessionManager.getSessionManager();
         Session session = manager.getSessionFromId(id);
         GiocatoreBean giocatore = session.getGiocatoreBean();
-        user.setText("Bentornato "+giocatore.getUsername()+"!");
-        altezza.setText(String.valueOf(giocatore.getAltezza()));
-        eta.setText(String.valueOf(giocatore.getEta()));
-        ruoloGiocatore.setText(giocatore.getRuoloBasket());
-    }
-    public void clickCreazione() throws IOException , SystemException{
-        ChangePage istanza=ChangePage.getChangePage();
-        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/crea_partita/CreaPartita1.fxml",this.id,null,null);
     }
 
+    public void clickBack() throws SystemException, IOException {
+        ChangePage istanza=ChangePage.getChangePage();
+        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/homePage.fxml",this.id,null,null);
+    }
 }
