@@ -38,8 +38,6 @@ public class AggiungiCampoControllerApplicativoBase extends AggiungiCampoControl
             listaBean.add(campoBean);
         }
         return listaBean;
-
-
     }
     public void accetta(CampoBean campo) throws SystemException {
         CampoDAO campoDAO=new CampoDAO();

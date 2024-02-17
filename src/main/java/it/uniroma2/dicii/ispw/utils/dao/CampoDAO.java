@@ -1,8 +1,6 @@
 package it.uniroma2.dicii.ispw.utils.dao;
 
-import it.uniroma2.dicii.ispw.model.CampoModel;
-import it.uniroma2.dicii.ispw.model.GestoreModel;
-import it.uniroma2.dicii.ispw.model.ProprietarioModel;
+import it.uniroma2.dicii.ispw.model.*;
 import it.uniroma2.dicii.ispw.utils.bean.ConverterBean;
 import it.uniroma2.dicii.ispw.utils.db.ConnectionDB;
 import it.uniroma2.dicii.ispw.utils.engineering.ConverterToFileEngineering;
@@ -19,6 +17,27 @@ import java.util.List;
 
 public class CampoDAO {
     private static final String PATHCAMPIIMG = "campi_img/";
+
+    public List<NomeCampoModel> getNomeCampo() throws  SystemException {
+        String query = "SELECT nome,indirizzo FROM campo;";
+        Connection conn= ConnectionDB.getConnection();
+        List<NomeCampoModel> lista=new ArrayList<>();
+        NomeCampoModel campo = null;
+        try(PreparedStatement ps= conn.prepareStatement(query)){
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                campo = new NomeCampoModel(rs.getString(1),rs.getString(2));
+                lista.add(campo);
+            }
+            return lista;
+
+        }catch(SQLException e){
+            SystemException exception = new SystemException();
+            exception.initCause(e);
+            throw exception;
+        }
+    }
 
 
     public List<CampoModel> getRichiesteCampo() throws SystemException {

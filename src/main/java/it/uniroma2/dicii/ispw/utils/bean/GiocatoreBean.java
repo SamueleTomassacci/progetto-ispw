@@ -4,9 +4,9 @@ package it.uniroma2.dicii.ispw.utils.bean;
 import it.uniroma2.dicii.ispw.model.GiocatoreModel;
 
 public class GiocatoreBean extends UserBean {
-    private int altezza;
-    private int eta;
-    private String ruoloBasket;
+    private final int altezza;
+    private final int eta;
+    private final String ruoloBasket;
 
 
     public GiocatoreBean(GiocatoreModel giocatore){
