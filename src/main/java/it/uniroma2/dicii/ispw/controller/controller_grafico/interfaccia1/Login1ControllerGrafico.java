@@ -8,16 +8,13 @@ import it.uniroma2.dicii.ispw.utils.bean.Role;
 import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
 import it.uniroma2.dicii.ispw.utils.exceptions.LoginException;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
-import it.uniroma2.dicii.ispw.utils.factory.DialogBox;
-import it.uniroma2.dicii.ispw.utils.factory.Factory;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 
-import java.io.IOException;
-import java.sql.SQLException;
+
 
 public class Login1ControllerGrafico {
     @FXML

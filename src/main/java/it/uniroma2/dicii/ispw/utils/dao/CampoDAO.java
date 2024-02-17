@@ -1,7 +1,6 @@
 package it.uniroma2.dicii.ispw.utils.dao;
 
 import it.uniroma2.dicii.ispw.model.CampoModel;
-import it.uniroma2.dicii.ispw.model.GestoreModel;
 import it.uniroma2.dicii.ispw.model.ProprietarioModel;
 import it.uniroma2.dicii.ispw.utils.bean.ConverterBean;
 import it.uniroma2.dicii.ispw.utils.db.ConnectionDB;
@@ -93,7 +92,7 @@ public class CampoDAO {
                 ps.setString(8, campo.credPagamento());
                 ps.setString(8, campo.credPagamento());
                 ps.setInt(9, campo.numeroCampo());
-                int righeModificate = ps.executeUpdate();
+                ps.executeUpdate();
 
 
             } catch (SQLException e) {
@@ -110,7 +109,7 @@ public class CampoDAO {
                 throw exception;
             }
         }
-    public void insertRichiestaCampo(CampoModel campo, ProprietarioModel proprietario) throws SystemException, CampoEsistenteException {
+    public void insertRichiestaCampo(CampoModel campo, ProprietarioModel proprietario) throws SystemException {
 
         String insert = "INSERT INTO richiestacampo VALUES(?,?,?,?,?,?,?,?,?);";
         Connection conn = ConnectionDB.getConnection();
@@ -146,8 +145,7 @@ public class CampoDAO {
         try(PreparedStatement ps= conn.prepareStatement(query)){
             ps.setString(1,campo.nomeAttuale());
             ps.setString(2,campo.recuperaIndirizzo());
-
-            int righeModificate = ps.executeUpdate();
+            ps.executeUpdate();
 
 
         }catch(SQLException e){

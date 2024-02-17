@@ -3,7 +3,7 @@ package it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator;
 import it.uniroma2.dicii.ispw.model.CampoModel;
 import it.uniroma2.dicii.ispw.model.ProprietarioModel;
 import it.uniroma2.dicii.ispw.utils.bean.CampoBean;
-import it.uniroma2.dicii.ispw.utils.bean.ListaRichiesteCampoBean;
+
 import it.uniroma2.dicii.ispw.utils.bean.ProprietarioBean;
 import it.uniroma2.dicii.ispw.utils.dao.CampoDAO;
 import it.uniroma2.dicii.ispw.utils.exceptions.CampoEsistenteException;
@@ -58,8 +58,8 @@ public class AggiungiCampoControllerApplicativoBase extends AggiungiCampoControl
     public int getNumeroMax(CampoBean campo) throws SystemException{
         CampoDAO campoDAO=new CampoDAO();
         CampoModel campoModel=new CampoModel(campo);
-        int num=campoDAO.getMaxNumero(campoModel);
-        return num;
+        return campoDAO.getMaxNumero(campoModel);
+
     }
 
 

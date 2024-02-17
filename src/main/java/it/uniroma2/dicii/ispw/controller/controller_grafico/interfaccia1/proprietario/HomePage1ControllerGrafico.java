@@ -17,8 +17,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-import java.io.IOException;
-import java.sql.SQLException;
+
 
 public class HomePage1ControllerGrafico extends ControllerGrafico {
     private IdSessioneBean id;

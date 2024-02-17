@@ -4,7 +4,7 @@ import it.uniroma2.dicii.ispw.utils.bean.ProprietarioBean;
 import it.uniroma2.dicii.ispw.utils.dao.ProprietarioDAO;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 
-import java.sql.SQLException;
+
 
 /*
   Gestisci con le eccezioni il fatto che il proprietario potrebbe già essere vip

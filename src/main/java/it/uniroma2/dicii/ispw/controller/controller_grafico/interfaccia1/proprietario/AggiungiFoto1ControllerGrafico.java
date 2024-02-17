@@ -18,7 +18,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.IOException;
+
 
 /*
   Gestire l'eccezione in cui l'utente non mette nessuna foto

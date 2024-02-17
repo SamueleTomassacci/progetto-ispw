@@ -13,12 +13,12 @@ import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
 import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-import java.io.IOException;
-import java.sql.SQLException;
+
+
 
 public class HomePage1ControllerGrafico extends ControllerGrafico {
     private IdSessioneBean id;

@@ -41,6 +41,7 @@ public class EmailEngineering {
 
         // Creazione della sessione
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+            @Override
             protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
                 return new javax.mail.PasswordAuthentication(username, password);
             }

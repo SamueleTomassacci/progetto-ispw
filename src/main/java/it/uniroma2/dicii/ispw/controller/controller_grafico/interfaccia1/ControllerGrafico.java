@@ -5,7 +5,7 @@ import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 
-import java.io.IOException;
+
 
 public abstract class ControllerGrafico {
     public abstract void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto) throws SystemException;
