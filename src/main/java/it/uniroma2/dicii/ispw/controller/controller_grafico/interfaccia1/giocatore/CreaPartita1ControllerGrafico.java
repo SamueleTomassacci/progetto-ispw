@@ -25,7 +25,7 @@ public class CreaPartita1ControllerGrafico extends ControllerGrafico {
     public Button creaRichiesta;
 
     @Override
-    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto) throws IOException, SystemException {
+    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto) throws SystemException {
         this.id=id;
         SessionManager manager = SessionManager.getSessionManager();
         Session session = manager.getSessionFromId(id);

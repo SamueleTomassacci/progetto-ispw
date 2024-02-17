@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class GiocatoreDAO {
-    public GiocatoreModel getGiocatoreByUsername(String username) throws SystemException, SQLException{
+    public GiocatoreModel getGiocatoreByUsername(String username) throws SystemException{
         String query = "SELECT username,idUser,altezza,eta,ruoloBasket FROM Utenti where username = ?;";
         GiocatoreModel giocatoreModel = null;
         Connection conn= ConnectionDB.getConnection();

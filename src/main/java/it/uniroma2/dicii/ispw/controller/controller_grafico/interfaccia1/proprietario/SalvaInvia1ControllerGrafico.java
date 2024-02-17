@@ -82,7 +82,7 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
         AggiungiCampoControllerApplicativo controller = new AggiungiCampoControllerApplicativoBase();
         AggiungiCampoControllerApplicativoVip vip = new AggiungiCampoControllerApplicativoVip(controller);
 
-        try {
+        try {                                   //Tento di inserire la richiesta
 
             if (proprietario.getVip() == 1) {
 
@@ -116,23 +116,23 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
                 try {
 
 
-                    if (buttonType == buttonTypeOne) {
+                    if (buttonType == buttonTypeOne) {          //Il proprietario possiede più campi, ridenomino il campo con un numero per distinguerli tra loro
                         AggiungiCampoControllerApplicativoBase contr = new AggiungiCampoControllerApplicativoBase();
                         int num=0;
-                        if(e.getMessage().equals("Messaggio standard")) {               //C'è già un campo con lo stesso indirizzo nelle richieste
+                        if(e.getMessage().equals("Messaggio standard")) {               //C'è già un campo con lo stesso indirizzo salvato
 
                             num = contr.getNumeroMax(richiesta);
                             num++;
                             System.out.println("Messaggio standard"+num);
                         }
 
-                        else {
+                        else {                                                         //C'è un campo con lo stesso indirizzo nelle richieste
                             num=Integer.parseInt(e.getMessage());
                             num++;
                             System.out.println("Non messaggio standard"+num);
 
                         }
-
+                        //Modifico il nome del campo in base al numero
                         String nomeCampo = richiesta.getNomeCampo();
                         if (Character.isDigit(nomeCampo.charAt(nomeCampo.length() - 1))) {
                             richiesta.setNomeCampo(nomeCampo.substring(0, nomeCampo.length() - 1) + Integer.toString(num));
