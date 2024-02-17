@@ -2,9 +2,9 @@ package it.uniroma2.dicii.ispw.model;
 
 public class GiocatoreModel extends UserModel {
 
-    int altezza;
-    int eta;
-    String ruoloBasket;
+    private int altezza;
+    private int eta;
+    private String ruoloBasket;
 
 
     public GiocatoreModel(String username, int idUser, int altezza, int eta, String ruoloBasket) {

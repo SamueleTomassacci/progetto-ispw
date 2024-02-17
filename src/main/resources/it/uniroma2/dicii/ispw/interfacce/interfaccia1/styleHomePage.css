@@ -27,4 +27,8 @@
 }
 
 
+.control-button {
+    -fx-background-color: transparent;
+    -fx-effect: null;
+}
 

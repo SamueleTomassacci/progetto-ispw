@@ -16,4 +16,14 @@ public class GiocatoreBean extends UserBean {
         this.ruoloBasket = giocatore.caratteristicaRuoloBasket();
     }
 
+    public String getRuoloBasket(){
+        return ruoloBasket;
+    }
+    public int getAltezza(){
+        return altezza;
+    }
+    public int getEta(){
+        return eta;
+    }
+
 }
