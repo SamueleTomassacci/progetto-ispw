@@ -10,6 +10,7 @@ import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
 import it.uniroma2.dicii.ispw.utils.bean.ProprietarioBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
+import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -36,14 +37,18 @@ public class HomePage1ControllerGrafico extends ControllerGrafico {
         user.setText("Bentornato "+nome+"!");
     }
 
-    public void clickGestisci() throws IOException, SystemException {     //Vedere come gestire l'eccezione
-        ChangePage istanza=ChangePage.getChangePage();
-        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/gestore/gestisci/GestisciRichieste.fxml",this.id,null,null);
+    public void clickGestisci() {
+        try {
+            ChangePage istanza = ChangePage.getChangePage();
+            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/gestore/gestisci/GestisciRichieste.fxml", this.id, null, null);
+        } catch (SystemException e) {
+            GestoreEccezioni.getInstance().handleException(e);
+        }
     }
 
 
 
 
-    }
+}
 
 
