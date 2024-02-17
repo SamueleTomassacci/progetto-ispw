@@ -112,22 +112,22 @@ public class CampoDAO {
         }
     public void insertRichiestaCampo(CampoModel campo, ProprietarioModel proprietario) throws SystemException, CampoEsistenteException {
 
-        String query = "INSERT INTO richiestacampo VALUES(?,?,?,?,?,?,?,?,?);";
+        String insert = "INSERT INTO richiestacampo VALUES(?,?,?,?,?,?,?,?,?);";
         Connection conn = ConnectionDB.getConnection();
 
-        try (PreparedStatement ps = conn.prepareStatement(query)) {
-            ps.setString(1, campo.nomeAttuale());
-            ps.setString(2, campo.recuperaIndirizzo());
-            ps.setInt(3, campo.costoOrario());
-            ps.setTime(4, campo.inizioAttivita());
-            ps.setTime(5, campo.fineAttivita());
-            ps.setBlob(6, new FileInputStream(campo.recuperaImmagine()));
-            ps.setString(7, proprietario.getUsername());
-            ps.setString(8, campo.credPagamento());
-            ps.setString(8, campo.credPagamento());
-            ps.setInt(9, campo.numeroCampo());
+        try (PreparedStatement preparedStatement = conn.prepareStatement(insert)) {
+            preparedStatement.setString(1, campo.nomeAttuale());
+            preparedStatement.setString(2, campo.recuperaIndirizzo());
+            preparedStatement.setInt(3, campo.costoOrario());
+            preparedStatement.setTime(4, campo.inizioAttivita());
+            preparedStatement.setTime(5, campo.fineAttivita());
+            preparedStatement.setBlob(6, new FileInputStream(campo.recuperaImmagine()));
+            preparedStatement.setString(7, proprietario.getUsername());
+            preparedStatement.setString(8, campo.credPagamento());
+            preparedStatement.setString(8, campo.credPagamento());
+            preparedStatement.setInt(9, campo.numeroCampo());
 
-            int righeModificate = ps.executeUpdate();
+            preparedStatement.executeUpdate();
 
 
         } catch (SQLException | FileNotFoundException e) {
