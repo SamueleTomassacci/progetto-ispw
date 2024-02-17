@@ -25,7 +25,7 @@ public class GestisciRichieste1ControllerGrafico extends ControllerGrafico {
     private VBox box;
 
     @Override
-    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto) throws IOException, SystemException {
+    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto) throws SystemException {
 
         this.id=id;
         AggiungiCampoControllerApplicativoBase controller= new AggiungiCampoControllerApplicativoBase();
@@ -35,7 +35,15 @@ public class GestisciRichieste1ControllerGrafico extends ControllerGrafico {
         Pane pane=null;
         for(CampoBean campo:lista) {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/gestore/gestisci/CampoRichiesta.fxml"));
-            pane = loader.load();
+
+            try{
+                pane = loader.load();
+            }catch(IOException e){
+                SystemException exception = new SystemException();
+                exception.initCause(e);
+                throw exception;
+            }
+
             paneBean=new PaneBean(pane);
 
             Richiesta1ControllerGrafico controllerRichiesta = loader.getController();

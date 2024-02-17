@@ -8,7 +8,7 @@ import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 import java.io.IOException;
 
 public abstract class ControllerGrafico {
-    public abstract void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto) throws IOException, SystemException;
+    public abstract void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto) throws SystemException;
 }
 /*Uso del polimorfismo per istanziare i vari controller grafici, in particolare tutti i controller grafici
   che devono essere aggiornati in base all'utente estendono tale classe implementando il metodo inizializza

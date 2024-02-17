@@ -9,7 +9,9 @@ import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.ProprietarioBean;
+import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
+import it.uniroma2.dicii.ispw.utils.exceptions.VipException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -36,33 +38,40 @@ public class HomePage1ControllerGrafico extends ControllerGrafico {
         user.setText("Bentornato "+nome+"!");
     }
 
-    public void clickAggiungi() throws IOException , SystemException{     //Vedere come gestire l'eccezione
-        ChangePage istanza=ChangePage.getChangePage();
-        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/compilaScheda.fxml",this.id,null,null);
+    public void clickAggiungi() {
+        try {
+            ChangePage istanza = ChangePage.getChangePage();
+            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/compilaScheda.fxml", this.id, null, null);
+        } catch (SystemException e) {
+            GestoreEccezioni.getInstance().handleException(e);
+        }
     }
 
-    public void upgradeVip() throws SystemException, SQLException {
-        SessionManager manager=SessionManager.getSessionManager();
-        Session session=manager.getSessionFromId(id);
-        ProprietarioBean proprietario=session.getProprietarioBean();
-        if(proprietario.getVip()==1){                                    //Vedi se lo puoi fare con un eccezione
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Errore");
-            alert.setHeaderText(null);
-            alert.setContentText("Attenzione hai già fatto l'upgrade a vip!");
-            alert.showAndWait();
-        }
-        else {
-            VipControllerApplicativo controller = new VipControllerApplicativo();
-            controller.upgradeVip(proprietario);
-            int vip = 1;
-            proprietario.setVip(vip);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Upgrade");
-            alert.setHeaderText(null);
-            alert.setContentText("Upgrade a vip eseguito!");
-            alert.showAndWait();
-        }
+
+    public void upgradeVip() {
+       try {
+           SessionManager manager = SessionManager.getSessionManager();
+           Session session = manager.getSessionFromId(id);
+           ProprietarioBean proprietario = session.getProprietarioBean();
+
+           if (proprietario.getVip() == 1) {
+               throw new VipException();
+           }
+
+           else {
+               VipControllerApplicativo controller = new VipControllerApplicativo();
+               controller.upgradeVip(proprietario);
+               int vip = 1;
+               proprietario.setVip(vip);
+               Alert alert = new Alert(Alert.AlertType.INFORMATION);
+               alert.setTitle("Upgrade");
+               alert.setHeaderText(null);
+               alert.setContentText("Upgrade a vip eseguito!");
+               alert.showAndWait();
+           }
+       }catch(VipException | SystemException e){
+           GestoreEccezioni.getInstance().handleException(e);
+       }
 
 
     }
