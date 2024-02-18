@@ -35,9 +35,10 @@ public class ChangePage {
            exception.initCause(e);
            throw exception;
        }
-        ControllerGrafico controller=loader.getController();    //Uso del polimorfismo, uso una variabile di tipo ControllerGrafico (superclasse)
+        ControllerGrafico controller=loader.getController();                                   //Uso del polimorfismo, uso una variabile di tipo ControllerGrafico (superclasse)
         controller.inizializza(id,campoSenzaFotoBean, foto,cred);                             //alla quale in base al pagina caricata associo l'istanza di uno dei controller grafici figli
-        this.stage.setScene(scene);                                  //l'operazione inizializza quindi avrà comportamenti diversi in base all'istanza
+        this.stage.setScene(scene);                                                          //l'operazione inizializza quindi avrà comportamenti diversi in base all'istanza
+
         this.stage.show();
 
     }
