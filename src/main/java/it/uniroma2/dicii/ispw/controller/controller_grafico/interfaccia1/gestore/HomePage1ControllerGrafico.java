@@ -5,6 +5,7 @@ import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.Control
 import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.Session;
 import it.uniroma2.dicii.ispw.utils.SessionManager;
+import it.uniroma2.dicii.ispw.utils.bean.CredentialsBean;
 import it.uniroma2.dicii.ispw.utils.bean.GestoreBean;
 import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
 import it.uniroma2.dicii.ispw.utils.bean.ProprietarioBean;
@@ -28,7 +29,7 @@ public class HomePage1ControllerGrafico extends ControllerGrafico {
     @FXML
     private Button gestisci;
     @Override
-    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFotoBean, FotoBean foto){
+    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFotoBean, FotoBean foto, CredentialsBean cred){
         this.id=id;
         SessionManager manager=SessionManager.getSessionManager();
         Session session=manager.getSessionFromId(id);
@@ -40,7 +41,7 @@ public class HomePage1ControllerGrafico extends ControllerGrafico {
     public void clickGestisci() {
         try {
             ChangePage istanza = ChangePage.getChangePage();
-            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/gestore/gestisci/GestisciRichieste.fxml", this.id, null, null);
+            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/gestore/gestisci/GestisciRichieste.fxml", this.id, null, null,null);
         } catch (SystemException e) {
             GestoreEccezioni.getInstance().handleException(e);
         }

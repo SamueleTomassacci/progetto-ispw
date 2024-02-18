@@ -9,6 +9,7 @@ import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.Session;
 import it.uniroma2.dicii.ispw.utils.SessionManager;
 import it.uniroma2.dicii.ispw.utils.bean.CampoBean;
+import it.uniroma2.dicii.ispw.utils.bean.CredentialsBean;
 import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
 import it.uniroma2.dicii.ispw.utils.bean.ProprietarioBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
@@ -41,7 +42,7 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
     private Label iban;
     private final String page="/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml";
     @Override
-    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFotoBean, FotoBean foto){
+    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFotoBean, FotoBean foto, CredentialsBean cred){
         this.id=id;
         this.campoSenzaFotoBean=campoSenzaFotoBean;
         this.foto=foto;
@@ -56,7 +57,7 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
     public void backHome() {
         try {
             ChangePage istanza = ChangePage.getChangePage();
-            istanza.cambiaPagina(this.page, this.id, null, null);
+            istanza.cambiaPagina(this.page, this.id, null, null,null);
         } catch (SystemException e) {
             GestoreEccezioni.getInstance().handleException(e);
         }
@@ -65,7 +66,7 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
     public void back() {
         try {
             ChangePage istanza = ChangePage.getChangePage();
-            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/AggiungiFoto.fxml", this.id, campoSenzaFotoBean, null);
+            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/AggiungiFoto.fxml", this.id, campoSenzaFotoBean, null,null);
         } catch (SystemException e) {
             GestoreEccezioni.getInstance().handleException(e);
         }
@@ -93,7 +94,7 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
                 controller.inviaRichiestaGestore(richiesta, proprietario);
             }
             ChangePage istanza = ChangePage.getChangePage();
-            istanza.cambiaPagina(this.page, this.id, null, null);
+            istanza.cambiaPagina(this.page, this.id, null, null,null);
 
         } catch (SystemException exc) {
             GestoreEccezioni.getInstance().handleException(exc);
@@ -156,7 +157,7 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
 
 
                     ChangePage istanza = ChangePage.getChangePage();
-                    istanza.cambiaPagina(this.page, this.id, null, null);
+                    istanza.cambiaPagina(this.page, this.id, null, null,null);
 
 
                 } catch (SystemException | CampoEsistenteException exce) {

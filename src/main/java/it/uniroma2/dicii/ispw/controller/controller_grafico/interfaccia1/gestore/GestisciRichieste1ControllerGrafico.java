@@ -5,6 +5,7 @@ import it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator.Aggiun
 import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.ControllerGrafico;
 import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.bean.CampoBean;
+import it.uniroma2.dicii.ispw.utils.bean.CredentialsBean;
 import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
@@ -25,7 +26,7 @@ public class GestisciRichieste1ControllerGrafico extends ControllerGrafico {
     private VBox box;
 
     @Override
-    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto)  {
+    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, CredentialsBean cred)  {
 
         PaneBean paneBean=null;
         Pane pane=null;
@@ -59,7 +60,7 @@ public class GestisciRichieste1ControllerGrafico extends ControllerGrafico {
     public void back()  {
         try{
         ChangePage istanza=ChangePage.getChangePage();
-        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/gestore/homePage.fxml",this.id,null,null);
+        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/gestore/homePage.fxml",this.id,null,null,null);
         }catch (SystemException e) {
             GestoreEccezioni.getInstance().handleException(e);
         }

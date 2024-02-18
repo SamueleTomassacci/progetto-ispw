@@ -2,8 +2,8 @@ package it.uniroma2.dicii.ispw.utils.bean;
 
 
 public class CredentialsBean {
-    private final String username;
-    private final String password;
+    private String username;
+    private String password;
     private int idSession;
 
     private Role role = null;
@@ -11,6 +11,8 @@ public class CredentialsBean {
     public CredentialsBean(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+    public CredentialsBean(){
     }
     public void setRole(Role role){
         this.role=role;
@@ -29,5 +31,11 @@ public class CredentialsBean {
     }
     public int getIdSession(){
         return this.idSession;
+    }
+    public void setUsername(String nome){
+        this.username=nome;
+    }
+    public void setPassword(String password){
+        this.password=password;
     }
 }
