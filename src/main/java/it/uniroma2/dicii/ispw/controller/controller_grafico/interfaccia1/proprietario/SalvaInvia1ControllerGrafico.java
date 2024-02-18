@@ -117,41 +117,9 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
                 try {
 
 
-                    if (buttonType == buttonTypeOne) {          //Il proprietario possiede più campi, ridenomino il campo con un numero per distinguerli tra loro
-                        AggiungiCampoControllerApplicativoBase contr = new AggiungiCampoControllerApplicativoBase();
-                        int num=0;
-                        if(e.getMessage().equals("Messaggio standard")) {               //C'è già un campo con lo stesso indirizzo salvato
+                    if (buttonType == buttonTypeOne) {
 
-                            num = contr.getNumeroMax(richiesta);
-                            num++;
-
-                        }
-
-                        else {                                                         //C'è un campo con lo stesso indirizzo nelle richieste
-                            num=Integer.parseInt(e.getMessage());
-                            num++;
-
-
-                        }
-                        //Modifico il nome del campo in base al numero
-                        String nomeCampo = richiesta.getNomeCampo();
-                        if (Character.isDigit(nomeCampo.charAt(nomeCampo.length() - 1))) {
-                            richiesta.setNomeCampo(nomeCampo.substring(0, nomeCampo.length() - 1) + Integer.toString(num));
-
-                        } else {
-                            richiesta.setNomeCampo(richiesta.getNomeCampo() + Integer.toString(num));
-                        }
-
-                        richiesta.setNum(num);
-                        System.out.println(richiesta.getNomeCampo());
-
-
-                        if (proprietario.getVip() == 1) {
-                            vip.inviaRichiestaGestore(richiesta, proprietario);
-
-                        } else {
-                               controller.inviaRichiestaGestore(richiesta, proprietario);
-                        }
+                        riprovaSalvataggio(richiesta, e, proprietario);
 
                     }
 
@@ -167,6 +135,50 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
             });
 
         }
+    }
+
+    public void riprovaSalvataggio(CampoBean richiesta, CampoEsistenteException e,ProprietarioBean proprietario) throws SystemException, CampoEsistenteException{
+
+        AggiungiCampoControllerApplicativo controller = new AggiungiCampoControllerApplicativoBase();
+        AggiungiCampoControllerApplicativoVip vip = new AggiungiCampoControllerApplicativoVip(controller);
+        AggiungiCampoControllerApplicativoBase contr = new AggiungiCampoControllerApplicativoBase();
+
+        int num=0;
+
+        if(e.getMessage().equals("Messaggio standard")) {               //C'è già un campo con lo stesso indirizzo salvato
+
+            num = contr.getNumeroMax(richiesta);
+            num++;
+
+        }
+
+        else {                                                         //C'è un campo con lo stesso indirizzo nelle richieste
+            num=Integer.parseInt(e.getMessage());
+            num++;
+
+
+        }
+        //Modifico il nome del campo in base al numero
+        String nomeCampo = richiesta.getNomeCampo();
+        if (Character.isDigit(nomeCampo.charAt(nomeCampo.length() - 1))) {
+            richiesta.setNomeCampo(nomeCampo.substring(0, nomeCampo.length() - 1) + Integer.toString(num));
+
+        } else {
+            richiesta.setNomeCampo(richiesta.getNomeCampo() + Integer.toString(num));
+        }
+
+        richiesta.setNum(num);
+        System.out.println(richiesta.getNomeCampo());
+
+
+        if (proprietario.getVip() == 1) {
+            vip.inviaRichiestaGestore(richiesta, proprietario);
+
+        } else {
+            controller.inviaRichiestaGestore(richiesta, proprietario);
+        }
+
+
     }
 
 }

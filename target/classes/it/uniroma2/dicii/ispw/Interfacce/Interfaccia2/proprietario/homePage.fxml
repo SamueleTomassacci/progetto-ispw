@@ -14,17 +14,27 @@
             <Image url="@../../../immagini/sfondoLogin2.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="prova" layoutX="739.0" layoutY="89.0" prefHeight="102.0" prefWidth="443.0" text="    Inserire username e password">
+      <Label fx:id="titolo" layoutX="787.0" layoutY="52.0" prefHeight="102.0" prefWidth="393.0" text="Bentornato Samuele !">
          <font>
-            <Font size="29.0" />
+            <Font name="System Bold" size="37.0" />
          </font>
       </Label>
-      <Button layoutX="938.0" layoutY="420.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="120.0" text="Conferma">
+      <Button layoutX="879.0" layoutY="467.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#gestisci" prefHeight="86.0" prefWidth="237.0" text="Gestisci prenotazioni">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="938.0" layoutY="267.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="120.0" text="Registrati">
+      <Button layoutX="876.0" layoutY="293.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#aggiungiCampo" prefHeight="86.0" prefWidth="237.0" text="Aggiungi campo">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="prova1" layoutX="828.0" layoutY="167.0" prefHeight="64.0" prefWidth="316.0" text="Scegli una delle opzioni:">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Button layoutX="1024.0" layoutY="687.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#diventaVip" prefHeight="48.0" prefWidth="141.0" text="Upgrade vip">
          <font>
             <Font size="20.0" />
          </font>
