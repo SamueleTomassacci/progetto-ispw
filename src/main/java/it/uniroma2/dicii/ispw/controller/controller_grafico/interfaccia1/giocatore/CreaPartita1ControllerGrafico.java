@@ -9,6 +9,7 @@ import it.uniroma2.dicii.ispw.utils.bean.GiocatoreBean;
 import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
+import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,15 +27,19 @@ public class CreaPartita1ControllerGrafico extends ControllerGrafico {
     public Button creaRichiesta;
 
     @Override
-    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, CredentialsBean cred) throws SystemException {
+    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, CredentialsBean cred) {
         this.id=id;
         SessionManager manager = SessionManager.getSessionManager();
         Session session = manager.getSessionFromId(id);
         GiocatoreBean giocatore = session.getGiocatoreBean();
     }
 
-    public void clickBack() throws SystemException, IOException {
-        ChangePage istanza=ChangePage.getChangePage();
-        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/homePage.fxml",this.id,null,null,null);
+    public void clickBack() {
+        try {
+            ChangePage istanza=ChangePage.getChangePage();
+            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/homePage.fxml",this.id,null,null,null);
+        } catch (SystemException e) {
+            GestoreEccezioni.getInstance().handleException(e);
+        }
     }
 }

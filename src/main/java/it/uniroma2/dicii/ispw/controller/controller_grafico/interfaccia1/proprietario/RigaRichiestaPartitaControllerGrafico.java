@@ -3,6 +3,7 @@ package it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.propri
 import it.uniroma2.dicii.ispw.controller.controller_applicativo.CreaPartita.CreaPartitaControllerApplicativo;
 import it.uniroma2.dicii.ispw.model.partita.statoPartita;
 import it.uniroma2.dicii.ispw.utils.bean.PartitaBean;
+import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Pane;
@@ -29,20 +30,28 @@ public class RigaRichiestaPartitaControllerGrafico {
 
 
 
-    public void clickAccetta() throws SystemException {
-        CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
-        bean.setStato(statoPartita.Accettata);
-        controllerApplicativo.rispondiRichiesta(bean);
-        father.rimuoviRiga(pane);
+    public void clickAccetta() {
+        try {
+            CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
+            bean.setStato(statoPartita.Accettata);
+            controllerApplicativo.rispondiRichiesta(bean);
+            father.rimuoviRiga(pane);
+        } catch (SystemException e){
+            GestoreEccezioni.getInstance().handleException(e);
+        }
     }
-    public void clickRifiuta() throws SystemException {
-        CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
-        bean.setStato(statoPartita.Rifiutata);
-        controllerApplicativo.rispondiRichiesta(bean);
-        father.rimuoviRiga(pane);
+    public void clickRifiuta() {
+        try {
+            CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
+            bean.setStato(statoPartita.Rifiutata);
+            controllerApplicativo.rispondiRichiesta(bean);
+            father.rimuoviRiga(pane);
+        } catch (SystemException e) {
+            GestoreEccezioni.getInstance().handleException(e);
+        }
     }
 
-    public void inizializza(GestionalePartiteControllerGrafico gestionalePartiteControllerGrafico, PartitaBean richiestaPartita) throws SystemException {
+    public void inizializza(GestionalePartiteControllerGrafico gestionalePartiteControllerGrafico, PartitaBean richiestaPartita) {
         bean = richiestaPartita;
         father = gestionalePartiteControllerGrafico;
         creatore.setText(richiestaPartita.getCreatore());

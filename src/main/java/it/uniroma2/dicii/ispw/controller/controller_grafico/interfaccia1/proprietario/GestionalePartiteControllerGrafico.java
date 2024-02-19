@@ -31,40 +31,44 @@ public class GestionalePartiteControllerGrafico extends ControllerGrafico {
 
     private IdSessioneBean id;
     @Override
-    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, CredentialsBean cred) throws SystemException {
+    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, CredentialsBean cred) {
         // imposto nome utente nella pagina
 
-       try {
-           this.id = id;
-           SessionManager manager = SessionManager.getSessionManager();
-           Session session = manager.getSessionFromId(id);
-           ProprietarioBean proprietario = session.getProprietarioBean();
-           username.setText(proprietario.getUsername());
+        this.id = id;
+        SessionManager manager = SessionManager.getSessionManager();
+        Session session = manager.getSessionFromId(id);
+        ProprietarioBean proprietario = session.getProprietarioBean();
+        username.setText(proprietario.getUsername());
 
-           // inizializzazione delle richieste
+        // inizializzazione delle richieste
 
-           aggiornaLista();
-       }catch(IOException e){
-           GestoreEccezioni.getInstance().handleException(new SystemException());
-       }
+        aggiornaLista();
     }
 
-    public void clickBack() throws SystemException, IOException {
-        ChangePage istanza = ChangePage.getChangePage();
-        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml",this.id,null,null,null);
+    public void clickBack() {
+        try {
+            ChangePage istanza = ChangePage.getChangePage();
+            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml",this.id,null,null,null);
+        } catch (SystemException e) {
+            GestoreEccezioni.getInstance().handleException(e);
+        }
     }
 
-    public void aggiornaLista() throws SystemException, IOException {
-        // Inizializzazione righe della tabella
-        UserBean user = new UserBean(username.getText());
-        CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
-        List<PartitaBean> lista = controllerApplicativo.inizializzaRichiesteProprietario(user);
-        for (PartitaBean partita : lista){
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/crea_partita/rigaRichiestaProprietario.fxml"));
-            Node rigaRichiesta = loader.load();
-            RigaRichiestaPartitaControllerGrafico controller = loader.getController();
-            controller.inizializza(this,partita);
-            vbox.getChildren().add(rigaRichiesta);
+    public void aggiornaLista() {
+        try {
+            // Inizializzazione righe della tabella
+            UserBean user = new UserBean(username.getText());
+            CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
+            List<PartitaBean> lista = controllerApplicativo.inizializzaRichiesteProprietario(user);
+            for (PartitaBean partita : lista) {
+                FXMLLoader loader = new FXMLLoader(Main.class.getResource("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/crea_partita/rigaRichiestaProprietario.fxml"));
+                Node rigaRichiesta = loader.load();
+                RigaRichiestaPartitaControllerGrafico controller = loader.getController();
+                controller.inizializza(this, partita);
+                vbox.getChildren().add(rigaRichiesta);
+            }
+        } catch (SystemException | IOException e) {
+            GestoreEccezioni.getInstance().handleException(e);
         }
     }
 

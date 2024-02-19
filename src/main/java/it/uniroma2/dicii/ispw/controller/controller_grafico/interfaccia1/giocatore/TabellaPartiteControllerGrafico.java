@@ -3,6 +3,7 @@ package it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.giocat
 import it.uniroma2.dicii.ispw.controller.controller_applicativo.CreaPartita.CreaPartitaControllerApplicativo;
 import it.uniroma2.dicii.ispw.utils.bean.PartitaBean;
 import it.uniroma2.dicii.ispw.utils.bean.UserBean;
+import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -58,14 +59,18 @@ public class TabellaPartiteControllerGrafico implements  ListaPartiteObserver {
         listaPartite.refresh();
     }
 
-    public void inizializzaLista(CreaPartitaControllerApplicativo controllerApplicativo, UserBean user) throws SystemException {
+    public void inizializzaLista(CreaPartitaControllerApplicativo controllerApplicativo, UserBean user){
         statoColumn.setCellValueFactory(new PropertyValueFactory<>("stato"));
         campoColumn.setCellValueFactory(new PropertyValueFactory<>("nomeCampo"));
         indirizzoColumn.setCellValueFactory(new PropertyValueFactory<>("indirizzoCampo"));
         dataColumn.setCellValueFactory(new PropertyValueFactory<>("giorno"));
         oraColumn.setCellValueFactory(new PropertyValueFactory<>("oraInizio"));
         giocatoriColumn.setCellValueFactory(new PropertyValueFactory<>("numGiocatori"));
-        controllerApplicativo.inizializzaPartite(user,this);
+        try {
+            controllerApplicativo.inizializzaPartite(user,this);
+        } catch (SystemException e) {
+            GestoreEccezioni.getInstance().handleException(e);
+        }
     }
 
 }

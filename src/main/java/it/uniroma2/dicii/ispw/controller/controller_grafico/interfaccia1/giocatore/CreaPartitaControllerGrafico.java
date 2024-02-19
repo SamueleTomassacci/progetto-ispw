@@ -8,6 +8,7 @@ import it.uniroma2.dicii.ispw.utils.SessionManager;
 import it.uniroma2.dicii.ispw.utils.bean.*;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
+import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,7 +40,8 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
 
 
     @Override
-    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, CredentialsBean cred) throws SystemException {
+    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, CredentialsBean cred) {
+        try {
         // creo un istanza di controller applicativo
         controllerApplicativo = new CreaPartitaControllerApplicativo();
 
@@ -74,11 +76,7 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
         // Aggiunta ChangeListener
         sceltaCampo.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             // Azione da eseguire quando l'utente seleziona un elemento nella ComboBox
-            try {
-                inizializzaSceltaOrario();
-            } catch (SystemException e) {
-                throw new RuntimeException(e);
-            }
+            inizializzaSceltaOrario();
         });
 
         // Inizializza numGiocatori
@@ -91,7 +89,6 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
             }
         });
         // Inizializza Finestra Partite Create
-        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/crea_partita/TabellaStatoPartite.fxml"));
             Parent content = loader.load();
             // Imposta il contenuto dello ScrollPane
@@ -100,17 +97,22 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
             tabellaPartiteControllerGrafico = loader.getController();
             //inizializza la lista
             tabellaPartiteControllerGrafico.inizializzaLista(controllerApplicativo, new UserBean(username.getText()));
-        } catch (IOException e) {
+        } catch (IOException | SystemException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public void clickBack() throws SystemException, IOException {
-        ChangePage istanza = ChangePage.getChangePage();
-        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/homePage.fxml",this.id,null,null,null);
+    public void clickBack() {
+        try {
+            ChangePage istanza = ChangePage.getChangePage();
+            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/homePage.fxml",this.id,null,null,null);
+        } catch (SystemException e) {
+            GestoreEccezioni.getInstance().handleException(e);
+        }
     }
 
-    public void inizializzaSceltaOrario() throws SystemException {
+    public void inizializzaSceltaOrario() {
+        try {
         // Otteniamo la stringa selezionata dalla ComboBox
         String campoSelezionato = (String) sceltaCampo.getSelectionModel().getSelectedItem();
 
@@ -123,14 +125,20 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
         PartitaCampoDataBean richiestaorari = new PartitaCampoDataBean(nomeCampo, indirizzoCampo, sceltaData.getValue());
 
         // chiamiamo la funzione inizializzasceltaOrari
-        List<LocalTime> orariPossibili = controllerApplicativo.inizializzasceltaOrario(richiestaorari);
+        List<LocalTime> orariPossibili = null;
+
+            orariPossibili = controllerApplicativo.inizializzasceltaOrario(richiestaorari);
+
         for (LocalTime orario : orariPossibili) {
             sceltaOrario.getItems().add(orario);
         }
+        } catch (SystemException e) {
+            GestoreEccezioni.getInstance().handleException(e);
+        }
     }
 
-    public void clickRichiesta() throws SystemException {
-        // Prendiamo l'input inserito dall'utente
+    public void clickRichiesta() {
+        try {// Prendiamo l'input inserito dall'utente
         // Otteniamo il campo
         String campoSelezionato = (String) sceltaCampo.getSelectionModel().getSelectedItem();
         String[] partiCampo = campoSelezionato.split(" - ");
@@ -145,11 +153,19 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
         RichiestaPartitaBean richiesta = new RichiestaPartitaBean(nomeCampo, indirizzoCampo, giorno, orarioInizio, (Integer) numGiocatori.getValue(), username.getText());
         // prendiamo un istanza di controller
         controllerApplicativo.inviaRichiesta(richiesta);
+
+        } catch (SystemException e) {
+            GestoreEccezioni.getInstance().handleException(e);
+        }
     }
 
-    public void clickAggiorna() throws SystemException {
+    public void clickAggiorna() {
         // Aggiorniamo la la lista delle partite visualizzate
-        controllerApplicativo.aggiornaRichieste();
+        try {
+            controllerApplicativo.aggiornaRichieste();
+        } catch (SystemException e) {
+            GestoreEccezioni.getInstance().handleException(e);
+        }
     }
 
 }

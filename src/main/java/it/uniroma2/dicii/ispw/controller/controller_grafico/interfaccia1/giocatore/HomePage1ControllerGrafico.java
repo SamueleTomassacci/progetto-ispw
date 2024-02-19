@@ -36,7 +36,7 @@ public class HomePage1ControllerGrafico extends ControllerGrafico {
     @FXML
     private Label ruoloGiocatore;
     @Override
-    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, CredentialsBean cred) throws SystemException {
+    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, CredentialsBean cred){
         this.id=id;
         SessionManager manager = SessionManager.getSessionManager();
         Session session = manager.getSessionFromId(id);
@@ -46,9 +46,13 @@ public class HomePage1ControllerGrafico extends ControllerGrafico {
         eta.setText(String.valueOf(giocatore.getEta()));
         ruoloGiocatore.setText("  "+giocatore.getRuoloBasket());
     }
-    public void clickCreazione() throws IOException , SystemException{
-        ChangePage istanza=ChangePage.getChangePage();
-        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/crea_partita/CreaPartita1.fxml",this.id,null,null,null);
+    public void clickCreazione(){
+        try {
+            ChangePage istanza=ChangePage.getChangePage();
+            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/crea_partita/CreaPartita1.fxml",this.id,null,null,null);
+        } catch (SystemException e) {
+            GestoreEccezioni.getInstance().handleException(e);
+        }
     }
 
     public void logout() {
