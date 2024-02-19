@@ -19,6 +19,7 @@ module it.uniroma2.dicii.ispw {
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
     requires java.mail;
+    requires com.opencsv;
 
     opens it.uniroma2.dicii.ispw to javafx.fxml;
     opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1 to javafx.fxml;

@@ -23,7 +23,7 @@ public class GestoreDAO {
             ResultSet rs = ps.executeQuery();
             rs.next();
 
-            gestoreModel = new GestoreModel(rs.getString("username"),rs.getString("pass"),rs.getInt("idUser"));
+            gestoreModel = new GestoreModel(rs.getString("username"),rs.getString("email"),rs.getInt("idUser"));
 
 
             return gestoreModel;

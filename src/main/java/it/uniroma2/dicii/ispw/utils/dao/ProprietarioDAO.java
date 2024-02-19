@@ -21,7 +21,7 @@ public class ProprietarioDAO {
             ResultSet rs = ps.executeQuery();
             rs.next();
 
-            proprietarioModel = new ProprietarioModel(rs.getString("username"),rs.getString("pass"),rs.getInt("idUser"),rs.getString("nome"),rs.getString("cognome"),rs.getInt("vip"));
+            proprietarioModel = new ProprietarioModel(rs.getString("username"),rs.getString("email"),rs.getInt("idUser"),rs.getString("nome"),rs.getString("cognome"),rs.getInt("vip"));
 
             return proprietarioModel;
         } catch (SQLException e) {

@@ -7,10 +7,7 @@ import it.uniroma2.dicii.ispw.model.ProprietarioModel;
 import it.uniroma2.dicii.ispw.utils.Session;
 import it.uniroma2.dicii.ispw.utils.SessionManager;
 import it.uniroma2.dicii.ispw.utils.bean.*;
-import it.uniroma2.dicii.ispw.utils.dao.GestoreDAO;
-import it.uniroma2.dicii.ispw.utils.dao.GiocatoreDAO;
-import it.uniroma2.dicii.ispw.utils.dao.LoginDAO;
-import it.uniroma2.dicii.ispw.utils.dao.ProprietarioDAO;
+import it.uniroma2.dicii.ispw.utils.dao.*;
 import it.uniroma2.dicii.ispw.utils.exceptions.LoginException;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 
@@ -27,8 +24,12 @@ public class LoginControllerApplicativo {
             CredentialsModel credentialsModel = new CredentialsModel(cred);
             if (loginDao.checkIfExists(credentialsModel)) {
 
-                GestoreDAO gestoreDAO = new GestoreDAO();
+                GestoreDAOCSV gestoreDAO= new GestoreDAOCSV();  //Commentare per cambiare tipo di dao
+
+                //GestoreDAO gestoreDAO = new GestoreDAO();
+
                 gestore = gestoreDAO.getGestoreByUsername(cred.getUsername());
+
                 cred.setIdSession(gestore.getCode());
                 GestoreBean gestoreBean = new GestoreBean(gestore);
                 SessionManager manager = SessionManager.getSessionManager();
