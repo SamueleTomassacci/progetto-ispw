@@ -1,0 +1,1072 @@
+Index: src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/PartiteCreateControllerGrafico.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.giocatore;\r\n\r\npublic class PartiteCreateControllerGrafico {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/PartiteCreateControllerGrafico.java b/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/PartiteCreateControllerGrafico.java
+--- a/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/PartiteCreateControllerGrafico.java	(revision bab9abc236ecd692c87f216ce4907f793e906798)
++++ b/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/PartiteCreateControllerGrafico.java	(date 1708362363391)
+@@ -1,4 +1,43 @@
+ package it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.giocatore;
+ 
+-public class PartiteCreateControllerGrafico {
++import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.ControllerGrafico;
++import it.uniroma2.dicii.ispw.utils.ChangePage;
++import it.uniroma2.dicii.ispw.utils.Session;
++import it.uniroma2.dicii.ispw.utils.SessionManager;
++import it.uniroma2.dicii.ispw.utils.bean.CredentialsBean;
++import it.uniroma2.dicii.ispw.utils.bean.GiocatoreBean;
++import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
++import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
++import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
++import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
++import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
++import javafx.event.ActionEvent;
++import javafx.fxml.FXML;
++import javafx.scene.control.Button;
++
++public class PartiteCreateControllerGrafico extends ControllerGrafico {
++
++    private IdSessioneBean id;
++    @FXML
++    public Button profilo;
++
++    @Override
++    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, CredentialsBean cred) throws SystemException {
++        this.id=id;
++        SessionManager manager=SessionManager.getSessionManager();
++        Session session=manager.getSessionFromId(id);
++        GiocatoreBean giocatoreBean=session.getGiocatoreBean();
++        String nome=giocatoreBean.getUsername();
++        profilo.setText(nome);
++    }
++
++    public void clickHome(ActionEvent actionEvent) {
++        try {
++            ChangePage istanza = ChangePage.getChangePage();
++            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/homePage.fxml", this.id, null, null,null);
++        } catch (SystemException e) {
++            e.printStackTrace();
++            GestoreEccezioni.getInstance().handleException(e);
++        }
++    }
+ }
+Index: src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/CreaPartitaControllerGrafico.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.giocatore;\r\n\r\npublic class CreaPartitaControllerGrafico {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/CreaPartitaControllerGrafico.java b/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/CreaPartitaControllerGrafico.java
+--- a/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/CreaPartitaControllerGrafico.java	(revision bab9abc236ecd692c87f216ce4907f793e906798)
++++ b/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/CreaPartitaControllerGrafico.java	(date 1708365720185)
+@@ -1,4 +1,175 @@
+ package it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.giocatore;
+ 
+-public class CreaPartitaControllerGrafico {
++import it.uniroma2.dicii.ispw.controller.controller_applicativo.CreaPartita.CreaPartitaControllerApplicativo;
++import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.ControllerGrafico;
++import it.uniroma2.dicii.ispw.utils.ChangePage;
++import it.uniroma2.dicii.ispw.utils.Session;
++import it.uniroma2.dicii.ispw.utils.SessionManager;
++import it.uniroma2.dicii.ispw.utils.bean.*;
++import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
++import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
++import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
++import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
++import javafx.fxml.FXML;
++import javafx.scene.control.*;
++import javafx.util.StringConverter;
++
++import java.time.LocalDate;
++import java.time.LocalTime;
++import java.util.List;
++
++public class CreaPartitaControllerGrafico extends ControllerGrafico {
++    @FXML
++    public Spinner<LocalTime> OrarioPartita;
++    @FXML
++    public ComboBox<String> CampoPartita;
++    @FXML
++    public TextField sceltaData;
++
++    @FXML
++    public Button home;
++    public Spinner<Integer> numeroGiocatori;
++
++    private IdSessioneBean id;
++    @FXML
++    public Button profilo;
++
++
++    @Override
++    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, CredentialsBean cred){
++        this.id=id;
++        SessionManager manager=SessionManager.getSessionManager();
++        Session session=manager.getSessionFromId(id);
++        GiocatoreBean giocatoreBean=session.getGiocatoreBean();
++        String nome=giocatoreBean.getUsername();
++        profilo.setText(nome);
++
++        // Inizializzazione della scelta campo
++        sceltaData.setPromptText(String.valueOf(LocalDate.now()));
++
++        //inizializza scelta Campo
++        CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
++        ListaNomeCampoBean listaNomeCampoBean = null;
++        try {
++            listaNomeCampoBean = controllerApplicativo.inizializzasceltaCampo();
++        } catch (SystemException e) {
++            throw new RuntimeException(e);
++        }
++        List<PartitaCampoBean> listaCampi = listaNomeCampoBean.getLista();
++        for (PartitaCampoBean campo : listaCampi) {
++            CampoPartita.getItems().add(campo.getNome() + " - " + campo.getIndirizzo());
++        }
++        // Aggiunta ChangeListener
++        CampoPartita.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
++            // Azione da eseguire quando l'utente seleziona un elemento nella ComboBox
++            inizializzaSceltaOrario();
++        });
++
++        // Inizializza scelta Numero Giocatori
++        // Inizializza numGiocatori
++        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(4, 10, 4, 2);
++        numeroGiocatori.setValueFactory(valueFactory);
++
++        numeroGiocatori.valueProperty().addListener((observable, oldValue, newValue) -> {
++            if ((int) newValue % 2 != 0) {
++                numeroGiocatori.getValueFactory().setValue((int) newValue + 1);
++            }
++        });
++
++    }
++
++    public void inizializzaSceltaOrario(){
++        // Otteniamo la stringa selezionata dalla ComboBox
++        String campoSelezionato = (String) CampoPartita.getSelectionModel().getSelectedItem();
++
++        // Otteniamo il nome e l'indirizzo separatamente dalla stringa selezionata
++        String[] partiCampo = campoSelezionato.split(" - ");
++        String nomeCampo = partiCampo[0];
++        String indirizzoCampo = partiCampo[1];
++
++        // creiamo il bean PartitaCampoDataBean
++        PartitaCampoDataBean richiestaorari = new PartitaCampoDataBean(nomeCampo, indirizzoCampo, LocalDate.parse(sceltaData.getText()));
++
++        // chiamiamo la funzione inizializzasceltaOrari
++        CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
++        List<LocalTime> orariPossibili = null;
++        try {
++            orariPossibili = controllerApplicativo.inizializzasceltaOrario(richiestaorari);
++        } catch (SystemException e) {
++            throw new RuntimeException(e);
++        }
++        // Inizializza lo SpinnerValueFactory
++        List<LocalTime> finalOrariPossibili = orariPossibili;
++        SpinnerValueFactory<LocalTime> valueFactory = new SpinnerValueFactory<LocalTime>() {
++            @Override
++            public void decrement(int steps) {
++                LocalTime value = getValue();
++                int index = finalOrariPossibili.indexOf(value);
++                if (index == -1) {
++                    index = finalOrariPossibili.size() - 1;
++                } else {
++                    index = Math.max(0, index - steps);
++                }
++                setValue(finalOrariPossibili.get(index));
++            }
++
++            @Override
++            public void increment(int steps) {
++                LocalTime value = getValue();
++                int index = finalOrariPossibili.indexOf(value);
++                if (index == -1) {
++                    index = 0;
++                } else {
++                    index = Math.min(finalOrariPossibili.size() - 1, index + steps);
++                }
++                setValue(finalOrariPossibili.get(index));
++            }
++        };
++        valueFactory.setValue(orariPossibili.get(0));
++        valueFactory.setConverter(new StringConverter<LocalTime>() {
++            @Override
++            public String toString(LocalTime object) {
++                return object.toString();
++            }
++
++            @Override
++            public LocalTime fromString(String string) {
++                return LocalTime.parse(string);
++            }
++        });
++        valueFactory.setWrapAround(true); // Permette la navigazione circolare degli orari
++        OrarioPartita.setValueFactory(valueFactory);
++    }
++
++    public void inviaRichiesta() {
++        // Prendiamo l'input inserito dall'utente
++        // Otteniamo il campo
++        String campoSelezionato = (String) CampoPartita.getSelectionModel().getSelectedItem();
++        String[] partiCampo = campoSelezionato.split(" - ");
++        String nomeCampo = partiCampo[0];
++        String indirizzoCampo = partiCampo[1];
++        // Otteniamo la data
++        LocalDate giorno = LocalDate.parse(sceltaData.getText());
++        // Otteniamo l'orario selezionato
++        LocalTime orarioInizio = OrarioPartita.getValue();
++        // Creiamo una RichiestaPartitaBean
++        RichiestaPartitaBean richiesta = new RichiestaPartitaBean(nomeCampo, indirizzoCampo, giorno, orarioInizio, (Integer) numeroGiocatori.getValue(), profilo.getText());
++        // prendiamo un istanza di controller
++        CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
++        try {
++            controllerApplicativo.inviaRichiesta(richiesta);
++        } catch (SystemException e) {
++            throw new RuntimeException(e);
++        }
++    }
++
++    public void clickHome() {
++        try {
++            ChangePage istanza = ChangePage.getChangePage();
++            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/homePage.fxml", this.id, null, null,null);
++        } catch (SystemException e) {
++            e.printStackTrace();
++            GestoreEccezioni.getInstance().handleException(e);
++        }
++    }
+ }
+Index: src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/creaPartita.fxml
+===================================================================
+diff --git a/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/creaPartita.fxml b/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/creaPartita.fxml
+deleted file mode 100644
+--- a/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/creaPartita.fxml	(revision bab9abc236ecd692c87f216ce4907f793e906798)
++++ /dev/null	(revision bab9abc236ecd692c87f216ce4907f793e906798)
+@@ -1,112 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.ComboBox?>
+-<?import javafx.scene.control.Label?>
+-<?import javafx.scene.control.TextField?>
+-<?import javafx.scene.image.Image?>
+-<?import javafx.scene.image.ImageView?>
+-<?import javafx.scene.layout.Pane?>
+-<?import javafx.scene.text.Font?>
+-
+-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1200.0" stylesheets="@../../styleHomePage.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.proprietario.aggiungi_campo.AggiungiCampo2ControllerGrafico">
+-   <children>
+-      <ImageView fitHeight="769.0" fitWidth="1206.0" layoutX="-5.0" layoutY="-7.0" opacity="0.84">
+-         <image>
+-            <Image url="@../../../../immagini/top-view-composition-with-basketballs.jpg" />
+-         </image>
+-      </ImageView>
+-      <Label layoutX="337.0" layoutY="21.0" prefHeight="53.0" prefWidth="565.0" text="Inserire la informazioni richieste" textFill="WHITE">
+-         <font>
+-            <Font name="System Bold" size="36.0" />
+-         </font>
+-      </Label>
+-      <TextField fx:id="nome" layoutX="146.0" layoutY="191.0" prefHeight="56.0" prefWidth="251.0" promptText="Nome del campo">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </TextField>
+-      <TextField fx:id="indirizzo" layoutX="145.0" layoutY="331.0" prefHeight="56.0" prefWidth="251.0" promptText="Indirizzo del campo">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </TextField>
+-      <TextField fx:id="iban" layoutX="148.0" layoutY="473.0" prefHeight="56.0" prefWidth="251.0" promptText="Iban del proprietario">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </TextField>
+-      <ComboBox fx:id="apertura" layoutX="467.0" layoutY="190.0" prefHeight="52.0" prefWidth="263.0" />
+-      <Label layoutX="466.0" layoutY="134.0" prefHeight="35.0" prefWidth="276.0" text="Scegli orario di apertura:">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </Label>
+-      <Label layoutX="471.0" layoutY="292.0" prefHeight="35.0" prefWidth="276.0" text="Scegli orario di chiusura:">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </Label>
+-      <ComboBox fx:id="chiusura" layoutX="467.0" layoutY="331.0" prefHeight="58.0" prefWidth="263.0" />
+-      <Button fx:id="scegliFoto" layoutX="833.0" layoutY="578.0" mnemonicParsing="false" onAction="#scegliFoto" prefHeight="51.0" prefWidth="263.0" text="Scegli foto del campo">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </Button>
+-      <Button layoutX="832.0" layoutY="660.0" mnemonicParsing="false" onAction="#invia" prefHeight="51.0" prefWidth="263.0" text="Invia richiesta">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </Button>
+-      <Button layoutX="55.0" layoutY="51.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="152.0" text="Home">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-         <graphic>
+-            <ImageView fitHeight="32.0" fitWidth="47.0">
+-               <image>
+-                  <Image url="@../../../../immagini/freccia.png" />
+-               </image>
+-            </ImageView>
+-         </graphic>
+-      </Button>
+-      <Button fx:id="profilo" layoutX="969.0" layoutY="47.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="197.0">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-         <graphic>
+-            <ImageView fitHeight="39.0" fitWidth="48.0">
+-               <image>
+-                  <Image url="@../../../../immagini/vecteezy_utente-profilo-icona-profilo-avatar-utente-icona-maschio_20911737.png" />
+-               </image>
+-            </ImageView>
+-         </graphic>
+-      </Button>
+-      <ImageView fx:id="immagine" fitHeight="318.0" fitWidth="304.0" layoutX="807.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true" />
+-      <TextField fx:id="tariffa" layoutX="470.0" layoutY="472.0" prefHeight="56.0" prefWidth="251.0" promptText="Tariffa oraria">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </TextField>
+-      <Label layoutX="172.0" layoutY="137.0" prefHeight="35.0" prefWidth="276.0" text="Nome del campo:">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </Label>
+-      <Label layoutX="165.0" layoutY="289.0" prefHeight="35.0" prefWidth="276.0" text="Indirizzo del campo:">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </Label>
+-      <Label layoutX="161.0" layoutY="433.0" prefHeight="35.0" prefWidth="276.0" text="Iban del proprietario:">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </Label>
+-      <Label layoutX="485.0" layoutY="434.0" prefHeight="35.0" prefWidth="276.0" text="Tariffa oraria:">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </Label>
+-   </children>
+-</Pane>
+Index: src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/CreaPartita2.fxml
+===================================================================
+diff --git a/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/CreaPartita2.fxml b/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/CreaPartita2.fxml
+deleted file mode 100644
+--- a/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/CreaPartita2.fxml	(revision bab9abc236ecd692c87f216ce4907f793e906798)
++++ /dev/null	(revision bab9abc236ecd692c87f216ce4907f793e906798)
+@@ -1,70 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.image.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.text.*?>
+-
+-<AnchorPane prefHeight="720" prefWidth="1200" stylesheets="@../../interfaccia1/styleHomePage.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.proprietario.CompilaScheda1ControllerGrafico">
+-   <children>
+-      <ImageView fitHeight="797.0" fitWidth="1208.0" layoutX="-2.0" opacity="0.3">
+-         <image>
+-            <Image url="@../../../immagini/top-view-composition-with-basketballs.jpg" />
+-         </image>
+-      </ImageView>
+-      <Label layoutX="5.0" layoutY="7.0" prefHeight="40.0" prefWidth="158.0" textAlignment="CENTER" />
+-      <Button fx:id="backButton" layoutX="-2.0" layoutY="14.0" mnemonicParsing="false" onAction="#backHome" prefHeight="66.0" prefWidth="173.0" styleClass="control-button" text="Back">
+-         <font>
+-            <Font name="System Bold" size="26.0" />
+-         </font>
+-         <graphic>
+-            <ImageView fitHeight="48.0" fitWidth="75.0">
+-               <image>
+-                  <Image url="@../../../immagini/freccia.png" />
+-               </image>
+-            </ImageView>
+-         </graphic>
+-      </Button>
+-      <Button fx:id="homeButton" layoutX="6.0" layoutY="728.0" mnemonicParsing="false" onAction="#backHome" prefHeight="69.0" prefWidth="158.0" styleClass="control-button" text="Home">
+-         <font>
+-            <Font name="System Bold" size="26.0" />
+-         </font>
+-         <graphic>
+-            <ImageView fitHeight="51.0" fitWidth="46.0">
+-               <image>
+-                  <Image url="@../../../immagini/home.png" />
+-               </image>
+-            </ImageView>
+-         </graphic>
+-      </Button>
+-      <DatePicker layoutX="251.0" layoutY="228.0" prefHeight="48.0" prefWidth="701.0" promptText="Data" />
+-      <ComboBox layoutX="251.0" layoutY="386.0" prefHeight="48.0" prefWidth="701.0" promptText="Campo" />
+-      <ComboBox layoutX="250.0" layoutY="552.0" prefHeight="48.0" prefWidth="701.0" promptText="Orario" />
+-      <Text layoutX="421.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crea una nuova Partita">
+-         <font>
+-            <Font size="36.0" />
+-         </font>
+-      </Text>
+-      <TextArea layoutX="643.0" layoutY="200.0" prefHeight="503.0" prefWidth="505.0" visible="false" />
+-      <Text layoutX="661.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0">
+-         <font>
+-            <Font size="36.0" />
+-         </font>
+-      </Text>
+-      <Button fx:id="homeButton11" layoutX="805.0" layoutY="706.0" mnemonicParsing="false" onAction="#backHome" prefHeight="56.0" prefWidth="276.0" text="Invia richiesta">
+-         <font>
+-            <Font name="System Bold" size="26.0" />
+-         </font>
+-      </Button>
+-      <ImageView fitHeight="48.0" fitWidth="49.0" layoutX="1057.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+-         <image>
+-            <Image url="@../../../immagini/palla.png" />
+-         </image>
+-      </ImageView>
+-      <Label layoutX="1048.0" layoutY="80.0" text="Username" textAlignment="CENTER">
+-         <font>
+-            <Font name="System Bold Italic" size="14.0" />
+-         </font>
+-      </Label>
+-   </children>
+-</AnchorPane>
+Index: target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/Giocatore/creaPartita.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/Giocatore/creaPartita.fxml b/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/Giocatore/creaPartita.fxml
+deleted file mode 100644
+--- a/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/Giocatore/creaPartita.fxml	(revision bab9abc236ecd692c87f216ce4907f793e906798)
++++ /dev/null	(revision bab9abc236ecd692c87f216ce4907f793e906798)
+@@ -1,112 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.ComboBox?>
+-<?import javafx.scene.control.Label?>
+-<?import javafx.scene.control.TextField?>
+-<?import javafx.scene.image.Image?>
+-<?import javafx.scene.image.ImageView?>
+-<?import javafx.scene.layout.Pane?>
+-<?import javafx.scene.text.Font?>
+-
+-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1200.0" stylesheets="@../../styleHomePage.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.proprietario.aggiungi_campo.AggiungiCampo2ControllerGrafico">
+-   <children>
+-      <ImageView fitHeight="769.0" fitWidth="1206.0" layoutX="-5.0" layoutY="-7.0" opacity="0.84">
+-         <image>
+-            <Image url="@../../../../immagini/top-view-composition-with-basketballs.jpg" />
+-         </image>
+-      </ImageView>
+-      <Label layoutX="337.0" layoutY="21.0" prefHeight="53.0" prefWidth="565.0" text="Inserire la informazioni richieste" textFill="WHITE">
+-         <font>
+-            <Font name="System Bold" size="36.0" />
+-         </font>
+-      </Label>
+-      <TextField fx:id="nome" layoutX="146.0" layoutY="191.0" prefHeight="56.0" prefWidth="251.0" promptText="Nome del campo">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </TextField>
+-      <TextField fx:id="indirizzo" layoutX="145.0" layoutY="331.0" prefHeight="56.0" prefWidth="251.0" promptText="Indirizzo del campo">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </TextField>
+-      <TextField fx:id="iban" layoutX="148.0" layoutY="473.0" prefHeight="56.0" prefWidth="251.0" promptText="Iban del proprietario">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </TextField>
+-      <ComboBox fx:id="apertura" layoutX="467.0" layoutY="190.0" prefHeight="52.0" prefWidth="263.0" />
+-      <Label layoutX="466.0" layoutY="134.0" prefHeight="35.0" prefWidth="276.0" text="Scegli orario di apertura:">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </Label>
+-      <Label layoutX="471.0" layoutY="292.0" prefHeight="35.0" prefWidth="276.0" text="Scegli orario di chiusura:">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </Label>
+-      <ComboBox fx:id="chiusura" layoutX="467.0" layoutY="331.0" prefHeight="58.0" prefWidth="263.0" />
+-      <Button fx:id="scegliFoto" layoutX="833.0" layoutY="578.0" mnemonicParsing="false" onAction="#scegliFoto" prefHeight="51.0" prefWidth="263.0" text="Scegli foto del campo">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </Button>
+-      <Button layoutX="832.0" layoutY="660.0" mnemonicParsing="false" onAction="#invia" prefHeight="51.0" prefWidth="263.0" text="Invia richiesta">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </Button>
+-      <Button layoutX="55.0" layoutY="51.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="152.0" text="Home">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-         <graphic>
+-            <ImageView fitHeight="32.0" fitWidth="47.0">
+-               <image>
+-                  <Image url="@../../../../immagini/freccia.png" />
+-               </image>
+-            </ImageView>
+-         </graphic>
+-      </Button>
+-      <Button fx:id="profilo" layoutX="969.0" layoutY="47.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="197.0">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-         <graphic>
+-            <ImageView fitHeight="39.0" fitWidth="48.0">
+-               <image>
+-                  <Image url="@../../../../immagini/vecteezy_utente-profilo-icona-profilo-avatar-utente-icona-maschio_20911737.png" />
+-               </image>
+-            </ImageView>
+-         </graphic>
+-      </Button>
+-      <ImageView fx:id="immagine" fitHeight="318.0" fitWidth="304.0" layoutX="807.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true" />
+-      <TextField fx:id="tariffa" layoutX="470.0" layoutY="472.0" prefHeight="56.0" prefWidth="251.0" promptText="Tariffa oraria">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </TextField>
+-      <Label layoutX="172.0" layoutY="137.0" prefHeight="35.0" prefWidth="276.0" text="Nome del campo:">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </Label>
+-      <Label layoutX="165.0" layoutY="289.0" prefHeight="35.0" prefWidth="276.0" text="Indirizzo del campo:">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </Label>
+-      <Label layoutX="161.0" layoutY="433.0" prefHeight="35.0" prefWidth="276.0" text="Iban del proprietario:">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </Label>
+-      <Label layoutX="485.0" layoutY="434.0" prefHeight="35.0" prefWidth="276.0" text="Tariffa oraria:">
+-         <font>
+-            <Font size="24.0" />
+-         </font>
+-      </Label>
+-   </children>
+-</Pane>
+Index: src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/StatoPartiteCreate.fxml
+===================================================================
+diff --git a/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/StatoPartiteCreate.fxml b/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/StatoPartiteCreate.fxml
+deleted file mode 100644
+--- a/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/StatoPartiteCreate.fxml	(revision bab9abc236ecd692c87f216ce4907f793e906798)
++++ /dev/null	(revision bab9abc236ecd692c87f216ce4907f793e906798)
+@@ -1,59 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.ListView?>
+-<?import javafx.scene.image.Image?>
+-<?import javafx.scene.image.ImageView?>
+-<?import javafx.scene.layout.Pane?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
+-
+-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720" prefWidth="1200" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+-   <children>
+-      <ImageView fitHeight="720.0" fitWidth="1206.0" layoutX="-2.0" layoutY="-1.0" opacity="0.5" pickOnBounds="true">
+-         <image>
+-            <Image url="@../../../immagini/top-view-composition-with-basketballs.jpg" />
+-         </image>
+-      </ImageView>
+-      <Text layoutX="490.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stato Partite Create">
+-         <font>
+-            <Font name="System Bold" size="24.0" />
+-         </font>
+-      </Text>
+-      <ImageView fitHeight="49.0" fitWidth="49.0" layoutX="1125.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+-         <image>
+-            <Image url="@../../../immagini/palla.png" />
+-         </image>
+-      </ImageView>
+-      <Text layoutX="1121.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+-         <font>
+-            <Font name="System Bold Italic" size="12.0" />
+-         </font>
+-      </Text>
+-      <ListView layoutX="127.0" layoutY="141.0" prefHeight="439.0" prefWidth="949.0" />
+-      <Button layoutX="62.0" layoutY="42.0" mnemonicParsing="false" text="back">
+-         <graphic>
+-            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+-               <image>
+-                  <Image url="@../../../immagini/freccia.png" />
+-               </image>
+-            </ImageView>
+-         </graphic>
+-         <font>
+-            <Font name="System Bold" size="26.0" />
+-         </font>
+-      </Button>
+-      <Button layoutX="56.0" layoutY="624.0" mnemonicParsing="false" text="home">
+-         <graphic>
+-            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+-               <image>
+-                  <Image url="@../../../immagini/home.png" />
+-               </image>
+-            </ImageView>
+-         </graphic>
+-         <font>
+-            <Font name="System Bold" size="26.0" />
+-         </font>
+-      </Button>
+-   </children>
+-</Pane>
+Index: target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/Giocatore/CreaPartita2.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/Giocatore/CreaPartita2.fxml b/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/Giocatore/CreaPartita2.fxml
+deleted file mode 100644
+--- a/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/Giocatore/CreaPartita2.fxml	(revision bab9abc236ecd692c87f216ce4907f793e906798)
++++ /dev/null	(revision bab9abc236ecd692c87f216ce4907f793e906798)
+@@ -1,70 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.image.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.text.*?>
+-
+-<AnchorPane prefHeight="720" prefWidth="1200" stylesheets="@../../interfaccia1/styleHomePage.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.proprietario.CompilaScheda1ControllerGrafico">
+-   <children>
+-      <ImageView fitHeight="797.0" fitWidth="1208.0" layoutX="-2.0" opacity="0.3">
+-         <image>
+-            <Image url="@../../../immagini/top-view-composition-with-basketballs.jpg" />
+-         </image>
+-      </ImageView>
+-      <Label layoutX="5.0" layoutY="7.0" prefHeight="40.0" prefWidth="158.0" textAlignment="CENTER" />
+-      <Button fx:id="backButton" layoutX="-2.0" layoutY="14.0" mnemonicParsing="false" onAction="#backHome" prefHeight="66.0" prefWidth="173.0" styleClass="control-button" text="Back">
+-         <font>
+-            <Font name="System Bold" size="26.0" />
+-         </font>
+-         <graphic>
+-            <ImageView fitHeight="48.0" fitWidth="75.0">
+-               <image>
+-                  <Image url="@../../../immagini/freccia.png" />
+-               </image>
+-            </ImageView>
+-         </graphic>
+-      </Button>
+-      <Button fx:id="homeButton" layoutX="6.0" layoutY="728.0" mnemonicParsing="false" onAction="#backHome" prefHeight="69.0" prefWidth="158.0" styleClass="control-button" text="Home">
+-         <font>
+-            <Font name="System Bold" size="26.0" />
+-         </font>
+-         <graphic>
+-            <ImageView fitHeight="51.0" fitWidth="46.0">
+-               <image>
+-                  <Image url="@../../../immagini/home.png" />
+-               </image>
+-            </ImageView>
+-         </graphic>
+-      </Button>
+-      <DatePicker layoutX="251.0" layoutY="228.0" prefHeight="48.0" prefWidth="701.0" promptText="Data" />
+-      <ComboBox layoutX="251.0" layoutY="386.0" prefHeight="48.0" prefWidth="701.0" promptText="Campo" />
+-      <ComboBox layoutX="250.0" layoutY="552.0" prefHeight="48.0" prefWidth="701.0" promptText="Orario" />
+-      <Text layoutX="421.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crea una nuova Partita">
+-         <font>
+-            <Font size="36.0" />
+-         </font>
+-      </Text>
+-      <TextArea layoutX="643.0" layoutY="200.0" prefHeight="503.0" prefWidth="505.0" visible="false" />
+-      <Text layoutX="661.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0">
+-         <font>
+-            <Font size="36.0" />
+-         </font>
+-      </Text>
+-      <Button fx:id="homeButton11" layoutX="805.0" layoutY="706.0" mnemonicParsing="false" onAction="#backHome" prefHeight="56.0" prefWidth="276.0" text="Invia richiesta">
+-         <font>
+-            <Font name="System Bold" size="26.0" />
+-         </font>
+-      </Button>
+-      <ImageView fitHeight="48.0" fitWidth="49.0" layoutX="1057.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+-         <image>
+-            <Image url="@../../../immagini/palla.png" />
+-         </image>
+-      </ImageView>
+-      <Label layoutX="1048.0" layoutY="80.0" text="Username" textAlignment="CENTER">
+-         <font>
+-            <Font name="System Bold Italic" size="14.0" />
+-         </font>
+-      </Label>
+-   </children>
+-</AnchorPane>
+Index: target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/Giocatore/StatoPartiteCreate.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/Giocatore/StatoPartiteCreate.fxml b/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/Giocatore/StatoPartiteCreate.fxml
+deleted file mode 100644
+--- a/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/Giocatore/StatoPartiteCreate.fxml	(revision bab9abc236ecd692c87f216ce4907f793e906798)
++++ /dev/null	(revision bab9abc236ecd692c87f216ce4907f793e906798)
+@@ -1,59 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.ListView?>
+-<?import javafx.scene.image.Image?>
+-<?import javafx.scene.image.ImageView?>
+-<?import javafx.scene.layout.Pane?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
+-
+-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720" prefWidth="1200" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+-   <children>
+-      <ImageView fitHeight="720.0" fitWidth="1206.0" layoutX="-2.0" layoutY="-1.0" opacity="0.5" pickOnBounds="true">
+-         <image>
+-            <Image url="@../../../immagini/top-view-composition-with-basketballs.jpg" />
+-         </image>
+-      </ImageView>
+-      <Text layoutX="490.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stato Partite Create">
+-         <font>
+-            <Font name="System Bold" size="24.0" />
+-         </font>
+-      </Text>
+-      <ImageView fitHeight="49.0" fitWidth="49.0" layoutX="1125.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+-         <image>
+-            <Image url="@../../../immagini/palla.png" />
+-         </image>
+-      </ImageView>
+-      <Text layoutX="1121.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+-         <font>
+-            <Font name="System Bold Italic" size="12.0" />
+-         </font>
+-      </Text>
+-      <ListView layoutX="127.0" layoutY="141.0" prefHeight="439.0" prefWidth="949.0" />
+-      <Button layoutX="62.0" layoutY="42.0" mnemonicParsing="false" text="back">
+-         <graphic>
+-            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+-               <image>
+-                  <Image url="@../../../immagini/freccia.png" />
+-               </image>
+-            </ImageView>
+-         </graphic>
+-         <font>
+-            <Font name="System Bold" size="26.0" />
+-         </font>
+-      </Button>
+-      <Button layoutX="56.0" layoutY="624.0" mnemonicParsing="false" text="home">
+-         <graphic>
+-            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+-               <image>
+-                  <Image url="@../../../immagini/home.png" />
+-               </image>
+-            </ImageView>
+-         </graphic>
+-         <font>
+-            <Font name="System Bold" size="26.0" />
+-         </font>
+-      </Button>
+-   </children>
+-</Pane>
+Index: src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.giocatore;\r\n\r\nimport it.uniroma2.dicii.ispw.Main;\r\nimport it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.ControllerGrafico;\r\nimport it.uniroma2.dicii.ispw.utils.ChangePage;\r\nimport it.uniroma2.dicii.ispw.utils.Session;\r\nimport it.uniroma2.dicii.ispw.utils.SessionManager;\r\nimport it.uniroma2.dicii.ispw.utils.bean.CredentialsBean;\r\nimport it.uniroma2.dicii.ispw.utils.bean.GiocatoreBean;\r\nimport it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;\r\nimport it.uniroma2.dicii.ispw.utils.bean.ProprietarioBean;\r\nimport it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;\r\nimport it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;\r\nimport it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;\r\nimport it.uniroma2.dicii.ispw.utils.exceptions.SystemException;\r\nimport javafx.event.ActionEvent;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.control.Label;\r\nimport javafx.stage.Stage;\r\n\r\nimport java.io.IOException;\r\n\r\npublic class HomePageControllerGrafico extends ControllerGrafico {\r\n    private IdSessioneBean idSession;\r\n    @FXML\r\n    public Label messaggioBenvenuto;\r\n\r\n    @Override\r\n    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, CredentialsBean cred) throws SystemException {\r\n        this.idSession=id;\r\n        SessionManager manager=SessionManager.getSessionManager();\r\n        Session session=manager.getSessionFromId(id);\r\n        GiocatoreBean giocatoreBean=session.getGiocatoreBean();\r\n        String nome=giocatoreBean.getUsername();\r\n        messaggioBenvenuto.setText(\"Bentornato \"+nome+\"!\");\r\n    }\r\n\r\n    public void creaPartita() {\r\n        try {\r\n            ChangePage istanza = ChangePage.getChangePage();\r\n            istanza.cambiaPagina(\"/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/aggiungi_campo/inviaRichiesta.fxml\", this.idSession, null, null,null);\r\n        } catch (SystemException e) {\r\n            e.printStackTrace();\r\n            GestoreEccezioni.getInstance().handleException(e);\r\n        }\r\n    }\r\n\r\n    public void statoPartite() {\r\n        try {\r\n            ChangePage istanza = ChangePage.getChangePage();\r\n            istanza.cambiaPagina(\"/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/aggiungi_campo/inviaRichiesta.fxml\", this.idSession, null, null,null);\r\n        } catch (SystemException e) {\r\n            e.printStackTrace();\r\n            GestoreEccezioni.getInstance().handleException(e);\r\n        }\r\n    }\r\n\r\n    public void logout() {\r\n        try {\r\n            SessionManager.getSessionManager().rimuoviSessione(idSession);\r\n            ChangePage istanza = ChangePage.getChangePage();\r\n\r\n            Stage stagePrim = istanza.getStage();\r\n            FXMLLoader loader = new FXMLLoader(Main.class.getResource(\"/it/uniroma2/dicii/ispw/interfacce/interfaccia2/loginPage2.fxml\"));\r\n            Scene scene = null;\r\n\r\n            scene = new Scene(loader.load(), 1200, 760);\r\n\r\n            stagePrim.setScene(scene);\r\n            stagePrim.show();\r\n\r\n        }catch (IOException e) {\r\n            SystemException exception = new SystemException();\r\n\r\n            exception.initCause(e);\r\n            GestoreEccezioni.getInstance().handleException(e);\r\n        }\r\n\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.java b/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.java
+--- a/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.java	(revision bab9abc236ecd692c87f216ce4907f793e906798)
++++ b/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.java	(date 1708360864849)
+@@ -40,7 +40,7 @@
+     public void creaPartita() {
+         try {
+             ChangePage istanza = ChangePage.getChangePage();
+-            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/aggiungi_campo/inviaRichiesta.fxml", this.idSession, null, null,null);
++            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/crea_partita/creaPartita.fxml", this.idSession, null, null,null);
+         } catch (SystemException e) {
+             e.printStackTrace();
+             GestoreEccezioni.getInstance().handleException(e);
+@@ -50,7 +50,7 @@
+     public void statoPartite() {
+         try {
+             ChangePage istanza = ChangePage.getChangePage();
+-            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/aggiungi_campo/inviaRichiesta.fxml", this.idSession, null, null,null);
++            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/crea_partita/statoPartiteCreate.fxml", this.idSession, null, null,null);
+         } catch (SystemException e) {
+             e.printStackTrace();
+             GestoreEccezioni.getInstance().handleException(e);
+Index: src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>USER= user\r\nPASS= user\r\nDB_URL = jdbc:mysql://localhost:3306/playbasket\r\nPASS_EMAIL=b@Js9C-uy_w49BW\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties b/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties
+--- a/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties	(revision bab9abc236ecd692c87f216ce4907f793e906798)
++++ b/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties	(date 1708359509624)
+@@ -1,4 +1,4 @@
+ USER= user
+ PASS= user
+-DB_URL = jdbc:mysql://localhost:3306/playbasket
++DB_URL = jdbc:mysql://localhost:3307/playbasket
+ PASS_EMAIL=b@Js9C-uy_w49BW
+Index: .idea/libraries/mysql_connector_j_8_0_31__4_.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/mysql_connector_j_8_0_31__4_.xml b/.idea/libraries/mysql_connector_j_8_0_31__4_.xml
+new file mode 100644
+--- /dev/null	(date 1708359509891)
++++ b/.idea/libraries/mysql_connector_j_8_0_31__4_.xml	(date 1708359509891)
+@@ -0,0 +1,9 @@
++<component name="libraryTable">
++  <library name="mysql-connector-j-8.0.31 (4)">
++    <CLASSES>
++      <root url="jar://$PROJECT_DIR$/lib/mysql-connector-j-8.0.31.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES />
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34\" name=\"Changes\" comment=\"Commit di prova\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/gestore/GestisciRichieste2ControllerGrafico.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/gestore/Richiesta2ControllerGrafico.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/gestore/gestisciRichieste.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/campi_img/campo4pic.png\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/campi_img/campo4pic.png\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/Login1ControllerGrafico.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/Login1ControllerGrafico.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/gestore/HomePage1ControllerGrafico.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/gestore/HomePage1ControllerGrafico.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/HomePage1ControllerGrafico.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/HomePage1ControllerGrafico.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/HomePage1ControllerGrafico.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/HomePage1ControllerGrafico.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/Accesso2ControllerGrafico.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/Accesso2ControllerGrafico.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/Login2ControllerGrafico.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/Login2ControllerGrafico.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/HomePage2ControllerGrafico.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/HomePage2ControllerGrafico.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/aggiungi_campo/AggiungiCampo2ControllerGrafico.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/aggiungi_campo/AggiungiCampo2ControllerGrafico.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/module-info.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/module-info.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/gestore/homePage.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/gestore/homePage.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/homePage.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/homePage.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/homePage.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/homePage.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/aggiungi_campo/crea_partita/GestionaleRichieste.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/gestisci_prenotazioni/GestionaleRichieste.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/aggiungi_campo/inviaRichiesta.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/aggiungi_campo/inviaRichiesta.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/homePage.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/homePage.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Proprietario/homePage.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Proprietario/homePage.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/gestore/homePage.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/gestore/homePage.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/proprietario/aggiungi_campo/inviaRichiesta.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/proprietario/aggiungi_campo/inviaRichiesta.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/proprietario/homePage.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/proprietario/homePage.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/gestore/HomePage1ControllerGrafico.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/gestore/HomePage1ControllerGrafico.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/HomePage1ControllerGrafico.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/HomePage1ControllerGrafico.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/SalvaInvia1ControllerGrafico.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/SalvaInvia1ControllerGrafico.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/Accesso2ControllerGrafico.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/Accesso2ControllerGrafico.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/Login2ControllerGrafico.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/Login2ControllerGrafico.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/HomePage2ControllerGrafico.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/HomePage2ControllerGrafico.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/aggiungi_campo/AggiungiCampo2ControllerGrafico.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/aggiungi_campo/AggiungiCampo2ControllerGrafico.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/module-info.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/module-info.class\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Enum\" />\r\n        <option value=\"Interface\" />\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"CSS File\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Merge.Settings\">\r\n    <option name=\"BRANCH\" value=\"origin/master\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 6\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2c7bIP4CenUynN8yTL9socEXFfE\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;D:/Programma Vero ISPW/progetto-ispw/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore&quot;,\r\n    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.6195402&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Programma Vero ISPW\\progetto-ispw\\src\\main\\resources\\it\\uniroma2\\dicii\\ispw\\interfacce\\interfaccia2\\giocatore\" />\r\n      <recent name=\"C:\\Users\\samut\\OneDrive\\Desktop\\progettoISPW\\progetto-ispw\\src\\main\\resources\\it\\uniroma2\\dicii\\ispw\\immagini\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\samut\\OneDrive\\Desktop\\progettoISPW\\progetto-ispw\\src\\main\\resources\\it\\uniroma2\\dicii\\ispw\\interfacce\\interfaccia2\\proprietario\\gestisci_prenotazioni\" />\r\n      <recent name=\"C:\\Users\\samut\\OneDrive\\Desktop\\progettoISPW\\progetto-ispw\\lib\" />\r\n      <recent name=\"D:\\ISPW\\PlayBasket\\progettoISPW\\src\\main\\resources\\it\\uniroma2\\dicii\\ispw\\Immagini\" />\r\n      <recent name=\"D:\\ISPW\\PlayBasket\\progettoISPW\\src\\main\\resources\\it\\uniroma2\\dicii\\ispw\\Interfacce\\Interfaccia2\" />\r\n      <recent name=\"D:\\ISPW\\PlayBasket\\progettoISPW\\src\\main\\resources\\it\\uniroma2\\dicii\\ispw\\Interfacce\\Interfaccia1\\Proprietario\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"it.uniroma2.dicii.ispw.Main\" />\r\n      <module name=\"progettoISPW\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"it.uniroma2.dicii.ispw.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34\" name=\"Changes\" comment=\"\" />\r\n      <created>1707465484716</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1707465484716</updated>\r\n      <workItem from=\"1707465486005\" duration=\"4061000\" />\r\n      <workItem from=\"1707472455689\" duration=\"30000\" />\r\n      <workItem from=\"1707472552549\" duration=\"4638000\" />\r\n      <workItem from=\"1707481311472\" duration=\"81000\" />\r\n      <workItem from=\"1707581077617\" duration=\"1142000\" />\r\n      <workItem from=\"1707583331254\" duration=\"355000\" />\r\n      <workItem from=\"1707583710884\" duration=\"370000\" />\r\n      <workItem from=\"1707584142427\" duration=\"104000\" />\r\n      <workItem from=\"1707584259834\" duration=\"2162000\" />\r\n      <workItem from=\"1707593600216\" duration=\"2089000\" />\r\n      <workItem from=\"1707732198357\" duration=\"1183000\" />\r\n      <workItem from=\"1707733408404\" duration=\"10469000\" />\r\n      <workItem from=\"1707747763327\" duration=\"9939000\" />\r\n      <workItem from=\"1707758407340\" duration=\"3000\" />\r\n      <workItem from=\"1707811818264\" duration=\"14761000\" />\r\n      <workItem from=\"1707840350726\" duration=\"1128000\" />\r\n      <workItem from=\"1707841579760\" duration=\"157000\" />\r\n      <workItem from=\"1707842518338\" duration=\"124000\" />\r\n      <workItem from=\"1707842663153\" duration=\"1030000\" />\r\n      <workItem from=\"1707844898151\" duration=\"81000\" />\r\n      <workItem from=\"1707849734319\" duration=\"95000\" />\r\n      <workItem from=\"1707849846883\" duration=\"475000\" />\r\n      <workItem from=\"1707862570171\" duration=\"75000\" />\r\n      <workItem from=\"1707898290973\" duration=\"3169000\" />\r\n      <workItem from=\"1707906042166\" duration=\"11926000\" />\r\n      <workItem from=\"1707989010767\" duration=\"25818000\" />\r\n      <workItem from=\"1708023755592\" duration=\"2328000\" />\r\n      <workItem from=\"1708032022776\" duration=\"679000\" />\r\n      <workItem from=\"1708033868606\" duration=\"10000\" />\r\n      <workItem from=\"1708074454604\" duration=\"8825000\" />\r\n      <workItem from=\"1708100641937\" duration=\"72000\" />\r\n      <workItem from=\"1708102394467\" duration=\"47000\" />\r\n      <workItem from=\"1708102452374\" duration=\"1436000\" />\r\n      <workItem from=\"1708120513715\" duration=\"2797000\" />\r\n      <workItem from=\"1708161097864\" duration=\"19949000\" />\r\n      <workItem from=\"1708252363824\" duration=\"17618000\" />\r\n      <workItem from=\"1708343945125\" duration=\"3017000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"aggiornato path file fxml\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707476027454</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707476027454</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Changes by samut\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707476132341</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707476132341</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Cambio pagina\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707748026058</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707748026058</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Continuo parte samuele\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707812072891</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707812072891</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Continuo parte samuele\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707823089185</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707823089185</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Continuo parte samuele\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707837026554</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707837026554</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"7\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <ignored-roots>\r\n      <path value=\"$PROJECT_DIR$/..\" />\r\n    </ignored-roots>\r\n    <MESSAGE value=\"aggiornato path file fxml\" />\r\n    <MESSAGE value=\"Changes by samut\" />\r\n    <MESSAGE value=\"Cambio pagina\" />\r\n    <MESSAGE value=\"Continuo parte samuele\" />\r\n    <MESSAGE value=\"Commit di prova\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Commit di prova\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision bab9abc236ecd692c87f216ce4907f793e906798)
++++ b/.idea/workspace.xml	(date 1708365720228)
+@@ -5,42 +5,30 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="Commit di prova">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/gestore/GestisciRichieste2ControllerGrafico.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/gestore/Richiesta2ControllerGrafico.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/gestore/gestisciRichieste.fxml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_8_0_31__4_.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/crea_partita/creaPartita.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_02_2024_18_42__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_02_2024_18_42__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2024_12_46__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2024_12_46__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2024_12_53__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2024_12_53__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2024_14_50__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2024_14_50__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2024_14_50__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2024_14_50__Changes_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_02_2024_15_38__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_02_2024_15_38__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_02_2024_14_23__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_02_2024_14_23__Changes_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/campi_img/campo4pic.png" beforeDir="false" afterPath="$PROJECT_DIR$/campi_img/campo4pic.png" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/Login1ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/Login1ControllerGrafico.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/gestore/HomePage1ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/gestore/HomePage1ControllerGrafico.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/HomePage1ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/HomePage1ControllerGrafico.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/HomePage1ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/HomePage1ControllerGrafico.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/Accesso2ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/Accesso2ControllerGrafico.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/Login2ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/Login2ControllerGrafico.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/CreaPartitaControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/CreaPartitaControllerGrafico.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/HomePage2ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/HomePage2ControllerGrafico.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/aggiungi_campo/AggiungiCampo2ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/aggiungi_campo/AggiungiCampo2ControllerGrafico.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/PartiteCreateControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/PartiteCreateControllerGrafico.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/gestore/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/gestore/homePage.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/homePage.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/homePage.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/aggiungi_campo/crea_partita/GestionaleRichieste.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/gestisci_prenotazioni/GestionaleRichieste.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/aggiungi_campo/inviaRichiesta.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/aggiungi_campo/inviaRichiesta.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/homePage.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Proprietario/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Proprietario/homePage.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/gestore/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/gestore/homePage.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/proprietario/aggiungi_campo/inviaRichiesta.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/proprietario/aggiungi_campo/inviaRichiesta.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/proprietario/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/proprietario/homePage.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/gestore/HomePage1ControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/gestore/HomePage1ControllerGrafico.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/HomePage1ControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/HomePage1ControllerGrafico.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/SalvaInvia1ControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/SalvaInvia1ControllerGrafico.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/Accesso2ControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/Accesso2ControllerGrafico.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/Login2ControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/Login2ControllerGrafico.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/CreaPartita2.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/StatoPartiteCreate.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/creaPartita.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/Giocatore/CreaPartita2.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/Giocatore/StatoPartiteCreate.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/Giocatore/creaPartita.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/CreaPartitaControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/CreaPartitaControllerGrafico.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/HomePage2ControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/HomePage2ControllerGrafico.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/aggiungi_campo/AggiungiCampo2ControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/aggiungi_campo/AggiungiCampo2ControllerGrafico.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/PartiteCreateControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/PartiteCreateControllerGrafico.class" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -75,39 +63,40 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;D:/Programma Vero ISPW/progetto-ispw/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore&quot;,
+-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.6195402&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "ASKED_ADD_EXTERNAL_FILES": "true",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "WebServerToolWindowFactoryState": "false",
++    "codeWithMe.voiceChat.enabledByDefault": "false",
++    "git-widget-placeholder": "master",
++    "last_opened_file_path": "D:/Progetto ISPW da modificare/progetto-ispw/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore",
++    "list.type.of.created.stylesheet": "CSS",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "project.structure.last.edited": "Modules",
++    "project.structure.proportion": "0.15",
++    "project.structure.side.proportion": "0.6195402",
++    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
++      <recent name="D:\Progetto ISPW da modificare\progetto-ispw\src\main\resources\it\uniroma2\dicii\ispw\interfacce\interfaccia2\giocatore" />
+       <recent name="D:\Programma Vero ISPW\progetto-ispw\src\main\resources\it\uniroma2\dicii\ispw\interfacce\interfaccia2\giocatore" />
+       <recent name="C:\Users\samut\OneDrive\Desktop\progettoISPW\progetto-ispw\src\main\resources\it\uniroma2\dicii\ispw\immagini" />
+     </key>
+     <key name="MoveFile.RECENT_KEYS">
++      <recent name="D:\Progetto ISPW da modificare\progetto-ispw\src\main\resources\it\uniroma2\dicii\ispw\interfacce\interfaccia2\giocatore\crea_partita" />
+       <recent name="C:\Users\samut\OneDrive\Desktop\progettoISPW\progetto-ispw\src\main\resources\it\uniroma2\dicii\ispw\interfacce\interfaccia2\proprietario\gestisci_prenotazioni" />
+       <recent name="C:\Users\samut\OneDrive\Desktop\progettoISPW\progetto-ispw\lib" />
+       <recent name="D:\ISPW\PlayBasket\progettoISPW\src\main\resources\it\uniroma2\dicii\ispw\Immagini" />
+       <recent name="D:\ISPW\PlayBasket\progettoISPW\src\main\resources\it\uniroma2\dicii\ispw\Interfacce\Interfaccia2" />
+-      <recent name="D:\ISPW\PlayBasket\progettoISPW\src\main\resources\it\uniroma2\dicii\ispw\Interfacce\Interfaccia1\Proprietario" />
+     </key>
+   </component>
+   <component name="RunManager">
+@@ -175,6 +164,7 @@
+       <workItem from="1708161097864" duration="19949000" />
+       <workItem from="1708252363824" duration="17618000" />
+       <workItem from="1708343945125" duration="3017000" />
++      <workItem from="1708359403454" duration="6305000" />
+     </task>
+     <task id="LOCAL-00001" summary="aggiornato path file fxml">
+       <option name="closed" value="true" />
+Index: src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/crea_partita/creaPartita.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/crea_partita/creaPartita.fxml b/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/crea_partita/creaPartita.fxml
+new file mode 100644
+--- /dev/null	(date 1708365127718)
++++ b/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/crea_partita/creaPartita.fxml	(date 1708365127718)
+@@ -0,0 +1,79 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<?import javafx.scene.control.Button?>
++<?import javafx.scene.control.ComboBox?>
++<?import javafx.scene.control.Label?>
++<?import javafx.scene.control.Spinner?>
++<?import javafx.scene.control.TextField?>
++<?import javafx.scene.image.Image?>
++<?import javafx.scene.image.ImageView?>
++<?import javafx.scene.layout.Pane?>
++<?import javafx.scene.text.Font?>
++
++<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1200.0" stylesheets="@../../styleHomePage.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.giocatore.CreaPartitaControllerGrafico">
++   <children>
++      <ImageView fitHeight="769.0" fitWidth="1206.0" layoutX="-5.0" layoutY="-7.0" opacity="0.84">
++         <image>
++            <Image url="@../../../../immagini/top-view-composition-with-basketballs.jpg" />
++         </image>
++      </ImageView>
++      <Label layoutX="341.0" layoutY="190.0" prefHeight="53.0" prefWidth="565.0" text="Inserire la informazioni richieste" textFill="WHITE">
++         <font>
++            <Font name="System Bold" size="36.0" />
++         </font>
++      </Label>
++      <Label layoutX="150.0" layoutY="363.0" prefHeight="35.0" prefWidth="276.0" text="Scegli il Campo:">
++         <font>
++            <Font size="24.0" />
++         </font>
++      </Label>
++      <Label layoutX="150.0" layoutY="482.0" prefHeight="35.0" prefWidth="111.0" text="Ora inizio:">
++         <font>
++            <Font size="24.0" />
++         </font>
++      </Label>
++      <ComboBox fx:id="CampoPartita" layoutX="150.0" layoutY="399.0" prefHeight="42.0" prefWidth="442.0" promptText="Campo" />
++      <Button layoutX="763.0" layoutY="339.0" mnemonicParsing="false" onAction="#inviaRichiesta" prefHeight="121.0" prefWidth="212.0" text="Invia Richiesta">
++         <font>
++            <Font size="24.0" />
++         </font>
++      </Button>
++      <Button fx:id="home" layoutX="55.0" layoutY="51.0" mnemonicParsing="false" onAction="#clickHome" prefHeight="51.0" prefWidth="152.0" text="Home">
++         <font>
++            <Font size="24.0" />
++         </font>
++         <graphic>
++            <ImageView fitHeight="32.0" fitWidth="47.0">
++               <image>
++                  <Image url="@../../../../immagini/home.png" />
++               </image>
++            </ImageView>
++         </graphic>
++      </Button>
++      <Button fx:id="profilo" layoutX="969.0" layoutY="47.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="197.0">
++         <font>
++            <Font size="24.0" />
++         </font>
++         <graphic>
++            <ImageView fitHeight="39.0" fitWidth="48.0">
++               <image>
++                  <Image url="@../../../../immagini/palla.png" />
++               </image>
++            </ImageView>
++         </graphic>
++      </Button>
++      <Label layoutX="150.0" layoutY="264.0" prefHeight="35.0" prefWidth="276.0" text="Scegli il giorno:">
++         <font>
++            <Font size="24.0" />
++         </font>
++      </Label>
++      <TextField fx:id="sceltaData" layoutX="150.0" layoutY="298.0" prefHeight="42.0" prefWidth="442.0" promptText="17/09/22" />
++      <Spinner fx:id="OrarioPartita" layoutX="261.0" layoutY="479.0" prefHeight="42.0" prefWidth="97.0" />
++      <Label layoutX="371.0" layoutY="482.0" prefHeight="35.0" prefWidth="111.0" text="Giocatori:">
++         <font>
++            <Font size="24.0" />
++         </font>
++      </Label>
++      <Spinner fx:id="numeroGiocatori" layoutX="474.0" layoutY="479.0" prefHeight="42.0" prefWidth="97.0" />
++   </children>
++</Pane>

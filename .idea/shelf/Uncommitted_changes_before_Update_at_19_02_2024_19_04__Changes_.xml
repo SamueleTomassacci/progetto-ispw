@@ -1,0 +1,19 @@
+<changelist name="Uncommitted_changes_before_Update_at_19_02_2024_19_04_[Changes]" date="1708365867966" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_02_2024_19_04_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 19/02/2024 19:04 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/PartiteCreateControllerGrafico.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/PartiteCreateControllerGrafico.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_02_2024_19_04_[Changes]/PartiteCreateControllerGrafico.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/CreaPartitaControllerGrafico.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/CreaPartitaControllerGrafico.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_02_2024_19_04_[Changes]/CreaPartitaControllerGrafico.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_02_2024_19_04_[Changes]/HomePageControllerGrafico.class" />
+  </binary>
+</changelist>

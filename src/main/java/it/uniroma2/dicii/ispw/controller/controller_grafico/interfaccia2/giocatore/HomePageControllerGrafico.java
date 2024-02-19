@@ -40,7 +40,7 @@ public class HomePageControllerGrafico extends ControllerGrafico {
     public void creaPartita() {
         try {
             ChangePage istanza = ChangePage.getChangePage();
-            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/aggiungi_campo/inviaRichiesta.fxml", this.idSession, null, null,null);
+            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/crea_partita/creaPartita.fxml", this.idSession, null, null,null);
         } catch (SystemException e) {
             e.printStackTrace();
             GestoreEccezioni.getInstance().handleException(e);
@@ -50,7 +50,7 @@ public class HomePageControllerGrafico extends ControllerGrafico {
     public void statoPartite() {
         try {
             ChangePage istanza = ChangePage.getChangePage();
-            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/aggiungi_campo/inviaRichiesta.fxml", this.idSession, null, null,null);
+            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/crea_partita/statoPartiteCreate.fxml", this.idSession, null, null,null);
         } catch (SystemException e) {
             e.printStackTrace();
             GestoreEccezioni.getInstance().handleException(e);
