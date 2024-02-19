@@ -47,7 +47,7 @@
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/samut/OneDrive/Desktop/NightsOutProject",
+    "last_opened_file_path": "C:/Users/samut/OneDrive/Desktop/progettoISPW/progetto-ispw",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -138,6 +138,7 @@
       <workItem from="1708252363824" duration="18611000" />
       <workItem from="1708280420080" duration="213000" />
       <workItem from="1708281757810" duration="2840000" />
+      <workItem from="1708336422071" duration="1000000" />
     </task>
     <task id="LOCAL-00001" summary="aggiornato path file fxml">
       <option name="closed" value="true" />
