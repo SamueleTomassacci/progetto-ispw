@@ -43,7 +43,7 @@ public class Accesso2ControllerGrafico extends ControllerGrafico {
                 case PROPRIETARIO ->
                         istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/homePage.fxml", new IdSessioneBean(cred.getIdSession()), null, null,null);
                 case GIOCATORE -> {
-                    break;
+                        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/homePage.fxml", new IdSessioneBean((cred.getIdSession())), null, null, null);
                 }
                 case GESTORE ->{
                     break;

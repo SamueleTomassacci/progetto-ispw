@@ -48,7 +48,7 @@ public class CreaPartitaControllerApplicativo {
         LocalTime chiusura = campoDAO.getOrarioChiusura(richiestaOrari);
         // crea lista di orari possibili
         if(apertura.getMinute() != 0){
-            apertura = apertura.plusMinutes( 60-apertura.getMinute());
+            apertura = apertura.plusMinutes( (long) (60-apertura.getMinute()));
         }
         List<LocalTime> orariPossibili = new ArrayList<>();
         // popolazione degli orari ogni ora

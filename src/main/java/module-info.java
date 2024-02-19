@@ -32,5 +32,7 @@ module it.uniroma2.dicii.ispw {
     exports it.uniroma2.dicii.ispw;
     exports it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2;
     exports it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.proprietario;
+    exports it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.giocatore;
+
 
 }

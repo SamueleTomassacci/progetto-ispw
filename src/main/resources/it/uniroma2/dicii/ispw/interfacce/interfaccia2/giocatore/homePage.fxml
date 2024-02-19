@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1200.0" stylesheets="@../styleHomePage.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.giocatore.HomePageControllerGrafico">
+   <children>
+      <ImageView fitHeight="769.0" fitWidth="771.0" layoutX="-7.0" layoutY="-5.0">
+         <image>
+            <Image url="@../../../immagini/sfondoLogin2.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="messaggioBenvenuto" layoutX="787.0" layoutY="52.0" prefHeight="102.0" prefWidth="393.0" text="Bentornato Flavio !">
+         <font>
+            <Font name="System Bold" size="37.0" />
+         </font>
+      </Label>
+      <Button layoutX="868.0" layoutY="557.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="86.0" prefWidth="237.0" text="Partecipa partita">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="865.0" layoutY="271.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#creaPartita" prefHeight="86.0" prefWidth="237.0" text="Crea partita">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label layoutX="828.0" layoutY="167.0" prefHeight="64.0" prefWidth="316.0" text="Scegli una delle opzioni:">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Button layoutX="868.0" layoutY="407.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#statoPartite" prefHeight="86.0" prefWidth="237.0" text="Stato partite create">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

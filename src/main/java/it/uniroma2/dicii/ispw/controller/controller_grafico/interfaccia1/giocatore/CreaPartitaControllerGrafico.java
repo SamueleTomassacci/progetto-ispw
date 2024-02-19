@@ -154,4 +154,5 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
         // Aggiorniamo la la lista delle partite visualizzate
         controllerApplicativo.aggiornaRichieste();
     }
+
 }
