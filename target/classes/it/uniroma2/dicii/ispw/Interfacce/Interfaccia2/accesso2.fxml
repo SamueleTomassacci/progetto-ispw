@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1200.0" stylesheets="@styleHomePage.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.Accesso2ControllerGrafico">
+   <children>
+      <ImageView fitHeight="769.0" fitWidth="771.0" layoutX="-7.0" layoutY="-5.0">
+         <image>
+            <Image url="@../../immagini/sfondoLogin2.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="prova" layoutX="770.0" layoutY="278.0" prefHeight="102.0" prefWidth="443.0" text="    Inserire username e password">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <Label fx:id="prova1" layoutX="587.0" layoutY="16.0" prefHeight="105.0" prefWidth="160.0" text="Play" textFill="#e8722f">
+         <font>
+            <Font name="System Bold" size="72.0" />
+         </font>
+      </Label>
+      <Label fx:id="prova11" layoutX="770.0" layoutY="68.0" prefHeight="105.0" prefWidth="308.0" text="Basket">
+         <font>
+            <Font name="System Bold" size="72.0" />
+         </font>
+      </Label>
+      <Button layoutX="1018.0" layoutY="669.0" mnemonicParsing="false" onAction="#login" prefHeight="43.0" prefWidth="120.0" text="Conferma">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <PasswordField fx:id="password" layoutX="890.0" layoutY="480.0" prefHeight="52.0" prefWidth="207.0" promptText="Password">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </PasswordField>
+      <TextField fx:id="username" layoutX="887.0" layoutY="388.0" prefHeight="52.0" prefWidth="207.0" promptText="Username">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </TextField>
+      <Button layoutX="809.0" layoutY="667.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="120.0" text="Registrati">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="prova2" layoutX="773.0" layoutY="619.0" prefHeight="48.0" prefWidth="218.0" text="Non ancora registrato ?">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

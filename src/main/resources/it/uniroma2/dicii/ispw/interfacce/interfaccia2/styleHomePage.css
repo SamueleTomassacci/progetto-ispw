@@ -1,7 +1,30 @@
+
+.list-view {
+    -fx-background-color: #ff5c00; /* Colore dello sfondo della lista */
+}
+
+.list-view .list-cell {
+    -fx-text-fill: #333; /* Colore del testo degli elementi della lista */
+    -fx-font-size: 28px;
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: #ddd; /* Colore dello sfondo degli elementi selezionati */
+    -fx-text-fill: #000; /* Colore del testo degli elementi selezionati */
+}
 .button {
-    -fx-background-color: #E5D3A3;
-    -fx-text-fill: #000;
-    -fx-effect: dropshadow(three-pass-box, rgba(255,255, 255, 0.5), 10, 0, 10, 10);
-    -fx-background-radius: 15;
-    -fx-cursor: hand;
+    -fx-background-color: #ff5c00; /* Imposta il colore di sfondo del bottone */
+    -fx-text-fill: #000000; /* Imposta il colore del testo del bottone */
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.6) , 20,0,0,1 );
+    -fx-background-radius: 10px;
+}
+.button:hover {
+
+    -fx-cursor: hand; /* Cambia il cursore del mouse in una manina */
+}
+#profilo:hover{
+    -fx-cursor: default;
+}
+.combo-box .text{
+    -fx-font-size: 20px;
 }

@@ -83,7 +83,8 @@ public class CampoDAO {
                 File file = new File(filePath);
                 ConverterToFileEngineering converterToFile = new ConverterToFileEngineering();
                 converterToFile.fromInputStreamToFile(new ConverterBean(inputStream, file));
-                campo = new CampoModel(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getTime(4),rs.getTime(5),rs.getString(8),file,rs.getInt(9));
+                campo = new CampoModel(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getTime(4),rs.getTime(5),rs.getString(8),file);
+                campo.impostaNumeroCampo(rs.getInt(9));
                 lista.add(campo);
             }
             return lista;

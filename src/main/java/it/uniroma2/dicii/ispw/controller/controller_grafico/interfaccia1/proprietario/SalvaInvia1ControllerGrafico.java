@@ -9,8 +9,8 @@ import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.Session;
 import it.uniroma2.dicii.ispw.utils.SessionManager;
 import it.uniroma2.dicii.ispw.utils.bean.CampoBean;
+import it.uniroma2.dicii.ispw.utils.bean.CredentialsBean;
 import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
-import it.uniroma2.dicii.ispw.utils.bean.PartitaBean;
 import it.uniroma2.dicii.ispw.utils.bean.ProprietarioBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
@@ -22,7 +22,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 
-import java.io.IOException;
 
 
 public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
@@ -43,7 +42,7 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
     private Label iban;
     private final String page="/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml";
     @Override
-    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFotoBean, FotoBean foto,  PartitaBean richiestaPartita){
+    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFotoBean, FotoBean foto, CredentialsBean cred){
         this.id=id;
         this.campoSenzaFotoBean=campoSenzaFotoBean;
         this.foto=foto;
@@ -58,8 +57,8 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
     public void backHome() {
         try {
             ChangePage istanza = ChangePage.getChangePage();
-            istanza.cambiaPagina(this.page, this.id, null, null);
-        } catch (SystemException | IOException e) {
+            istanza.cambiaPagina(this.page, this.id, null, null,null);
+        } catch (SystemException e) {
             GestoreEccezioni.getInstance().handleException(e);
         }
     }
@@ -67,8 +66,8 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
     public void back() {
         try {
             ChangePage istanza = ChangePage.getChangePage();
-            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/AggiungiFoto.fxml", this.id, campoSenzaFotoBean, null);
-        } catch (SystemException | IOException e) {
+            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/AggiungiFoto.fxml", this.id, campoSenzaFotoBean, null,null);
+        } catch (SystemException e) {
             GestoreEccezioni.getInstance().handleException(e);
         }
     }
@@ -95,9 +94,9 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
                 controller.inviaRichiestaGestore(richiesta, proprietario);
             }
             ChangePage istanza = ChangePage.getChangePage();
-            istanza.cambiaPagina(this.page, this.id, null, null);
+            istanza.cambiaPagina(this.page, this.id, null, null,null);
 
-        } catch (SystemException | IOException exc) {
+        } catch (SystemException exc) {
             GestoreEccezioni.getInstance().handleException(exc);
 
         } catch (CampoEsistenteException e) {        //Nel caso in cui il campo inserito è già esistente gestisco l'eccezione andando a chiedere al proprietario, se il centro sportivo possiede più campi, in tal caso lo salvo
@@ -118,56 +117,68 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
                 try {
 
 
-                    if (buttonType == buttonTypeOne) {          //Il proprietario possiede più campi, ridenomino il campo con un numero per distinguerli tra loro
-                        AggiungiCampoControllerApplicativoBase contr = new AggiungiCampoControllerApplicativoBase();
-                        int num=0;
-                        if(e.getMessage().equals("Messaggio standard")) {               //C'è già un campo con lo stesso indirizzo salvato
+                    if (buttonType == buttonTypeOne) {
 
-                            num = contr.getNumeroMax(richiesta);
-                            num++;
-
-                        }
-
-                        else {                                                         //C'è un campo con lo stesso indirizzo nelle richieste
-                            num=Integer.parseInt(e.getMessage());
-                            num++;
-
-
-                        }
-                        //Modifico il nome del campo in base al numero
-                        String nomeCampo = richiesta.getNomeCampo();
-                        if (Character.isDigit(nomeCampo.charAt(nomeCampo.length() - 1))) {
-                            richiesta.setNomeCampo(nomeCampo.substring(0, nomeCampo.length() - 1) + Integer.toString(num));
-
-                        } else {
-                            richiesta.setNomeCampo(richiesta.getNomeCampo() + Integer.toString(num));
-                        }
-
-                        richiesta.setNum(num);
-                        System.out.println(richiesta.getNomeCampo());
-
-
-                        if (proprietario.getVip() == 1) {
-                            vip.inviaRichiestaGestore(richiesta, proprietario);
-
-                        } else {
-                               controller.inviaRichiestaGestore(richiesta, proprietario);
-                        }
+                        riprovaSalvataggio(richiesta, e, proprietario);
 
                     }
 
 
                     ChangePage istanza = ChangePage.getChangePage();
-                    istanza.cambiaPagina(this.page, this.id, null, null);
+                    istanza.cambiaPagina(this.page, this.id, null, null,null);
 
 
-                } catch (SystemException | CampoEsistenteException | IOException exce) {
+                } catch (SystemException | CampoEsistenteException exce) {
 
                     GestoreEccezioni.getInstance().handleException(exce);
                 }
             });
 
         }
+    }
+
+    public void riprovaSalvataggio(CampoBean richiesta, CampoEsistenteException e,ProprietarioBean proprietario) throws SystemException, CampoEsistenteException{
+
+        AggiungiCampoControllerApplicativo controller = new AggiungiCampoControllerApplicativoBase();
+        AggiungiCampoControllerApplicativoVip vip = new AggiungiCampoControllerApplicativoVip(controller);
+        AggiungiCampoControllerApplicativoBase contr = new AggiungiCampoControllerApplicativoBase();
+
+        int num=0;
+
+        if(e.getMessage().equals("Messaggio standard")) {               //C'è già un campo con lo stesso indirizzo salvato
+
+            num = contr.getNumeroMax(richiesta);
+            num++;
+
+        }
+
+        else {                                                         //C'è un campo con lo stesso indirizzo nelle richieste
+            num=Integer.parseInt(e.getMessage());
+            num++;
+
+
+        }
+        //Modifico il nome del campo in base al numero
+        String nomeCampo = richiesta.getNomeCampo();
+        if (Character.isDigit(nomeCampo.charAt(nomeCampo.length() - 1))) {
+            richiesta.setNomeCampo(nomeCampo.substring(0, nomeCampo.length() - 1) + Integer.toString(num));
+
+        } else {
+            richiesta.setNomeCampo(richiesta.getNomeCampo() + Integer.toString(num));
+        }
+
+        richiesta.setNum(num);
+        System.out.println(richiesta.getNomeCampo());
+
+
+        if (proprietario.getVip() == 1) {
+            vip.inviaRichiestaGestore(richiesta, proprietario);
+
+        } else {
+            controller.inviaRichiestaGestore(richiesta, proprietario);
+        }
+
+
     }
 
 }
