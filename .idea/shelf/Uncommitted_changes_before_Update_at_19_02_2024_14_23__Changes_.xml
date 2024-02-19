@@ -1,0 +1,29 @@
+<changelist name="Uncommitted_changes_before_Update_at_19_02_2024_14_23_[Changes]" date="1708349059880" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_02_2024_14_23_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 19/02/2024 14:23 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/Login2ControllerGrafico.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/Login2ControllerGrafico.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_02_2024_14_23_[Changes]/Login2ControllerGrafico.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/Login1ControllerGrafico.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/Login1ControllerGrafico.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_02_2024_14_23_[Changes]/Login1ControllerGrafico.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/Accesso2ControllerGrafico.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/Accesso2ControllerGrafico.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_02_2024_14_23_[Changes]/Accesso2ControllerGrafico.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/SalvaInvia1ControllerGrafico.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/SalvaInvia1ControllerGrafico.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_02_2024_14_23_[Changes]/SalvaInvia1ControllerGrafico.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/HomePage2ControllerGrafico.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/HomePage2ControllerGrafico.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_02_2024_14_23_[Changes]/HomePage2ControllerGrafico.class" />
+  </binary>
+</changelist>

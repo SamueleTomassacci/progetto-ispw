@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1200.0" stylesheets="@../styleHomePage.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.giocatore.HomePage1ControllerGrafico">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1200.0" stylesheets="@../styleHomePage.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.giocatore.HomePage1ControllerGrafico">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="60.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="60.0" />
@@ -28,6 +33,7 @@
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="60.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="60.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="0.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="0.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="0.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="0.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="0.0" />
@@ -59,7 +65,7 @@
             <Image url="@../../../immagini/canestro.jpeg" />
          </image>
       </ImageView>
-      <Button fx:id="creazione" onMouseClicked="#clickCreazione" mnemonicParsing="false" prefHeight="167.0" prefWidth="369.0" text="Creazione" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="12" GridPane.rowSpan="3">
+      <Button fx:id="creazione" mnemonicParsing="false" onMouseClicked="#clickCreazione" prefHeight="167.0" prefWidth="369.0" text="Creazione" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="12" GridPane.rowSpan="3">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Button>
@@ -79,10 +85,10 @@
       </Text>
       <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Altezza:" textAlignment="CENTER" GridPane.columnIndex="13" GridPane.rowIndex="6">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Ruolo Preferito:" textAlignment="CENTER" GridPane.columnIndex="11" GridPane.rowIndex="10">
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Ruolo Preferito:" textAlignment="CENTER" GridPane.columnIndex="13" GridPane.rowIndex="10">
          <font>
             <Font size="18.0" />
          </font>
@@ -92,30 +98,42 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Label fx:id="altezza" prefHeight="27.0" prefWidth="61.0" textFill="WHITE" GridPane.columnIndex="15" GridPane.rowIndex="6">
+      <Label fx:id="altezza" prefHeight="27.0" prefWidth="61.0" textFill="WHITE" GridPane.columnIndex="14" GridPane.rowIndex="6">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="eta" prefHeight="27.0" prefWidth="62.0" textFill="WHITE" GridPane.columnIndex="15" GridPane.rowIndex="8">
+      <Label fx:id="eta" prefHeight="27.0" prefWidth="62.0" textFill="WHITE" GridPane.columnIndex="14" GridPane.rowIndex="8">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="ruoloGiocatore" prefHeight="27.0" prefWidth="214.0" textFill="WHITE" GridPane.columnIndex="14" GridPane.columnSpan="8" GridPane.rowIndex="10">
+      <Label fx:id="ruoloGiocatore" prefHeight="27.0" prefWidth="214.0" textFill="WHITE" GridPane.columnIndex="15" GridPane.columnSpan="8" GridPane.rowIndex="10">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="cm" textAlignment="CENTER" GridPane.columnIndex="16" GridPane.rowIndex="6">
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="cm" textAlignment="CENTER" GridPane.columnIndex="15" GridPane.rowIndex="6">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="anni" textAlignment="CENTER" GridPane.columnIndex="16" GridPane.rowIndex="8">
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="anni" textAlignment="CENTER" GridPane.columnIndex="15" GridPane.rowIndex="8">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#logout" prefHeight="64.0" prefWidth="159.0" text="Logout" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="51.0" fitWidth="49.0">
+               <image>
+                  <Image url="@../../../immagini/logout.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </GridPane>

@@ -20,14 +20,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Login2ControllerGrafico implements Initializable {
+public class Login2ControllerGrafico implements Initializable{
     @FXML
     private ListView<String> lista;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         lista.getItems().addAll("Giocatore", "Proprietario", "Gestore");
-
 
     }
 

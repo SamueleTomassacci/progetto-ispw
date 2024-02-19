@@ -73,5 +73,17 @@
             <Font size="30.0" />
          </font>
       </Label>
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#logout" prefHeight="64.0" prefWidth="159.0" text="Logout" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="51.0" fitWidth="49.0">
+               <image>
+                  <Image url="@../../../immagini/logout.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </GridPane>

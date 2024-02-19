@@ -1,5 +1,6 @@
 package it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.giocatore;
 
+import it.uniroma2.dicii.ispw.Main;
 import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.ControllerGrafico;
 import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.Session;
@@ -9,10 +10,14 @@ import it.uniroma2.dicii.ispw.utils.bean.GiocatoreBean;
 import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
+import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -37,13 +42,36 @@ public class HomePage1ControllerGrafico extends ControllerGrafico {
         Session session = manager.getSessionFromId(id);
         GiocatoreBean giocatore = session.getGiocatoreBean();
         user.setText("Bentornato "+giocatore.getUsername()+"!");
-        altezza.setText(String.valueOf(giocatore.getAltezza()));
+        altezza.setText("  "+ String.valueOf(giocatore.getAltezza()));
         eta.setText(String.valueOf(giocatore.getEta()));
-        ruoloGiocatore.setText(giocatore.getRuoloBasket());
+        ruoloGiocatore.setText("  "+giocatore.getRuoloBasket());
     }
     public void clickCreazione() throws IOException , SystemException{
         ChangePage istanza=ChangePage.getChangePage();
         istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/crea_partita/CreaPartita1.fxml",this.id,null,null,null);
+    }
+
+    public void logout() {
+        try {
+            SessionManager.getSessionManager().rimuoviSessione(id);
+            ChangePage istanza = ChangePage.getChangePage();
+
+            Stage stagePrim = istanza.getStage();
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/loginPage1.fxml"));
+            Scene scene = null;
+
+            scene = new Scene(loader.load(), 1200, 760);
+
+            stagePrim.setScene(scene);
+            stagePrim.show();
+
+        }catch (IOException e) {
+            SystemException exception = new SystemException();
+
+            exception.initCause(e);
+            GestoreEccezioni.getInstance().handleException(e);
+        }
+
     }
 
 }

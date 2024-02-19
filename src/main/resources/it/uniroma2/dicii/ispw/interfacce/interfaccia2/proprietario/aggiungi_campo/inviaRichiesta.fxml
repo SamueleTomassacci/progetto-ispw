@@ -58,7 +58,7 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="55.0" layoutY="51.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="152.0" text="Home">
+      <Button layoutX="55.0" layoutY="51.0" mnemonicParsing="false" onAction="#back" prefHeight="51.0" prefWidth="152.0" text="Home">
          <font>
             <Font size="24.0" />
          </font>

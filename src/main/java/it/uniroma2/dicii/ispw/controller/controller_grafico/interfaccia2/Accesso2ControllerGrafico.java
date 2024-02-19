@@ -46,10 +46,11 @@ public class Accesso2ControllerGrafico extends ControllerGrafico {
                         istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/homePage.fxml", new IdSessioneBean((cred.getIdSession())), null, null, null);
                 }
                 case GESTORE ->{
-                    break;
+                    istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/gestore/gestisciRichieste.fxml", new IdSessioneBean((cred.getIdSession())), null, null, null);
                 }
             }
         } catch (LoginException | SystemException e) {
+            e.printStackTrace();
             GestoreEccezioni.getInstance().handleException(e);
         }
     }

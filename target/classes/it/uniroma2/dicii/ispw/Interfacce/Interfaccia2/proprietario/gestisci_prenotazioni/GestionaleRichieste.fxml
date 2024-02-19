@@ -12,12 +12,12 @@
    <children>
       <ImageView fitHeight="729.0" fitWidth="1200.0" layoutY="-2.0" opacity="0.5" pickOnBounds="true">
          <image>
-            <Image url="@../../../../../immagini/top-view-composition-with-basketballs.jpg" />
+            <Image url="@../../../../immagini/top-view-composition-with-basketballs.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1106.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../immagini/palla.png" />
+            <Image url="@../../../../immagini/palla.png" />
          </image>
       </ImageView>
       <Text layoutX="1103.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
@@ -35,7 +35,7 @@
          <graphic>
             <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../immagini/kisspng-check-mark-computer-icons-clip-art-green-tick-5ac5328dc281d0.2372707915228729737967.png" />
+                  <Image url="@../../../../immagini/kisspng-check-mark-computer-icons-clip-art-green-tick-5ac5328dc281d0.2372707915228729737967.png" />
                </image>
             </ImageView>
          </graphic>
@@ -44,7 +44,7 @@
          <graphic>
             <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../immagini/kisspng-computer-icons-x-mark-check-mark-clip-art-red-x-5ac2fb83ead779.9359571015227278119619.png" />
+                  <Image url="@../../../../immagini/kisspng-computer-icons-x-mark-check-mark-clip-art-red-x-5ac2fb83ead779.9359571015227278119619.png" />
                </image>
             </ImageView>
          </graphic>
@@ -53,7 +53,7 @@
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../immagini/freccia.png" />
+                  <Image url="@../../../../immagini/freccia.png" />
                </image>
             </ImageView>
          </graphic>
@@ -65,7 +65,7 @@
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../immagini/home.png" />
+                  <Image url="@../../../../immagini/home.png" />
                </image>
             </ImageView>
          </graphic>

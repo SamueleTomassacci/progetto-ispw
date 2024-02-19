@@ -215,4 +215,13 @@ public class AggiungiCampo2ControllerGrafico extends ControllerGrafico {
 
 
     }
+
+    public void back(){
+        try {
+            ChangePage istanza = ChangePage.getChangePage();
+            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/homePage.fxml", this.id, null, null,null);
+        } catch (SystemException e) {
+            GestoreEccezioni.getInstance().handleException(e);
+        }
+    }
 }

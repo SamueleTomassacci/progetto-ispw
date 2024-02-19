@@ -1,5 +1,6 @@
 package it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.giocatore;
 
+import it.uniroma2.dicii.ispw.Main;
 import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.ControllerGrafico;
 import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.Session;
@@ -14,7 +15,12 @@ import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class HomePageControllerGrafico extends ControllerGrafico {
     private IdSessioneBean idSession;
@@ -50,4 +56,28 @@ public class HomePageControllerGrafico extends ControllerGrafico {
             GestoreEccezioni.getInstance().handleException(e);
         }
     }
+
+    public void logout() {
+        try {
+            SessionManager.getSessionManager().rimuoviSessione(idSession);
+            ChangePage istanza = ChangePage.getChangePage();
+
+            Stage stagePrim = istanza.getStage();
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/loginPage2.fxml"));
+            Scene scene = null;
+
+            scene = new Scene(loader.load(), 1200, 760);
+
+            stagePrim.setScene(scene);
+            stagePrim.show();
+
+        }catch (IOException e) {
+            SystemException exception = new SystemException();
+
+            exception.initCause(e);
+            GestoreEccezioni.getInstance().handleException(e);
+        }
+
+    }
+
 }
