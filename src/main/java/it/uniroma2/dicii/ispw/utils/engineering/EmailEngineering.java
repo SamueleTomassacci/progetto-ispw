@@ -1,6 +1,7 @@
 package it.uniroma2.dicii.ispw.utils.engineering;
 
 import it.uniroma2.dicii.ispw.utils.bean.EmailBean;
+import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -8,16 +9,28 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 public class EmailEngineering {
 
 
-    public void mandaEmail(EmailBean email) {
+    public void mandaEmail(EmailBean email) throws SystemException {
 
         String host = "smtp.libero.it";
         String username = "progettoispw@libero.it";
-        String password = "b@Js9C-uy_w49BW";
+        String password;
+        try (InputStream input = new FileInputStream("src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties")) {
+            Properties properties = new Properties();
+            properties.load(input);
+            password = properties.getProperty("PASS_EMAIL");
+        }catch(IOException e){
+            SystemException exception = new SystemException();
+            exception.initCause(e);
+            throw exception;
+        }
 
         // Proprietà per configurare la connessione al server SMTP
         Properties props = new Properties();
@@ -28,6 +41,7 @@ public class EmailEngineering {
 
         // Creazione della sessione
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+            @Override
             protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
                 return new javax.mail.PasswordAuthentication(username, password);
             }
@@ -46,8 +60,9 @@ public class EmailEngineering {
 
 
         } catch (MessagingException e) {
-            e.printStackTrace();
-            System.out.println("Errore nell'invio dell'email: " + e.getMessage());
+            SystemException exception = new SystemException();
+            exception.initCause(e);
+            throw exception;
         }
     }
 

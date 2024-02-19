@@ -4,40 +4,119 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="Continuo parte samuele">
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/model/NomeCampoModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/bean/ListaNomeCampoBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/bean/NomeCampoBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/bean/RichiestaPartitaBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_02_2024_18_42__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_02_2024_18_42__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2024_12_46__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2024_12_46__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2024_12_53__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2024_12_53__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2024_14_50__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2024_14_50__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2024_14_50__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2024_14_50__Changes_1.xml" afterDir="false" />
+    <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="Fine caso d'uso Flavio">
+      <change afterPath="$PROJECT_DIR$/campi_img/asapic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/campi_img/campo9pic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/ListaPartiteControllerGrafico.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/ListaPartiteObserver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/GestionalePartiteControllerGrafico.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/RigaRichiestaPartitaControllerGrafico.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/CreaPartitaControllerGrafico.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/PartiteCreateControllerGrafico.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/GestionalePartiteControllerGrafico.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/model/partita/ListaPartiteModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/model/partita/PartitaCampoDataModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/model/partita/PartitaModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/model/partita/Subject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/model/partita/statoPartita.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/bean/ListaPartiteBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/bean/PartitaCampoDataBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/dao/PartitaDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/crea_partita/TabellaStatoPartite.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/Giocatore/CreaPartita2.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/Giocatore/HomePageGiocatore.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/Giocatore/StatoPartiteCreate.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/aggiungi_campo/crea_partita/GestionaleRichieste.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Giocatore/crea_partita/TabellaStatoPartite.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Proprietario/crea_partita/richiestePartite.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Proprietario/crea_partita/rigaRichiestaProprietario.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/HomePageControllerGrafico.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/ListaPartiteControllerGrafico.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/ListaPartiteObserver.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/GestionalePartiteControllerGrafico.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/RigaRichiestaPartitaControllerGrafico.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/model/partita/ListaPartiteModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/model/partita/PartitaCampoDataModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/model/partita/PartitaCampoModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/model/partita/PartitaModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/model/partita/Subject.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/model/partita/statoPartita.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/bean/ListaNomeCampoBean.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/bean/ListaPartiteBean.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/bean/PartitaCampoBean.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/bean/PartitaCampoDataBean.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/PartitaDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/CreaPartita/CreaPartitaControllerApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/CreaPartita/CreaPartitaControllerApplicativo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/LoginControllerApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/LoginControllerApplicativo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/VipControllerApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/VipControllerApplicativo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/decorator/AggiungiCampoControllerApplicativoBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/decorator/AggiungiCampoControllerApplicativoBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartita1ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartita1ControllerGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/model/PartitaModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/model/PartitaModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/bean/CampoBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/bean/CampoBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/bean/GiocatoreBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/bean/GiocatoreBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/ControllerGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/Login1ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/Login1ControllerGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/gestore/GestisciRichieste1ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/gestore/GestisciRichieste1ControllerGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/gestore/HomePage1ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/gestore/HomePage1ControllerGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/gestore/Richiesta1ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/gestore/Richiesta1ControllerGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartita1ControllerGrafico.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/HomePage1ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/HomePageControllerGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/AggiungiFoto1ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/AggiungiFoto1ControllerGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/CompilaScheda1ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/CompilaScheda1ControllerGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/HomePage1ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/HomePage1ControllerGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/SalvaInvia1ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/SalvaInvia1ControllerGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/model/NomeCampoModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/model/partita/PartitaCampoModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/model/PartitaModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/ChangePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/ChangePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/bean/ListaNomeCampoBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/bean/ListaNomeCampoBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/bean/NomeCampoBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/bean/PartitaCampoBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/bean/PartitaBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/bean/PartitaBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/bean/RichiestaPartitaBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/bean/RichiestaPartitaBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/bean/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/bean/UserBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/dao/CampoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/dao/CampoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/exceptions/GestoreEccezioni.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/exceptions/GestoreEccezioni.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/engineering/EmailEngineering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/engineering/EmailEngineering.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/factory/Factory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/factory/Factory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/crea_partita/CreaPartita1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/crea_partita/CreaPartita1.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/crea_partita/CreaPartita2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia2/CreaPartita2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/crea_partita/paginaRichiesteInviate.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/homePage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/Crea Partita/richiestePartite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/Crea Partita/richiestePartite.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/compilaScheda.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/compilaScheda.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/Crea Partita/RigaRichiesta.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/crea_partita/rigaRichiestaProprietario.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/Crea Partita/richiestePartite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/crea_partita/richiestePartite.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Giocatore/crea_partita/CreaPartita1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Giocatore/crea_partita/CreaPartita1.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Giocatore/crea_partita/CreaPartita2.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Giocatore/crea_partita/paginaRichiesteInviate.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Giocatore/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Giocatore/homePage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Proprietario/Crea Partita/richiestePartite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Proprietario/Crea Partita/richiestePartite.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Proprietario/aggiungi_campo/compilaScheda.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Proprietario/aggiungi_campo/compilaScheda.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Proprietario/Crea Partita/RigaRichiesta.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Proprietario/Crea Partita/richiestePartite.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Proprietario/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Proprietario/homePage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_applicativo/CreaPartita/CreaPartitaControllerApplicativo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_applicativo/CreaPartita/CreaPartitaControllerApplicativo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartita1ControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartita1ControllerGrafico.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/bean/CampoBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/bean/CampoBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/bean/GiocatoreBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/bean/GiocatoreBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_applicativo/decorator/aggiungiCampoControllerApplicativoBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_applicativo/decorator/aggiungiCampoControllerApplicativoBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/ControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/ControllerGrafico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/Login1ControllerGrafico$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/Login1ControllerGrafico$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/Login1ControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/Login1ControllerGrafico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/gestore/GestisciRichieste1ControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/gestore/GestisciRichieste1ControllerGrafico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/gestore/HomePage1ControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/gestore/HomePage1ControllerGrafico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/gestore/Richiesta1ControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/gestore/Richiesta1ControllerGrafico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartita1ControllerGrafico$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartita1ControllerGrafico.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/HomePage1ControllerGrafico.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/AggiungiFoto1ControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/AggiungiFoto1ControllerGrafico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/CompilaScheda1ControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/CompilaScheda1ControllerGrafico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/HomePage1ControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/HomePage1ControllerGrafico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/SalvaInvia1ControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/SalvaInvia1ControllerGrafico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/model/PartitaModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/ChangePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/ChangePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/bean/PartitaBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/bean/PartitaBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/bean/RichiestaPartitaBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/bean/RichiestaPartitaBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/bean/UserBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/bean/UserBean.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/CampoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/CampoDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/exceptions/GestoreEccezioni.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/exceptions/GestoreEccezioni.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/engineering/EmailEngineering$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/engineering/EmailEngineering$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/engineering/EmailEngineering.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/engineering/EmailEngineering.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,8 +128,8 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
-        <option value="FxmlFile" />
         <option value="CSS File" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -69,34 +148,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/samut/OneDrive/Desktop/progettoISPW/progetto-ispw&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.6195402&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "Merging master",
+    "last_opened_file_path": "D:/copia di progetto finito da sistemare/progetto-ispw",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.6195402",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Sorgenti Progetto ISPW\progetto-ispw\src\main\resources\it\uniroma2\dicii\ispw\interfacce\interfaccia2\Giocatore" />
+      <recent name="D:\Sorgenti Progetto ISPW\progetto-ispw\src\main\resources\it\uniroma2\dicii\ispw\interfacce\interfaccia2" />
       <recent name="C:\Users\samut\OneDrive\Desktop\progettoISPW\progetto-ispw\lib" />
       <recent name="D:\ISPW\PlayBasket\progettoISPW\src\main\resources\it\uniroma2\dicii\ispw\Immagini" />
       <recent name="D:\ISPW\PlayBasket\progettoISPW\src\main\resources\it\uniroma2\dicii\ispw\Interfacce\Interfaccia2" />
-      <recent name="D:\ISPW\PlayBasket\progettoISPW\src\main\resources\it\uniroma2\dicii\ispw\Interfacce\Interfaccia1\Proprietario" />
-      <recent name="D:\ISPW\PlayBasket\progettoISPW\src\main\resources\it\uniroma2\dicii\ispw\Interfacce\Interfaccia1" />
     </key>
   </component>
   <component name="RunManager">
@@ -162,6 +241,13 @@
       <workItem from="1708102452374" duration="1436000" />
       <workItem from="1708120513715" duration="2797000" />
       <workItem from="1708161097864" duration="17043000" />
+      <workItem from="1708246925643" duration="40220000" />
+      <workItem from="1708291513927" duration="48000" />
+      <workItem from="1708325354904" duration="6311000" />
+      <workItem from="1708333351545" duration="869000" />
+      <workItem from="1708334243156" duration="532000" />
+      <workItem from="1708334867919" duration="167000" />
+      <workItem from="1708335364631" duration="742000" />
     </task>
     <task id="LOCAL-00001" summary="aggiornato path file fxml">
       <option name="closed" value="true" />
@@ -211,7 +297,23 @@
       <option name="project" value="LOCAL" />
       <updated>1707837026554</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Continuo parte Flavio">
+      <option name="closed" value="true" />
+      <created>1708191846868</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1708191846868</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Continuo parte Flavio">
+      <option name="closed" value="true" />
+      <created>1708191853287</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1708191853287</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,6 +339,8 @@
     <MESSAGE value="Changes by samut" />
     <MESSAGE value="Cambio pagina" />
     <MESSAGE value="Continuo parte samuele" />
-    <option name="LAST_COMMIT_MESSAGE" value="Continuo parte samuele" />
+    <MESSAGE value="Continuo parte Flavio" />
+    <MESSAGE value="Fine caso d'uso Flavio" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fine caso d'uso Flavio" />
   </component>
 </project>

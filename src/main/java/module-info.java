@@ -25,6 +25,7 @@ module it.uniroma2.dicii.ispw {
     opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.proprietario to javafx.fxml;
     opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.gestore to javafx.fxml;
     opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.giocatore to javafx.fxml;
+    opens it.uniroma2.dicii.ispw.utils.bean to javafx.base;
     exports it.uniroma2.dicii.ispw;
 
 }

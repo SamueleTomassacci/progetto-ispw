@@ -3,6 +3,7 @@ package it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.propri
 import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.ControllerGrafico;
 import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
+import it.uniroma2.dicii.ispw.utils.bean.PartitaBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
 import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
@@ -12,6 +13,7 @@ import it.uniroma2.dicii.ispw.utils.exceptions.TariffaException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+
 
 import java.io.IOException;
 import java.sql.Time;
@@ -42,7 +44,7 @@ public class CompilaScheda1ControllerGrafico extends ControllerGrafico {
     private TextField iban;
     private IdSessioneBean id;
     @Override
-    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFotoBean, FotoBean foto){
+    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFotoBean, FotoBean foto, PartitaBean richiestaPartita){
         this.id=id;
     }
 
@@ -50,7 +52,7 @@ public class CompilaScheda1ControllerGrafico extends ControllerGrafico {
         try {
             ChangePage istanza = ChangePage.getChangePage();
             istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml", this.id, null, null);
-        } catch (SystemException e) {
+        } catch (SystemException | IOException e) {
             GestoreEccezioni.getInstance().handleException(e);
         }
     }
@@ -67,7 +69,7 @@ public class CompilaScheda1ControllerGrafico extends ControllerGrafico {
             TariffaException tariffaException=new TariffaException();
             GestoreEccezioni.getInstance().handleException(tariffaException);
 
-        }catch(SystemException e){
+        }catch(SystemException | IOException e){
             GestoreEccezioni.getInstance().handleException(e);
 
         }catch(IllegalArgumentException e){          //Gestione dell'eccezione del formato del tempo, se si mettono soltanto minuti e ora senza secondi vengono aggiunti
@@ -84,7 +86,7 @@ public class CompilaScheda1ControllerGrafico extends ControllerGrafico {
                 OrarioException orarioException=new OrarioException();
                 GestoreEccezioni.getInstance().handleException(orarioException);
 
-            }catch(SystemException exc1){
+            }catch(SystemException | IOException exc1){
                 GestoreEccezioni.getInstance().handleException(e);
             }
 

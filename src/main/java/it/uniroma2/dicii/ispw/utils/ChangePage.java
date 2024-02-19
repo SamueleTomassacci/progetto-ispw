@@ -23,7 +23,7 @@ public class ChangePage {
         return istanza;
     }
     private Stage stage;
-    public void cambiaPagina(String fxml, IdSessioneBean id, CampoSenzaFotoBean campoSenzaFotoBean, FotoBean foto) throws SystemException {
+    public void cambiaPagina(String fxml, IdSessioneBean id, CampoSenzaFotoBean campoSenzaFotoBean, FotoBean foto) throws SystemException, IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource(fxml));
         Scene scene=null;
 
@@ -35,7 +35,7 @@ public class ChangePage {
            throw exception;
        }
         ControllerGrafico controller=loader.getController();    //Uso del polimorfismo, uso una variabile di tipo ControllerGrafico (superclasse)
-        controller.inizializza(id,campoSenzaFotoBean, foto);                             //alla quale in base al pagina caricata associo l'istanza di uno dei controller grafici figli
+        controller.inizializza(id,campoSenzaFotoBean, foto, null);                             //alla quale in base al pagina caricata associo l'istanza di uno dei controller grafici figli
         this.stage.setScene(scene);                                  //l'operazione inizializza quindi avrà comportamenti diversi in base all'istanza
         this.stage.show();
 

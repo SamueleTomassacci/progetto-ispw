@@ -1,6 +1,7 @@
 package it.uniroma2.dicii.ispw.utils.dao;
 
 import it.uniroma2.dicii.ispw.model.*;
+import it.uniroma2.dicii.ispw.model.partita.PartitaCampoModel;
 import it.uniroma2.dicii.ispw.utils.bean.ConverterBean;
 import it.uniroma2.dicii.ispw.utils.db.ConnectionDB;
 import it.uniroma2.dicii.ispw.utils.engineering.ConverterToFileEngineering;
@@ -8,26 +9,24 @@ import it.uniroma2.dicii.ispw.utils.exceptions.CampoEsistenteException;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 
 import java.io.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CampoDAO {
     private static final String PATHCAMPIIMG = "campi_img/";
 
-    public List<NomeCampoModel> getNomeCampo() throws  SystemException {
+    public List<PartitaCampoModel> getNomeCampo() throws  SystemException {
         String query = "SELECT nome,indirizzo FROM campo;";
         Connection conn= ConnectionDB.getConnection();
-        List<NomeCampoModel> lista=new ArrayList<>();
-        NomeCampoModel campo = null;
+        List<PartitaCampoModel> lista=new ArrayList<>();
+        PartitaCampoModel campo = null;
         try(PreparedStatement ps= conn.prepareStatement(query)){
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                campo = new NomeCampoModel(rs.getString(1),rs.getString(2));
+                campo = new PartitaCampoModel(rs.getString(1),rs.getString(2));
                 lista.add(campo);
             }
             return lista;
@@ -36,6 +35,36 @@ public class CampoDAO {
             SystemException exception = new SystemException();
             exception.initCause(e);
             throw exception;
+        }
+    }
+
+    public LocalTime getOrarioApertura(PartitaCampoModel campo) throws SystemException {
+        String query = "SELECT OrarioApertura FROM campo where nome = ? and indirizzo = ?;";
+        Connection conn= ConnectionDB.getConnection();
+        try (PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setString(1, campo.recuperaNome());
+            ps.setString(2, campo.recuperaIndirizzo());
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            return rs.getTime(1).toLocalTime();
+
+        } catch (SQLException e) {
+            throw new SystemException();
+        }
+    }
+
+    public LocalTime getOrarioChiusura(PartitaCampoModel campo) throws SystemException {
+        String query = "SELECT OrarioChiusura FROM campo where nome = ? and indirizzo = ?;";
+        Connection conn= ConnectionDB.getConnection();
+        try (PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setString(1, campo.recuperaNome());
+            ps.setString(2, campo.recuperaIndirizzo());
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            return rs.getTime(1).toLocalTime();
+
+        } catch (SQLException e) {
+            throw new SystemException();
         }
     }
 

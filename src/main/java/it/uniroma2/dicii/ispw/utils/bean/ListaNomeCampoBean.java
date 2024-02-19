@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListaNomeCampoBean {
-    private List<NomeCampoBean> lista;
+    private List<PartitaCampoBean> lista;
     public ListaNomeCampoBean() {
         this.lista = new ArrayList<>();
     }
-    public void add(NomeCampoBean campo){
+    public void add(PartitaCampoBean campo){
         this.lista.add(campo);
     }
 
-    public List<NomeCampoBean> getLista() {
+    public List<PartitaCampoBean> getLista() {
         return lista;
     }
 }

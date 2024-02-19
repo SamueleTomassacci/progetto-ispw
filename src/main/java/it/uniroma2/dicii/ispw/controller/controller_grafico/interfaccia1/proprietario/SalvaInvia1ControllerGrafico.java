@@ -4,12 +4,13 @@ import it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator.Aggiun
 import it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator.AggiungiCampoControllerApplicativoBase;
 import it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator.AggiungiCampoControllerApplicativoVip;
 import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.ControllerGrafico;
-import it.uniroma2.dicii.ispw.model.CampoModel;
+
 import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.Session;
 import it.uniroma2.dicii.ispw.utils.SessionManager;
 import it.uniroma2.dicii.ispw.utils.bean.CampoBean;
 import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
+import it.uniroma2.dicii.ispw.utils.bean.PartitaBean;
 import it.uniroma2.dicii.ispw.utils.bean.ProprietarioBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
@@ -22,6 +23,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
+
 
 public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
     private IdSessioneBean id;
@@ -39,9 +41,9 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
     private Label chiusura;
     @FXML
     private Label iban;
-
+    private final String page="/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml";
     @Override
-    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFotoBean, FotoBean foto){
+    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFotoBean, FotoBean foto,  PartitaBean richiestaPartita){
         this.id=id;
         this.campoSenzaFotoBean=campoSenzaFotoBean;
         this.foto=foto;
@@ -56,8 +58,8 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
     public void backHome() {
         try {
             ChangePage istanza = ChangePage.getChangePage();
-            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml", this.id, null, null);
-        } catch (SystemException e) {
+            istanza.cambiaPagina(this.page, this.id, null, null);
+        } catch (SystemException | IOException e) {
             GestoreEccezioni.getInstance().handleException(e);
         }
     }
@@ -66,7 +68,7 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
         try {
             ChangePage istanza = ChangePage.getChangePage();
             istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/AggiungiFoto.fxml", this.id, campoSenzaFotoBean, null);
-        } catch (SystemException e) {
+        } catch (SystemException | IOException e) {
             GestoreEccezioni.getInstance().handleException(e);
         }
     }
@@ -93,9 +95,9 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
                 controller.inviaRichiestaGestore(richiesta, proprietario);
             }
             ChangePage istanza = ChangePage.getChangePage();
-            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml", this.id, null, null);
+            istanza.cambiaPagina(this.page, this.id, null, null);
 
-        } catch (SystemException exc) {
+        } catch (SystemException | IOException exc) {
             GestoreEccezioni.getInstance().handleException(exc);
 
         } catch (CampoEsistenteException e) {        //Nel caso in cui il campo inserito è già esistente gestisco l'eccezione andando a chiedere al proprietario, se il centro sportivo possiede più campi, in tal caso lo salvo
@@ -123,13 +125,13 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
 
                             num = contr.getNumeroMax(richiesta);
                             num++;
-                            System.out.println("Messaggio standard"+num);
+
                         }
 
                         else {                                                         //C'è un campo con lo stesso indirizzo nelle richieste
                             num=Integer.parseInt(e.getMessage());
                             num++;
-                            System.out.println("Non messaggio standard"+num);
+
 
                         }
                         //Modifico il nome del campo in base al numero
@@ -156,11 +158,11 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
 
 
                     ChangePage istanza = ChangePage.getChangePage();
-                    istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml", this.id, null, null);
+                    istanza.cambiaPagina(this.page, this.id, null, null);
 
 
-                } catch (SystemException | CampoEsistenteException exce) {
-                    System.out.println("Entro qui");
+                } catch (SystemException | CampoEsistenteException | IOException exce) {
+
                     GestoreEccezioni.getInstance().handleException(exce);
                 }
             });

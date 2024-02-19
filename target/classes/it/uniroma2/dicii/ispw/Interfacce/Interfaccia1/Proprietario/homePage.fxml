@@ -64,7 +64,7 @@
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Button>
-      <Button fx:id="gestisci" mnemonicParsing="false" prefHeight="217.0" prefWidth="318.0" text="Gestisci  Richieste Partite" GridPane.columnIndex="13" GridPane.columnSpan="5" GridPane.rowIndex="13" GridPane.rowSpan="3">
+      <Button fx:id="gestisci" mnemonicParsing="false" onAction="#clickGestisciPartite" prefHeight="217.0" prefWidth="318.0" text="Gestisci  Richieste Partite" GridPane.columnIndex="13" GridPane.columnSpan="5" GridPane.rowIndex="13" GridPane.rowSpan="3">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Button>

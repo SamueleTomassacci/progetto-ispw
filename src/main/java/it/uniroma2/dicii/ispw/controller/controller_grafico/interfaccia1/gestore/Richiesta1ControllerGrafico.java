@@ -5,14 +5,11 @@ import it.uniroma2.dicii.ispw.utils.bean.CampoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.PaneBean;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class Richiesta1ControllerGrafico {
     @FXML
@@ -42,7 +39,6 @@ public class Richiesta1ControllerGrafico {
         tariffa.setText(Integer.toString(campoBean.getTariffa()));
         orarioApertura.setText(campoBean.getOrarioApertura().toString());
         orarioChiusura.setText(campoBean.getOrarioChiusura().toString());
-        System.out.println(campoBean.getImmagine().toURI().toString());
         immagine.setImage(new Image(campoBean.getImmagine().toURI().toString()));
     }
 
