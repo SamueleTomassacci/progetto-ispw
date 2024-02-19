@@ -44,7 +44,6 @@ public class Login2ControllerGrafico implements Initializable {
         try {
             istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/accesso2.fxml",null, null, null, cred);
         } catch (SystemException e) {
-            e.printStackTrace();
             GestoreEccezioni.getInstance().handleException(e);
         }
     }
@@ -64,7 +63,7 @@ public class Login2ControllerGrafico implements Initializable {
 
         } catch (IOException e) {
             SystemException exception = new SystemException();
-            e.printStackTrace();
+
             exception.initCause(e);
             GestoreEccezioni.getInstance().handleException(e);
         }
