@@ -1,13 +1,13 @@
 package it.uniroma2.dicii.ispw.utils.bean;
 
-import it.uniroma2.dicii.ispw.model.partita.PartitaCampoModel;
+import it.uniroma2.dicii.ispw.model.partita.PartitaModel;
 
 public class PartitaCampoBean {
     private String nome;
     private String indirizzo;
 
 
-    public PartitaCampoBean(PartitaCampoModel campo) {
+    public PartitaCampoBean(PartitaModel campo) {
         this.nome = campo.recuperaNome();
         this.indirizzo = campo.recuperaIndirizzo();
     }

@@ -1,20 +1,17 @@
 package it.uniroma2.dicii.ispw.utils.dao;
 
-import it.uniroma2.dicii.ispw.model.partita.PartitaCampoDataModel;
 import it.uniroma2.dicii.ispw.model.partita.PartitaModel;
 import it.uniroma2.dicii.ispw.model.partita.statoPartita;
 import it.uniroma2.dicii.ispw.utils.db.ConnectionDB;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 
-import javax.mail.Part;
 import java.sql.*;
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PartitaDAO {
-    public List<LocalTime> getOrariOccupati(PartitaCampoDataModel richiesta) throws SystemException {
+    public List<LocalTime> getOrariOccupati(PartitaModel richiesta) throws SystemException {
         String query = "SELECT OraInizio FROM partita where nomeCampo = ? and indirizzocampo = ? and data = ?;";
         Connection conn= ConnectionDB.getConnection();
         try (PreparedStatement ps = conn.prepareStatement(query)) {

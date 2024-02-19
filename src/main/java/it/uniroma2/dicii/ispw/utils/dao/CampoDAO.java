@@ -1,7 +1,7 @@
 package it.uniroma2.dicii.ispw.utils.dao;
 
 import it.uniroma2.dicii.ispw.model.*;
-import it.uniroma2.dicii.ispw.model.partita.PartitaCampoModel;
+import it.uniroma2.dicii.ispw.model.partita.PartitaModel;
 import it.uniroma2.dicii.ispw.utils.bean.ConverterBean;
 import it.uniroma2.dicii.ispw.utils.db.ConnectionDB;
 import it.uniroma2.dicii.ispw.utils.engineering.ConverterToFileEngineering;
@@ -17,16 +17,16 @@ import java.util.List;
 public class CampoDAO {
     private static final String PATHCAMPIIMG = "campi_img/";
 
-    public List<PartitaCampoModel> getNomeCampo() throws  SystemException {
+    public List<PartitaModel> getNomeCampo() throws  SystemException {
         String query = "SELECT nome,indirizzo FROM campo;";
         Connection conn= ConnectionDB.getConnection();
-        List<PartitaCampoModel> lista=new ArrayList<>();
-        PartitaCampoModel campo = null;
+        List<PartitaModel> lista=new ArrayList<>();
+        PartitaModel campo = null;
         try(PreparedStatement ps= conn.prepareStatement(query)){
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                campo = new PartitaCampoModel(rs.getString(1),rs.getString(2));
+                campo = new PartitaModel(rs.getString(1),rs.getString(2));
                 lista.add(campo);
             }
             return lista;
@@ -38,7 +38,7 @@ public class CampoDAO {
         }
     }
 
-    public LocalTime getOrarioApertura(PartitaCampoModel campo) throws SystemException {
+    public LocalTime getOrarioApertura(PartitaModel campo) throws SystemException {
         String query = "SELECT OrarioApertura FROM campo where nome = ? and indirizzo = ?;";
         Connection conn= ConnectionDB.getConnection();
         try (PreparedStatement ps = conn.prepareStatement(query)) {
@@ -53,7 +53,7 @@ public class CampoDAO {
         }
     }
 
-    public LocalTime getOrarioChiusura(PartitaCampoModel campo) throws SystemException {
+    public LocalTime getOrarioChiusura(PartitaModel campo) throws SystemException {
         String query = "SELECT OrarioChiusura FROM campo where nome = ? and indirizzo = ?;";
         Connection conn= ConnectionDB.getConnection();
         try (PreparedStatement ps = conn.prepareStatement(query)) {

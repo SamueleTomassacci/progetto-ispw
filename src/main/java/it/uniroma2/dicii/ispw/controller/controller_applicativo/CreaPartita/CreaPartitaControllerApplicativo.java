@@ -27,11 +27,11 @@ public class CreaPartitaControllerApplicativo {
     public ListaNomeCampoBean inizializzasceltaCampo() throws SystemException {
         // prende tutti i campi dal DAO ListaCampiDAO
         CampoDAO campoDAO = new CampoDAO();
-        List<PartitaCampoModel> lista = campoDAO.getNomeCampo();
+        List<PartitaModel> lista = campoDAO.getNomeCampo();
         // trasformazione in un ListaNomeCampoBean da inviare al controller grafico
         ListaNomeCampoBean listaBean = new ListaNomeCampoBean();
         PartitaCampoBean campoBean = null;
-        for(PartitaCampoModel campo:lista){
+        for(PartitaModel campo:lista){
             campoBean = new PartitaCampoBean(campo);
             listaBean.add(campoBean);
         }
@@ -40,7 +40,7 @@ public class CreaPartitaControllerApplicativo {
 
     public List<LocalTime> inizializzasceltaOrario(PartitaCampoDataBean bean) throws SystemException {
         // creiamo un model con i dati ricevuti a parametro
-        PartitaCampoDataModel richiestaOrari = new PartitaCampoDataModel(bean.getNome(), bean.getIndirizzo(), bean.getGiorno());
+        PartitaModel richiestaOrari = new PartitaModel(bean.getNome(), bean.getIndirizzo(), bean.getGiorno());
         // prende orario di apertura
         CampoDAO campoDAO = new CampoDAO();
         LocalTime apertura = campoDAO.getOrarioApertura(richiestaOrari);

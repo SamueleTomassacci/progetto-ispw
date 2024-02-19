@@ -17,6 +17,17 @@ public class PartitaModel extends Subject{
     private statoPartita stato;
 
 
+    public PartitaModel(String nome, String indirizzo, LocalDate data){
+        this.nomeCampo = nome;
+        this.indirizzoCampo = indirizzo;
+        this.giorno = data;
+    }
+
+    public PartitaModel(String nomeCampo, String indirizzo){
+        this.nomeCampo = nomeCampo;
+        this.indirizzoCampo = indirizzo;
+    }
+
     public PartitaModel(String nomeCampo, String indirizzoCampo, LocalDate giorno, String creatore, LocalTime orarioInizio, int numGiocatori, statoPartita stato){
         this.nomeCampo = nomeCampo;
         this.indirizzoCampo = indirizzoCampo;
