@@ -172,7 +172,7 @@ public class AggiungiCampo2ControllerGrafico extends ControllerGrafico {
 
     }
 
-    public void riprovaSalvataggio(CampoBean richiestaCampo, CampoEsistenteException exc,ProprietarioBean proprietarioCampo) throws SystemException, CampoEsistenteException{
+    private void riprovaSalvataggio(CampoBean richiestaCampo, CampoEsistenteException exc,ProprietarioBean proprietarioCampo) throws SystemException, CampoEsistenteException{
 
         AggiungiCampoControllerApplicativo controllerAppl = new AggiungiCampoControllerApplicativoBase();
         AggiungiCampoControllerApplicativoVip vip = new AggiungiCampoControllerApplicativoVip(controllerAppl);
