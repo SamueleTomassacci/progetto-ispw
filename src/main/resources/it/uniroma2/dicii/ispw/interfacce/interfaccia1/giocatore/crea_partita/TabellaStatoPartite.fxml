@@ -2,7 +2,7 @@
 
 <?import javafx.scene.control.*?>
 
-<TableView fx:id="listaPartite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="535.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.giocatore.ListaPartiteControllerGrafico">
+<TableView fx:id="listaPartite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="535.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.giocatore.TabellaPartiteControllerGrafico">
   <columns>
     <TableColumn fx:id="campoColumn" prefWidth="89.0" text="Campo" />
     <TableColumn fx:id="indirizzoColumn" prefWidth="185.0" text="Indirizzo" />

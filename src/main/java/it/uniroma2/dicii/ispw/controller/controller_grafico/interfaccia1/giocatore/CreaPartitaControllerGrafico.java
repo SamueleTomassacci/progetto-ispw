@@ -22,7 +22,7 @@ import java.util.List;
 public class CreaPartitaControllerGrafico extends ControllerGrafico {
     private IdSessioneBean id;
     private CreaPartitaControllerApplicativo controllerApplicativo; // riferimento all'istanza utilizzata del controller applicativo
-    private ListaPartiteControllerGrafico listaPartiteControllerGrafico; // riferimento all'istanza del controller grafico caricato
+    private TabellaPartiteControllerGrafico tabellaPartiteControllerGrafico; // riferimento all'istanza del controller grafico caricato
     @FXML
     public Spinner numGiocatori;
     @FXML
@@ -90,7 +90,6 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
                 numGiocatori.getValueFactory().setValue((int) newValue + 1);
             }
         });
-
         // Inizializza Finestra Partite Create
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/crea_partita/TabellaStatoPartite.fxml"));
@@ -98,14 +97,12 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
             // Imposta il contenuto dello ScrollPane
             scrollPane.setContent(content);
             // Ottieni controller associato al loader
-            listaPartiteControllerGrafico = loader.getController();
+            tabellaPartiteControllerGrafico = loader.getController();
             //inizializza la lista
-            listaPartiteControllerGrafico.inizializzaLista(controllerApplicativo, new UserBean(username.getText()));
+            tabellaPartiteControllerGrafico.inizializzaLista(controllerApplicativo, new UserBean(username.getText()));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 
     public void clickBack() throws SystemException, IOException {
