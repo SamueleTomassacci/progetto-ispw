@@ -2,6 +2,7 @@ package it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.propri
 
 import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.ControllerGrafico;
 import it.uniroma2.dicii.ispw.utils.ChangePage;
+import it.uniroma2.dicii.ispw.utils.bean.CredentialsBean;
 import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
 import it.uniroma2.dicii.ispw.utils.bean.PartitaBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
@@ -44,15 +45,15 @@ public class CompilaScheda1ControllerGrafico extends ControllerGrafico {
     private TextField iban;
     private IdSessioneBean id;
     @Override
-    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFotoBean, FotoBean foto, PartitaBean richiestaPartita){
+    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFotoBean, FotoBean foto, CredentialsBean cred){
         this.id=id;
     }
 
     public void backHome() {
         try {
             ChangePage istanza = ChangePage.getChangePage();
-            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml", this.id, null, null);
-        } catch (SystemException | IOException e) {
+            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml", this.id, null, null,null);
+        } catch (SystemException e) {
             GestoreEccezioni.getInstance().handleException(e);
         }
     }
@@ -63,13 +64,13 @@ public class CompilaScheda1ControllerGrafico extends ControllerGrafico {
 
         CampoSenzaFotoBean richiesta=new CampoSenzaFotoBean(nomeCampo.getText(),indirizzo.getText(), Integer.valueOf(tariffa.getText()), Time.valueOf(apertura.getText()),Time.valueOf(chiusura.getText()),iban.getText());
         ChangePage istanza=ChangePage.getChangePage();
-        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/AggiungiFoto.fxml", this.id,richiesta,null);
+        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/AggiungiFoto.fxml", this.id,richiesta,null,null);
 
         }catch(NumberFormatException e){
             TariffaException tariffaException=new TariffaException();
             GestoreEccezioni.getInstance().handleException(tariffaException);
 
-        }catch(SystemException | IOException e){
+        }catch(SystemException e){
             GestoreEccezioni.getInstance().handleException(e);
 
         }catch(IllegalArgumentException e){          //Gestione dell'eccezione del formato del tempo, se si mettono soltanto minuti e ora senza secondi vengono aggiunti
@@ -80,13 +81,13 @@ public class CompilaScheda1ControllerGrafico extends ControllerGrafico {
                 Time oraChiusura=Time.valueOf(strChiusura);
                 CampoSenzaFotoBean richiesta=new CampoSenzaFotoBean(nomeCampo.getText(),indirizzo.getText(), Integer.valueOf(tariffa.getText()), oraApertura,oraChiusura,iban.getText());
                 ChangePage istanza=ChangePage.getChangePage();
-                istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/AggiungiFoto.fxml", this.id,richiesta,null);
+                istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/AggiungiFoto.fxml", this.id,richiesta,null,null);
 
             }catch(IllegalArgumentException exc){
                 OrarioException orarioException=new OrarioException();
                 GestoreEccezioni.getInstance().handleException(orarioException);
 
-            }catch(SystemException | IOException exc1){
+            }catch(SystemException exc1){
                 GestoreEccezioni.getInstance().handleException(e);
             }
 

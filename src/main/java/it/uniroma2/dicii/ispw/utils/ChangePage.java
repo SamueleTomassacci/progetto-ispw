@@ -2,6 +2,7 @@ package it.uniroma2.dicii.ispw.utils;
 
 import it.uniroma2.dicii.ispw.Main;
 import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.ControllerGrafico;
+import it.uniroma2.dicii.ispw.utils.bean.CredentialsBean;
 import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
@@ -23,7 +24,7 @@ public class ChangePage {
         return istanza;
     }
     private Stage stage;
-    public void cambiaPagina(String fxml, IdSessioneBean id, CampoSenzaFotoBean campoSenzaFotoBean, FotoBean foto) throws SystemException, IOException {
+    public void cambiaPagina(String fxml, IdSessioneBean id, CampoSenzaFotoBean campoSenzaFotoBean, FotoBean foto, CredentialsBean cred) throws SystemException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource(fxml));
         Scene scene=null;
 
@@ -35,7 +36,7 @@ public class ChangePage {
            throw exception;
        }
         ControllerGrafico controller=loader.getController();    //Uso del polimorfismo, uso una variabile di tipo ControllerGrafico (superclasse)
-        controller.inizializza(id,campoSenzaFotoBean, foto, null);                             //alla quale in base al pagina caricata associo l'istanza di uno dei controller grafici figli
+        controller.inizializza(id,campoSenzaFotoBean, foto, cred);                             //alla quale in base al pagina caricata associo l'istanza di uno dei controller grafici figli
         this.stage.setScene(scene);                                  //l'operazione inizializza quindi avrà comportamenti diversi in base all'istanza
         this.stage.show();
 

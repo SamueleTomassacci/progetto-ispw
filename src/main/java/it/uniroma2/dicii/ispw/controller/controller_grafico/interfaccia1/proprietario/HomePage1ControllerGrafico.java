@@ -49,32 +49,40 @@ public class HomePage1ControllerGrafico extends ControllerGrafico {
 
 
     public void upgradeVip() {
-       try {
-           SessionManager manager = SessionManager.getSessionManager();
-           Session session = manager.getSessionFromId(id);
-           ProprietarioBean proprietario = session.getProprietarioBean();
+        try {
+            SessionManager manager = SessionManager.getSessionManager();
+            Session session = manager.getSessionFromId(id);
+            ProprietarioBean proprietario = session.getProprietarioBean();
 
-           if (proprietario.getVip() == 1) {
-               throw new VipException();
-           }
+            if (proprietario.getVip() == 1) {
+                throw new VipException();
+            } else {
+                VipControllerApplicativo controller = new VipControllerApplicativo();
+                controller.upgradeVip(proprietario);
+                int vip = 1;
+                proprietario.setVip(vip);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Upgrade");
+                alert.setHeaderText(null);
+                alert.setContentText("Upgrade a vip eseguito!");
+                alert.showAndWait();
+            }
+        } catch (VipException | SystemException e) {
+            GestoreEccezioni.getInstance().handleException(e);
+        }
+    }
 
-           else {
-               VipControllerApplicativo controller = new VipControllerApplicativo();
-               controller.upgradeVip(proprietario);
-               int vip = 1;
-               proprietario.setVip(vip);
-               Alert alert = new Alert(Alert.AlertType.INFORMATION);
-               alert.setTitle("Upgrade");
-               alert.setHeaderText(null);
-               alert.setContentText("Upgrade a vip eseguito!");
-               alert.showAndWait();
-           }
-       }catch(VipException | SystemException e){
-           GestoreEccezioni.getInstance().handleException(e);
-       }
+       public void clickGestisciPartite() {
+            try {
+                ChangePage istanza = ChangePage.getChangePage();
+                istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/crea_partita/richiestePartite.fxml", this.id, null, null,null);
+            } catch (SystemException e) {
+                GestoreEccezioni.getInstance().handleException(e);
+            }
+        }
 
 
     }
 
 
-}
+

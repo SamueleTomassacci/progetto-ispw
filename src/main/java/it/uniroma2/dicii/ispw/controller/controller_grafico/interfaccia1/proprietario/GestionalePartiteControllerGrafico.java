@@ -9,6 +9,7 @@ import it.uniroma2.dicii.ispw.utils.SessionManager;
 import it.uniroma2.dicii.ispw.utils.bean.*;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
+import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,21 +31,27 @@ public class GestionalePartiteControllerGrafico extends ControllerGrafico {
 
     private IdSessioneBean id;
     @Override
-    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, PartitaBean richiestaPartita) throws SystemException, IOException {
+    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, CredentialsBean cred) throws SystemException {
         // imposto nome utente nella pagina
-        this.id = id;
-        SessionManager manager = SessionManager.getSessionManager();
-        Session session = manager.getSessionFromId(id);
-        ProprietarioBean proprietario = session.getProprietarioBean();
-        username.setText(proprietario.getUsername());
 
-        // inizializzazione delle richieste
-        aggiornaLista();
+       try {
+           this.id = id;
+           SessionManager manager = SessionManager.getSessionManager();
+           Session session = manager.getSessionFromId(id);
+           ProprietarioBean proprietario = session.getProprietarioBean();
+           username.setText(proprietario.getUsername());
+
+           // inizializzazione delle richieste
+
+           aggiornaLista();
+       }catch(IOException e){
+           GestoreEccezioni.getInstance().handleException(new SystemException());
+       }
     }
 
     public void clickBack() throws SystemException, IOException {
         ChangePage istanza = ChangePage.getChangePage();
-        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml",this.id,null,null);
+        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml",this.id,null,null,null);
     }
 
     public void aggiornaLista() throws SystemException, IOException {

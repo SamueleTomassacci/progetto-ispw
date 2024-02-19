@@ -40,6 +40,7 @@ public class CampoBean {
         this.num=campo.numeroCampo();
 
     }
+    public CampoBean(){}
 
     public int getTariffa() {
         return tariffa;
@@ -85,5 +86,24 @@ public class CampoBean {
 
     public void setNomeCampo(String nomeCampo) {
         this.nome = nomeCampo;
+    }
+
+    public void setIndirizzo(String indirizzo){
+        this.indirizzo=indirizzo;
+    }
+    public void setIban(String iban){
+        this.iban=iban;
+    }
+    public void setTariffa(int tariffa){
+        this.tariffa=tariffa;
+    }
+    public void setOrarioApertura(Time orario){
+        this.orarioApertura=orario;
+    }
+    public void setOrarioChiusura(Time orario){
+        this.orarioChiusura=orario;
+    }
+    public void setImmagine(File img){
+        this.immagine=img;
     }
 }

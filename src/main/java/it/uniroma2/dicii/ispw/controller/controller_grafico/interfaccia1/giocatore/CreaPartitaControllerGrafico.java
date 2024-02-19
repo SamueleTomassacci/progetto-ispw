@@ -39,7 +39,7 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
 
 
     @Override
-    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, PartitaBean richiestaPartita) throws SystemException {
+    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, CredentialsBean cred) throws SystemException {
         // creo un istanza di controller applicativo
         controllerApplicativo = new CreaPartitaControllerApplicativo();
 
@@ -110,7 +110,7 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
 
     public void clickBack() throws SystemException, IOException {
         ChangePage istanza = ChangePage.getChangePage();
-        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/homePage.fxml",this.id,null,null);
+        istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/homePage.fxml",this.id,null,null,null);
     }
 
     public void inizializzaSceltaOrario() throws SystemException {
