@@ -48,7 +48,7 @@ public class HomePage2ControllerGrafico extends ControllerGrafico {
     public void gestisci(){
         try {
             ChangePage istanza = ChangePage.getChangePage();
-            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/aggiungi_campo/inviaRichiesta.fxml", this.idSession, null, null,null);
+            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/gestisci_prenotazioni/GestionaleRichieste.fxml", this.idSession, null, null,null);
         } catch (SystemException e) {
             e.printStackTrace();
             GestoreEccezioni.getInstance().handleException(e);

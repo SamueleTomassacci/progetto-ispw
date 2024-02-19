@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="Completato seconda interfaccia per il Giocatore">
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/GestisciPrenotazioniControllerGrafico.java" afterDir="false" />
+    <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="Collegata Interfaccia Proprietario per gestione partite richieste">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/GestionalePartiteControllerGrafico.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/GestisciPrenotazioniControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/GestisciPrenotazioniControllerGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/HomePage2ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/HomePage2ControllerGrafico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/gestisci_prenotazioni/GestionaleRichieste.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/gestisci_prenotazioni/GestionaleRichieste.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/styleHomePage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/styleHomePage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/GestionalePartiteControllerGrafico.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,28 +43,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/Progetto ISPW da modificare/progetto-ispw/src/main/resources/it/uniroma2/dicii/ispw/immagini",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.6195402",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Progetto ISPW da modificare/progetto-ispw/src/main/resources/it/uniroma2/dicii/ispw/immagini&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.6195402&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Progetto ISPW da modificare\progetto-ispw\src\main\resources\it\uniroma2\dicii\ispw\immagini" />
@@ -147,7 +145,8 @@
       <workItem from="1708161097864" duration="19949000" />
       <workItem from="1708252363824" duration="17618000" />
       <workItem from="1708343945125" duration="3017000" />
-      <workItem from="1708359403454" duration="13196000" />
+      <workItem from="1708359403454" duration="13248000" />
+      <workItem from="1708374878406" duration="2207000" />
     </task>
     <task id="LOCAL-00001" summary="aggiornato path file fxml">
       <option name="closed" value="true" />
@@ -221,7 +220,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708371306619</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Collegata Interfaccia Proprietario per gestione partite richieste">
+      <option name="closed" value="true" />
+      <created>1708372679496</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1708372679496</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,6 +257,7 @@
     <MESSAGE value="Commit di prova" />
     <MESSAGE value="Completata interfaccia crea partita" />
     <MESSAGE value="Completato seconda interfaccia per il Giocatore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completato seconda interfaccia per il Giocatore" />
+    <MESSAGE value="Collegata Interfaccia Proprietario per gestione partite richieste" />
+    <option name="LAST_COMMIT_MESSAGE" value="Collegata Interfaccia Proprietario per gestione partite richieste" />
   </component>
 </project>
