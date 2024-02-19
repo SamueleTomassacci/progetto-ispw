@@ -8,30 +8,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" stylesheets="@../../styleHomePage.css" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720" prefWidth="1200" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720" prefWidth="1200" stylesheets="@../../styleHomePage.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.proprietario.GestisciPrenotazioniControllerGrafico">
    <children>
       <ImageView fitHeight="729.0" fitWidth="1200.0" layoutY="-2.0" opacity="0.5" pickOnBounds="true">
          <image>
             <Image url="@../../../../immagini/top-view-composition-with-basketballs.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1106.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../immagini/palla.png" />
-         </image>
-      </ImageView>
-      <Text layoutX="1103.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+      <Text fill="WHITE" layoutX="449.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestionale Partite">
          <font>
-            <Font name="System Bold Italic" size="12.0" />
-         </font>
-      </Text>
-      <Text layoutX="500.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestionale Partite">
-         <font>
-            <Font name="System Bold" size="24.0" />
+            <Font name="System Bold" size="36.0" />
          </font>
       </Text>
       <ListView fx:id="listView" layoutX="146.0" layoutY="158.0" prefHeight="373.0" prefWidth="909.0" />
-      <Button fx:id="accetta" onAction="#clickAccetta" layoutX="322.0" layoutY="539.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0">
+      <Button fx:id="accetta" layoutX="322.0" layoutY="539.0" mnemonicParsing="false" onAction="#clickAccetta" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: transparent">
          <graphic>
             <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -40,7 +30,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="rifiuta" onAction="#clickRifiuta" layoutX="760.0" layoutY="540.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0">
+      <Button fx:id="rifiuta" layoutX="760.0" layoutY="540.0" mnemonicParsing="false" onAction="#clickRifiuta" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: transparent">
          <graphic>
             <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -49,29 +39,29 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="back" layoutX="82.0" layoutY="47.0" mnemonicParsing="false" text="Back">
+      <Button fx:id="profilo" layoutX="969.0" layoutY="47.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="197.0">
+         <font>
+            <Font size="24.0" />
+         </font>
          <graphic>
-            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="39.0" fitWidth="48.0">
+               <image>
+                  <Image url="@../../../../immagini/vecteezy_utente-profilo-icona-profilo-avatar-utente-icona-maschio_20911737.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="55.0" layoutY="51.0" mnemonicParsing="false" onAction="#back" prefHeight="51.0" prefWidth="152.0" text="Home">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="32.0" fitWidth="47.0">
                <image>
                   <Image url="@../../../../immagini/freccia.png" />
                </image>
             </ImageView>
          </graphic>
-         <font>
-            <Font name="System Bold" size="26.0" />
-         </font>
-      </Button>
-      <Button fx:id="home" layoutX="76.0" layoutY="623.0" mnemonicParsing="false" text="Home">
-         <graphic>
-            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../immagini/home.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <font>
-            <Font name="System Bold" size="26.0" />
-         </font>
       </Button>
    </children>
 </Pane>

@@ -4,23 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="Completata interfaccia crea partita">
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/ListaPartiteControllerGrafico.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/immagini/pngegg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/crea_partita/ListaPartiteCreate.fxml" afterDir="false" />
+    <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="Completato seconda interfaccia per il Giocatore">
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/GestisciPrenotazioniControllerGrafico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/ListaPartiteControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/TabellaPartiteControllerGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/PartiteCreateControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/PartiteCreateControllerGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/crea_partita/TabellaStatoPartite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/crea_partita/TabellaStatoPartite.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/crea_partita/statoPartiteCreate.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/crea_partita/statoPartiteCreate.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/GestionalePartiteControllerGrafico.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/gestisci_prenotazioni/GestionaleRichieste.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/gestisci_prenotazioni/GestionaleRichieste.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Giocatore/crea_partita/TabellaStatoPartite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Giocatore/crea_partita/TabellaStatoPartite.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/ListaPartiteControllerGrafico.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/PartiteCreateControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/PartiteCreateControllerGrafico.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/styleHomePage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia2/styleHomePage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/GestionalePartiteControllerGrafico.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +147,7 @@
       <workItem from="1708161097864" duration="19949000" />
       <workItem from="1708252363824" duration="17618000" />
       <workItem from="1708343945125" duration="3017000" />
-      <workItem from="1708359403454" duration="11766000" />
+      <workItem from="1708359403454" duration="13196000" />
     </task>
     <task id="LOCAL-00001" summary="aggiornato path file fxml">
       <option name="closed" value="true" />
@@ -215,7 +205,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708365977457</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Completato seconda interfaccia per il Giocatore">
+      <option name="closed" value="true" />
+      <created>1708371297460</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1708371297460</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Completato seconda interfaccia per il Giocatore">
+      <option name="closed" value="true" />
+      <created>1708371306619</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1708371306619</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,6 +249,7 @@
     <MESSAGE value="Continuo parte samuele" />
     <MESSAGE value="Commit di prova" />
     <MESSAGE value="Completata interfaccia crea partita" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completata interfaccia crea partita" />
+    <MESSAGE value="Completato seconda interfaccia per il Giocatore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completato seconda interfaccia per il Giocatore" />
   </component>
 </project>
