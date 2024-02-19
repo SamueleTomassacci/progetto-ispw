@@ -50,7 +50,6 @@ public class Accesso2ControllerGrafico extends ControllerGrafico {
                 }
             }
         } catch (LoginException | SystemException e) {
-            e.printStackTrace();
             GestoreEccezioni.getInstance().handleException(e);
         }
     }

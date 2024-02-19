@@ -98,7 +98,6 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
 
         } catch (SystemException exc) {
             GestoreEccezioni.getInstance().handleException(exc);
-            exc.printStackTrace();
 
         } catch (CampoEsistenteException e) {        //Nel caso in cui il campo inserito è già esistente gestisco l'eccezione andando a chiedere al proprietario, se il centro sportivo possiede più campi, in tal caso lo salvo
 
@@ -130,7 +129,6 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
 
 
                 } catch (SystemException | CampoEsistenteException exce) {
-                    exce.printStackTrace();
 
                     GestoreEccezioni.getInstance().handleException(exce);
                 }
