@@ -76,7 +76,7 @@ public class Login1ControllerGrafico {
                 case GESTORE ->
                         istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/gestore/homePage.fxml", new IdSessioneBean(cred.getIdSession()), null, null,null);
             }
-        } catch (LoginException | SystemException e) {
+        } catch (LoginException | SystemException | IOException e) {
             GestoreEccezioni.getInstance().handleException(e);
         }
     }

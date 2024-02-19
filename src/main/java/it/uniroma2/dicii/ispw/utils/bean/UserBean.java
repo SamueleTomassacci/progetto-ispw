@@ -10,6 +10,10 @@ public class UserBean {
         this.username=username;
         this.email=email;
     }
+    public UserBean(String username){
+        this.username = username;
+        this.email = null;
+    }
     public String getUsername() {
         return username;
     }

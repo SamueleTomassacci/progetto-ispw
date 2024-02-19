@@ -19,7 +19,6 @@ public class GestoreEccezioni {
     }
 
     public void handleException(Exception e) {
-
         DialogBox myDialogBox = factory.getBox(e);
         myDialogBox.showBox(e.getMessage());
     }

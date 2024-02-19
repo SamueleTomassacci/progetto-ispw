@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="63.0" prefWidth="971.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.proprietario.RigaRichiestaPartitaControllerGrafico">
+   <children>
+      <HBox prefHeight="50.0" prefWidth="999.0">
+         <children>
+            <Text fx:id="creatore" strokeType="OUTSIDE" strokeWidth="0.0" text="Creatore" textAlignment="CENTER" wrappingWidth="102.13671875">
+               <font>
+                  <Font size="15.0" />
+               </font></Text>
+            <Text fx:id="nomeCampo" strokeType="OUTSIDE" strokeWidth="0.0" text="NomeCampo" textAlignment="CENTER" wrappingWidth="186.576171875">
+               <font>
+                  <Font size="15.0" />
+               </font></Text>
+            <Text fx:id="indirizzo" strokeType="OUTSIDE" strokeWidth="0.0" text="indirizzocampo" textAlignment="CENTER" wrappingWidth="293.701171875">
+               <font>
+                  <Font size="15.0" />
+               </font></Text>
+            <Text fx:id="data" layoutX="811.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DataPrenotazione" textAlignment="CENTER" wrappingWidth="135.142578125">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="ora" strokeType="OUTSIDE" strokeWidth="0.0" text="OradiInizioPrenotazione" textAlignment="CENTER" wrappingWidth="135.142578125">
+               <font>
+                  <Font size="15.0" />
+               </font></Text>
+            <Button mnemonicParsing="false" onAction="#clickAccetta" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../immagini/kisspng-check-mark-computer-icons-clip-art-green-tick-5ac5328dc281d0.2372707915228729737967.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button mnemonicParsing="false" onAction="#clickRifiuta" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../immagini/kisspng-computer-icons-x-mark-check-mark-clip-art-red-x-5ac2fb83ead779.9359571015227278119619.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+         </children>
+      </HBox>
+   </children>
+</Pane>

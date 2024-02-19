@@ -8,7 +8,7 @@ import java.io.File;
 import java.sql.Time;
 
 public class CampoBean {
-    private String nomeCampo;
+    private String nome;
     private String indirizzo;
     private int tariffa;
     private Time orarioApertura;
@@ -20,7 +20,7 @@ public class CampoBean {
 
 
     public CampoBean(CampoSenzaFotoBean richiesta, FotoBean foto){
-        this.nomeCampo= richiesta.getNome();
+        this.nome= richiesta.getNome();
         this.indirizzo=richiesta.getPosizione();
         this.tariffa=richiesta.getCosto();
         this.orarioApertura=richiesta.getApertura();
@@ -30,7 +30,7 @@ public class CampoBean {
     }
 
     public CampoBean(CampoModel campo){
-        this.nomeCampo=campo.nomeAttuale();
+        this.nome=campo.nomeAttuale();
         this.indirizzo=campo.recuperaIndirizzo();
         this.tariffa=campo.costoOrario();
         this.orarioApertura=campo.inizioAttivita();
@@ -39,14 +39,6 @@ public class CampoBean {
         this.immagine=campo.recuperaImmagine();
         this.num=campo.numeroCampo();
 
-    }
-    public CampoBean(){}
-    public String getNomeCampo() {
-        return nomeCampo;
-    }
-
-    public String getIndirizzo() {
-        return indirizzo;
     }
 
     public int getTariffa() {
@@ -68,9 +60,7 @@ public class CampoBean {
     public File getImmagine() {
         return immagine;
     }
-    public void setNomeCampo(String nome){
-        this.nomeCampo=nome;
-    }
+
 
     public void setNum(int i){
         this.num=i;
@@ -85,29 +75,15 @@ public class CampoBean {
         this.tentativo=i;
     }
 
-    public void setIndirizzo(String indirizzo) {
-        this.indirizzo = indirizzo;
+    public String getNomeCampo() {
+        return nome;
     }
 
-    public void setTariffa(int tariffa) {
-        this.tariffa = tariffa;
+    public String getIndirizzo() {
+        return indirizzo;
     }
 
-    public void setOrarioApertura(Time orarioApertura) {
-        this.orarioApertura = orarioApertura;
+    public void setNomeCampo(String nomeCampo) {
+        this.nome = nomeCampo;
     }
-
-    public void setOrarioChiusura(Time orarioChiusura) {
-        this.orarioChiusura = orarioChiusura;
-    }
-
-    public void setIban(String iban) {
-        this.iban = iban;
-    }
-
-    public void setImmagine(File immagine) {
-        this.immagine = immagine;
-    }
-
-
 }

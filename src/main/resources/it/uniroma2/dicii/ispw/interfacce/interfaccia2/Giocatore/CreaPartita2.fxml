@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane stylesheets="@../../styleHomePage.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.proprietario.CompilaScheda1ControllerGrafico">
+<AnchorPane prefHeight="720" prefWidth="1200" stylesheets="@../../interfaccia1/styleHomePage.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.proprietario.CompilaScheda1ControllerGrafico">
    <children>
-      <ImageView fitHeight="820.0" fitWidth="1201.0" layoutX="-2.0" opacity="0.11">
+      <ImageView fitHeight="797.0" fitWidth="1208.0" layoutX="-2.0" opacity="0.3">
          <image>
-            <Image url="@../../../../immagini/sfondo.jpg" />
+            <Image url="@../../../immagini/top-view-composition-with-basketballs.jpg" />
          </image>
       </ImageView>
       <Label layoutX="5.0" layoutY="7.0" prefHeight="40.0" prefWidth="158.0" textAlignment="CENTER" />
@@ -20,7 +20,7 @@
          <graphic>
             <ImageView fitHeight="48.0" fitWidth="75.0">
                <image>
-                  <Image url="@../../../../immagini/freccia.png" />
+                  <Image url="@../../../immagini/freccia.png" />
                </image>
             </ImageView>
          </graphic>
@@ -32,7 +32,7 @@
          <graphic>
             <ImageView fitHeight="51.0" fitWidth="46.0">
                <image>
-                  <Image url="@../../../../immagini/home.png" />
+                  <Image url="@../../../immagini/home.png" />
                </image>
             </ImageView>
          </graphic>
@@ -58,7 +58,7 @@
       </Button>
       <ImageView fitHeight="48.0" fitWidth="49.0" layoutX="1057.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../immagini/palla.png" />
+            <Image url="@../../../immagini/palla.png" />
          </image>
       </ImageView>
       <Label layoutX="1048.0" layoutY="80.0" text="Username" textAlignment="CENTER">
