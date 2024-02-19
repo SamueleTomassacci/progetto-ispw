@@ -137,7 +137,7 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
         }
     }
 
-    public void riprovaSalvataggio(CampoBean richiesta, CampoEsistenteException e,ProprietarioBean proprietario) throws SystemException, CampoEsistenteException{
+    private void riprovaSalvataggio(CampoBean richiesta, CampoEsistenteException e,ProprietarioBean proprietario) throws SystemException, CampoEsistenteException{
 
         AggiungiCampoControllerApplicativo controller = new AggiungiCampoControllerApplicativoBase();
         AggiungiCampoControllerApplicativoVip vip = new AggiungiCampoControllerApplicativoVip(controller);
