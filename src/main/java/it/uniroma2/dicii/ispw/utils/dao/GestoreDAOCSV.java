@@ -39,7 +39,10 @@ public class GestoreDAOCSV {
         try {
 
             if (!fd.exists()) {
-                fd.createNewFile();
+                boolean created= fd.createNewFile();
+                if(!created){
+                    throw new IOException();
+                }
             }
         } catch (IOException e) {
             SystemException exception = new SystemException();
@@ -51,8 +54,8 @@ public class GestoreDAOCSV {
 
     public GestoreModel getGestoreByUsername(String username) throws SystemException, LoginException {
         GestoreModel gestore = null;
-        try {
-            CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));
+        try( CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(fd)))) {
+            
             String[] record;
 
 

@@ -56,7 +56,10 @@ public class ProprietarioDAOCSV {
         try {
 
             if (!fd.exists()) {
-                fd.createNewFile();
+               boolean created= fd.createNewFile();
+                if(!created){
+                    throw new IOException();
+                }
             }
         } catch (IOException e) {
             SystemException exception = new SystemException();
@@ -68,8 +71,8 @@ public class ProprietarioDAOCSV {
 
     public ProprietarioModel getProprietarioByUsername(String username) throws SystemException {
         ProprietarioModel proprietario = null;
-        try {
-            CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));
+        try( CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(fd)))) {
+
             String[] record;
 
 
@@ -91,8 +94,8 @@ public class ProprietarioDAOCSV {
     }
 
     public void setVip(String username) throws SystemException {
-        try {
-            CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));
+        try(CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(fd)))) {
+
             String[] record;
             StringBuilder updatedCSVContent = new StringBuilder();
             boolean found = false;
