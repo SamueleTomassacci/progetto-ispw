@@ -4,18 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="Gestite Completamente Tutte le Eccezioni">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_8_0_31__6_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestConnectionDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestGiocatoreDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestPartitaDAO.java" afterDir="false" />
+    <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="Aggiunti Casi di Test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/CreaPartitaControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/CreaPartitaControllerGrafico.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestGiocatoreDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestGiocatoreDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestPartitaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestPartitaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_applicativo/LoginControllerApplicativo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_applicativo/LoginControllerApplicativo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/SalvaInvia1ControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/SalvaInvia1ControllerGrafico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/SessionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/SessionManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/ProprietarioDAOCSV.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/ProprietarioDAOCSV.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestAggiungiCampoControllerApplicativoBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestAggiungiCampoControllerApplicativoBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestCampoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestCampoDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestGiocatoreDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestGiocatoreDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestLoginDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestLoginDAO.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -324,7 +325,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708428274992</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Aggiunti Casi di Test">
+      <option name="closed" value="true" />
+      <created>1708431692464</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1708431692464</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Aggiunti Casi di Test">
+      <option name="closed" value="true" />
+      <created>1708431696689</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1708431696689</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,6 +377,7 @@
     <MESSAGE value="Eliminati i Model inutili, adesso si utilizza solamente PartitaModel" />
     <MESSAGE value="Gestione dei SystemException e IOException per la prima interfaccia" />
     <MESSAGE value="Gestite Completamente Tutte le Eccezioni" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gestite Completamente Tutte le Eccezioni" />
+    <MESSAGE value="Aggiunti Casi di Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunti Casi di Test" />
   </component>
 </project>
