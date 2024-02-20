@@ -2,7 +2,6 @@ package it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.giocat
 
 import it.uniroma2.dicii.ispw.utils.bean.PartitaBean;
 
-import java.util.List;
 
 public interface ListaPartiteObserver {
     // operarazione di aggiornamento di una partita
