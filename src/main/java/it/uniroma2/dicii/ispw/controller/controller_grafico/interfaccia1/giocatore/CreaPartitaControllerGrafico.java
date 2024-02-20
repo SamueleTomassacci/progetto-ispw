@@ -77,7 +77,7 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
         for (PartitaCampoBean campo : listaCampi) {
             sceltaCampo.getItems().add(campo.getNome() + " - " + campo.getIndirizzo());
         }
-        // Aggiunta ChangeListener
+        // Aggiunta ChangeListene
         sceltaCampo.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             // Azione da eseguire quando l'utente seleziona un elemento nella ComboBox
             inizializzaSceltaOrario();
