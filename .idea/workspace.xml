@@ -4,17 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="Gestione dei SystemException e IOException per la prima interfaccia">
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/aggiungi_campo/AggiungiCampo2ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/proprietario/aggiungi_campo/AggiungiCampo2ControllerGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/model/CredentialsModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/model/CredentialsModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/dao/CampoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/dao/CampoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/dao/PartitaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/dao/PartitaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/dao/ProprietarioDAOCSV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/dao/ProprietarioDAOCSV.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestAggiungiCampoControllerApplicativoBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestAggiungiCampoControllerApplicativoBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestCampoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestCampoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestLoginDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestLoginDAO.java" afterDir="false" />
+    <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="Gestite Completamente Tutte le Eccezioni">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_8_0_31__6_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TestConnectionDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TestGiocatoreDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TestPartitaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/CreaPartitaControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/CreaPartitaControllerGrafico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,41 +87,63 @@
       <recent name="D:\ISPW\PlayBasket\progettoISPW\src\main\resources\it\uniroma2\dicii\ispw\Interfacce\Interfaccia2" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="it.uniroma2.dicii.ispw.Main" />
-      <module name="progettoISPW" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="it.uniroma2.dicii.ispw.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in progettoISPW" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TestGiocatoreDAO.testGetGiocatoreFromUsername">
+    <configuration name="TestAggiungiCampoControllerApplicativoBase.testGetNumeroMax" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="progettoISPW" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="MAIN_CLASS_NAME" value="TestAggiungiCampoControllerApplicativoBase" />
+      <option name="METHOD_NAME" value="testGetNumeroMax" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="java in progettoISPW" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestConnectionDB" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="progettoISPW" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestConnectionDB" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestConnectionDB.testSearchEvent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="progettoISPW" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestConnectionDB" />
+      <option name="METHOD_NAME" value="testSearchEvent" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestGiocatoreDAO.testGetGiocatoreFromUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="progettoISPW" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestGiocatoreDAO" />
+      <option name="METHOD_NAME" value="testGetGiocatoreFromUsername" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestPartitaDAO.testGetProprietarioFromRichiestaCampo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="progettoISPW" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestPartitaDAO" />
+      <option name="METHOD_NAME" value="testGetProprietarioFromRichiestaCampo" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.java in progettoISPW" />
-        <item itemvalue="JUnit.All in progettoISPW" />
+        <item itemvalue="JUnit.TestGiocatoreDAO.testGetGiocatoreFromUsername" />
+        <item itemvalue="JUnit.TestPartitaDAO.testGetProprietarioFromRichiestaCampo" />
+        <item itemvalue="JUnit.TestConnectionDB" />
+        <item itemvalue="JUnit.TestConnectionDB.testSearchEvent" />
+        <item itemvalue="JUnit.TestAggiungiCampoControllerApplicativoBase.testGetNumeroMax" />
       </list>
     </recent_temporary>
   </component>
@@ -293,7 +316,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708381362690</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Gestite Completamente Tutte le Eccezioni">
+      <option name="closed" value="true" />
+      <created>1708428274992</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1708428274992</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,6 +359,7 @@
     <MESSAGE value="Finito il DAO gestito tramite files" />
     <MESSAGE value="Eliminati i Model inutili, adesso si utilizza solamente PartitaModel" />
     <MESSAGE value="Gestione dei SystemException e IOException per la prima interfaccia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gestione dei SystemException e IOException per la prima interfaccia" />
+    <MESSAGE value="Gestite Completamente Tutte le Eccezioni" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gestite Completamente Tutte le Eccezioni" />
   </component>
 </project>
