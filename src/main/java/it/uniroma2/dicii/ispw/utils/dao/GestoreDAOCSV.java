@@ -2,7 +2,7 @@ package it.uniroma2.dicii.ispw.utils.dao;
 
 import com.opencsv.exceptions.CsvValidationException;
 import it.uniroma2.dicii.ispw.model.GestoreModel;
-import it.uniroma2.dicii.ispw.utils.db.ConnectionDB;
+
 import it.uniroma2.dicii.ispw.utils.exceptions.LoginException;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 
@@ -10,29 +10,17 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import com.opencsv.CSVReader;
 
 public class GestoreDAOCSV {
     private static final String CSV_GESTORE = "csv/gestore.csv";
     private File fd;
 
-    private static class GestoreAttributesOrder {
-        public static int getIndice_UserId() {
-            return 0;
-        }
+    private static int indiceUserId=0;
+    private static int indiceUsername=1;
+    private static int indiceEmail=2;
 
-        public static int getIndice_Username() {
-            return 1;
-        }
 
-        public static int getIndice_Email() {
-            return 2;
-        }
-    }
 
     public GestoreDAOCSV() throws SystemException {
         this.fd = new File(CSV_GESTORE);
@@ -52,19 +40,19 @@ public class GestoreDAOCSV {
 
     }
 
-    public GestoreModel getGestoreByUsername(String username) throws SystemException, LoginException {
+    public GestoreModel getGestoreByUsername(String username) throws SystemException {
         GestoreModel gestore = null;
         try( CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(fd)))) {
 
-            String[] record;
+            String[] value;
 
 
-            while ((record = csvReader.readNext()) != null) {
+            while ((value = csvReader.readNext()) != null) {
 
-                int pos = GestoreAttributesOrder.getIndice_Username();
+                int pos = GestoreDAOCSV.indiceUsername;
 
-                if (record[pos].equals(username)) {
-                    gestore = new GestoreModel(record[GestoreAttributesOrder.getIndice_Username()], record[GestoreAttributesOrder.getIndice_Email()], Integer.parseInt(record[GestoreAttributesOrder.getIndice_UserId()]));
+                if (value[pos].equals(username)) {
+                    gestore = new GestoreModel(value[GestoreDAOCSV.indiceUsername], value[GestoreDAOCSV.indiceEmail], Integer.parseInt(value[GestoreDAOCSV.indiceUserId]));
 
                 }
             }

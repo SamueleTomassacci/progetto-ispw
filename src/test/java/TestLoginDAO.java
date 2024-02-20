@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class TestLoginDAO {
 
     @Test
-    public void testcheckIfExists() throws SystemException {
+    void testcheckIfExists() throws SystemException {
         CredentialsModel credentialsModel=new CredentialsModel("Luca","1234", Role.PROPRIETARIO);
         LoginDAO loginDAO=new LoginDAO();
 

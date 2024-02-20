@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestAggiungiCampoControllerApplicativoBase {
 
     @Test
-    public void testGetNumeroMax() throws SystemException {
+   void testGetNumeroMax() throws SystemException {
         CampoBean campoBean =new CampoBean();
         campoBean.setIndirizzo("Via Rossi 23");
 

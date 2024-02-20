@@ -142,7 +142,7 @@ public class CampoDAO {
                 ps.setString(8, campo.credPagamento());
                 ps.setString(8, campo.credPagamento());
                 ps.setInt(9, campo.numeroCampo());
-                int righeModificate = ps.executeUpdate();
+                ps.executeUpdate();
 
 
             } catch (SQLException e) {
@@ -159,7 +159,7 @@ public class CampoDAO {
                 throw exception;
             }
         }
-    public void insertRichiestaCampo(CampoModel campo, ProprietarioModel proprietario) throws SystemException, CampoEsistenteException {
+    public void insertRichiestaCampo(CampoModel campo, ProprietarioModel proprietario) throws SystemException {
 
         String insert = "INSERT INTO richiestacampo VALUES(?,?,?,?,?,?,?,?,?);";
         Connection conn = ConnectionDB.getConnection();
@@ -196,7 +196,7 @@ public class CampoDAO {
             ps.setString(1,campo.nomeAttuale());
             ps.setString(2,campo.recuperaIndirizzo());
 
-            int righeModificate = ps.executeUpdate();
+            ps.executeUpdate();
 
 
         }catch(SQLException e){

@@ -1,9 +1,9 @@
 package it.uniroma2.dicii.ispw.utils.dao;
 
 import com.opencsv.exceptions.CsvValidationException;
-import it.uniroma2.dicii.ispw.model.GestoreModel;
+
 import it.uniroma2.dicii.ispw.model.ProprietarioModel;
-import it.uniroma2.dicii.ispw.utils.db.ConnectionDB;
+
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 
 import java.io.BufferedReader;
@@ -11,45 +11,20 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 import com.opencsv.CSVReader;
 
 public class ProprietarioDAOCSV {
     private static final String CSV_GESTORE = "csv/proprietario.csv";
     private File fd;
+    private static int indexUserId=0;
+    private static int indexUsername=1;
+    private static int indexEmail=2;
+    private static int indexNome=3;
+    private static int indexCognome=4;
+    private static int indexVip=5;
 
-    private static class ProprietarioAttributesOrder {
-        public static int getIndex_UserId() {
-            return 0;
-        }
 
-        public static int getIndex_Username() {
-            return 1;
-        }
-
-        public static int getIndex_Email() {
-            return 2;
-        }
-
-        public static int getIndex_Nome() {
-
-            return 3;
-        }
-
-        public static int getIndex_Cognome() {
-
-            return 4;
-        }
-
-        public static int getIndex_Vip() {
-
-            return 5;
-        }
-
-    }
 
     public ProprietarioDAOCSV() throws SystemException {
         this.fd = new File(CSV_GESTORE);
@@ -78,10 +53,10 @@ public class ProprietarioDAOCSV {
 
             while ((rec = csvReader.readNext()) != null) {
 
-                int pos = ProprietarioAttributesOrder.getIndex_Username();
+                int pos =ProprietarioDAOCSV.indexUsername;
 
                 if (rec[pos].equals(username)) {
-                    proprietario = new ProprietarioModel(rec[ProprietarioAttributesOrder.getIndex_Username()], rec[ProprietarioAttributesOrder.getIndex_Email()], Integer.parseInt(rec[ProprietarioAttributesOrder.getIndex_UserId()]), rec[ProprietarioAttributesOrder.getIndex_Nome()], rec[ProprietarioAttributesOrder.getIndex_Cognome()], Integer.parseInt(rec[ProprietarioAttributesOrder.getIndex_Vip()]));
+                    proprietario = new ProprietarioModel(rec[ProprietarioDAOCSV.indexUsername], rec[ProprietarioDAOCSV.indexEmail], Integer.parseInt(rec[ProprietarioDAOCSV.indexUserId]), rec[ProprietarioDAOCSV.indexNome], rec[ProprietarioDAOCSV.indexCognome], Integer.parseInt(rec[ProprietarioDAOCSV.indexVip]));
                 }
             }
             return proprietario;
@@ -101,15 +76,15 @@ public class ProprietarioDAOCSV {
             boolean found = false;
 
             while ((record = csvReader.readNext()) != null) {
-                int pos = ProprietarioAttributesOrder.getIndex_Username();
+                int pos = ProprietarioDAOCSV.indexUsername;
 
                 if (record[pos].equals(username)) {
                     found = true;
-                    String updatedRecord = record[ProprietarioAttributesOrder.getIndex_UserId()] + ","
-                            + record[ProprietarioAttributesOrder.getIndex_Username()] + ","
-                            + record[ProprietarioAttributesOrder.getIndex_Email()] + ","
-                            + record[ProprietarioAttributesOrder.getIndex_Nome()] + ","
-                            + record[ProprietarioAttributesOrder.getIndex_Cognome()] + ","
+                    String updatedRecord = record[ProprietarioDAOCSV.indexUserId] + ","
+                            + record[ProprietarioDAOCSV.indexUsername] + ","
+                            + record[ProprietarioDAOCSV.indexEmail] + ","
+                            + record[ProprietarioDAOCSV.indexNome] + ","
+                            + record[ProprietarioDAOCSV.indexCognome] + ","
                             + "1"; // Imposta il VIP a 1
 
                     updatedCSVContent.append(updatedRecord).append("\n");

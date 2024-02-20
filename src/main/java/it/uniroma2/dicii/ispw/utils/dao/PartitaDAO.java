@@ -3,7 +3,7 @@ package it.uniroma2.dicii.ispw.utils.dao;
 import it.uniroma2.dicii.ispw.model.partita.PartitaModel;
 import it.uniroma2.dicii.ispw.model.partita.statoPartita;
 import it.uniroma2.dicii.ispw.utils.db.ConnectionDB;
-import it.uniroma2.dicii.ispw.utils.exceptions.CampoEsistenteException;
+
 import it.uniroma2.dicii.ispw.utils.exceptions.RichiestaPartitaException;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 

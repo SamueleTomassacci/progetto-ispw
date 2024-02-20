@@ -42,7 +42,7 @@ public class AggiungiCampo2ControllerGrafico extends ControllerGrafico {
     @FXML
     private ImageView immagine;
     private File img;
-    private final static String page="/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/homePage.fxml";
+    private static final  String PAGE_NAME="/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/homePage.fxml";
 
 
     private IdSessioneBean id;
@@ -127,7 +127,7 @@ public class AggiungiCampo2ControllerGrafico extends ControllerGrafico {
                 controller.inviaRichiestaGestore(campo, proprietario);
             }
             ChangePage istanza = ChangePage.getChangePage();
-            istanza.cambiaPagina(this.page, this.id, null, null,null);
+            istanza.cambiaPagina(AggiungiCampo2ControllerGrafico.PAGE_NAME, this.id, null, null,null);
 
         } catch (SystemException exc) {
             GestoreEccezioni.getInstance().handleException(exc);
@@ -158,7 +158,7 @@ public class AggiungiCampo2ControllerGrafico extends ControllerGrafico {
 
 
                     ChangePage istanza = ChangePage.getChangePage();
-                    istanza.cambiaPagina(this.page, this.id, null, null,null);
+                    istanza.cambiaPagina(AggiungiCampo2ControllerGrafico.PAGE_NAME, this.id, null, null,null);
 
 
                 } catch (SystemException | CampoEsistenteException exce) {
@@ -219,7 +219,7 @@ public class AggiungiCampo2ControllerGrafico extends ControllerGrafico {
     public void back(){
         try {
             ChangePage istanza = ChangePage.getChangePage();
-            istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/homePage.fxml", this.id, null, null,null);
+            istanza.cambiaPagina(AggiungiCampo2ControllerGrafico.PAGE_NAME, this.id, null, null,null);
         } catch (SystemException e) {
             GestoreEccezioni.getInstance().handleException(e);
         }

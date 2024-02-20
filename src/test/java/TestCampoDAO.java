@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class TestCampoDAO {
 
     @Test
-    public void testGetProprietarioFromRichiestaCampo() throws SystemException{
+    void testGetProprietarioFromRichiestaCampo() throws SystemException{
         CampoDAO campoDAO=new CampoDAO();
         CampoModel campoModel=new CampoModel("Centro Sportivo Rossi2","Via Rossi 23",8,null,null,null,null);
         ProprietarioModel proprietarioModel=campoDAO.getProprietarioFromRichiestaCampo(campoModel);
