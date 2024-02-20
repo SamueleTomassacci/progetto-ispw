@@ -104,7 +104,7 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
             richiesta.setTentativo(2);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Attenzione");
-            alert.setHeaderText("Il campo inserito è già presente nel nostro sistema.\n Se il suo centro sportivo ospita più di un campo da basket e vuole procedere con il salvatggio di questo nuovo campo, clicchi conferma.");
+            alert.setHeaderText("Il campo inserito è già presente nel nostro sistema.\n Se il suo centro sportivo ospita più di un campo da basket e vuole procedere con il salvatggio di questo nuovo campo si prega di cliccare conferma.");
 
 
             ButtonType buttonTypeOne = new ButtonType("Conferma");

@@ -5,6 +5,7 @@ import it.uniroma2.dicii.ispw.utils.bean.CampoBean;
 import it.uniroma2.dicii.ispw.utils.bean.EmailBean;
 import it.uniroma2.dicii.ispw.utils.bean.ProprietarioBean;
 import it.uniroma2.dicii.ispw.utils.dao.GestoreDAO;
+import it.uniroma2.dicii.ispw.utils.dao.GestoreDAOCSV;
 import it.uniroma2.dicii.ispw.utils.engineering.EmailEngineering;
 import it.uniroma2.dicii.ispw.utils.exceptions.CampoEsistenteException;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
@@ -19,7 +20,10 @@ public class AggiungiCampoControllerApplicativoVip extends Decorator{
     private void decorazioneAggiunta() throws SystemException {
         EmailBean email=null;
         EmailEngineering emailEngineering=new EmailEngineering();
+       //Commentare per usare file system
+
         GestoreDAO gestoreDAO=new GestoreDAO();
+
         List<GestoreModel> lista= gestoreDAO.getAllGestori();
         for(GestoreModel gestore: lista){
             email=new EmailBean();
