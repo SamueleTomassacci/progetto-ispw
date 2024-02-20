@@ -1,0 +1,295 @@
+Index: src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>USER= user\r\nPASS= user\r\nDB_URL = jdbc:mysql://localhost:3306/playbasket\r\nPASS_EMAIL=b@Js9C-uy_w49BW\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties b/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties
+--- a/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties	(revision 867693aa962f58dceb26ae99cc451518b8f2f4fa)
++++ b/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties	(date 1708429253043)
+@@ -1,4 +1,4 @@
+ USER= user
+ PASS= user
+-DB_URL = jdbc:mysql://localhost:3306/playbasket
++DB_URL = jdbc:mysql://localhost:3307/playbasket
+ PASS_EMAIL=b@Js9C-uy_w49BW
+Index: .idea/libraries/mysql_connector_j_8_0_31__6_.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/mysql_connector_j_8_0_31__6_.xml b/.idea/libraries/mysql_connector_j_8_0_31__6_.xml
+new file mode 100644
+--- /dev/null	(date 1708428478541)
++++ b/.idea/libraries/mysql_connector_j_8_0_31__6_.xml	(date 1708428478541)
+@@ -0,0 +1,9 @@
++<component name="libraryTable">
++  <library name="mysql-connector-j-8.0.31 (6)">
++    <CLASSES>
++      <root url="jar://$PROJECT_DIR$/lib/mysql-connector-j-8.0.31.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES />
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34\" name=\"Changes\" comment=\"Gestione dei SystemException e IOException per la prima interfaccia\">\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Enum\" />\r\n        <option value=\"Interface\" />\r\n        <option value=\"CSS File\" />\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Merge.Settings\">\r\n    <option name=\"BRANCH\" value=\"origin/master\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 6\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2c7bIP4CenUynN8yTL9socEXFfE\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/samut/OneDrive/Desktop/progettoISPW/progetto-ispw/lib/mysql-connector-j-8.0.31.jar&quot;,\r\n    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.6195402&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Progetto ISPW da modificare\\progetto-ispw\\src\\main\\resources\\it\\uniroma2\\dicii\\ispw\\immagini\" />\r\n      <recent name=\"D:\\Progetto ISPW da modificare\\progetto-ispw\\src\\main\\resources\\it\\uniroma2\\dicii\\ispw\\interfacce\\interfaccia2\\giocatore\" />\r\n      <recent name=\"D:\\Programma Vero ISPW\\progetto-ispw\\src\\main\\resources\\it\\uniroma2\\dicii\\ispw\\interfacce\\interfaccia2\\giocatore\" />\r\n      <recent name=\"C:\\Users\\samut\\OneDrive\\Desktop\\progettoISPW\\progetto-ispw\\src\\main\\resources\\it\\uniroma2\\dicii\\ispw\\immagini\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Progetto ISPW da modificare\\progetto-ispw\\src\\main\\resources\\it\\uniroma2\\dicii\\ispw\\interfacce\\interfaccia2\\giocatore\\crea_partita\" />\r\n      <recent name=\"C:\\Users\\samut\\OneDrive\\Desktop\\progettoISPW\\progetto-ispw\\src\\main\\resources\\it\\uniroma2\\dicii\\ispw\\interfacce\\interfaccia2\\proprietario\\gestisci_prenotazioni\" />\r\n      <recent name=\"C:\\Users\\samut\\OneDrive\\Desktop\\progettoISPW\\progetto-ispw\\lib\" />\r\n      <recent name=\"D:\\ISPW\\PlayBasket\\progettoISPW\\src\\main\\resources\\it\\uniroma2\\dicii\\ispw\\Immagini\" />\r\n      <recent name=\"D:\\ISPW\\PlayBasket\\progettoISPW\\src\\main\\resources\\it\\uniroma2\\dicii\\ispw\\Interfacce\\Interfaccia2\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Main\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"it.uniroma2.dicii.ispw.Main\" />\r\n      <module name=\"progettoISPW\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"it.uniroma2.dicii.ispw.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"All in progettoISPW\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"progettoISPW\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"TEST_OBJECT\" value=\"package\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"java in progettoISPW\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"progettoISPW\" />\r\n      <option name=\"TEST_OBJECT\" value=\"directory\" />\r\n      <dir value=\"$PROJECT_DIR$/src/test/java\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"JUnit.java in progettoISPW\" />\r\n        <item itemvalue=\"JUnit.All in progettoISPW\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34\" name=\"Changes\" comment=\"\" />\r\n      <created>1707465484716</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1707465484716</updated>\r\n      <workItem from=\"1707465486005\" duration=\"4061000\" />\r\n      <workItem from=\"1707472455689\" duration=\"30000\" />\r\n      <workItem from=\"1707472552549\" duration=\"4638000\" />\r\n      <workItem from=\"1707481311472\" duration=\"81000\" />\r\n      <workItem from=\"1707581077617\" duration=\"1142000\" />\r\n      <workItem from=\"1707583331254\" duration=\"355000\" />\r\n      <workItem from=\"1707583710884\" duration=\"370000\" />\r\n      <workItem from=\"1707584142427\" duration=\"104000\" />\r\n      <workItem from=\"1707584259834\" duration=\"2162000\" />\r\n      <workItem from=\"1707593600216\" duration=\"2089000\" />\r\n      <workItem from=\"1707732198357\" duration=\"1183000\" />\r\n      <workItem from=\"1707733408404\" duration=\"10469000\" />\r\n      <workItem from=\"1707747763327\" duration=\"9939000\" />\r\n      <workItem from=\"1707758407340\" duration=\"3000\" />\r\n      <workItem from=\"1707811818264\" duration=\"14761000\" />\r\n      <workItem from=\"1707840350726\" duration=\"1128000\" />\r\n      <workItem from=\"1707841579760\" duration=\"157000\" />\r\n      <workItem from=\"1707842518338\" duration=\"124000\" />\r\n      <workItem from=\"1707842663153\" duration=\"1030000\" />\r\n      <workItem from=\"1707844898151\" duration=\"81000\" />\r\n      <workItem from=\"1707849734319\" duration=\"95000\" />\r\n      <workItem from=\"1707849846883\" duration=\"475000\" />\r\n      <workItem from=\"1707862570171\" duration=\"75000\" />\r\n      <workItem from=\"1707898290973\" duration=\"3169000\" />\r\n      <workItem from=\"1707906042166\" duration=\"11926000\" />\r\n      <workItem from=\"1707989010767\" duration=\"25818000\" />\r\n      <workItem from=\"1708023755592\" duration=\"2328000\" />\r\n      <workItem from=\"1708032022776\" duration=\"679000\" />\r\n      <workItem from=\"1708033868606\" duration=\"10000\" />\r\n      <workItem from=\"1708074454604\" duration=\"8825000\" />\r\n      <workItem from=\"1708100641937\" duration=\"72000\" />\r\n      <workItem from=\"1708102394467\" duration=\"47000\" />\r\n      <workItem from=\"1708102452374\" duration=\"1436000\" />\r\n      <workItem from=\"1708120513715\" duration=\"2797000\" />\r\n      <workItem from=\"1708161097864\" duration=\"19949000\" />\r\n      <workItem from=\"1708252363824\" duration=\"17618000\" />\r\n      <workItem from=\"1708343945125\" duration=\"3017000\" />\r\n      <workItem from=\"1708359403454\" duration=\"13248000\" />\r\n      <workItem from=\"1708374878406\" duration=\"6951000\" />\r\n      <workItem from=\"1708414920785\" duration=\"7354000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"aggiornato path file fxml\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707476027454</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707476027454</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Changes by samut\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707476132341</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707476132341</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Cambio pagina\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707748026058</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707748026058</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Continuo parte samuele\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707812072891</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707812072891</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Continuo parte samuele\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707823089185</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707823089185</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Continuo parte samuele\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707837026554</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707837026554</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Completata interfaccia crea partita\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708365977457</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708365977457</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Completato seconda interfaccia per il Giocatore\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708371297460</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708371297460</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Completato seconda interfaccia per il Giocatore\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708371306619</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708371306619</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"Collegata Interfaccia Proprietario per gestione partite richieste\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708372679496</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708372679496</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"Finita implementazione della seconda interfaccia grafica\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708377241144</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708377241144</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"Aggiunto DAO gestito tramite files\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708378436728</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708378436728</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"Finito il DAO gestito tramite files\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708378804155</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708378804155</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"Eliminati i Model inutili, adesso si utilizza solamente PartitaModel\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708379524911</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708379524911</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"Gestione dei SystemException e IOException per la prima interfaccia\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708381362690</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708381362690</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"16\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <ignored-roots>\r\n      <path value=\"$PROJECT_DIR$/..\" />\r\n    </ignored-roots>\r\n    <MESSAGE value=\"aggiornato path file fxml\" />\r\n    <MESSAGE value=\"Changes by samut\" />\r\n    <MESSAGE value=\"Cambio pagina\" />\r\n    <MESSAGE value=\"Continuo parte samuele\" />\r\n    <MESSAGE value=\"Commit di prova\" />\r\n    <MESSAGE value=\"Completata interfaccia crea partita\" />\r\n    <MESSAGE value=\"Completato seconda interfaccia per il Giocatore\" />\r\n    <MESSAGE value=\"Collegata Interfaccia Proprietario per gestione partite richieste\" />\r\n    <MESSAGE value=\"Finita implementazione della seconda interfaccia grafica\" />\r\n    <MESSAGE value=\"Aggiunto DAO gestito tramite files\" />\r\n    <MESSAGE value=\"Finito il DAO gestito tramite files\" />\r\n    <MESSAGE value=\"Eliminati i Model inutili, adesso si utilizza solamente PartitaModel\" />\r\n    <MESSAGE value=\"Gestione dei SystemException e IOException per la prima interfaccia\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Gestione dei SystemException e IOException per la prima interfaccia\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 867693aa962f58dceb26ae99cc451518b8f2f4fa)
++++ b/.idea/workspace.xml	(date 1708431528610)
+@@ -4,8 +4,18 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="Gestione dei SystemException e IOException per la prima interfaccia">
+-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.java" afterDir="false" />
++    <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="Gestite Completamente Tutte le Eccezioni">
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_8_0_31__6_.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/test/java/TestConnectionDB.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/test/java/TestGiocatoreDAO.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/test/java/TestPartitaDAO.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/CreaPartitaControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/CreaPartitaControllerGrafico.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -77,41 +87,63 @@
+       <recent name="D:\ISPW\PlayBasket\progettoISPW\src\main\resources\it\uniroma2\dicii\ispw\Interfacce\Interfaccia2" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Application.Main">
+-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="it.uniroma2.dicii.ispw.Main" />
++  <component name="RunManager" selected="JUnit.TestGiocatoreDAO.testGetGiocatoreFromUsername">
++    <configuration name="TestAggiungiCampoControllerApplicativoBase.testGetNumeroMax" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="progettoISPW" />
+-      <extension name="coverage">
+-        <pattern>
+-          <option name="PATTERN" value="it.uniroma2.dicii.ispw.*" />
+-          <option name="ENABLED" value="true" />
+-        </pattern>
+-      </extension>
++      <option name="PACKAGE_NAME" value="" />
++      <option name="MAIN_CLASS_NAME" value="TestAggiungiCampoControllerApplicativoBase" />
++      <option name="METHOD_NAME" value="testGetNumeroMax" />
++      <option name="TEST_OBJECT" value="method" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="All in progettoISPW" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="TestConnectionDB" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="progettoISPW" />
+       <option name="PACKAGE_NAME" value="" />
+-      <option name="TEST_OBJECT" value="package" />
++      <option name="MAIN_CLASS_NAME" value="TestConnectionDB" />
++      <option name="TEST_OBJECT" value="class" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="java in progettoISPW" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="TestConnectionDB.testSearchEvent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="progettoISPW" />
+-      <option name="TEST_OBJECT" value="directory" />
+-      <dir value="$PROJECT_DIR$/src/test/java" />
++      <option name="PACKAGE_NAME" value="" />
++      <option name="MAIN_CLASS_NAME" value="TestConnectionDB" />
++      <option name="METHOD_NAME" value="testSearchEvent" />
++      <option name="TEST_OBJECT" value="method" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="TestGiocatoreDAO.testGetGiocatoreFromUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="progettoISPW" />
++      <option name="PACKAGE_NAME" value="" />
++      <option name="MAIN_CLASS_NAME" value="TestGiocatoreDAO" />
++      <option name="METHOD_NAME" value="testGetGiocatoreFromUsername" />
++      <option name="TEST_OBJECT" value="method" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="TestPartitaDAO.testGetProprietarioFromRichiestaCampo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="progettoISPW" />
++      <option name="PACKAGE_NAME" value="" />
++      <option name="MAIN_CLASS_NAME" value="TestPartitaDAO" />
++      <option name="METHOD_NAME" value="testGetProprietarioFromRichiestaCampo" />
++      <option name="TEST_OBJECT" value="method" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="Application.Main" />
+-        <item itemvalue="JUnit.java in progettoISPW" />
+-        <item itemvalue="JUnit.All in progettoISPW" />
++        <item itemvalue="JUnit.TestGiocatoreDAO.testGetGiocatoreFromUsername" />
++        <item itemvalue="JUnit.TestPartitaDAO.testGetProprietarioFromRichiestaCampo" />
++        <item itemvalue="JUnit.TestConnectionDB" />
++        <item itemvalue="JUnit.TestConnectionDB.testSearchEvent" />
++        <item itemvalue="JUnit.TestAggiungiCampoControllerApplicativoBase.testGetNumeroMax" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -284,7 +316,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1708381362690</updated>
+     </task>
+-    <option name="localTasksCounter" value="16" />
++    <task id="LOCAL-00016" summary="Gestite Completamente Tutte le Eccezioni">
++      <option name="closed" value="true" />
++      <created>1708428274992</created>
++      <option name="number" value="00016" />
++      <option name="presentableId" value="LOCAL-00016" />
++      <option name="project" value="LOCAL" />
++      <updated>1708428274992</updated>
++    </task>
++    <option name="localTasksCounter" value="17" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -319,6 +359,7 @@
+     <MESSAGE value="Finito il DAO gestito tramite files" />
+     <MESSAGE value="Eliminati i Model inutili, adesso si utilizza solamente PartitaModel" />
+     <MESSAGE value="Gestione dei SystemException e IOException per la prima interfaccia" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Gestione dei SystemException e IOException per la prima interfaccia" />
++    <MESSAGE value="Gestite Completamente Tutte le Eccezioni" />
++    <option name="LAST_COMMIT_MESSAGE" value="Gestite Completamente Tutte le Eccezioni" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/test/java/TestConnectionDB.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/TestConnectionDB.java b/src/test/java/TestConnectionDB.java
+new file mode 100644
+--- /dev/null	(date 1708431057713)
++++ b/src/test/java/TestConnectionDB.java	(date 1708431057713)
+@@ -0,0 +1,27 @@
++import it.uniroma2.dicii.ispw.utils.db.ConnectionDB;
++import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
++import org.junit.jupiter.api.Test;
++
++import static org.junit.jupiter.api.Assertions.assertEquals;
++
++/*
++    Il test controlla la connessione con il DataBase.
++    Ha successo se la connessione è correttamente stabilita, fallisce altrimenti
++
++    Flavio Simonelli
++*/
++
++public class TestConnectionDB {
++    @Test
++    public void testgetConnection() throws SystemException {
++
++        int value = 0;
++
++        if (ConnectionDB.getConnection() != null) {
++            value = 1;
++        }
++
++        assertEquals(1, value);
++
++    }
++}
+Index: src/test/java/TestGiocatoreDAO.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/TestGiocatoreDAO.java b/src/test/java/TestGiocatoreDAO.java
+new file mode 100644
+--- /dev/null	(date 1708431652017)
++++ b/src/test/java/TestGiocatoreDAO.java	(date 1708431652017)
+@@ -0,0 +1,31 @@
++import it.uniroma2.dicii.ispw.model.CampoModel;
++import it.uniroma2.dicii.ispw.model.GiocatoreModel;
++import it.uniroma2.dicii.ispw.model.ProprietarioModel;
++import it.uniroma2.dicii.ispw.utils.dao.CampoDAO;
++import it.uniroma2.dicii.ispw.utils.dao.GiocatoreDAO;
++import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
++import org.junit.jupiter.api.Test;
++
++import static org.junit.jupiter.api.Assertions.assertEquals;
++import static org.junit.jupiter.api.Assertions.assertTrue;
++
++public class TestGiocatoreDAO {
++    @Test
++    public void testGetGiocatoreFromUsername() throws SystemException {
++        GiocatoreDAO giocatoreDAO = new GiocatoreDAO();
++        String username = "mario";
++        GiocatoreModel giocatoreModel=giocatoreDAO.getGiocatoreByUsername(username);
++        String username1 = giocatoreModel.getUsername();
++        int eta = giocatoreModel.caratteristicaEta();
++        int altezza = giocatoreModel.caratteristicaAltezza();
++        String ruoloBasket = giocatoreModel.caratteristicaRuoloBasket();
++        // Verifica che il nome utente ottenuto dal modello sia uguale a quello atteso
++        assertEquals("mario", username1);
++        // Verifica che l'età ottenuta dal modello sia uguale a quella attesa
++        assertEquals(22, eta);
++        // Verifica che l'altezza ottenuta dal modello sia uguale a quella attesa
++        assertEquals(198, altezza);
++        // Verifica che il ruolo basket ottenuto dal modello sia uguale a quello atteso
++        assertEquals("Playmaker", ruoloBasket);
++    }
++}
+Index: src/main/java/module-info.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/*module com.example.progettoispw {\r\n    requires javafx.controls;\r\n    requires javafx.fxml;\r\n\r\n    requires org.controlsfx.controls;\r\n    requires org.kordamp.bootstrapfx.core;\r\n    requires java.sql;\r\n\r\n    opens it.uniroma2.dicii.ispw to javafx.fxml;\r\n    opens it.uniroma2.dicii.ispw.controller.controllerGrafico.interfaccia1 to javafx.fxml;\r\n    exports it.uniroma2.dicii.ispw;\r\n}\r\n*/\r\nmodule it.uniroma2.dicii.ispw {\r\n    requires javafx.controls;\r\n    requires javafx.fxml;\r\n\r\n    requires org.controlsfx.controls;\r\n    requires org.kordamp.bootstrapfx.core;\r\n    requires java.sql;\r\n    requires java.mail;\r\n    requires com.opencsv;\r\n\r\n    opens it.uniroma2.dicii.ispw to javafx.fxml;\r\n    opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1 to javafx.fxml;\r\n    opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.proprietario to javafx.fxml;\r\n    opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.gestore to javafx.fxml;\r\n    opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.giocatore to javafx.fxml;\r\n    opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2 to javafx.fxml;\r\n    opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.proprietario to javafx.fxml;\r\n    opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.proprietario.aggiungi_campo to javafx.fxml;\r\n    opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.gestore to javafx.fxml;\r\n    opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.giocatore to javafx.fxml;\r\n    opens it.uniroma2.dicii.ispw.utils.bean to javafx.base;\r\n    exports it.uniroma2.dicii.ispw;\r\n    exports it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2;\r\n    exports it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.proprietario;\r\n    exports it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.giocatore;\r\n    exports it.uniroma2.dicii.ispw.utils.exceptions;\r\n    exports it.uniroma2.dicii.ispw.utils.dao;\r\n    exports it.uniroma2.dicii.ispw.model;\r\n    exports it.uniroma2.dicii.ispw.utils.bean;\r\n    exports it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator;\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/module-info.java b/src/main/java/module-info.java
+--- a/src/main/java/module-info.java	(revision 867693aa962f58dceb26ae99cc451518b8f2f4fa)
++++ b/src/main/java/module-info.java	(date 1708429233005)
+@@ -41,5 +41,6 @@
+     exports it.uniroma2.dicii.ispw.model;
+     exports it.uniroma2.dicii.ispw.utils.bean;
+     exports it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator;
++    exports it.uniroma2.dicii.ispw.utils.db;
+ 
+ }
+\ No newline at end of file
+Index: src/test/java/TestPartitaDAO.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/TestPartitaDAO.java b/src/test/java/TestPartitaDAO.java
+new file mode 100644
+--- /dev/null	(date 1708431551176)
++++ b/src/test/java/TestPartitaDAO.java	(date 1708431551176)
+@@ -0,0 +1,14 @@
++
++import it.uniroma2.dicii.ispw.model.partita.PartitaModel;
++import it.uniroma2.dicii.ispw.utils.dao.PartitaDAO;
++import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
++import org.junit.jupiter.api.Test;
++
++import static org.junit.jupiter.api.Assertions.assertTrue;
++
++public class TestPartitaDAO {
++    @Test
++    public void testGetProprietarioFromRichiestaCampo() throws SystemException {
++
++    }
++}
