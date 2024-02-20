@@ -4,6 +4,7 @@ import it.uniroma2.dicii.ispw.utils.dao.CampoDAO;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 /*
   Test di Samuele Tomassacci
@@ -18,6 +19,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
         String username=proprietarioModel.getUsername();
 
-        assertTrue(username.equals(("Luca")));
+        assertEquals(("Luca"), username);
     }
 }
