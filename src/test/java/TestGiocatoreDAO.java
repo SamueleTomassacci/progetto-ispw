@@ -9,9 +9,20 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class TestGiocatoreDAO {
+/*
+
+    Il test utilizza il GiocatoreDAO per troavare un Giocatore tramite il suo username;
+    Fallisce se l'utente trovato non ha come caratteristiche:
+    username = mario
+    eta = 22
+    altezza = 198
+    ruoloBasket = Playmaker
+
+    Flavio Simonelli
+ */
+class TestGiocatoreDAO {
     @Test
-    public void testGetGiocatoreFromUsername() throws SystemException {
+    void testGetGiocatoreFromUsername() throws SystemException {
         GiocatoreDAO giocatoreDAO = new GiocatoreDAO();
         String username = "mario";
         GiocatoreModel giocatoreModel=giocatoreDAO.getGiocatoreByUsername(username);

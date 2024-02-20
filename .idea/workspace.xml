@@ -4,23 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="Gestite Completamente Tutte le Eccezioni">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_13_21__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_13_21__Changes_.xml" afterDir="false" />
+    <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="rimosso alcuni codesmell">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/csv/gestore.csv" beforeDir="false" afterPath="$PROJECT_DIR$/csv/gestore.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/decorator/AggiungiCampoControllerApplicativoVip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/decorator/AggiungiCampoControllerApplicativoVip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/dao/ProprietarioDAOCSV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/dao/ProprietarioDAOCSV.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_applicativo/LoginControllerApplicativo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_applicativo/LoginControllerApplicativo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/SalvaInvia1ControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/SalvaInvia1ControllerGrafico.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/SessionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/SessionManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/ProprietarioDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/ProprietarioDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/ProprietarioDAOCSV.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/ProprietarioDAOCSV.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TestAggiungiCampoControllerApplicativoBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestAggiungiCampoControllerApplicativoBase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TestCampoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestCampoDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TestLoginDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestLoginDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +78,20 @@
       <recent name="D:\ISPW\PlayBasket\progettoISPW\src\main\resources\it\uniroma2\dicii\ispw\Interfacce\Interfaccia2" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="it.uniroma2.dicii.ispw.Main" />
+      <module name="progettoISPW" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.uniroma2.dicii.ispw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestConnectionDB" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="progettoISPW" />
       <option name="PACKAGE_NAME" value="" />
@@ -132,17 +131,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="java in progettoISPW" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="progettoISPW" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.java in progettoISPW" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.TestGiocatoreDAO.testGetGiocatoreFromUsername" />
         <item itemvalue="JUnit.TestPartitaDAO.testGetProprietarioFromRichiestaCampo" />
         <item itemvalue="JUnit.TestConnectionDB" />
@@ -327,7 +318,55 @@
       <option name="project" value="LOCAL" />
       <updated>1708428274992</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Aggiunti Casi di Test">
+      <option name="closed" value="true" />
+      <created>1708431692464</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1708431692464</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Aggiunti Casi di Test">
+      <option name="closed" value="true" />
+      <created>1708431696689</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1708431696689</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Aggiunti i tre casi di test di Flavio">
+      <option name="closed" value="true" />
+      <created>1708433243019</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1708433243019</updated>
+    </task>
+    <task id="LOCAL-00020" summary="rimuovi duplicazione">
+      <option name="closed" value="true" />
+      <created>1708433870708</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1708433870708</updated>
+    </task>
+    <task id="LOCAL-00021" summary="rimosso alcuni codesmell">
+      <option name="closed" value="true" />
+      <created>1708434599834</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1708434599834</updated>
+    </task>
+    <task id="LOCAL-00022" summary="rimosso alcuni codesmell">
+      <option name="closed" value="true" />
+      <created>1708435045101</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1708435045101</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,6 +402,10 @@
     <MESSAGE value="Eliminati i Model inutili, adesso si utilizza solamente PartitaModel" />
     <MESSAGE value="Gestione dei SystemException e IOException per la prima interfaccia" />
     <MESSAGE value="Gestite Completamente Tutte le Eccezioni" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gestite Completamente Tutte le Eccezioni" />
+    <MESSAGE value="Aggiunti Casi di Test" />
+    <MESSAGE value="Aggiunti i tre casi di test di Flavio" />
+    <MESSAGE value="rimuovi duplicazione" />
+    <MESSAGE value="rimosso alcuni codesmell" />
+    <option name="LAST_COMMIT_MESSAGE" value="rimosso alcuni codesmell" />
   </component>
 </project>

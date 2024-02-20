@@ -1,6 +1,6 @@
 package it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.giocatore;
 
-import it.uniroma2.dicii.ispw.controller.controller_applicativo.CreaPartita.CreaPartitaControllerApplicativo;
+import it.uniroma2.dicii.ispw.controller.controller_applicativo.creapartita.CreaPartitaControllerApplicativo;
 import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.ControllerGrafico;
 import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.Session;
@@ -17,24 +17,22 @@ import javafx.scene.Parent;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.List;
 
 public class CreaPartitaControllerGrafico extends ControllerGrafico {
     private IdSessioneBean id;
     private CreaPartitaControllerApplicativo controllerApplicativo; // riferimento all'istanza utilizzata del controller applicativo
-    private TabellaPartiteControllerGrafico tabellaPartiteControllerGrafico; // riferimento all'istanza del controller grafico caricato
     @FXML
-    public Spinner numGiocatori;
+    public Spinner<Integer> numGiocatori;
     @FXML
     private Label username;
     @FXML
     private DatePicker sceltaData;
     @FXML
-    private ComboBox sceltaCampo;
+    private ComboBox<String> sceltaCampo;
     @FXML
-    private ComboBox sceltaOrario;
+    private ComboBox<LocalTime> sceltaOrario;
     @FXML
     private ScrollPane scrollPane;
 
@@ -100,11 +98,12 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
             // Imposta il contenuto dello ScrollPane
             scrollPane.setContent(content);
             // Ottieni controller associato al loader
-            tabellaPartiteControllerGrafico = loader.getController();
+            // riferimento all'istanza del controller grafico caricato
+            TabellaPartiteControllerGrafico tabellaPartiteControllerGrafico = loader.getController();
             //inizializza la lista
             tabellaPartiteControllerGrafico.inizializzaLista(controllerApplicativo, new UserBean(username.getText()));
         } catch (IOException | SystemException e) {
-            throw new RuntimeException(e);
+            GestoreEccezioni.getInstance().handleException(e);
         }catch (DateTimeParseException e){
             DataFormatoErratoException f = new DataFormatoErratoException();
             GestoreEccezioni.getInstance().handleException(f);
@@ -147,7 +146,6 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
 
             for (LocalTime orario : orariPossibili) {
                 if(giorno.isEqual(LocalDate.now()) && LocalTime.now().isAfter(orario)){
-                    // Se la condizione è vera saltiamo questo orario;
                     continue;
                 }
                 sceltaOrario.getItems().add(orario);
