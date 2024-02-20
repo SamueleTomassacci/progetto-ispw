@@ -20,9 +20,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
     Flavio Simonelli
  */
-public class TestGiocatoreDAO {
+class TestGiocatoreDAO {
     @Test
-    public void testGetGiocatoreFromUsername() throws SystemException {
+    void testGetGiocatoreFromUsername() throws SystemException {
         GiocatoreDAO giocatoreDAO = new GiocatoreDAO();
         String username = "mario";
         GiocatoreModel giocatoreModel=giocatoreDAO.getGiocatoreByUsername(username);

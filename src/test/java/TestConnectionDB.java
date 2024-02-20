@@ -11,9 +11,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
     Flavio Simonelli
 */
 
-public class TestConnectionDB {
+class TestConnectionDB {
     @Test
-    public void testgetConnection() throws SystemException {
+    void testgetConnection() throws SystemException {
 
         int value = 0;
 

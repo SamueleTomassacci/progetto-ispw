@@ -19,10 +19,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
     Flavio Simonelli
  */
-
-public class TestPartitaDAO {
+ class TestPartitaDAO {
     @Test
-    public void testGetProprietarioFromRichiestaCampo() throws SystemException {
+    void testGetProprietarioFromRichiestaCampo() throws SystemException {
         LocalTime orario = LocalTime.parse("13:00");
         LocalDate data = LocalDate.of(2023, 2, 27);
         PartitaModel partitaModel = new PartitaModel("Centro Sportivo Rossi2", "Via Rossi 23", data);

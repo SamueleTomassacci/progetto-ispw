@@ -10,7 +10,7 @@ import java.util.List;
 public abstract class Subject {
     private List<ListaPartiteObserver> observers;
 
-    public Subject(){
+    protected Subject(){
         this.observers = new ArrayList<>();
     }
     public void register(ListaPartiteObserver observer){
