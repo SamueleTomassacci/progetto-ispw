@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="Gestione dei SystemException e IOException per la prima interfaccia">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +77,7 @@
       <recent name="D:\ISPW\PlayBasket\progettoISPW\src\main\resources\it\uniroma2\dicii\ispw\Interfacce\Interfaccia2" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.java in progettoISPW">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="it.uniroma2.dicii.ispw.Main" />
       <module name="progettoISPW" />
@@ -109,8 +109,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.java in progettoISPW" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.java in progettoISPW" />
         <item itemvalue="JUnit.All in progettoISPW" />
       </list>
     </recent_temporary>
