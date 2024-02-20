@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.ispw.controller.controller_applicativo.CreaPartita;
+package it.uniroma2.dicii.ispw.controller.controller_applicativo.creapartita;
 
 
 import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.giocatore.ListaPartiteObserver;
@@ -53,9 +53,9 @@ public class CreaPartitaControllerApplicativo {
         }
         List<LocalTime> orariPossibili = new ArrayList<>();
         // popolazione degli orari ogni ora
-        for (LocalTime orario = apertura; orario.isBefore(chiusura);) {
+        LocalTime orario = apertura;
+        while (orario.isBefore(chiusura)) {
             orariPossibili.add(orario);
-            // Incrementa di un'ora
             orario = orario.plusHours(1);
         }
         // prende lista orari occupati
