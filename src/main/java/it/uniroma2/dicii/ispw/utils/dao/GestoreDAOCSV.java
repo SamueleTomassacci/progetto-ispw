@@ -3,6 +3,7 @@ package it.uniroma2.dicii.ispw.utils.dao;
 import com.opencsv.exceptions.CsvValidationException;
 import it.uniroma2.dicii.ispw.model.GestoreModel;
 import it.uniroma2.dicii.ispw.utils.db.ConnectionDB;
+import it.uniroma2.dicii.ispw.utils.exceptions.LoginException;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 
 import java.io.BufferedReader;
@@ -48,7 +49,7 @@ public class GestoreDAOCSV {
 
     }
 
-    public GestoreModel getGestoreByUsername(String username) throws SystemException {
+    public GestoreModel getGestoreByUsername(String username) throws SystemException, LoginException {
         GestoreModel gestore = null;
         try {
             CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));
@@ -64,6 +65,7 @@ public class GestoreDAOCSV {
 
                 }
             }
+
             return gestore;
 
         } catch (IOException | CsvValidationException e) {

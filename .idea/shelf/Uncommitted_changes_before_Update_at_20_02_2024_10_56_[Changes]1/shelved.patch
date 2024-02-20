@@ -1,0 +1,306 @@
+Index: csv/gestore.csv
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\"3\",\"samuele\",\"tomassaccisamuele@gmail.com\"
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/csv/gestore.csv b/csv/gestore.csv
+--- a/csv/gestore.csv	
++++ b/csv/gestore.csv	
+@@ -1,1 +1,1 @@
+-"3","samuele","tomassaccisamuele@gmail.com"
+\ No newline at end of file
++"3","Samuele","tomassaccisamuele@gmail.com"
+\ No newline at end of file
+Index: src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/LoginControllerApplicativo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package it.uniroma2.dicii.ispw.controller.controller_applicativo;\r\n\r\nimport it.uniroma2.dicii.ispw.model.CredentialsModel;\r\nimport it.uniroma2.dicii.ispw.model.GestoreModel;\r\nimport it.uniroma2.dicii.ispw.model.GiocatoreModel;\r\nimport it.uniroma2.dicii.ispw.model.ProprietarioModel;\r\nimport it.uniroma2.dicii.ispw.utils.Session;\r\nimport it.uniroma2.dicii.ispw.utils.SessionManager;\r\nimport it.uniroma2.dicii.ispw.utils.bean.*;\r\nimport it.uniroma2.dicii.ispw.utils.dao.*;\r\nimport it.uniroma2.dicii.ispw.utils.exceptions.LoginException;\r\nimport it.uniroma2.dicii.ispw.utils.exceptions.SystemException;\r\n\r\n\r\n\r\npublic class LoginControllerApplicativo {\r\n\r\n    public void login(CredentialsBean cred) throws SystemException, LoginException {\r\n        // Controllo attraverso loginDao se esiste un username con quelle credenziali\r\n        LoginDAO loginDao = new LoginDAO();\r\n        if (cred.getRole() == Role.GESTORE) {\r\n\r\n            GestoreModel gestore = null;\r\n            CredentialsModel credentialsModel = new CredentialsModel(cred);\r\n            if (loginDao.checkIfExists(credentialsModel)) {\r\n\r\n                GestoreDAOCSV gestoreDAO= new GestoreDAOCSV();  //Commentare per cambiare tipo di dao\r\n\r\n                //GestoreDAO gestoreDAO = new GestoreDAO();\r\n\r\n                gestore = gestoreDAO.getGestoreByUsername(cred.getUsername());\r\n\r\n                cred.setIdSession(gestore.getCode());\r\n                GestoreBean gestoreBean = new GestoreBean(gestore);\r\n                SessionManager manager = SessionManager.getSessionManager();\r\n                IdSessioneBean id=new IdSessioneBean(gestore.getCode());\r\n                Session sessione = manager.createSession(null, null, gestoreBean, Role.GESTORE, id);\r\n                manager.aggiungiSessione(sessione);\r\n            } else {\r\n                throw new LoginException();\r\n            \r\n            }\r\n        }\r\n        else if (cred.getRole() == Role.PROPRIETARIO) {\r\n\r\n            ProprietarioModel proprietario = null;\r\n            CredentialsModel credentialsModel = new CredentialsModel(cred);\r\n            if(loginDao.checkIfExists(credentialsModel)){\r\n\r\n                ProprietarioDAO proprietarioDAO = new ProprietarioDAO();\r\n                proprietario = proprietarioDAO.getProprietarioByUsername(cred.getUsername());\r\n                cred.setIdSession(proprietario.getCode());\r\n                ProprietarioBean proprietarioBean = new ProprietarioBean(proprietario);\r\n                SessionManager manager = SessionManager.getSessionManager();\r\n                IdSessioneBean id=new IdSessioneBean(proprietario.getCode());\r\n                Session sessione = manager.createSession(null,proprietarioBean,null,Role.PROPRIETARIO,id);\r\n                manager.aggiungiSessione(sessione);\r\n            }\r\n            else{\r\n                throw new LoginException();\r\n\r\n            }\r\n        }\r\n        else if (cred.getRole() == Role.GIOCATORE){\r\n\r\n            GiocatoreModel giocatore = null;\r\n            CredentialsModel credentialsModel = new CredentialsModel(cred);\r\n            if(loginDao.checkIfExists(credentialsModel)){\r\n\r\n                GiocatoreDAO giocatoreDAO = new GiocatoreDAO();\r\n                giocatore = giocatoreDAO.getGiocatoreByUsername(cred.getUsername());\r\n                cred.setIdSession(giocatore.getCode());\r\n                GiocatoreBean giocatoreBean = new GiocatoreBean(giocatore);\r\n                SessionManager manager = SessionManager.getSessionManager();\r\n                IdSessioneBean id=new IdSessioneBean(giocatore.getCode());\r\n                Session sessione = manager.createSession(giocatoreBean,null,null,Role.GIOCATORE,id);\r\n                manager.aggiungiSessione(sessione);\r\n            }\r\n            else{\r\n                throw new LoginException();\r\n\r\n            }\r\n        }\r\n\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/LoginControllerApplicativo.java b/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/LoginControllerApplicativo.java
+--- a/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/LoginControllerApplicativo.java	
++++ b/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/LoginControllerApplicativo.java	
+@@ -24,9 +24,11 @@
+             CredentialsModel credentialsModel = new CredentialsModel(cred);
+             if (loginDao.checkIfExists(credentialsModel)) {
+ 
+-                GestoreDAOCSV gestoreDAO= new GestoreDAOCSV();  //Commentare per cambiare tipo di dao
++                //Commentare per cambiare tipo di dao
+ 
+-                //GestoreDAO gestoreDAO = new GestoreDAO();
++                //GestoreDAOCSV gestoreDAO= new GestoreDAOCSV();
++
++                GestoreDAO gestoreDAO = new GestoreDAO();
+ 
+                 gestore = gestoreDAO.getGestoreByUsername(cred.getUsername());
+ 
+@@ -47,6 +49,8 @@
+             CredentialsModel credentialsModel = new CredentialsModel(cred);
+             if(loginDao.checkIfExists(credentialsModel)){
+ 
++                //ProprietarioDAOCSV proprietarioDAO= new ProprietarioDAOCSV();
++
+                 ProprietarioDAO proprietarioDAO = new ProprietarioDAO();
+                 proprietario = proprietarioDAO.getProprietarioByUsername(cred.getUsername());
+                 cred.setIdSession(proprietario.getCode());
+Index: src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/VipControllerApplicativo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package it.uniroma2.dicii.ispw.controller.controller_applicativo;\r\n\r\nimport it.uniroma2.dicii.ispw.utils.bean.ProprietarioBean;\r\nimport it.uniroma2.dicii.ispw.utils.dao.ProprietarioDAO;\r\nimport it.uniroma2.dicii.ispw.utils.exceptions.SystemException;\r\n\r\n\r\n\r\n/*\r\n  Gestisci con le eccezioni il fatto che il proprietario potrebbe già essere vip\r\n */\r\n\r\npublic class VipControllerApplicativo {\r\n    public void upgradeVip(ProprietarioBean proprietario) throws SystemException {\r\n        ProprietarioDAO proprietarioDAO=new ProprietarioDAO();\r\n        proprietarioDAO.setVip(proprietario.getUsername());\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/VipControllerApplicativo.java b/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/VipControllerApplicativo.java
+--- a/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/VipControllerApplicativo.java	
++++ b/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/VipControllerApplicativo.java	
+@@ -2,17 +2,19 @@
+ 
+ import it.uniroma2.dicii.ispw.utils.bean.ProprietarioBean;
+ import it.uniroma2.dicii.ispw.utils.dao.ProprietarioDAO;
++import it.uniroma2.dicii.ispw.utils.dao.ProprietarioDAOCSV;
+ import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
+ 
+ 
+ 
+-/*
+-  Gestisci con le eccezioni il fatto che il proprietario potrebbe già essere vip
+- */
++
+ 
+ public class VipControllerApplicativo {
+     public void upgradeVip(ProprietarioBean proprietario) throws SystemException {
++
++       // ProprietarioDAOCSV proprietarioDAO=new ProprietarioDAOCSV();
+         ProprietarioDAO proprietarioDAO=new ProprietarioDAO();
++
+         proprietarioDAO.setVip(proprietario.getUsername());
+ 
+     }
+Index: src/main/java/module-info.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/*module com.example.progettoispw {\r\n    requires javafx.controls;\r\n    requires javafx.fxml;\r\n\r\n    requires org.controlsfx.controls;\r\n    requires org.kordamp.bootstrapfx.core;\r\n    requires java.sql;\r\n\r\n    opens it.uniroma2.dicii.ispw to javafx.fxml;\r\n    opens it.uniroma2.dicii.ispw.controller.controllerGrafico.interfaccia1 to javafx.fxml;\r\n    exports it.uniroma2.dicii.ispw;\r\n}\r\n*/\r\nmodule it.uniroma2.dicii.ispw {\r\n    requires javafx.controls;\r\n    requires javafx.fxml;\r\n\r\n    requires org.controlsfx.controls;\r\n    requires org.kordamp.bootstrapfx.core;\r\n    requires java.sql;\r\n    requires java.mail;\r\n    requires com.opencsv;\r\n\r\n    opens it.uniroma2.dicii.ispw to javafx.fxml;\r\n    opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1 to javafx.fxml;\r\n    opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.proprietario to javafx.fxml;\r\n    opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.gestore to javafx.fxml;\r\n    opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.giocatore to javafx.fxml;\r\n    opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2 to javafx.fxml;\r\n    opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.proprietario to javafx.fxml;\r\n    opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.proprietario.aggiungi_campo to javafx.fxml;\r\n    opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.gestore to javafx.fxml;\r\n    opens it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.giocatore to javafx.fxml;\r\n    opens it.uniroma2.dicii.ispw.utils.bean to javafx.base;\r\n    exports it.uniroma2.dicii.ispw;\r\n    exports it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2;\r\n    exports it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.proprietario;\r\n    exports it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.giocatore;\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/module-info.java b/src/main/java/module-info.java
+--- a/src/main/java/module-info.java	
++++ b/src/main/java/module-info.java	
+@@ -36,6 +36,10 @@
+     exports it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2;
+     exports it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.proprietario;
+     exports it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.giocatore;
+-
++    exports it.uniroma2.dicii.ispw.utils.exceptions;
++    exports it.uniroma2.dicii.ispw.utils.dao;
++    exports it.uniroma2.dicii.ispw.model;
++    exports it.uniroma2.dicii.ispw.utils.bean;
++    exports it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator;
+ 
+ }
+\ No newline at end of file
+Index: src/main/java/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package it.uniroma2.dicii.ispw.utils.dao;\r\n\r\nimport com.opencsv.exceptions.CsvValidationException;\r\nimport it.uniroma2.dicii.ispw.model.GestoreModel;\r\nimport it.uniroma2.dicii.ispw.utils.db.ConnectionDB;\r\nimport it.uniroma2.dicii.ispw.utils.exceptions.SystemException;\r\n\r\nimport java.io.BufferedReader;\r\nimport java.io.File;\r\nimport java.io.FileReader;\r\nimport java.io.IOException;\r\nimport java.sql.Connection;\r\nimport java.sql.PreparedStatement;\r\nimport java.sql.ResultSet;\r\nimport java.sql.SQLException;\r\nimport com.opencsv.CSVReader;\r\n\r\npublic class GestoreDAOCSV {\r\n    private static final String CSV_GESTORE = \"csv/gestore.csv\";\r\n    private File fd;\r\n\r\n    private static class GestoreAttributesOrder {\r\n        public static int getIndex_UserId() {\r\n            return 0;\r\n        }\r\n\r\n        public static int getIndex_Username() {\r\n            return 1;\r\n        }\r\n\r\n        public static int getIndex_Email() {\r\n            return 2;\r\n        }\r\n    }\r\n\r\n    public GestoreDAOCSV() throws SystemException {\r\n        this.fd = new File(CSV_GESTORE);\r\n        try {\r\n\r\n            if (!fd.exists()) {\r\n                fd.createNewFile();\r\n            }\r\n        } catch (IOException e) {\r\n            SystemException exception = new SystemException();\r\n            exception.initCause(e);\r\n            throw exception;\r\n        }\r\n\r\n    }\r\n\r\n    public GestoreModel getGestoreByUsername(String username) throws SystemException {\r\n        GestoreModel gestore = null;\r\n        try {\r\n            CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));\r\n            String[] record;\r\n\r\n\r\n            while ((record = csvReader.readNext()) != null) {\r\n\r\n                int pos = GestoreAttributesOrder.getIndex_Username();\r\n\r\n                if (record[pos].equals(username)) {\r\n                    gestore = new GestoreModel(record[GestoreAttributesOrder.getIndex_Username()], record[GestoreAttributesOrder.getIndex_Email()], Integer.parseInt(record[GestoreAttributesOrder.getIndex_UserId()]));\r\n\r\n                }\r\n            }\r\n            return gestore;\r\n\r\n        } catch (IOException | CsvValidationException e) {\r\n            SystemException exception = new SystemException();\r\n            exception.initCause(e);\r\n            throw exception;\r\n        }\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.java b/src/main/java/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.java
+--- a/src/main/java/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.java	
++++ b/src/main/java/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.java	
+@@ -3,6 +3,7 @@
+ import com.opencsv.exceptions.CsvValidationException;
+ import it.uniroma2.dicii.ispw.model.GestoreModel;
+ import it.uniroma2.dicii.ispw.utils.db.ConnectionDB;
++import it.uniroma2.dicii.ispw.utils.exceptions.LoginException;
+ import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
+ 
+ import java.io.BufferedReader;
+@@ -48,7 +49,7 @@
+ 
+     }
+ 
+-    public GestoreModel getGestoreByUsername(String username) throws SystemException {
++    public GestoreModel getGestoreByUsername(String username) throws SystemException, LoginException {
+         GestoreModel gestore = null;
+         try {
+             CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));
+@@ -64,6 +65,7 @@
+ 
+                 }
+             }
++
+             return gestore;
+ 
+         } catch (IOException | CsvValidationException e) {
+Index: src/main/java/it/uniroma2/dicii/ispw/utils/dao/CampoDAO.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package it.uniroma2.dicii.ispw.utils.dao;\r\n\r\nimport it.uniroma2.dicii.ispw.model.*;\r\nimport it.uniroma2.dicii.ispw.model.partita.PartitaModel;\r\nimport it.uniroma2.dicii.ispw.utils.bean.ConverterBean;\r\nimport it.uniroma2.dicii.ispw.utils.db.ConnectionDB;\r\nimport it.uniroma2.dicii.ispw.utils.engineering.ConverterToFileEngineering;\r\nimport it.uniroma2.dicii.ispw.utils.exceptions.CampoEsistenteException;\r\nimport it.uniroma2.dicii.ispw.utils.exceptions.SystemException;\r\n\r\nimport java.io.*;\r\nimport java.sql.*;\r\nimport java.time.LocalTime;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class CampoDAO {\r\n    private static final String PATHCAMPIIMG = \"campi_img/\";\r\n\r\n    public List<PartitaModel> getNomeCampo() throws  SystemException {\r\n        String query = \"SELECT nome,indirizzo FROM campo;\";\r\n        Connection conn= ConnectionDB.getConnection();\r\n        List<PartitaModel> lista=new ArrayList<>();\r\n        PartitaModel campo = null;\r\n        try(PreparedStatement ps= conn.prepareStatement(query)){\r\n\r\n            ResultSet rs = ps.executeQuery();\r\n            while (rs.next()) {\r\n                campo = new PartitaModel(rs.getString(1),rs.getString(2));\r\n                lista.add(campo);\r\n            }\r\n            return lista;\r\n\r\n        }catch(SQLException e){\r\n            SystemException exception = new SystemException();\r\n            exception.initCause(e);\r\n            throw exception;\r\n        }\r\n    }\r\n\r\n    public LocalTime getOrarioApertura(PartitaModel campo) throws SystemException {\r\n        String query = \"SELECT OrarioApertura FROM campo where nome = ? and indirizzo = ?;\";\r\n        Connection conn= ConnectionDB.getConnection();\r\n        try (PreparedStatement ps = conn.prepareStatement(query)) {\r\n            ps.setString(1, campo.recuperaNome());\r\n            ps.setString(2, campo.recuperaIndirizzo());\r\n            ResultSet rs = ps.executeQuery();\r\n            rs.next();\r\n            return rs.getTime(1).toLocalTime();\r\n\r\n        } catch (SQLException e) {\r\n            throw new SystemException();\r\n        }\r\n    }\r\n\r\n    public LocalTime getOrarioChiusura(PartitaModel campo) throws SystemException {\r\n        String query = \"SELECT OrarioChiusura FROM campo where nome = ? and indirizzo = ?;\";\r\n        Connection conn= ConnectionDB.getConnection();\r\n        try (PreparedStatement ps = conn.prepareStatement(query)) {\r\n            ps.setString(1, campo.recuperaNome());\r\n            ps.setString(2, campo.recuperaIndirizzo());\r\n            ResultSet rs = ps.executeQuery();\r\n            rs.next();\r\n            return rs.getTime(1).toLocalTime();\r\n\r\n        } catch (SQLException e) {\r\n            throw new SystemException();\r\n        }\r\n    }\r\n\r\n\r\n    public List<CampoModel> getRichiesteCampo() throws SystemException {\r\n        String query=\"SELECT * FROM richiestacampo;\";\r\n        Connection conn= ConnectionDB.getConnection();\r\n        List<CampoModel> lista=new ArrayList<>();\r\n        CampoModel campo=null;\r\n        try(PreparedStatement ps= conn.prepareStatement(query)){\r\n\r\n            ResultSet rs = ps.executeQuery();\r\n            while (rs.next()) {\r\n                InputStream inputStream = (rs.getBinaryStream(6));\r\n                String filePath = PATHCAMPIIMG + rs.getString(1) + \"pic\" + \".png\";\r\n                File file = new File(filePath);\r\n                ConverterToFileEngineering converterToFile = new ConverterToFileEngineering();\r\n                converterToFile.fromInputStreamToFile(new ConverterBean(inputStream, file));\r\n                campo = new CampoModel(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getTime(4),rs.getTime(5),rs.getString(8),file);\r\n                campo.impostaNumeroCampo(rs.getInt(9));\r\n                lista.add(campo);\r\n            }\r\n            return lista;\r\n\r\n        }catch(SQLException e){\r\n            SystemException exception = new SystemException();\r\n            exception.initCause(e);\r\n            throw exception;\r\n        }\r\n\r\n\r\n\r\n    }\r\n\r\n    public void tryInsertRichiestaCampo(CampoModel campo, ProprietarioModel proprietario) throws SystemException, CampoEsistenteException {\r\n\r\n        String query1 = \"SELECT max(numero) FROM campo WHERE indirizzo = ?;\";\r\n        int maxCampi = 0;\r\n        Connection conn = ConnectionDB.getConnection();\r\n\r\n        try (PreparedStatement ps = conn.prepareStatement(query1)) {\r\n\r\n            ps.setString(1, campo.recuperaIndirizzo());\r\n\r\n            ResultSet rs = ps.executeQuery();\r\n            rs.next();\r\n            maxCampi = rs.getInt(1);\r\n\r\n            if(maxCampi!=0){\r\n                int maxRichieste = this.getMaxNumero(campo);\r\n                throw new CampoEsistenteException(Integer.toString(Math.max(maxCampi, maxRichieste)));\r\n            }\r\n\r\n\r\n\r\n        } catch (SystemException exc) {                 //Vuol dire che non c'è una richiesta con quel campo\r\n            throw new CampoEsistenteException(Integer.toString(maxCampi));\r\n\r\n        } catch (SQLException e) {\r\n            throw new SystemException();\r\n        }\r\n\r\n\r\n\r\n            String query = \"INSERT INTO richiestacampo VALUES(?,?,?,?,?,?,?,?,?);\";\r\n\r\n            try (PreparedStatement ps = conn.prepareStatement(query)) {\r\n                ps.setString(1, campo.nomeAttuale());\r\n                ps.setString(2, campo.recuperaIndirizzo());\r\n                ps.setInt(3, campo.costoOrario());\r\n                ps.setTime(4, campo.inizioAttivita());\r\n                ps.setTime(5, campo.fineAttivita());\r\n                ps.setBlob(6, new FileInputStream(campo.recuperaImmagine()));\r\n                ps.setString(7, proprietario.getUsername());\r\n                ps.setString(8, campo.credPagamento());\r\n                ps.setString(8, campo.credPagamento());\r\n                ps.setInt(9, campo.numeroCampo());\r\n                int righeModificate = ps.executeUpdate();\r\n\r\n\r\n            } catch (SQLException e) {\r\n                if (e.getErrorCode() == 1062) {\r\n                    throw new CampoEsistenteException();\r\n                } else {\r\n                    SystemException exception = new SystemException();\r\n                    exception.initCause(e);\r\n                    throw exception;\r\n                }\r\n            } catch (FileNotFoundException exc) {\r\n                SystemException exception = new SystemException();\r\n                exception.initCause(exc);\r\n                throw exception;\r\n            }\r\n        }\r\n    public void insertRichiestaCampo(CampoModel campo, ProprietarioModel proprietario) throws SystemException, CampoEsistenteException {\r\n\r\n        String insert = \"INSERT INTO richiestacampo VALUES(?,?,?,?,?,?,?,?,?);\";\r\n        Connection conn = ConnectionDB.getConnection();\r\n\r\n        try (PreparedStatement preparedStatement = conn.prepareStatement(insert)) {\r\n            preparedStatement.setString(1, campo.nomeAttuale());\r\n            preparedStatement.setString(2, campo.recuperaIndirizzo());\r\n            preparedStatement.setInt(3, campo.costoOrario());\r\n            preparedStatement.setTime(4, campo.inizioAttivita());\r\n            preparedStatement.setTime(5, campo.fineAttivita());\r\n            preparedStatement.setBlob(6, new FileInputStream(campo.recuperaImmagine()));\r\n            preparedStatement.setString(7, proprietario.getUsername());\r\n            preparedStatement.setString(8, campo.credPagamento());\r\n            preparedStatement.setString(8, campo.credPagamento());\r\n            preparedStatement.setInt(9, campo.numeroCampo());\r\n\r\n            preparedStatement.executeUpdate();\r\n\r\n\r\n        } catch (SQLException | FileNotFoundException e) {\r\n\r\n                SystemException exception = new SystemException();\r\n                exception.initCause(e);\r\n                throw exception;\r\n            }\r\n\r\n    }\r\n\r\n\r\n    public void eliminaRichiesta(CampoModel campo) throws SystemException {\r\n        String query=\"DELETE FROM richiestacampo WHERE nome= ? and indirizzo = ?;\";\r\n        Connection conn= ConnectionDB.getConnection();\r\n        try(PreparedStatement ps= conn.prepareStatement(query)){\r\n            ps.setString(1,campo.nomeAttuale());\r\n            ps.setString(2,campo.recuperaIndirizzo());\r\n\r\n            int righeModificate = ps.executeUpdate();\r\n\r\n\r\n        }catch(SQLException e){\r\n            SystemException exception = new SystemException();\r\n            exception.initCause(e);\r\n            throw exception;\r\n        }\r\n    }\r\n\r\n    public ProprietarioModel getProprietarioFromRichiestaCampo(CampoModel campo) throws SystemException {\r\n        String query=\"SELECT proprietario, iban FROM richiestacampo WHERE nome= ? and indirizzo =?;\";\r\n        Connection conn= ConnectionDB.getConnection();\r\n        ProprietarioModel proprietario=null;\r\n        try(PreparedStatement ps= conn.prepareStatement(query)){\r\n            ps.setString(1,campo.nomeAttuale());\r\n            ps.setString(2,campo.recuperaIndirizzo());\r\n\r\n            ResultSet rs = ps.executeQuery();\r\n            rs.next();\r\n            proprietario=new ProprietarioModel(rs.getString(1),rs.getString(2));\r\n\r\n        }catch(SQLException e){\r\n            SystemException exception = new SystemException();\r\n            exception.initCause(e);\r\n            throw exception;\r\n        }\r\n        return proprietario;\r\n    }\r\n\r\n    public void aggiungiCampo(CampoModel campo, ProprietarioModel proprietario) throws SystemException {\r\n        String query=\"INSERT INTO campo VALUES(?,?,?,?,?,?,?,?,?);\";\r\n        Connection conn= ConnectionDB.getConnection();\r\n        try(PreparedStatement ps= conn.prepareStatement(query)){\r\n            ps.setString(1,campo.nomeAttuale());\r\n            ps.setString(2,campo.recuperaIndirizzo());\r\n            ps.setInt(3,campo.costoOrario());\r\n            ps.setTime(4,campo.inizioAttivita());\r\n            ps.setTime(5,campo.fineAttivita());\r\n            ps.setTime(4,campo.inizioAttivita());\r\n            ps.setBlob(6, new FileInputStream(campo.recuperaImmagine()));\r\n            ps.setString(7,proprietario.getUsername());\r\n            ps.setString(8,proprietario.credBancarie());\r\n            ps.setInt(9,campo.numeroCampo());\r\n\r\n            ps.executeUpdate();\r\n\r\n\r\n        }catch(SQLException | FileNotFoundException e){\r\n            SystemException exception = new SystemException();\r\n            exception.initCause(e);\r\n            throw exception;\r\n        }\r\n\r\n    }\r\n\r\n    public int getMaxNumero(CampoModel campo) throws SystemException{\r\n        String query= \"SELECT max(numero) FROM richiestacampo WHERE indirizzo = ?;\";\r\n        int max;\r\n        Connection conn= ConnectionDB.getConnection();\r\n\r\n        try(PreparedStatement ps= conn.prepareStatement(query)){\r\n\r\n            ps.setString(1,campo.recuperaIndirizzo());\r\n\r\n            ResultSet rs = ps.executeQuery();\r\n            rs.next();\r\n            max=rs.getInt(1);\r\n\r\n        }catch(SQLException e){\r\n            SystemException exception = new SystemException();\r\n            exception.initCause(e);\r\n            throw exception;\r\n        }\r\n        return max;\r\n    }\r\n\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/it/uniroma2/dicii/ispw/utils/dao/CampoDAO.java b/src/main/java/it/uniroma2/dicii/ispw/utils/dao/CampoDAO.java
+--- a/src/main/java/it/uniroma2/dicii/ispw/utils/dao/CampoDAO.java	
++++ b/src/main/java/it/uniroma2/dicii/ispw/utils/dao/CampoDAO.java	
+@@ -219,6 +219,7 @@
+             proprietario=new ProprietarioModel(rs.getString(1),rs.getString(2));
+ 
+         }catch(SQLException e){
++
+             SystemException exception = new SystemException();
+             exception.initCause(e);
+             throw exception;
+Index: src/test/java/TestAggiungiCampoControllerApplicativoBase.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/TestAggiungiCampoControllerApplicativoBase.java b/src/test/java/TestAggiungiCampoControllerApplicativoBase.java
+new file mode 100644
+--- /dev/null	
++++ b/src/test/java/TestAggiungiCampoControllerApplicativoBase.java	
+@@ -0,0 +1,21 @@
++import it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator.AggiungiCampoControllerApplicativoBase;
++import it.uniroma2.dicii.ispw.utils.bean.CampoBean;
++import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
++import org.junit.jupiter.api.Test;
++
++import static org.junit.jupiter.api.Assertions.assertEquals;
++/*
++  Test di Samuele Tomassacci
++ */
++public class TestAggiungiCampoControllerApplicativoBase {
++
++    @Test
++    public void testGetNumeroMax() throws SystemException {
++        CampoBean campoBean =new CampoBean();
++        campoBean.setIndirizzo("Via Rossi 23");
++
++        AggiungiCampoControllerApplicativoBase controller= new AggiungiCampoControllerApplicativoBase();
++
++        assertEquals(2,controller.getNumeroMax(campoBean));
++    }
++}
+Index: csv/proprietario.csv
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/csv/proprietario.csv b/csv/proprietario.csv
+new file mode 100644
+--- /dev/null	
++++ b/csv/proprietario.csv	
+@@ -0,0 +1,3 @@
++2,Samuele,,Samuele,Tomassacci,2
++1,Luca,,Luca,Verdi,1
++3,Marco,,Marco,Neri,3
+Index: src/test/java/TestLoginDAO.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/TestLoginDAO.java b/src/test/java/TestLoginDAO.java
+new file mode 100644
+--- /dev/null	
++++ b/src/test/java/TestLoginDAO.java	
+@@ -0,0 +1,23 @@
++import it.uniroma2.dicii.ispw.model.CredentialsModel;
++import it.uniroma2.dicii.ispw.utils.bean.Role;
++import it.uniroma2.dicii.ispw.utils.dao.LoginDAO;
++import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
++import org.junit.jupiter.api.Test;
++
++import static org.junit.jupiter.api.Assertions.assertTrue;
++
++/*
++  Test di Samuele Tomassacci
++ */
++
++public class TestLoginDAO {
++
++    @Test
++    public void testcheckIfExists() throws SystemException {
++        CredentialsModel credentialsModel=new CredentialsModel("Luca","1234", Role.PROPRIETARIO);
++        LoginDAO loginDAO=new LoginDAO();
++
++        assertTrue(loginDAO.checkIfExists(credentialsModel));
++    }
++
++}
+Index: src/test/java/TestCampoDAO.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/TestCampoDAO.java b/src/test/java/TestCampoDAO.java
+new file mode 100644
+--- /dev/null	
++++ b/src/test/java/TestCampoDAO.java	
+@@ -0,0 +1,23 @@
++import it.uniroma2.dicii.ispw.model.CampoModel;
++import it.uniroma2.dicii.ispw.model.ProprietarioModel;
++import it.uniroma2.dicii.ispw.utils.dao.CampoDAO;
++import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
++import org.junit.jupiter.api.Test;
++
++import static org.junit.jupiter.api.Assertions.assertTrue;
++/*
++  Test di Samuele Tomassacci
++ */
++public class TestCampoDAO {
++
++    @Test
++    public void testGetProprietarioFromRichiestaCampo() throws SystemException{
++        CampoDAO campoDAO=new CampoDAO();
++        CampoModel campoModel=new CampoModel("Centro Sportivo Rossi2","Via Rossi 23",8,null,null,null,null);
++        ProprietarioModel proprietarioModel=campoDAO.getProprietarioFromRichiestaCampo(campoModel);
++
++        String username=proprietarioModel.getUsername();
++
++        assertTrue(username.equals(("Luca")));
++    }
++}
+Index: src/main/java/it/uniroma2/dicii/ispw/model/CredentialsModel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package it.uniroma2.dicii.ispw.model;\r\n\r\nimport it.uniroma2.dicii.ispw.utils.bean.CredentialsBean;\r\nimport it.uniroma2.dicii.ispw.utils.bean.Role;\r\n\r\npublic class CredentialsModel {\r\n    private final String username;\r\n    private final String password;\r\n    private int idSession;\r\n    private Role role = null;\r\n\r\n    public CredentialsModel(CredentialsBean credbean) {\r\n        this.username = credbean.getUsername();\r\n        this.password = credbean.getPassword();\r\n        this.role=credbean.getRole();\r\n    }\r\n\r\n    public String getUsername(){\r\n        return this.username;\r\n    }\r\n\r\n    public String getPassword(){\r\n        return this.password;\r\n    }\r\n\r\n    public Role getRole(){\r\n        return role;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/it/uniroma2/dicii/ispw/model/CredentialsModel.java b/src/main/java/it/uniroma2/dicii/ispw/model/CredentialsModel.java
+--- a/src/main/java/it/uniroma2/dicii/ispw/model/CredentialsModel.java	
++++ b/src/main/java/it/uniroma2/dicii/ispw/model/CredentialsModel.java	
+@@ -15,6 +15,12 @@
+         this.role=credbean.getRole();
+     }
+ 
++    public CredentialsModel(String username, String password, Role role){
++        this.username=username;
++        this.password=password;
++        this.role=role;
++    }
++
+     public String getUsername(){
+         return this.username;
+     }
+Index: src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>USER= user\r\nPASS= user\r\nDB_URL = jdbc:mysql://localhost:3307/playbasket\r\nPASS_EMAIL=b@Js9C-uy_w49BW\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties b/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties
+--- a/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties	
++++ b/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties	
+@@ -1,4 +1,4 @@
+ USER= user
+ PASS= user
+-DB_URL = jdbc:mysql://localhost:3307/playbasket
++DB_URL = jdbc:mysql://localhost:3306/playbasket
+ PASS_EMAIL=b@Js9C-uy_w49BW

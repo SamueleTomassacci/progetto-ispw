@@ -219,6 +219,7 @@ public class CampoDAO {
             proprietario=new ProprietarioModel(rs.getString(1),rs.getString(2));
 
         }catch(SQLException e){
+
             SystemException exception = new SystemException();
             exception.initCause(e);
             throw exception;

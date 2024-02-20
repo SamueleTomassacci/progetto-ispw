@@ -1,0 +1,89 @@
+<changelist name="Uncommitted_changes_before_Update_at_20_02_2024_10_56_[Changes]1" date="1708423016517" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_10_56_[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 20/02/2024 10:56 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_10_56_[Changes]1/CreaPartitaControllerGrafico.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/HomePage1ControllerGrafico.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/HomePage1ControllerGrafico.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_10_56_[Changes]1/HomePage1ControllerGrafico.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico$1.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico$1.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_10_56_[Changes]1/CreaPartitaControllerGrafico$1.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/model/CredentialsModel.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/model/CredentialsModel.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_10_56_[Changes]1/CredentialsModel.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_applicativo/LoginControllerApplicativo.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_applicativo/LoginControllerApplicativo.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_10_56_[Changes]1/LoginControllerApplicativo.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/RigaRichiestaPartitaControllerGrafico.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/RigaRichiestaPartitaControllerGrafico.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_10_56_[Changes]1/RigaRichiestaPartitaControllerGrafico.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/module-info.class" />
+    <option name="AFTER_PATH" value="target/classes/module-info.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_10_56_[Changes]1/module-info.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="campi_img/aaaaapic.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_10_56_[Changes]1/aaaaapic.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="campi_img/vhvpic.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_10_56_[Changes]1/vhvpic.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV$GestoreAttributesOrder.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV$GestoreAttributesOrder.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_10_56_[Changes]1/GestoreDAOCSV$GestoreAttributesOrder.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="campi_img/Centro Sportivo Rossipic.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_10_56_[Changes]1/Centro Sportivo Rossipic.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartita1ControllerGrafico.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartita1ControllerGrafico.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_10_56_[Changes]1/CreaPartita1ControllerGrafico.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/GestionalePartiteControllerGrafico.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/GestionalePartiteControllerGrafico.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_10_56_[Changes]1/GestionalePartiteControllerGrafico.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/TabellaPartiteControllerGrafico.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/TabellaPartiteControllerGrafico.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_10_56_[Changes]1/TabellaPartiteControllerGrafico.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/utils/dao/CampoDAO.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/utils/dao/CampoDAO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_10_56_[Changes]1/CampoDAO.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_10_56_[Changes]1/GestoreDAOCSV.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_applicativo/VipControllerApplicativo.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_applicativo/VipControllerApplicativo.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_10_56_[Changes]1/VipControllerApplicativo.class" />
+  </binary>
+</changelist>

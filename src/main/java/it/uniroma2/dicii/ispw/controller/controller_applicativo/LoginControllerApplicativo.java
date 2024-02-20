@@ -24,9 +24,11 @@ public class LoginControllerApplicativo {
             CredentialsModel credentialsModel = new CredentialsModel(cred);
             if (loginDao.checkIfExists(credentialsModel)) {
 
-                GestoreDAOCSV gestoreDAO= new GestoreDAOCSV();  //Commentare per cambiare tipo di dao
+                //Commentare per cambiare tipo di dao
 
-                //GestoreDAO gestoreDAO = new GestoreDAO();
+                //GestoreDAOCSV gestoreDAO= new GestoreDAOCSV();
+
+                GestoreDAO gestoreDAO = new GestoreDAO();
 
                 gestore = gestoreDAO.getGestoreByUsername(cred.getUsername());
 
@@ -46,6 +48,8 @@ public class LoginControllerApplicativo {
             ProprietarioModel proprietario = null;
             CredentialsModel credentialsModel = new CredentialsModel(cred);
             if(loginDao.checkIfExists(credentialsModel)){
+
+                //ProprietarioDAOCSV proprietarioDAO= new ProprietarioDAOCSV();
 
                 ProprietarioDAO proprietarioDAO = new ProprietarioDAO();
                 proprietario = proprietarioDAO.getProprietarioByUsername(cred.getUsername());

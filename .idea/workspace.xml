@@ -98,7 +98,7 @@
       <recent name="D:\ISPW\PlayBasket\progettoISPW\src\main\resources\it\uniroma2\dicii\ispw\Interfacce\Interfaccia2" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="it.uniroma2.dicii.ispw.Main" />
       <module name="progettoISPW" />
@@ -112,9 +112,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="All in progettoISPW" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="progettoISPW" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.All in progettoISPW" />
       </list>
     </recent_temporary>
   </component>
