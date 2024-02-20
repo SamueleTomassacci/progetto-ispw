@@ -59,10 +59,7 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
                 campoPartita.getItems().add(campo.getNome() + " - " + campo.getIndirizzo());
             }
             // Aggiunta ChangeListener
-            campoPartita.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-                // Azione da eseguire quando l'utente seleziona un elemento nella ComboBox
-                inizializzaSceltaOrario();
-            });
+            campoPartita.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> inizializzaSceltaOrario());
 
             // Inizializza scelta Numero Giocatori
             // Inizializza numGiocatori

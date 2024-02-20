@@ -77,12 +77,7 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
         for (PartitaCampoBean campo : listaCampi) {
             sceltaCampo.getItems().add(campo.getNome() + " - " + campo.getIndirizzo());
         }
-        // Aggiunta ChangeListenel
-        sceltaCampo.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            // Azione da eseguire quando l'utente seleziona un elemento nella ComboBox
-            inizializzaSceltaOrario();
-        });
-
+        sceltaCampo.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> inizializzaSceltaOrario());
         // Inizializza numGiocatori
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(4, 10, 4, 2);
         numGiocatori.setValueFactory(valueFactory);
