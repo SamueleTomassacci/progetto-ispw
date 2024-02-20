@@ -12,15 +12,14 @@ import it.uniroma2.dicii.ispw.utils.bean.*;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
 import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
+import it.uniroma2.dicii.ispw.utils.exceptions.RichiestaNonSelezionataException;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 
 import java.util.List;
 
@@ -33,7 +32,7 @@ public class GestisciPrenotazioniControllerGrafico extends ControllerGrafico {
     private ListView<PartitaBean> listview;
 
     @Override
-    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, CredentialsBean cred) throws SystemException {
+    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, CredentialsBean cred) {
         this.id=id;
         SessionManager manager=SessionManager.getSessionManager();
         Session session=manager.getSessionFromId(id);
@@ -57,27 +56,80 @@ public class GestisciPrenotazioniControllerGrafico extends ControllerGrafico {
     }
 
     public void clickRifiuta(ActionEvent actionEvent) {
-        PartitaBean partitaSelezionata = listview.getSelectionModel().getSelectedItem();
-        partitaSelezionata.setStato(statoPartita.Rifiutata);
-        CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
         try {
-            controllerApplicativo.rispondiRichiesta(partitaSelezionata);
+            PartitaBean partitaSelezionata = listview.getSelectionModel().getSelectedItem();
+            if( partitaSelezionata == null){
+                throw new RichiestaNonSelezionataException();
+            }
+            partitaSelezionata.setStato(statoPartita.Rifiutata);
+            CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
+                controllerApplicativo.rispondiRichiesta(partitaSelezionata);
+
+            listview.getItems().remove(partitaSelezionata);
+            // Deseleziona la riga attualmente selezionata
+            listview.getSelectionModel().clearSelection();
         } catch (SystemException e) {
             throw new RuntimeException(e);
+        } catch (RichiestaNonSelezionataException e) {
+            // Mostra una Dialog per chiedere all'utente se si riferisce alla prima riga della lista
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setTitle("Richiesta non selezionata");
+            dialog.setContentText("Vuoi selezionare automaticamente la prima riga della lista?");
+            ButtonType siButton = new ButtonType("Si", ButtonBar.ButtonData.OK_DONE);
+            ButtonType noButton = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+            dialog.getDialogPane().getButtonTypes().addAll(siButton, noButton);
+
+            // Gestisci l'evento del pulsante "Si"
+            dialog.setResultConverter(button -> {
+                if (button == siButton) {
+                    listview.getSelectionModel().selectFirst(); // Seleziona la prima riga della lista
+                    clickAccetta(actionEvent); // Richiama la funzione clickAccetta nuovamente
+                }
+                return null;
+            });
+
+            // Mostra la Dialog
+            dialog.showAndWait();
         }
-        listview.getItems().remove(partitaSelezionata);
     }
 
     public void clickAccetta(ActionEvent actionEvent) {
-        PartitaBean partitaSelezionata = listview.getSelectionModel().getSelectedItem();
-        partitaSelezionata.setStato(statoPartita.Accettata);
-        CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
         try {
+            PartitaBean partitaSelezionata = listview.getSelectionModel().getSelectedItem();
+            if(partitaSelezionata == null){
+                throw new RichiestaNonSelezionataException();
+            }
+            partitaSelezionata.setStato(statoPartita.Accettata);
+            CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
+
             controllerApplicativo.rispondiRichiesta(partitaSelezionata);
+
+            listview.getItems().remove(partitaSelezionata);
+            // Deseleziona la riga attualmente selezionata
+            listview.getSelectionModel().clearSelection();
         } catch (SystemException e) {
             throw new RuntimeException(e);
+        } catch (RichiestaNonSelezionataException e) {
+            // Mostra una Dialog per chiedere all'utente se si riferisce alla prima riga della lista
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setTitle("Richiesta non selezionata");
+            dialog.setContentText("Vuoi selezionare automaticamente la prima riga della lista?");
+            ButtonType siButton = new ButtonType("Si", ButtonBar.ButtonData.OK_DONE);
+            ButtonType noButton = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+            dialog.getDialogPane().getButtonTypes().addAll(siButton, noButton);
+
+            // Gestisci l'evento del pulsante "Si"
+            dialog.setResultConverter(button -> {
+                if (button == siButton) {
+                    listview.getSelectionModel().selectFirst(); // Seleziona la prima riga della lista
+                    clickAccetta(actionEvent); // Richiama la funzione clickAccetta nuovamente
+                }
+                return null;
+            });
+
+            // Mostra la Dialog
+            dialog.showAndWait();
         }
-        listview.getItems().remove(partitaSelezionata);
     }
 
     public void back(ActionEvent actionEvent) {
@@ -97,7 +149,7 @@ public class GestisciPrenotazioniControllerGrafico extends ControllerGrafico {
         try {
             lista = controllerApplicativo.inizializzaRichiesteProprietario(proprietario);
         } catch (SystemException e) {
-            throw new RuntimeException(e);
+            GestoreEccezioni.getInstance().handleException(e);
         }
         for (PartitaBean partita : lista){
             // Controlla se partita è all'interno della listview

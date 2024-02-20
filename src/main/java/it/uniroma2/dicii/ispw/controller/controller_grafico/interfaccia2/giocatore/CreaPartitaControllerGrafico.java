@@ -8,15 +8,14 @@ import it.uniroma2.dicii.ispw.utils.SessionManager;
 import it.uniroma2.dicii.ispw.utils.bean.*;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
-import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
-import it.uniroma2.dicii.ispw.utils.exceptions.RichiestaPartitaException;
-import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
+import it.uniroma2.dicii.ispw.utils.exceptions.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.util.StringConverter;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 
 public class CreaPartitaControllerGrafico extends ControllerGrafico {
@@ -38,131 +37,162 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
 
     @Override
     public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, CredentialsBean cred){
-        this.id=id;
-        SessionManager manager=SessionManager.getSessionManager();
-        Session session=manager.getSessionFromId(id);
-        GiocatoreBean giocatoreBean=session.getGiocatoreBean();
-        String nome=giocatoreBean.getUsername();
-        profilo.setText(nome);
-
-        // Inizializzazione della scelta campo
-        sceltaData.setPromptText(String.valueOf(LocalDate.now()));
-
-        //inizializza scelta Campo
-        CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
-        ListaNomeCampoBean listaNomeCampoBean = null;
         try {
+            this.id = id;
+            SessionManager manager = SessionManager.getSessionManager();
+            Session session = manager.getSessionFromId(id);
+            GiocatoreBean giocatoreBean = session.getGiocatoreBean();
+            String nome = giocatoreBean.getUsername();
+            profilo.setText(nome);
+
+            // Inizializzazione della scelta campo
+            sceltaData.setPromptText(String.valueOf(LocalDate.now()));
+
+            //inizializza scelta Campo
+            CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
+            ListaNomeCampoBean listaNomeCampoBean = null;
+
             listaNomeCampoBean = controllerApplicativo.inizializzasceltaCampo();
-        } catch (SystemException e) {
-            throw new RuntimeException(e);
-        }
-        List<PartitaCampoBean> listaCampi = listaNomeCampoBean.getLista();
-        for (PartitaCampoBean campo : listaCampi) {
-            CampoPartita.getItems().add(campo.getNome() + " - " + campo.getIndirizzo());
-        }
-        // Aggiunta ChangeListener
-        CampoPartita.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            // Azione da eseguire quando l'utente seleziona un elemento nella ComboBox
-            inizializzaSceltaOrario();
-        });
-
-        // Inizializza scelta Numero Giocatori
-        // Inizializza numGiocatori
-        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(4, 10, 4, 2);
-        numeroGiocatori.setValueFactory(valueFactory);
-
-        numeroGiocatori.valueProperty().addListener((observable, oldValue, newValue) -> {
-            if ((int) newValue % 2 != 0) {
-                numeroGiocatori.getValueFactory().setValue((int) newValue + 1);
+            List<PartitaCampoBean> listaCampi = listaNomeCampoBean.getLista();
+            for (PartitaCampoBean campo : listaCampi) {
+                CampoPartita.getItems().add(campo.getNome() + " - " + campo.getIndirizzo());
             }
-        });
+            // Aggiunta ChangeListener
+            CampoPartita.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                // Azione da eseguire quando l'utente seleziona un elemento nella ComboBox
+                inizializzaSceltaOrario();
+            });
+
+            // Inizializza scelta Numero Giocatori
+            // Inizializza numGiocatori
+            SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(4, 10, 4, 2);
+            numeroGiocatori.setValueFactory(valueFactory);
+
+            numeroGiocatori.valueProperty().addListener((observable, oldValue, newValue) -> {
+                if ((int) newValue % 2 != 0) {
+                    numeroGiocatori.getValueFactory().setValue((int) newValue + 1);
+                }
+            });
+        } catch (SystemException e){
+            GestoreEccezioni.getInstance().handleException(e);
+        }
 
     }
 
     public void inizializzaSceltaOrario(){
-        // Otteniamo la stringa selezionata dalla ComboBox
-        String campoSelezionato = (String) CampoPartita.getSelectionModel().getSelectedItem();
-
-        // Otteniamo il nome e l'indirizzo separatamente dalla stringa selezionata
-        String[] partiCampo = campoSelezionato.split(" - ");
-        String nomeCampo = partiCampo[0];
-        String indirizzoCampo = partiCampo[1];
-
-        // creiamo il bean PartitaCampoDataBean
-        PartitaCampoDataBean richiestaorari = new PartitaCampoDataBean(nomeCampo, indirizzoCampo, LocalDate.parse(sceltaData.getText()));
-
-        // chiamiamo la funzione inizializzasceltaOrari
-        CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
-        List<LocalTime> orariPossibili = null;
         try {
+            // Otteniamo la stringa selezionata dalla ComboBox
+            String campoSelezionato = (String) CampoPartita.getSelectionModel().getSelectedItem();
+            if(campoSelezionato == null){
+                throw new CampoMancanteException();
+            }
+
+            // Otteniamo il nome e l'indirizzo separatamente dalla stringa selezionata
+            String[] partiCampo = campoSelezionato.split(" - ");
+            String nomeCampo = partiCampo[0];
+            String indirizzoCampo = partiCampo[1];
+
+            // Otteniamo la data inserita
+            LocalDate giorno = LocalDate.parse(sceltaData.getText());
+            if(giorno == null){
+                throw new DataMancanteException();
+            }
+
+            // creiamo il bean PartitaCampoDataBean
+            PartitaCampoDataBean richiestaorari = new PartitaCampoDataBean(nomeCampo, indirizzoCampo, giorno);
+
+            // chiamiamo la funzione inizializzasceltaOrari
+            CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
+            List<LocalTime> orariPossibili = null;
             orariPossibili = controllerApplicativo.inizializzasceltaOrario(richiestaorari);
-        } catch (SystemException e) {
-            throw new RuntimeException(e);
+            // Inizializza lo SpinnerValueFactory
+            List<LocalTime> finalOrariPossibili = orariPossibili;
+            SpinnerValueFactory<LocalTime> valueFactory = new SpinnerValueFactory<LocalTime>() {
+                @Override
+                public void decrement(int steps) {
+                    LocalTime value = getValue();
+                    int index = finalOrariPossibili.indexOf(value);
+                    if (index == -1) {
+                        index = finalOrariPossibili.size() - 1;
+                    } else {
+                        index = Math.max(0, index - steps);
+                    }
+                    setValue(finalOrariPossibili.get(index));
+                }
+
+                @Override
+                public void increment(int steps) {
+                    LocalTime value = getValue();
+                    int index = finalOrariPossibili.indexOf(value);
+                    if (index == -1) {
+                        index = 0;
+                    } else {
+                        index = Math.min(finalOrariPossibili.size() - 1, index + steps);
+                    }
+                    setValue(finalOrariPossibili.get(index));
+                }
+            };
+            valueFactory.setValue(orariPossibili.get(0));
+            valueFactory.setConverter(new StringConverter<LocalTime>() {
+                @Override
+                public String toString(LocalTime object) {
+                    return object.toString();
+                }
+
+                @Override
+                public LocalTime fromString(String string) {
+                    return LocalTime.parse(string);
+                }
+            });
+            valueFactory.setWrapAround(true); // Permette la navigazione circolare degli orari
+            OrarioPartita.setValueFactory(valueFactory);
+        } catch (SystemException | CampoMancanteException e) {
+            GestoreEccezioni.getInstance().handleException(e);
+        } catch (DataMancanteException e) {
+            sceltaData.setText(String.valueOf(LocalDate.now()));
+            GestoreEccezioni.getInstance().handleException(e);
+            inizializzaSceltaOrario();
+        } catch (DateTimeParseException e){
+            sceltaData.setText(String.valueOf(LocalDate.now()));
+            DataFormatoErratoException f = new DataFormatoErratoException();
+            GestoreEccezioni.getInstance().handleException(f);
+            inizializzaSceltaOrario();
         }
-        // Inizializza lo SpinnerValueFactory
-        List<LocalTime> finalOrariPossibili = orariPossibili;
-        SpinnerValueFactory<LocalTime> valueFactory = new SpinnerValueFactory<LocalTime>() {
-            @Override
-            public void decrement(int steps) {
-                LocalTime value = getValue();
-                int index = finalOrariPossibili.indexOf(value);
-                if (index == -1) {
-                    index = finalOrariPossibili.size() - 1;
-                } else {
-                    index = Math.max(0, index - steps);
-                }
-                setValue(finalOrariPossibili.get(index));
-            }
-
-            @Override
-            public void increment(int steps) {
-                LocalTime value = getValue();
-                int index = finalOrariPossibili.indexOf(value);
-                if (index == -1) {
-                    index = 0;
-                } else {
-                    index = Math.min(finalOrariPossibili.size() - 1, index + steps);
-                }
-                setValue(finalOrariPossibili.get(index));
-            }
-        };
-        valueFactory.setValue(orariPossibili.get(0));
-        valueFactory.setConverter(new StringConverter<LocalTime>() {
-            @Override
-            public String toString(LocalTime object) {
-                return object.toString();
-            }
-
-            @Override
-            public LocalTime fromString(String string) {
-                return LocalTime.parse(string);
-            }
-        });
-        valueFactory.setWrapAround(true); // Permette la navigazione circolare degli orari
-        OrarioPartita.setValueFactory(valueFactory);
     }
 
     public void inviaRichiesta() {
-        // Prendiamo l'input inserito dall'utente
-        // Otteniamo il campo
-        String campoSelezionato = (String) CampoPartita.getSelectionModel().getSelectedItem();
-        String[] partiCampo = campoSelezionato.split(" - ");
-        String nomeCampo = partiCampo[0];
-        String indirizzoCampo = partiCampo[1];
-        // Otteniamo la data
-        LocalDate giorno = LocalDate.parse(sceltaData.getText());
-        // Otteniamo l'orario selezionato
-        LocalTime orarioInizio = OrarioPartita.getValue();
-        // Creiamo una RichiestaPartitaBean
-        RichiestaPartitaBean richiesta = new RichiestaPartitaBean(nomeCampo, indirizzoCampo, giorno, orarioInizio, (Integer) numeroGiocatori.getValue(), profilo.getText());
-        // prendiamo un istanza di controller
-        CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
-        try {
+        try{
+            // Prendiamo l'input inserito dall'utente
+            // Otteniamo il campo
+            String campoSelezionato = (String) CampoPartita.getSelectionModel().getSelectedItem();
+            if(campoSelezionato == null){
+                throw new CampoMancanteException();
+            }
+            String[] partiCampo = campoSelezionato.split(" - ");
+            String nomeCampo = partiCampo[0];
+            String indirizzoCampo = partiCampo[1];
+            // Otteniamo la data
+            LocalDate giorno = LocalDate.parse(sceltaData.getText());
+            // Otteniamo l'orario selezionato
+            LocalTime orarioInizio = OrarioPartita.getValue();
+            // Creiamo una RichiestaPartitaBean
+            RichiestaPartitaBean richiesta = new RichiestaPartitaBean(nomeCampo, indirizzoCampo, giorno, orarioInizio, (Integer) numeroGiocatori.getValue(), profilo.getText());
+            // prendiamo un istanza di controller
+            CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
             controllerApplicativo.inviaRichiesta(richiesta);
-        } catch (SystemException e) {
-            throw new RuntimeException(e);
-        } catch (RichiestaPartitaException e) {
+            // mostriamo un box di successo
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Successo");
+            alert.setHeaderText(null);
+            alert.setContentText("La richiesta di partita è stata inviata con successo!");
+            alert.showAndWait();
+        } catch (RichiestaPartitaException | SystemException | CampoMancanteException e) {
             GestoreEccezioni.getInstance().handleException(e);
+        } catch (DateTimeParseException e){
+            sceltaData.setText(String.valueOf(LocalDate.now()));
+            DataFormatoErratoException f = new DataFormatoErratoException();
+            GestoreEccezioni.getInstance().handleException(f);
+            inizializzaSceltaOrario();
         }
     }
 

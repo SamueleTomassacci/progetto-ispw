@@ -17,6 +17,8 @@ import javafx.scene.Parent;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 
 public class CreaPartitaControllerGrafico extends ControllerGrafico {
@@ -103,6 +105,9 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
             tabellaPartiteControllerGrafico.inizializzaLista(controllerApplicativo, new UserBean(username.getText()));
         } catch (IOException | SystemException e) {
             throw new RuntimeException(e);
+        }catch (DateTimeParseException e){
+            DataFormatoErratoException f = new DataFormatoErratoException();
+            GestoreEccezioni.getInstance().handleException(f);
         }
     }
 
@@ -153,6 +158,11 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
             sceltaData.setValue(LocalDate.now());
             GestoreEccezioni.getInstance().handleException(e);
             inizializzaSceltaOrario();
+        } catch (DateTimeParseException e){
+            sceltaData.setValue(LocalDate.now());
+            DataFormatoErratoException f = new DataFormatoErratoException();
+            GestoreEccezioni.getInstance().handleException(f);
+            inizializzaSceltaOrario();
         }
     }
 
@@ -168,20 +178,34 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
             String nomeCampo = partiCampo[0];
             String indirizzoCampo = partiCampo[1];
             // Otteniamo la data
-            LocalDate giorno = sceltaData.getValue();
+            LocalDate giorno = LocalDate.parse(sceltaData.getValue().toString());
             if(giorno == null){
                 throw new DataMancanteException();
             }
             // Otteniamo l'orario selezionato
             LocalTime orarioInizio = (LocalTime) sceltaOrario.getSelectionModel().getSelectedItem();
+            if(orarioInizio == null){
+                throw new OrarioNonSelezionatoExcption();
+            }
 
             // Creiamo una RichiestaPartitaBean
             RichiestaPartitaBean richiesta = new RichiestaPartitaBean(nomeCampo, indirizzoCampo, giorno, orarioInizio, (Integer) numGiocatori.getValue(), username.getText());
             // prendiamo un istanza di controller
             controllerApplicativo.inviaRichiesta(richiesta);
-
-        } catch (SystemException | CampoMancanteException | DataMancanteException | RichiestaPartitaException e) {
+            // mostriamo un box di successo
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Successo");
+            alert.setHeaderText(null);
+            alert.setContentText("La richiesta di partita è stata inviata con successo!");
+            alert.showAndWait();
+        } catch (SystemException | CampoMancanteException | DataMancanteException | RichiestaPartitaException |
+                 OrarioNonSelezionatoExcption e) {
             GestoreEccezioni.getInstance().handleException(e);
+        } catch (DateTimeParseException e){
+            sceltaData.setValue(LocalDate.now());
+            DataFormatoErratoException f = new DataFormatoErratoException();
+            GestoreEccezioni.getInstance().handleException(f);
+            inizializzaSceltaOrario();
         }
     }
 

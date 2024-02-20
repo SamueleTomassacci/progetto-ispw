@@ -4,6 +4,7 @@ import it.uniroma2.dicii.ispw.controller.controller_applicativo.CreaPartita.Crea
 import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.giocatore.ListaPartiteObserver;
 import it.uniroma2.dicii.ispw.utils.bean.PartitaBean;
 import it.uniroma2.dicii.ispw.utils.bean.UserBean;
+import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -61,7 +62,7 @@ public class ListaPartiteControllerGrafico implements ListaPartiteObserver {
         try {
             controllerApplicativo.inizializzaPartite(userBean,this);
         } catch (SystemException e) {
-            throw new RuntimeException(e);
+            GestoreEccezioni.getInstance().handleException(e);
         }
     }
 }

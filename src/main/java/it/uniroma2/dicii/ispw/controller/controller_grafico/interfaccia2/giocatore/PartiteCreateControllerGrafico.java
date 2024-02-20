@@ -37,7 +37,7 @@ public class PartiteCreateControllerGrafico extends ControllerGrafico {
     private ListaPartiteControllerGrafico listaPartiteControllerGrafico;
 
     @Override
-    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, CredentialsBean cred) throws SystemException {
+    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, CredentialsBean cred) {
         // prendiamo un istanza di controller appliativo
         controllerApplicativo = new CreaPartitaControllerApplicativo();
         // settiamo username utente
@@ -58,7 +58,7 @@ public class PartiteCreateControllerGrafico extends ControllerGrafico {
             //inizializza la lista
             listaPartiteControllerGrafico.inizializzaLista(controllerApplicativo, new UserBean(profilo.getText()));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            GestoreEccezioni.getInstance().handleException(e);
         }
 
     }
@@ -68,13 +68,16 @@ public class PartiteCreateControllerGrafico extends ControllerGrafico {
             ChangePage istanza = ChangePage.getChangePage();
             istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/homePage.fxml", this.id, null, null,null);
         } catch (SystemException e) {
-
             GestoreEccezioni.getInstance().handleException(e);
         }
     }
 
-    public void clickAggiorna() throws SystemException {
+    public void clickAggiorna() {
         // Aggiorniamo la la lista delle partite visualizzate
-        controllerApplicativo.aggiornaRichieste();
+        try {
+            controllerApplicativo.aggiornaRichieste();
+        } catch (SystemException e) {
+            GestoreEccezioni.getInstance().handleException(e);
+        }
     }
 }
