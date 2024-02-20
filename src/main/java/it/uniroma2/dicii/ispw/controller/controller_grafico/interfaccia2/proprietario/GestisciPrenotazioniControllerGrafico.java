@@ -1,9 +1,7 @@
 package it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.proprietario;
 
-import it.uniroma2.dicii.ispw.Main;
 import it.uniroma2.dicii.ispw.controller.controller_applicativo.CreaPartita.CreaPartitaControllerApplicativo;
 import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.ControllerGrafico;
-import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.proprietario.RigaRichiestaPartitaControllerGrafico;
 import it.uniroma2.dicii.ispw.model.partita.statoPartita;
 import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.Session;
@@ -14,11 +12,8 @@ import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
 import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
 import it.uniroma2.dicii.ispw.utils.exceptions.RichiestaNonSelezionataException;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 
 import java.util.List;
@@ -69,18 +64,18 @@ public class GestisciPrenotazioniControllerGrafico extends ControllerGrafico {
             // Deseleziona la riga attualmente selezionata
             listview.getSelectionModel().clearSelection();
         } catch (SystemException e) {
-            throw new RuntimeException(e);
+            GestoreEccezioni.getInstance().handleException(e);
         } catch (RichiestaNonSelezionataException e) {
             // Mostra una Dialog per chiedere all'utente se si riferisce alla prima riga della lista
-            Dialog<ButtonType> dialog = new Dialog<>();
-            dialog.setTitle("Richiesta non selezionata");
-            dialog.setContentText("Vuoi selezionare automaticamente la prima riga della lista?");
+            Dialog<ButtonType> finestraErrore = new Dialog<>();
+            finestraErrore.setTitle("Richiesta non selezionata");
+            finestraErrore.setContentText("Vuoi selezionare automaticamente la prima riga della lista?");
             ButtonType siButton = new ButtonType("Si", ButtonBar.ButtonData.OK_DONE);
             ButtonType noButton = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
-            dialog.getDialogPane().getButtonTypes().addAll(siButton, noButton);
+            finestraErrore.getDialogPane().getButtonTypes().addAll(siButton, noButton);
 
             // Gestisci l'evento del pulsante "Si"
-            dialog.setResultConverter(button -> {
+            finestraErrore.setResultConverter(button -> {
                 if (button == siButton) {
                     listview.getSelectionModel().selectFirst(); // Seleziona la prima riga della lista
                     clickAccetta(actionEvent); // Richiama la funzione clickAccetta nuovamente
@@ -89,7 +84,7 @@ public class GestisciPrenotazioniControllerGrafico extends ControllerGrafico {
             });
 
             // Mostra la Dialog
-            dialog.showAndWait();
+            finestraErrore.showAndWait();
         }
     }
 
