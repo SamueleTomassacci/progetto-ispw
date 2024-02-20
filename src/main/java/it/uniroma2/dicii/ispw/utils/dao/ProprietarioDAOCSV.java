@@ -35,14 +35,17 @@ public class ProprietarioDAOCSV {
         }
 
         public static int getIndex_Nome() {
+
             return 3;
         }
 
         public static int getIndex_Cognome() {
+
             return 4;
         }
 
         public static int getIndex_Vip() {
+
             return 5;
         }
 

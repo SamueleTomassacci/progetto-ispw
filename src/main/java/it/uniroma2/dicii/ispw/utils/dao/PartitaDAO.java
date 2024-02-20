@@ -3,6 +3,8 @@ package it.uniroma2.dicii.ispw.utils.dao;
 import it.uniroma2.dicii.ispw.model.partita.PartitaModel;
 import it.uniroma2.dicii.ispw.model.partita.statoPartita;
 import it.uniroma2.dicii.ispw.utils.db.ConnectionDB;
+import it.uniroma2.dicii.ispw.utils.exceptions.CampoEsistenteException;
+import it.uniroma2.dicii.ispw.utils.exceptions.RichiestaPartitaException;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 
 import java.sql.*;
@@ -34,7 +36,7 @@ public class PartitaDAO {
             }
     }
 
-    public void inviaRichiesta(PartitaModel richiesta) throws SystemException {
+    public void inviaRichiesta(PartitaModel richiesta) throws SystemException, RichiestaPartitaException {
         String query = "INSERT INTO partita values( ? , ? , ? , ? , ? , ? , ? );";
         Connection conn = ConnectionDB.getConnection();
         try (PreparedStatement ps = conn.prepareStatement(query)) {
@@ -47,7 +49,13 @@ public class PartitaDAO {
             ps.setInt(7,richiesta.recuperaNumGiocatori());
             ps.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            if (e.getErrorCode() == 1062) {
+                throw new RichiestaPartitaException();
+            } else {
+                SystemException exception = new SystemException();
+                exception.initCause(e);
+                throw exception;
+            }
         }
     }
 

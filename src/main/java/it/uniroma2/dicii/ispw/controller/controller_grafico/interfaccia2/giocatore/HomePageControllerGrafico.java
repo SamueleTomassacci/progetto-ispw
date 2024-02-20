@@ -28,7 +28,7 @@ public class HomePageControllerGrafico extends ControllerGrafico {
     public Label messaggioBenvenuto;
 
     @Override
-    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, CredentialsBean cred) throws SystemException {
+    public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, CredentialsBean cred) {
         this.idSession=id;
         SessionManager manager=SessionManager.getSessionManager();
         Session session=manager.getSessionFromId(id);
@@ -73,7 +73,6 @@ public class HomePageControllerGrafico extends ControllerGrafico {
 
         }catch (IOException e) {
             SystemException exception = new SystemException();
-
             exception.initCause(e);
             GestoreEccezioni.getInstance().handleException(e);
         }

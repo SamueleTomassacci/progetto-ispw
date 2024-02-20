@@ -4,14 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="Eliminati i Model inutili, adesso si utilizza solamente PartitaModel">
+    <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="Gestione dei SystemException e IOException per la prima interfaccia">
+      <change afterPath="$PROJECT_DIR$/csv/proprietario.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/exceptions/CampoMancanteException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/exceptions/DataException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/exceptions/DataMancanteException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/exceptions/RichiestaNonSelezionata.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/exceptions/RichiestaPartitaException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartita1ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartita1ControllerGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/CreaPartita/CreaPartitaControllerApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/CreaPartita/CreaPartitaControllerApplicativo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartita1ControllerGrafico.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/HomePage1ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/HomePage1ControllerGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/TabellaPartiteControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/TabellaPartiteControllerGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/GestionalePartiteControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/GestionalePartiteControllerGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/RigaRichiestaPartitaControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/RigaRichiestaPartitaControllerGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/CreaPartitaControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/CreaPartitaControllerGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/HomePageControllerGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/dao/PartitaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/dao/PartitaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/dao/ProprietarioDAOCSV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/dao/ProprietarioDAOCSV.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartita1ControllerGrafico.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/HomePage1ControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/HomePage1ControllerGrafico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/TabellaPartiteControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/TabellaPartiteControllerGrafico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/GestionalePartiteControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/GestionalePartiteControllerGrafico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/RigaRichiestaPartitaControllerGrafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/proprietario/RigaRichiestaPartitaControllerGrafico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/PartitaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/PartitaDAO.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +164,8 @@
       <workItem from="1708252363824" duration="17618000" />
       <workItem from="1708343945125" duration="3017000" />
       <workItem from="1708359403454" duration="13248000" />
-      <workItem from="1708374878406" duration="6435000" />
+      <workItem from="1708374878406" duration="6951000" />
+      <workItem from="1708414920785" duration="7354000" />
     </task>
     <task id="LOCAL-00001" summary="aggiornato path file fxml">
       <option name="closed" value="true" />
@@ -263,7 +279,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708379524911</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Gestione dei SystemException e IOException per la prima interfaccia">
+      <option name="closed" value="true" />
+      <created>1708381362690</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1708381362690</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,6 +321,7 @@
     <MESSAGE value="Aggiunto DAO gestito tramite files" />
     <MESSAGE value="Finito il DAO gestito tramite files" />
     <MESSAGE value="Eliminati i Model inutili, adesso si utilizza solamente PartitaModel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Eliminati i Model inutili, adesso si utilizza solamente PartitaModel" />
+    <MESSAGE value="Gestione dei SystemException e IOException per la prima interfaccia" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gestione dei SystemException e IOException per la prima interfaccia" />
   </component>
 </project>

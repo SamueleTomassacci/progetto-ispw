@@ -6,6 +6,7 @@ import it.uniroma2.dicii.ispw.model.partita.*;
 import it.uniroma2.dicii.ispw.utils.bean.*;
 import it.uniroma2.dicii.ispw.utils.dao.CampoDAO;
 import it.uniroma2.dicii.ispw.utils.dao.PartitaDAO;
+import it.uniroma2.dicii.ispw.utils.exceptions.RichiestaPartitaException;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 
 import java.time.LocalTime;
@@ -14,7 +15,7 @@ import java.util.List;
 
 public class CreaPartitaControllerApplicativo {
     private ListaPartiteModel listaPartite = new ListaPartiteModel();
-    public void inviaRichiesta(RichiestaPartitaBean richiestaPartitaBean) throws SystemException {
+    public void inviaRichiesta(RichiestaPartitaBean richiestaPartitaBean) throws SystemException, RichiestaPartitaException {
         // creiamo model RichiestaPartitaModel
         PartitaModel richiesta = new PartitaModel(richiestaPartitaBean);
         // inviamo la richiesta al db

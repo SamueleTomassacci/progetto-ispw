@@ -8,8 +8,7 @@ import it.uniroma2.dicii.ispw.utils.SessionManager;
 import it.uniroma2.dicii.ispw.utils.bean.*;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
-import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
-import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
+import it.uniroma2.dicii.ispw.utils.exceptions.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -53,9 +52,7 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
         username.setText(giocatore.getUsername());
 
         // inizializzazione DataPicker
-        sceltaData.setValue(LocalDate.now());
-        // Imposta il formato di visualizzazione del DatePicker in base al formato utilizzato in Italia
-        sceltaData.setPromptText("dd-MM-yyyy");
+        sceltaData.setPromptText(String.valueOf(LocalDate.now()));
         // Disabilita la selezione dei giorni passati
         sceltaData.setDayCellFactory(picker -> new DateCell() {
             @Override
@@ -64,6 +61,13 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
                 LocalDate today = LocalDate.now();
                 // Disabilita i giorni passati
                 setDisable(date.isBefore(today));
+            }
+        });
+        sceltaData.valueProperty().addListener((observable, oldValue, newValue) -> {
+            // Esegui un'azione quando la data viene selezionata
+            if( sceltaCampo.getSelectionModel().getSelectedItem() != null){
+                inizializzaSceltaOrario();
+                sceltaOrario.getSelectionModel().clearSelection();
             }
         });
 
@@ -113,48 +117,70 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
 
     public void inizializzaSceltaOrario() {
         try {
-        // Otteniamo la stringa selezionata dalla ComboBox
-        String campoSelezionato = (String) sceltaCampo.getSelectionModel().getSelectedItem();
+            sceltaOrario.getItems().clear();
+            // Otteniamo la stringa selezionata dalla ComboBox
+            String campoSelezionato = (String) sceltaCampo.getSelectionModel().getSelectedItem();
 
-        // Otteniamo il nome e l'indirizzo separatamente dalla stringa selezionata
-        String[] partiCampo = campoSelezionato.split(" - ");
-        String nomeCampo = partiCampo[0];
-        String indirizzoCampo = partiCampo[1];
+            // Otteniamo il nome e l'indirizzo separatamente dalla stringa selezionata
+            String[] partiCampo = campoSelezionato.split(" - ");
+            String nomeCampo = partiCampo[0];
+            String indirizzoCampo = partiCampo[1];
 
-        // creiamo il bean PartitaCampoDataBean
-        PartitaCampoDataBean richiestaorari = new PartitaCampoDataBean(nomeCampo, indirizzoCampo, sceltaData.getValue());
+            // prendiamo la data selezionata
+            LocalDate giorno = sceltaData.getValue();
+            if(giorno == null){
+                throw new DataMancanteException();
+            }
 
-        // chiamiamo la funzione inizializzasceltaOrari
-        List<LocalTime> orariPossibili = null;
+            // creiamo il bean PartitaCampoDataBean
+            PartitaCampoDataBean richiestaorari = new PartitaCampoDataBean(nomeCampo, indirizzoCampo, sceltaData.getValue());
 
-            orariPossibili = controllerApplicativo.inizializzasceltaOrario(richiestaorari);
+            // chiamiamo la funzione inizializzasceltaOrari
+            List<LocalTime> orariPossibili = null;
 
-        for (LocalTime orario : orariPossibili) {
-            sceltaOrario.getItems().add(orario);
-        }
+                orariPossibili = controllerApplicativo.inizializzasceltaOrario(richiestaorari);
+
+            for (LocalTime orario : orariPossibili) {
+                if(giorno.isEqual(LocalDate.now()) && LocalTime.now().isAfter(orario)){
+                    // Se la condizione è vera saltiamo questo orario;
+                    continue;
+                }
+                sceltaOrario.getItems().add(orario);
+            }
         } catch (SystemException e) {
             GestoreEccezioni.getInstance().handleException(e);
+        } catch (DataMancanteException e){
+            sceltaData.setValue(LocalDate.now());
+            GestoreEccezioni.getInstance().handleException(e);
+            inizializzaSceltaOrario();
         }
     }
 
     public void clickRichiesta() {
-        try {// Prendiamo l'input inserito dall'utente
-        // Otteniamo il campo
-        String campoSelezionato = (String) sceltaCampo.getSelectionModel().getSelectedItem();
-        String[] partiCampo = campoSelezionato.split(" - ");
-        String nomeCampo = partiCampo[0];
-        String indirizzoCampo = partiCampo[1];
-        // Otteniamo la data
-        LocalDate giorno = sceltaData.getValue();
-        // Otteniamo l'orario selezionato
-        LocalTime orarioInizio = (LocalTime) sceltaOrario.getSelectionModel().getSelectedItem();
+        try {
+            // Prendiamo l'input inserito dall'utente
+            // Otteniamo il campo
+            String campoSelezionato = (String) sceltaCampo.getSelectionModel().getSelectedItem();
+            if(campoSelezionato == null){
+                throw new CampoMancanteException();
+            }
+            String[] partiCampo = campoSelezionato.split(" - ");
+            String nomeCampo = partiCampo[0];
+            String indirizzoCampo = partiCampo[1];
+            // Otteniamo la data
+            LocalDate giorno = sceltaData.getValue();
+            if(giorno == null){
+                throw new DataMancanteException();
+            }
+            // Otteniamo l'orario selezionato
+            LocalTime orarioInizio = (LocalTime) sceltaOrario.getSelectionModel().getSelectedItem();
 
-        // Creiamo una RichiestaPartitaBean
-        RichiestaPartitaBean richiesta = new RichiestaPartitaBean(nomeCampo, indirizzoCampo, giorno, orarioInizio, (Integer) numGiocatori.getValue(), username.getText());
-        // prendiamo un istanza di controller
-        controllerApplicativo.inviaRichiesta(richiesta);
+            // Creiamo una RichiestaPartitaBean
+            RichiestaPartitaBean richiesta = new RichiestaPartitaBean(nomeCampo, indirizzoCampo, giorno, orarioInizio, (Integer) numGiocatori.getValue(), username.getText());
+            // prendiamo un istanza di controller
+            controllerApplicativo.inviaRichiesta(richiesta);
 
-        } catch (SystemException e) {
+        } catch (SystemException | CampoMancanteException | DataMancanteException | RichiestaPartitaException e) {
             GestoreEccezioni.getInstance().handleException(e);
         }
     }

@@ -9,6 +9,7 @@ import it.uniroma2.dicii.ispw.utils.bean.*;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
 import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
+import it.uniroma2.dicii.ispw.utils.exceptions.RichiestaPartitaException;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -160,6 +161,8 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
             controllerApplicativo.inviaRichiesta(richiesta);
         } catch (SystemException e) {
             throw new RuntimeException(e);
+        } catch (RichiestaPartitaException e) {
+            GestoreEccezioni.getInstance().handleException(e);
         }
     }
 
