@@ -20,19 +20,20 @@ import java.util.List;
 
 public class CreaPartitaControllerGrafico extends ControllerGrafico {
     @FXML
-    public Spinner<LocalTime> orarioPartita;
+    private Spinner<LocalTime> orarioPartita;
     @FXML
-    public ComboBox<String> campoPartita;
+    private ComboBox<String> campoPartita;
     @FXML
-    public TextField sceltaData;
+    private TextField sceltaData;
 
     @FXML
-    public Button home;
-    public Spinner<Integer> numeroGiocatori;
+    private Button home;
+    @FXML
+    private Spinner<Integer> numeroGiocatori;
 
     private IdSessioneBean id;
     @FXML
-    public Button profilo;
+    private Button profilo;
 
 
     @Override
