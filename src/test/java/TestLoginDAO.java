@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
   Test di Samuele Tomassacci
  */
 
-public class TestLoginDAO {
+ class TestLoginDAO {
 
     @Test
     void testcheckIfExists() throws SystemException {

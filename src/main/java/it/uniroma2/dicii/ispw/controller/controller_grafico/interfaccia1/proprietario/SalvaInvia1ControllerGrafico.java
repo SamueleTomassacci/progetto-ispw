@@ -40,7 +40,7 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
     private Label chiusura;
     @FXML
     private Label iban;
-    private final static String page="/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml";
+    private static final String PAGE_NAME ="/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml";
     @Override
     public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFotoBean, FotoBean foto, CredentialsBean cred){
         this.id=id;
@@ -57,7 +57,7 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
     public void backHome() {
         try {
             ChangePage istanza = ChangePage.getChangePage();
-            istanza.cambiaPagina(this.page, this.id, null, null,null);
+            istanza.cambiaPagina(SalvaInvia1ControllerGrafico.PAGE_NAME, this.id, null, null,null);
         } catch (SystemException e) {
             GestoreEccezioni.getInstance().handleException(e);
         }
@@ -94,7 +94,7 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
                 controller.inviaRichiestaGestore(richiesta, proprietario);
             }
             ChangePage istanza = ChangePage.getChangePage();
-            istanza.cambiaPagina(this.page, this.id, null, null,null);
+            istanza.cambiaPagina(SalvaInvia1ControllerGrafico.PAGE_NAME, this.id, null, null,null);
 
         } catch (SystemException exc) {
             GestoreEccezioni.getInstance().handleException(exc);
@@ -125,7 +125,7 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
 
 
                     ChangePage istanza = ChangePage.getChangePage();
-                    istanza.cambiaPagina(this.page, this.id, null, null,null);
+                    istanza.cambiaPagina(SalvaInvia1ControllerGrafico.PAGE_NAME, this.id, null, null,null);
 
 
                 } catch (SystemException | CampoEsistenteException exce) {

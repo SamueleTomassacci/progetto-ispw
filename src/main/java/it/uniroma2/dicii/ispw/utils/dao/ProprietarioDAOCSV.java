@@ -71,25 +71,25 @@ public class ProprietarioDAOCSV {
     public void setVip(String username) throws SystemException {
         try(CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(fd)))) {
 
-            String[] record;
+            String[] recValue;
             StringBuilder updatedCSVContent = new StringBuilder();
             boolean found = false;
 
-            while ((record = csvReader.readNext()) != null) {
+            while ((recValue = csvReader.readNext()) != null) {
                 int pos = ProprietarioDAOCSV.indexUsername;
 
-                if (record[pos].equals(username)) {
+                if (recValue[pos].equals(username)) {
                     found = true;
-                    String updatedRecord = record[ProprietarioDAOCSV.indexUserId] + ","
-                            + record[ProprietarioDAOCSV.indexUsername] + ","
-                            + record[ProprietarioDAOCSV.indexEmail] + ","
-                            + record[ProprietarioDAOCSV.indexNome] + ","
-                            + record[ProprietarioDAOCSV.indexCognome] + ","
+                    String updatedRecord = recValue[ProprietarioDAOCSV.indexUserId] + ","
+                            + recValue[ProprietarioDAOCSV.indexUsername] + ","
+                            + recValue[ProprietarioDAOCSV.indexEmail] + ","
+                            + recValue[ProprietarioDAOCSV.indexNome] + ","
+                            + recValue[ProprietarioDAOCSV.indexCognome] + ","
                             + "1"; // Imposta il VIP a 1
 
                     updatedCSVContent.append(updatedRecord).append("\n");
                 } else {
-                    updatedCSVContent.append(String.join(",", record)).append("\n");
+                    updatedCSVContent.append(String.join(",", recValue)).append("\n");
                 }
             }
 

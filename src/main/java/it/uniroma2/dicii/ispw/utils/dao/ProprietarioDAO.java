@@ -37,7 +37,7 @@ public class ProprietarioDAO {
         try(PreparedStatement ps= conn.prepareStatement(query);) {
 
             ps.setString(1, username);
-            int modifiche = ps.executeUpdate();
+            ps.executeUpdate();
 
         } catch (SQLException e) {
             SystemException exception = new SystemException();

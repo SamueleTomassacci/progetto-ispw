@@ -36,7 +36,7 @@ public class LoginControllerApplicativo {
                 GestoreBean gestoreBean = new GestoreBean(gestore);
                 SessionManager manager = SessionManager.getSessionManager();
                 IdSessioneBean id=new IdSessioneBean(gestore.getCode());
-                Session sessione = manager.createSession(null, null, gestoreBean, Role.GESTORE, id);
+                Session sessione = manager.createSession(null, null, gestoreBean, id);
                 manager.aggiungiSessione(sessione);
             } else {
                 throw new LoginException();
@@ -57,7 +57,7 @@ public class LoginControllerApplicativo {
                 ProprietarioBean proprietarioBean = new ProprietarioBean(proprietario);
                 SessionManager manager = SessionManager.getSessionManager();
                 IdSessioneBean id=new IdSessioneBean(proprietario.getCode());
-                Session sessione = manager.createSession(null,proprietarioBean,null,Role.PROPRIETARIO,id);
+                Session sessione = manager.createSession(null,proprietarioBean,null,id);
                 manager.aggiungiSessione(sessione);
             }
             else{
@@ -77,7 +77,7 @@ public class LoginControllerApplicativo {
                 GiocatoreBean giocatoreBean = new GiocatoreBean(giocatore);
                 SessionManager manager = SessionManager.getSessionManager();
                 IdSessioneBean id=new IdSessioneBean(giocatore.getCode());
-                Session sessione = manager.createSession(giocatoreBean,null,null,Role.GIOCATORE,id);
+                Session sessione = manager.createSession(giocatoreBean,null,null,id);
                 manager.aggiungiSessione(sessione);
             }
             else{

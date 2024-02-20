@@ -20,7 +20,7 @@ public class SessionManager {
         }
 
 
-    public Session createSession(GiocatoreBean giocatoreBean, ProprietarioBean proprietarioBean, GestoreBean gestoreBean, Role role,IdSessioneBean idSession ){
+    public Session createSession(GiocatoreBean giocatoreBean, ProprietarioBean proprietarioBean, GestoreBean gestoreBean,IdSessioneBean idSession ){
         return new Session(giocatoreBean,proprietarioBean,gestoreBean,idSession);
     }
 

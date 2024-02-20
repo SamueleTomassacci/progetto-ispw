@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /*
   Test di Samuele Tomassacci
  */
-public class TestAggiungiCampoControllerApplicativoBase {
+ class TestAggiungiCampoControllerApplicativoBase {
 
     @Test
    void testGetNumeroMax() throws SystemException {

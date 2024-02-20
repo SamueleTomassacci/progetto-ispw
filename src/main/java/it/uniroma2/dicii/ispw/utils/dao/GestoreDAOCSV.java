@@ -3,7 +3,7 @@ package it.uniroma2.dicii.ispw.utils.dao;
 import com.opencsv.exceptions.CsvValidationException;
 import it.uniroma2.dicii.ispw.model.GestoreModel;
 
-import it.uniroma2.dicii.ispw.utils.exceptions.LoginException;
+
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 
 import java.io.BufferedReader;

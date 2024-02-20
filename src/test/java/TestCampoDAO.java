@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /*
   Test di Samuele Tomassacci
  */
-public class TestCampoDAO {
+ class TestCampoDAO {
 
     @Test
     void testGetProprietarioFromRichiestaCampo() throws SystemException{
