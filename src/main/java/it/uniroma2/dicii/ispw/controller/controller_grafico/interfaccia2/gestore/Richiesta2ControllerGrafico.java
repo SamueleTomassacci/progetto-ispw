@@ -1,7 +1,7 @@
 package it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.gestore;
 
 import it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator.AggiungiCampoControllerApplicativoBase;
-import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.gestore.GestisciRichieste1ControllerGrafico;
+
 import it.uniroma2.dicii.ispw.utils.bean.CampoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.PaneBean;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;

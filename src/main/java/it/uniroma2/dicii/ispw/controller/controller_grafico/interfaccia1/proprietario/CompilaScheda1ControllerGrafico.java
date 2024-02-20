@@ -4,7 +4,7 @@ import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.Control
 import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.bean.CredentialsBean;
 import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
-import it.uniroma2.dicii.ispw.utils.bean.PartitaBean;
+
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
 import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
@@ -16,15 +16,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 
-import java.io.IOException;
+
 import java.sql.Time;
 
-/* Eccezioni da gestire:
-   --Alcuni campi che non sono stati riempiti
-   --Orari non nel formato giusto
-   --Indirizzo del campo non esistente
 
- */
 
 public class CompilaScheda1ControllerGrafico extends ControllerGrafico {
     @FXML

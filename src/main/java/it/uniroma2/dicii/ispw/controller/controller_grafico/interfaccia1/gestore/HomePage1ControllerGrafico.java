@@ -1,7 +1,7 @@
 package it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.gestore;
 
 import it.uniroma2.dicii.ispw.Main;
-import it.uniroma2.dicii.ispw.controller.controller_applicativo.VipControllerApplicativo;
+
 import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.ControllerGrafico;
 import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.Session;
@@ -9,7 +9,7 @@ import it.uniroma2.dicii.ispw.utils.SessionManager;
 import it.uniroma2.dicii.ispw.utils.bean.CredentialsBean;
 import it.uniroma2.dicii.ispw.utils.bean.GestoreBean;
 import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
-import it.uniroma2.dicii.ispw.utils.bean.ProprietarioBean;
+
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
 import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;

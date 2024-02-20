@@ -5,15 +5,15 @@ import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.Control
 import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.bean.CredentialsBean;
 import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
-import it.uniroma2.dicii.ispw.utils.bean.Role;
+
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.CampoSenzaFotoBean;
 import it.uniroma2.dicii.ispw.utils.bean.interfaccia1.FotoBean;
 import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
 import it.uniroma2.dicii.ispw.utils.exceptions.LoginException;
-import it.uniroma2.dicii.ispw.utils.exceptions.RuoloNonSelezionatoException;
+
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -42,12 +42,12 @@ public class Accesso2ControllerGrafico extends ControllerGrafico {
             switch (cred.getRole()) {
                 case PROPRIETARIO ->
                         istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/homePage.fxml", new IdSessioneBean(cred.getIdSession()), null, null,null);
-                case GIOCATORE -> {
+                case GIOCATORE ->
                         istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/homePage.fxml", new IdSessioneBean((cred.getIdSession())), null, null, null);
-                }
-                case GESTORE ->{
+
+                case GESTORE ->
                     istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/gestore/gestisciRichieste.fxml", new IdSessioneBean((cred.getIdSession())), null, null, null);
-                }
+
             }
         } catch (LoginException | SystemException e) {
 

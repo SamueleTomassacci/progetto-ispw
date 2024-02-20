@@ -40,7 +40,7 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
     private Label chiusura;
     @FXML
     private Label iban;
-    private final String page="/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml";
+    private final static String page="/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/homePage.fxml";
     @Override
     public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFotoBean, FotoBean foto, CredentialsBean cred){
         this.id=id;
@@ -168,7 +168,7 @@ public class SalvaInvia1ControllerGrafico extends ControllerGrafico {
         }
 
         richiesta.setNum(num);
-        System.out.println(richiesta.getNomeCampo());
+
 
 
         if (proprietario.getVip() == 1) {

@@ -3,7 +3,7 @@ package it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2;
 import it.uniroma2.dicii.ispw.Main;
 import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.bean.CredentialsBean;
-import it.uniroma2.dicii.ispw.utils.bean.IdSessioneBean;
+
 import it.uniroma2.dicii.ispw.utils.bean.Role;
 import it.uniroma2.dicii.ispw.utils.exceptions.GestoreEccezioni;
 import it.uniroma2.dicii.ispw.utils.exceptions.RuoloNonSelezionatoException;
@@ -12,7 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
+
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 

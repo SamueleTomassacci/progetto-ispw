@@ -3,7 +3,7 @@ package it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia2.gestor
 import it.uniroma2.dicii.ispw.Main;
 import it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator.AggiungiCampoControllerApplicativoBase;
 import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.ControllerGrafico;
-import it.uniroma2.dicii.ispw.controller.controller_grafico.interfaccia1.gestore.Richiesta1ControllerGrafico;
+
 import it.uniroma2.dicii.ispw.utils.ChangePage;
 import it.uniroma2.dicii.ispw.utils.Session;
 import it.uniroma2.dicii.ispw.utils.SessionManager;

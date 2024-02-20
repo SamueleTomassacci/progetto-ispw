@@ -42,7 +42,7 @@ public class AggiungiCampo2ControllerGrafico extends ControllerGrafico {
     @FXML
     private ImageView immagine;
     private File img;
-    private final String page="/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/homePage.fxml";
+    private final static String page="/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/homePage.fxml";
 
 
     private IdSessioneBean id;
@@ -52,8 +52,8 @@ public class AggiungiCampo2ControllerGrafico extends ControllerGrafico {
         SessionManager manager=SessionManager.getSessionManager();
         Session session=manager.getSessionFromId(id);
         ProprietarioBean proprietarioBean=session.getProprietarioBean();
-        String nome=proprietarioBean.getUsername();
-        profilo.setText(nome);
+        String nomeProp=proprietarioBean.getUsername();
+        profilo.setText(nomeProp);
         apertura.getItems().addAll("07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00");
         chiusura.getItems().addAll("08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00");
     }
@@ -203,7 +203,7 @@ public class AggiungiCampo2ControllerGrafico extends ControllerGrafico {
         }
 
         richiestaCampo.setNum(num);
-        System.out.println(richiestaCampo.getNomeCampo());
+
 
 
         if (proprietarioCampo.getVip() == 1) {
