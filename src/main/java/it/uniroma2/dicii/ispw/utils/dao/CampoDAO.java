@@ -56,10 +56,10 @@ public class CampoDAO {
     public LocalTime getOrarioChiusura(PartitaModel campo) throws SystemException {
         String query = "SELECT OrarioChiusura FROM campo where nome = ? and indirizzo = ?;";
         Connection conn= ConnectionDB.getConnection();
-        try (PreparedStatement ps = conn.prepareStatement(query)) {
-            ps.setString(1, campo.recuperaNome());
-            ps.setString(2, campo.recuperaIndirizzo());
-            ResultSet rs = ps.executeQuery();
+        try (PreparedStatement preparedStatement = conn.prepareStatement(query)) {
+            preparedStatement.setString(1, campo.recuperaNome());
+            preparedStatement.setString(2, campo.recuperaIndirizzo());
+            ResultSet rs = preparedStatement.executeQuery();
             rs.next();
             return rs.getTime(1).toLocalTime();
 

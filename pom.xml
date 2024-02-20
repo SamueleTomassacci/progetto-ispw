@@ -81,12 +81,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version> <!-- Assicurati di utilizzare l'ultima versione -->
+                <version>3.0.0-M5</version>
                 <configuration>
                     <includes>
-                        <include>**/*Test.java</include> <!-- Specifica qui i pattern dei nomi dei file dei test -->
+                        <include>**/*Test.java</include>
                         <include>**/*Tests.java</include>
-                        <!-- Aggiungi altri pattern se necessario -->
+
                     </includes>
                 </configuration>
             </plugin>

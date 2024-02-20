@@ -21,15 +21,15 @@ public class GestoreDAOCSV {
     private File fd;
 
     private static class GestoreAttributesOrder {
-        public static int getIndex_UserId() {
+        public static int getIndice_UserId() {
             return 0;
         }
 
-        public static int getIndex_Username() {
+        public static int getIndice_Username() {
             return 1;
         }
 
-        public static int getIndex_Email() {
+        public static int getIndice_Email() {
             return 2;
         }
     }
@@ -61,10 +61,10 @@ public class GestoreDAOCSV {
 
             while ((record = csvReader.readNext()) != null) {
 
-                int pos = GestoreAttributesOrder.getIndex_Username();
+                int pos = GestoreAttributesOrder.getIndice_Username();
 
                 if (record[pos].equals(username)) {
-                    gestore = new GestoreModel(record[GestoreAttributesOrder.getIndex_Username()], record[GestoreAttributesOrder.getIndex_Email()], Integer.parseInt(record[GestoreAttributesOrder.getIndex_UserId()]));
+                    gestore = new GestoreModel(record[GestoreAttributesOrder.getIndice_Username()], record[GestoreAttributesOrder.getIndice_Email()], Integer.parseInt(record[GestoreAttributesOrder.getIndice_UserId()]));
 
                 }
             }

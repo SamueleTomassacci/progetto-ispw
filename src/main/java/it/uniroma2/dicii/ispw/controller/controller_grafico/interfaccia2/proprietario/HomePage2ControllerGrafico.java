@@ -50,7 +50,7 @@ public class HomePage2ControllerGrafico extends ControllerGrafico {
             ChangePage istanza = ChangePage.getChangePage();
             istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/gestisci_prenotazioni/GestionaleRichieste.fxml", this.idSession, null, null,null);
         } catch (SystemException e) {
-            e.printStackTrace();
+
             GestoreEccezioni.getInstance().handleException(e);
         }
     }

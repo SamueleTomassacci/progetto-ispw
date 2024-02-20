@@ -171,7 +171,7 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
             ChangePage istanza = ChangePage.getChangePage();
             istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/homePage.fxml", this.id, null, null,null);
         } catch (SystemException e) {
-            e.printStackTrace();
+
             GestoreEccezioni.getInstance().handleException(e);
         }
     }
