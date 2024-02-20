@@ -58,16 +58,16 @@ public class HomePage1ControllerGrafico extends ControllerGrafico {
     public void logout() {
         try {
             SessionManager.getSessionManager().rimuoviSessione(id);
-            ChangePage istanza = ChangePage.getChangePage();
+            ChangePage istance = ChangePage.getChangePage();
 
-            Stage stagePrim = istanza.getStage();
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/loginPage1.fxml"));
+            Stage page = istance.getStage();
+            FXMLLoader loaderFXML = new FXMLLoader(Main.class.getResource("/it/uniroma2/dicii/ispw/interfacce/interfaccia1/loginPage1.fxml"));
             Scene scene = null;
 
-            scene = new Scene(loader.load(), 1200, 760);
+            scene = new Scene(loaderFXML.load(), 1200, 760);
 
-            stagePrim.setScene(scene);
-            stagePrim.show();
+            page.setScene(scene);
+            page.show();
 
         }catch (IOException e) {
             SystemException exception = new SystemException();

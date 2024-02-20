@@ -73,15 +73,15 @@ public class ProprietarioDAOCSV {
         ProprietarioModel proprietario = null;
         try( CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(fd)))) {
 
-            String[] record;
+            String[] rec;
 
 
-            while ((record = csvReader.readNext()) != null) {
+            while ((rec = csvReader.readNext()) != null) {
 
                 int pos = ProprietarioAttributesOrder.getIndex_Username();
 
-                if (record[pos].equals(username)) {
-                    proprietario = new ProprietarioModel(record[ProprietarioAttributesOrder.getIndex_Username()], record[ProprietarioAttributesOrder.getIndex_Email()], Integer.parseInt(record[ProprietarioAttributesOrder.getIndex_UserId()]), record[ProprietarioAttributesOrder.getIndex_Nome()], record[ProprietarioAttributesOrder.getIndex_Cognome()], Integer.parseInt(record[ProprietarioAttributesOrder.getIndex_Vip()]));
+                if (rec[pos].equals(username)) {
+                    proprietario = new ProprietarioModel(rec[ProprietarioAttributesOrder.getIndex_Username()], rec[ProprietarioAttributesOrder.getIndex_Email()], Integer.parseInt(rec[ProprietarioAttributesOrder.getIndex_UserId()]), rec[ProprietarioAttributesOrder.getIndex_Nome()], rec[ProprietarioAttributesOrder.getIndex_Cognome()], Integer.parseInt(rec[ProprietarioAttributesOrder.getIndex_Vip()]));
                 }
             }
             return proprietario;
