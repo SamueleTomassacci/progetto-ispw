@@ -70,9 +70,9 @@ public class CreaPartitaControllerApplicativo {
         PartitaDAO partitaDAO = new PartitaDAO();
         List<PartitaModel> lista = listaPartite.recuperaLista();
         for (PartitaModel partita : lista){
-            if(partita.infoStato() == statoPartita.Pendente){
+            if(partita.infoStato() == statoPartita.PENDENTE){
                 partita.impostaStato(partitaDAO.aggiornaStatoPartita(partita));
-                if(partita.infoStato() != statoPartita.Pendente){
+                if(partita.infoStato() != statoPartita.PENDENTE){
                     // aggiornamento di questa partita negli osservatori
                     listaPartite.notifyObservers(partita);
                 }

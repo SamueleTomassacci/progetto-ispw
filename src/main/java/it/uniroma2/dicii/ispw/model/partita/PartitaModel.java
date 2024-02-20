@@ -44,7 +44,7 @@ public class PartitaModel extends Subject{
         this.orarioInizio = bean.getOra();
         this.numGiocatori = bean.getNumGiocatori();
         this.creatore = bean.getCreatore();
-        this.stato = statoPartita.Pendente;
+        this.stato = statoPartita.PENDENTE;
     }
 
     public PartitaModel(PartitaBean bean) {

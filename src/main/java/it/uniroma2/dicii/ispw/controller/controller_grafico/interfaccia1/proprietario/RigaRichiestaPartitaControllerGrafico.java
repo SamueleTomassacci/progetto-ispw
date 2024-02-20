@@ -33,7 +33,7 @@ public class RigaRichiestaPartitaControllerGrafico {
     public void clickAccetta() {
         try {
             CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
-            bean.setStato(statoPartita.Accettata);
+            bean.setStato(statoPartita.ACCETTATA);
             controllerApplicativo.rispondiRichiesta(bean);
             father.rimuoviRiga(pane);
         } catch (SystemException e){
@@ -43,7 +43,7 @@ public class RigaRichiestaPartitaControllerGrafico {
     public void clickRifiuta() {
         try {
             CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
-            bean.setStato(statoPartita.Rifiutata);
+            bean.setStato(statoPartita.RIFIUTATA);
             controllerApplicativo.rispondiRichiesta(bean);
             father.rimuoviRiga(pane);
         } catch (SystemException e) {

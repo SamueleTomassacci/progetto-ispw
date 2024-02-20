@@ -56,7 +56,7 @@ public class GestisciPrenotazioniControllerGrafico extends ControllerGrafico {
             if( partitaSelezionata == null){
                 throw new RichiestaNonSelezionataException();
             }
-            partitaSelezionata.setStato(statoPartita.Rifiutata);
+            partitaSelezionata.setStato(statoPartita.RIFIUTATA);
             CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
                 controllerApplicativo.rispondiRichiesta(partitaSelezionata);
 
@@ -94,7 +94,7 @@ public class GestisciPrenotazioniControllerGrafico extends ControllerGrafico {
             if(partitaSelezionata == null){
                 throw new RichiestaNonSelezionataException();
             }
-            partitaSelezionata.setStato(statoPartita.Accettata);
+            partitaSelezionata.setStato(statoPartita.ACCETTATA);
             CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
 
             controllerApplicativo.rispondiRichiesta(partitaSelezionata);

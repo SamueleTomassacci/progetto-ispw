@@ -44,7 +44,7 @@ public class PartitaDAO {
             ps.setString(2,richiesta.recuperaIndirizzo());
             ps.setTime(3, Time.valueOf(richiesta.recuperaOrarioInizio()));
             ps.setDate(4, Date.valueOf(richiesta.recuperaData()));
-            ps.setString(5, String.valueOf(statoPartita.Pendente));
+            ps.setString(5, String.valueOf(statoPartita.PENDENTE));
             ps.setString(6,richiesta.recuperaCreatore());
             ps.setInt(7,richiesta.recuperaNumGiocatori());
             ps.executeUpdate();
@@ -104,7 +104,7 @@ public class PartitaDAO {
             ps.setString(1,username);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                PartitaModel partita = new PartitaModel(rs.getString(1), rs.getString(2), rs.getDate(3).toLocalDate(), rs.getString(4), rs.getTime(5).toLocalTime(), rs.getInt(6), statoPartita.Pendente);
+                PartitaModel partita = new PartitaModel(rs.getString(1), rs.getString(2), rs.getDate(3).toLocalDate(), rs.getString(4), rs.getTime(5).toLocalTime(), rs.getInt(6), statoPartita.PENDENTE);
                 lista.add(partita);
             }
         } catch (SQLException e) {
