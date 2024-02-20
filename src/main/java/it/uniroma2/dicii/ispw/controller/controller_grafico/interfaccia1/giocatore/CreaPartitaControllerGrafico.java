@@ -88,8 +88,8 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
         numGiocatori.setValueFactory(valueFactory);
 
         numGiocatori.valueProperty().addListener((observable, oldValue, newValue) -> {
-            if ((int) newValue % 2 != 0) {
-                numGiocatori.getValueFactory().setValue((int) newValue + 1);
+            if ( newValue % 2 != 0) {
+                numGiocatori.getValueFactory().setValue( newValue + 1);
             }
         });
         // Inizializza Finestra Partite Create
@@ -123,7 +123,7 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
         try {
             sceltaOrario.getItems().clear();
             // Otteniamo la stringa selezionata dalla ComboBox
-            String campoSelezionato = (String) sceltaCampo.getSelectionModel().getSelectedItem();
+            String campoSelezionato = sceltaCampo.getSelectionModel().getSelectedItem();
 
             // Otteniamo il nome e l'indirizzo separatamente dalla stringa selezionata
             String[] partiCampo = campoSelezionato.split(" - ");
@@ -168,7 +168,7 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
         try {
             // Prendiamo l'input inserito dall'utente
             // Otteniamo il campo
-            String campoSelezionato = (String) sceltaCampo.getSelectionModel().getSelectedItem();
+            String campoSelezionato = sceltaCampo.getSelectionModel().getSelectedItem();
             if(campoSelezionato == null){
                 throw new CampoMancanteException();
             }
@@ -181,13 +181,13 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
                 throw new DataMancanteException();
             }
             // Otteniamo l'orario selezionato
-            LocalTime orarioInizio = (LocalTime) sceltaOrario.getSelectionModel().getSelectedItem();
+            LocalTime orarioInizio = sceltaOrario.getSelectionModel().getSelectedItem();
             if(orarioInizio == null){
                 throw new OrarioNonSelezionatoExcption();
             }
 
             // Creiamo una RichiestaPartitaBean
-            RichiestaPartitaBean richiesta = new RichiestaPartitaBean(nomeCampo, indirizzoCampo, giorno, orarioInizio, (Integer) numGiocatori.getValue(), username.getText());
+            RichiestaPartitaBean richiesta = new RichiestaPartitaBean(nomeCampo, indirizzoCampo, giorno, orarioInizio, numGiocatori.getValue(), username.getText());
             // prendiamo un istanza di controller
             controllerApplicativo.inviaRichiesta(richiesta);
             // mostriamo un box di successo

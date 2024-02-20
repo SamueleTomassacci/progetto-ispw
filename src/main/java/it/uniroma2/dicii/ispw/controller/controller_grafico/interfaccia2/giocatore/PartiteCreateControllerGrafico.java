@@ -34,7 +34,6 @@ public class PartiteCreateControllerGrafico extends ControllerGrafico {
     @FXML
     public Button profilo;
     private CreaPartitaControllerApplicativo controllerApplicativo;
-    private ListaPartiteControllerGrafico listaPartiteControllerGrafico;
 
     @Override
     public void inizializza(IdSessioneBean id, CampoSenzaFotoBean campoSenzaFoto, FotoBean foto, CredentialsBean cred) {
@@ -54,7 +53,7 @@ public class PartiteCreateControllerGrafico extends ControllerGrafico {
             // Imposta il contenuto dello ScrollPane
             scrollpane.setContent(content);
             // Ottieni controller associato al loader
-            listaPartiteControllerGrafico = loader.getController();
+            ListaPartiteControllerGrafico listaPartiteControllerGrafico = loader.getController();
             //inizializza la lista
             listaPartiteControllerGrafico.inizializzaLista(controllerApplicativo, new UserBean(profilo.getText()));
         } catch (IOException e) {
@@ -63,7 +62,7 @@ public class PartiteCreateControllerGrafico extends ControllerGrafico {
 
     }
 
-    public void clickHome(ActionEvent actionEvent) {
+    public void clickHome() {
         try {
             ChangePage istanza = ChangePage.getChangePage();
             istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/giocatore/homePage.fxml", this.id, null, null,null);

@@ -69,8 +69,8 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
             numeroGiocatori.setValueFactory(valueFactory);
 
             numeroGiocatori.valueProperty().addListener((observable, oldValue, newValue) -> {
-                if ((int) newValue % 2 != 0) {
-                    numeroGiocatori.getValueFactory().setValue((int) newValue + 1);
+                if ( newValue % 2 != 0) {
+                    numeroGiocatori.getValueFactory().setValue( newValue + 1);
                 }
             });
         } catch (SystemException e){
@@ -82,7 +82,7 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
     public void inizializzaSceltaOrario(){
         try {
             // Otteniamo la stringa selezionata dalla ComboBox
-            String campoSelezionato = (String) campoPartita.getSelectionModel().getSelectedItem();
+            String campoSelezionato = campoPartita.getSelectionModel().getSelectedItem();
             if(campoSelezionato == null){
                 throw new CampoMancanteException();
             }
@@ -164,7 +164,7 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
         try{
             // Prendiamo l'input inserito dall'utente
             // Otteniamo il campo
-            String campoSelezionato = (String) campoPartita.getSelectionModel().getSelectedItem();
+            String campoSelezionato = campoPartita.getSelectionModel().getSelectedItem();
             if(campoSelezionato == null){
                 throw new CampoMancanteException();
             }
@@ -176,7 +176,7 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
             // Otteniamo l'orario selezionato
             LocalTime orarioInizio = orarioPartita.getValue();
             // Creiamo una RichiestaPartitaBean
-            RichiestaPartitaBean richiesta = new RichiestaPartitaBean(nomeCampo, indirizzoCampo, giorno, orarioInizio, (Integer) numeroGiocatori.getValue(), profilo.getText());
+            RichiestaPartitaBean richiesta = new RichiestaPartitaBean(nomeCampo, indirizzoCampo, giorno, orarioInizio, numeroGiocatori.getValue(), profilo.getText());
             // prendiamo un istanza di controller
             CreaPartitaControllerApplicativo controllerApplicativo = new CreaPartitaControllerApplicativo();
             controllerApplicativo.inviaRichiesta(richiesta);

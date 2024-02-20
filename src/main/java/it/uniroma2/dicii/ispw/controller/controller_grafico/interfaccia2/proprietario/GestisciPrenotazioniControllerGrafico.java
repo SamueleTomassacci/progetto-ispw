@@ -103,7 +103,7 @@ public class GestisciPrenotazioniControllerGrafico extends ControllerGrafico {
             // Deseleziona la riga attualmente selezionata
             listview.getSelectionModel().clearSelection();
         } catch (SystemException e) {
-            throw new RuntimeException(e);
+            GestoreEccezioni.getInstance().handleException(e);
         } catch (RichiestaNonSelezionataException e) {
             // Mostra una Dialog per chiedere all'utente se si riferisce alla prima riga della lista
             Dialog<ButtonType> dialog = new Dialog<>();
@@ -127,7 +127,7 @@ public class GestisciPrenotazioniControllerGrafico extends ControllerGrafico {
         }
     }
 
-    public void back(ActionEvent actionEvent) {
+    public void back() {
         try {
             ChangePage istanza = ChangePage.getChangePage();
             istanza.cambiaPagina("/it/uniroma2/dicii/ispw/interfacce/interfaccia2/proprietario/homePage.fxml", this.id, null, null,null);
