@@ -55,7 +55,7 @@ public class GestoreDAOCSV {
     public GestoreModel getGestoreByUsername(String username) throws SystemException, LoginException {
         GestoreModel gestore = null;
         try( CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(fd)))) {
-            
+
             String[] record;
 
 
