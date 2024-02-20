@@ -1,0 +1,24 @@
+<changelist name="Uncommitted_changes_before_Update_at_20_02_2024_15_10_[Changes]" date="1708438237003" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_15_10_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 20/02/2024 15:10 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_15_10_[Changes]/CreaPartitaControllerGrafico.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_applicativo/decorator/aggiungiCampoControllerApplicativoVip.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_applicativo/decorator/aggiungiCampoControllerApplicativoVip.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_15_10_[Changes]/aggiungiCampoControllerApplicativoVip.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/model/partita/Subject.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/model/partita/Subject.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_15_10_[Changes]/Subject.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico$1.class" />
+    <option name="AFTER_PATH" value="target/classes/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico$1.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_15_10_[Changes]/CreaPartitaControllerGrafico$1.class" />
+  </binary>
+</changelist>
