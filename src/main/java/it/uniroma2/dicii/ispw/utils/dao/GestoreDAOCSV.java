@@ -39,8 +39,8 @@ public class GestoreDAOCSV {
         try {
 
             if (!fd.exists()) {
-                boolean created= fd.createNewFile();
-                if(!created){
+                boolean bool= fd.createNewFile();
+                if(!bool){
                     throw new IOException();
                 }
             }
@@ -71,9 +71,9 @@ public class GestoreDAOCSV {
 
             return gestore;
 
-        } catch (IOException | CsvValidationException e) {
+        } catch (IOException | CsvValidationException exc) {
             SystemException exception = new SystemException();
-            exception.initCause(e);
+            exception.initCause(exc);
             throw exception;
         }
 
