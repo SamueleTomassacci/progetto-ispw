@@ -94,8 +94,8 @@ public class ProprietarioDAOCSV {
             }
 
             if (!found) {
-                SystemException exception = new SystemException("Username non trovato nel CSV");
-                throw exception;
+                throw  new SystemException("Username non trovato nel CSV");
+                
             }
 
             // Sovrascrive il file CSV con i dati aggiornati
