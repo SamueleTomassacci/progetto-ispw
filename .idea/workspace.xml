@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="Gestione dei SystemException e IOException per la prima interfaccia" />
+    <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="Gestione dei SystemException e IOException per la prima interfaccia">
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/Login1ControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/Login1ControllerGrafico.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
