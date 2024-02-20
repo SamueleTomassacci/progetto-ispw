@@ -20,9 +20,9 @@ import java.util.List;
 
 public class CreaPartitaControllerGrafico extends ControllerGrafico {
     @FXML
-    public Spinner<LocalTime> OrarioPartita;
+    public Spinner<LocalTime> orarioPartita;
     @FXML
-    public ComboBox<String> CampoPartita;
+    public ComboBox<String> campoPartita;
     @FXML
     public TextField sceltaData;
 
@@ -55,10 +55,10 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
             listaNomeCampoBean = controllerApplicativo.inizializzasceltaCampo();
             List<PartitaCampoBean> listaCampi = listaNomeCampoBean.getLista();
             for (PartitaCampoBean campo : listaCampi) {
-                CampoPartita.getItems().add(campo.getNome() + " - " + campo.getIndirizzo());
+                campoPartita.getItems().add(campo.getNome() + " - " + campo.getIndirizzo());
             }
             // Aggiunta ChangeListener
-            CampoPartita.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            campoPartita.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
                 // Azione da eseguire quando l'utente seleziona un elemento nella ComboBox
                 inizializzaSceltaOrario();
             });
@@ -82,7 +82,7 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
     public void inizializzaSceltaOrario(){
         try {
             // Otteniamo la stringa selezionata dalla ComboBox
-            String campoSelezionato = (String) CampoPartita.getSelectionModel().getSelectedItem();
+            String campoSelezionato = (String) campoPartita.getSelectionModel().getSelectedItem();
             if(campoSelezionato == null){
                 throw new CampoMancanteException();
             }
@@ -145,7 +145,7 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
                 }
             });
             valueFactory.setWrapAround(true); // Permette la navigazione circolare degli orari
-            OrarioPartita.setValueFactory(valueFactory);
+            orarioPartita.setValueFactory(valueFactory);
         } catch (SystemException | CampoMancanteException e) {
             GestoreEccezioni.getInstance().handleException(e);
         } catch (DataMancanteException e) {
@@ -164,7 +164,7 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
         try{
             // Prendiamo l'input inserito dall'utente
             // Otteniamo il campo
-            String campoSelezionato = (String) CampoPartita.getSelectionModel().getSelectedItem();
+            String campoSelezionato = (String) campoPartita.getSelectionModel().getSelectedItem();
             if(campoSelezionato == null){
                 throw new CampoMancanteException();
             }
@@ -174,7 +174,7 @@ public class CreaPartitaControllerGrafico extends ControllerGrafico {
             // Otteniamo la data
             LocalDate giorno = LocalDate.parse(sceltaData.getText());
             // Otteniamo l'orario selezionato
-            LocalTime orarioInizio = OrarioPartita.getValue();
+            LocalTime orarioInizio = orarioPartita.getValue();
             // Creiamo una RichiestaPartitaBean
             RichiestaPartitaBean richiesta = new RichiestaPartitaBean(nomeCampo, indirizzoCampo, giorno, orarioInizio, (Integer) numeroGiocatori.getValue(), profilo.getText());
             // prendiamo un istanza di controller

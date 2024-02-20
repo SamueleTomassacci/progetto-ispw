@@ -1,6 +1,5 @@
 package it.uniroma2.dicii.ispw.model.partita;
 
-import it.uniroma2.dicii.ispw.utils.bean.PartitaBean;
 
 import java.util.ArrayList;
 import java.util.List;

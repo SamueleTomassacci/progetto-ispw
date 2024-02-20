@@ -71,7 +71,9 @@ public class PartitaDAO {
             rs.next();
             return statoPartita.valueOf(rs.getString(1));
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            SystemException exception = new SystemException();
+            exception.initCause(e);
+            throw exception;
         }
     }
 
@@ -87,7 +89,9 @@ public class PartitaDAO {
                 lista.add(partita);
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            SystemException exception = new SystemException();
+            exception.initCause(e);
+            throw exception;
         }
         return lista;
     }
@@ -104,7 +108,9 @@ public class PartitaDAO {
                 lista.add(partita);
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            SystemException exception = new SystemException();
+            exception.initCause(e);
+            throw exception;
         }
         return lista;
     }
@@ -121,7 +127,9 @@ public class PartitaDAO {
             ps.setString(6, partita.recuperaCreatore());
             ps.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            SystemException exception = new SystemException();
+            exception.initCause(e);
+            throw exception;
         }
     }
 }

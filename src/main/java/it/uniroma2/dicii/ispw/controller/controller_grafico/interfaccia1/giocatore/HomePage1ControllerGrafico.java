@@ -26,9 +26,9 @@ public class HomePage1ControllerGrafico extends ControllerGrafico {
     @FXML
     private Label user;
     @FXML
-    private Button Creazione;
+    private Button creazione;
     @FXML
-    private Button Partecipazione;
+    private Button partecipazione;
     @FXML
     private Label altezza;
     @FXML
@@ -42,9 +42,9 @@ public class HomePage1ControllerGrafico extends ControllerGrafico {
         Session session = manager.getSessionFromId(id);
         GiocatoreBean giocatore = session.getGiocatoreBean();
         user.setText("Bentornato "+giocatore.getUsername()+"!");
-        altezza.setText("  "+ String.valueOf(giocatore.getAltezza()));
+        altezza.setText(String.valueOf(giocatore.getAltezza()));
         eta.setText(String.valueOf(giocatore.getEta()));
-        ruoloGiocatore.setText("  "+giocatore.getRuoloBasket());
+        ruoloGiocatore.setText(giocatore.getRuoloBasket());
     }
     public void clickCreazione(){
         try {
