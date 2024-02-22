@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CreaPartitaControllerApplicativo {
-    private ListaPartiteModel listaPartite = new ListaPartiteModel();
+    private ListaPartiteModel listaPartite;
     public void inviaRichiesta(RichiestaPartitaBean richiestaPartitaBean) throws SystemException, RichiestaPartitaException {
         // creiamo model RichiestaPartitaModel
         PartitaModel richiesta = new PartitaModel(richiestaPartitaBean);
@@ -81,6 +81,7 @@ public class CreaPartitaControllerApplicativo {
     }
 
     public void inizializzaPartite(UserBean user, ListaPartiteObserver observer) throws SystemException {
+        listaPartite = new ListaPartiteModel();
         listaPartite.register(observer);
         PartitaDAO partitaDAO = new PartitaDAO();
         List<PartitaModel> lista = partitaDAO.getPartiteCreatedByUsername(user.getUsername());

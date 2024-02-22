@@ -21,10 +21,6 @@ public class GestoreDAOCSV {
 
     private static int indiceUserId=0;
     private static int indiceUsername=1;
-    private static int indicePassword=2;
-
-    private static int indiceNome=3;
-    private static int indiceCognome=4;
     private static int indiceEmail=5;
 
 

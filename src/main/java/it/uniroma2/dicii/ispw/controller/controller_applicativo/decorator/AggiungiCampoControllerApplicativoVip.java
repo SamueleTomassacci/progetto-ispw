@@ -5,7 +5,6 @@ import it.uniroma2.dicii.ispw.utils.bean.CampoBean;
 import it.uniroma2.dicii.ispw.utils.bean.EmailBean;
 import it.uniroma2.dicii.ispw.utils.bean.ProprietarioBean;
 import it.uniroma2.dicii.ispw.utils.dao.GestoreDAO;
-import it.uniroma2.dicii.ispw.utils.dao.GestoreDAOCSV;
 import it.uniroma2.dicii.ispw.utils.engineering.EmailEngineering;
 import it.uniroma2.dicii.ispw.utils.exceptions.CampoEsistenteException;
 import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;

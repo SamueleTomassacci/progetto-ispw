@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="rimosso alcuni codesmell">
+    <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="rimossi tutti i codesmell">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia1/giocatore/CreaPartitaControllerGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/CreaPartitaControllerGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_grafico/interfaccia2/giocatore/CreaPartitaControllerGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/model/partita/statoPartita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/model/partita/statoPartita.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/creapartita/CreaPartitaControllerApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/creapartita/CreaPartitaControllerApplicativo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_applicativo/CreaPartita/CreaPartitaControllerApplicativo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_applicativo/CreaPartita/CreaPartitaControllerApplicativo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/model/partita/PartitaModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/model/partita/PartitaModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/model/partita/statoPartita.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/model/partita/statoPartita.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,6 +192,8 @@
       <workItem from="1708359403454" duration="13248000" />
       <workItem from="1708374878406" duration="6951000" />
       <workItem from="1708414920785" duration="7354000" />
+      <workItem from="1708455341408" duration="10149000" />
+      <workItem from="1708499884205" duration="7401000" />
     </task>
     <task id="LOCAL-00001" summary="aggiornato path file fxml">
       <option name="closed" value="true" />
@@ -408,7 +411,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708439091657</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="rimosso alcuni codesmell">
+      <option name="closed" value="true" />
+      <created>1708439429967</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1708439429967</updated>
+    </task>
+    <task id="LOCAL-00029" summary="rimossi tutti i codesmell">
+      <option name="closed" value="true" />
+      <created>1708439648494</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1708439648494</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -448,6 +467,7 @@
     <MESSAGE value="Aggiunti i tre casi di test di Flavio" />
     <MESSAGE value="rimuovi duplicazione" />
     <MESSAGE value="rimosso alcuni codesmell" />
-    <option name="LAST_COMMIT_MESSAGE" value="rimosso alcuni codesmell" />
+    <MESSAGE value="rimossi tutti i codesmell" />
+    <option name="LAST_COMMIT_MESSAGE" value="rimossi tutti i codesmell" />
   </component>
 </project>
