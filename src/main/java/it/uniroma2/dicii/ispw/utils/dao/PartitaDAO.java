@@ -85,7 +85,7 @@ public class PartitaDAO {
             ps.setString(1,username);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                PartitaModel partita = new PartitaModel(rs.getString(1),rs.getString(2), rs.getDate(3).toLocalDate(), username, rs.getTime(4).toLocalTime(),  rs.getInt(5), statoPartita.valueOf(rs.getString(6)));
+                PartitaModel partita = new PartitaModel(rs.getString(1),rs.getString(2), rs.getDate(3).toLocalDate(), username, rs.getTime(4).toLocalTime(),  rs.getInt(5), statoPartita.valueOf(rs.getString(6).toUpperCase()));
                 lista.add(partita);
             }
         } catch (SQLException e) {

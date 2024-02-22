@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="rimossi tutti i codesmell">
+      <change afterPath="$PROJECT_DIR$/campi_img/Campo dei Fulmini2pic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/campi_img/Campo dei Fulminipic.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/creapartita/CreaPartitaControllerApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/controller/controller_applicativo/creapartita/CreaPartitaControllerApplicativo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_applicativo/CreaPartita/CreaPartitaControllerApplicativo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_applicativo/CreaPartita/CreaPartitaControllerApplicativo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/model/partita/PartitaModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/model/partita/PartitaModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/model/partita/statoPartita.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/model/partita/statoPartita.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/homePage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Giocatore/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Giocatore/homePage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_applicativo/decorator/aggiungiCampoControllerApplicativoVip.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_applicativo/decorator/aggiungiCampoControllerApplicativoVip.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,6 +197,8 @@
       <workItem from="1708414920785" duration="7354000" />
       <workItem from="1708455341408" duration="10149000" />
       <workItem from="1708499884205" duration="7401000" />
+      <workItem from="1708612609900" duration="171000" />
+      <workItem from="1708617843363" duration="2085000" />
     </task>
     <task id="LOCAL-00001" summary="aggiornato path file fxml">
       <option name="closed" value="true" />
@@ -427,7 +432,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708439648494</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="rimossi tutti i codesmell">
+      <option name="closed" value="true" />
+      <created>1708612759273</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1708612759273</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
