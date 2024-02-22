@@ -159,10 +159,5 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <ImageView fitHeight="200.0" fitWidth="200.0" GridPane.columnIndex="18" GridPane.rowIndex="1">
-         <image>
-            <Image url="@../../../../immagini/palla.png" />
-         </image>
-      </ImageView>
    </children>
 </GridPane>
