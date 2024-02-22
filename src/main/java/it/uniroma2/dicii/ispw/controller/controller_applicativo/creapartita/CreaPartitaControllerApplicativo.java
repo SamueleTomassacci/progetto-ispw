@@ -22,7 +22,9 @@ public class CreaPartitaControllerApplicativo {
         PartitaDAO partitaDAO = new PartitaDAO();
         partitaDAO.inviaRichiesta(richiesta);
         // aggiungiamo richiesta alla lista
-        listaPartite.addRichiestaPartita(richiesta);
+        if(listaPartite!=null) {
+            listaPartite.addRichiestaPartita(richiesta);
+        }
     }
 
     public ListaNomeCampoBean inizializzasceltaCampo() throws SystemException {

@@ -21,9 +21,7 @@ import javafx.stage.Stage;
 import java.io.File;
 
 
-/*
-  Gestire l'eccezione in cui l'utente non mette nessuna foto
- */
+
 
 public class AggiungiFoto1ControllerGrafico extends ControllerGrafico {
     @FXML

@@ -40,6 +40,7 @@ public class Richiesta1ControllerGrafico {
         orarioApertura.setText(campoBean.getOrarioApertura().toString());
         orarioChiusura.setText(campoBean.getOrarioChiusura().toString());
         immagine.setImage(new Image(campoBean.getImmagine().toURI().toString()));
+
     }
 
     public void accetta() throws SystemException {
