@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="rimossi tutti i codesmell">
-      <change afterPath="$PROJECT_DIR$/campi_img/Campo dei Fulmini2pic.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/campi_img/Campo dei Fulminipic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/campi_img/qwaqpic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/campi_img/sd2pic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/campi_img/sddspic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/campi_img/wsapic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/campi_img/zxpic.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/giocatore/homePage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Giocatore/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/Interfacce/Interfaccia1/Giocatore/homePage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_applicativo/decorator/aggiungiCampoControllerApplicativoVip.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/controller/controller_applicativo/decorator/aggiungiCampoControllerApplicativoVip.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/uniroma2/dicii/ispw/utils/dao/GestoreDAOCSV.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestPartitaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestPartitaDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

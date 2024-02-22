@@ -14,14 +14,14 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /*
-    Il testgetProprietarioFromRichiestaCampo individua per il campo "Centro Sportivo Rossi2" in via "Via Rossi 23" in data "27/02/2023" se sono presenti degli orari già prenotati.
+    Il testGetOrarioOccupati individua per il campo "Centro Sportivo Rossi2" in via "Via Rossi 23" in data "27/02/2023" se sono presenti degli orari già prenotati.
     Il test fallisce se non è esattamente presente un singolo orario prenotato che è alle "13:00"
 
     Flavio Simonelli
  */
  class TestPartitaDAO {
     @Test
-    void testGetProprietarioFromRichiestaCampo() throws SystemException {
+    void testGetOrariOccupati() throws SystemException {
         LocalTime orario = LocalTime.parse("13:00");
         LocalDate data = LocalDate.of(2023, 2, 27);
         PartitaModel partitaModel = new PartitaModel("Centro Sportivo Rossi2", "Via Rossi 23", data);
