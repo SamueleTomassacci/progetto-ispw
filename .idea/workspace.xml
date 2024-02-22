@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdebd4d7-a9cb-4f37-a23a-4650a3bf3b34" name="Changes" comment="rimossi tutti i codesmell">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_02_2024_19_50__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_02_2024_19_50__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_02_2024_19_54__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_02_2024_19_54__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/uniroma2/dicii/ispw/utils/db/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/AggiungiFoto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/AggiungiFoto.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/compilaScheda.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/compilaScheda.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/salvaInvia.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it/uniroma2/dicii/ispw/interfacce/interfaccia1/proprietario/aggiungi_campo/salvaInvia.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestCampoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestCampoDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestConnectionDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestConnectionDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestGiocatoreDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestGiocatoreDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestPartitaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestPartitaDAO.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,54 +84,51 @@
       <recent name="D:\ISPW\PlayBasket\progettoISPW\src\main\resources\it\uniroma2\dicii\ispw\Interfacce\Interfaccia2" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="it.uniroma2.dicii.ispw.Main" />
+  <component name="RunManager" selected="JUnit.TestAggiungiCampoControllerApplicativoBase.testGetNumeroMax">
+    <configuration name="TestAggiungiCampoControllerApplicativoBase.testGetNumeroMax" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="progettoISPW" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="it.uniroma2.dicii.ispw.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestAggiungiCampoControllerApplicativoBase" />
+      <option name="METHOD_NAME" value="testGetNumeroMax" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestConnectionDB" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestCampoDAO.testGetProprietarioFromRichiestaCampo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="progettoISPW" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestCampoDAO" />
+      <option name="METHOD_NAME" value="testGetProprietarioFromRichiestaCampo" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestConnectionDB.testgetConnection" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="progettoISPW" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="TestConnectionDB" />
+      <option name="METHOD_NAME" value="testgetConnection" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestGiocatoreDAO" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="progettoISPW" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestGiocatoreDAO" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestConnectionDB.testSearchEvent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestLoginDAO.testcheckIfExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="progettoISPW" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestConnectionDB" />
-      <option name="METHOD_NAME" value="testSearchEvent" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestGiocatoreDAO.testGetGiocatoreFromUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="progettoISPW" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestGiocatoreDAO" />
-      <option name="METHOD_NAME" value="testGetGiocatoreFromUsername" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestPartitaDAO.testGetProprietarioFromRichiestaCampo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="progettoISPW" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestPartitaDAO" />
-      <option name="METHOD_NAME" value="testGetProprietarioFromRichiestaCampo" />
+      <option name="MAIN_CLASS_NAME" value="TestLoginDAO" />
+      <option name="METHOD_NAME" value="testcheckIfExists" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -136,11 +136,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.TestGiocatoreDAO.testGetGiocatoreFromUsername" />
-        <item itemvalue="JUnit.TestPartitaDAO.testGetProprietarioFromRichiestaCampo" />
-        <item itemvalue="JUnit.TestConnectionDB" />
-        <item itemvalue="JUnit.TestConnectionDB.testSearchEvent" />
+        <item itemvalue="JUnit.TestAggiungiCampoControllerApplicativoBase.testGetNumeroMax" />
+        <item itemvalue="JUnit.TestCampoDAO.testGetProprietarioFromRichiestaCampo" />
+        <item itemvalue="JUnit.TestConnectionDB.testgetConnection" />
+        <item itemvalue="JUnit.TestGiocatoreDAO" />
+        <item itemvalue="JUnit.TestLoginDAO.testcheckIfExists" />
       </list>
     </recent_temporary>
   </component>

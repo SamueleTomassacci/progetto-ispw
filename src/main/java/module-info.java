@@ -42,5 +42,6 @@ module it.uniroma2.dicii.ispw {
     exports it.uniroma2.dicii.ispw.utils.bean;
     exports it.uniroma2.dicii.ispw.controller.controller_applicativo.decorator;
     exports it.uniroma2.dicii.ispw.utils.db;
+    exports it.uniroma2.dicii.ispw.model.partita;
 
 }
